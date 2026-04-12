@@ -2,51 +2,89 @@ extends Node2D
 
 # --- Signals ---
 signal minigame_completed
+signal minigame_failed
 
 # --- Configuration ---
 var wound_center = Vector2(400, 300)
 var required_wraps = 4.0
 var min_radius = 80.0
 var max_radius = 300.0
+var time_limit = 8.0
 
 # --- Internal state ---
 var total_rotation = 0.0
 var last_angle = 0.0
 var is_complete = false
+var is_failed = false
 var in_zone = false
+var time_remaining = 10.0
+var timer_started = false
+var last_delta_angle = 0.0         # Tracks last rotation direction for bar color flash
 
 # --- Shake state ---
 var shake_timer = 0.0
-var shake_intensity = 3.0      # How many pixels it moves when shaking
-var shake_speed = 20.0         # How fast it shakes
-var sprite_origin = Vector2()  # The sprite's resting position
+var shake_intensity = 3.0
+var shake_speed = 20.0
+var sprite_origin = Vector2()
 
 # --- UI Nodes ---
 var label: Label
 var bar_bg: ColorRect
 var bar_fill: ColorRect
 var wound_sprite: Sprite2D
+var timer_label: Label
+var timer_bar_bg: ColorRect
+var timer_bar_fill: ColorRect
+var timer_bar_text: Label
 
 # -------------------------------------------------------
 
 func _ready():
 	wound_center = get_viewport().get_visible_rect().size / 2
+	time_remaining = time_limit
 	_setup_sprite()
 	_setup_ui()
 	last_angle = wound_center.angle_to_point(get_global_mouse_position())
 
 func _setup_sprite():
-	# Grab the sprite and store its resting position
 	wound_sprite = $WoundSprite
 	wound_sprite.position = wound_center
 	sprite_origin = wound_sprite.position
 
 func _setup_ui():
 	label = Label.new()
-	label.text = "Hold and circle the wound to wrap the bandage!"
+	label.text = "Hold and circle the wound to start wrapping!"
 	label.position = Vector2(20, 20)
 	label.add_theme_font_size_override("font_size", 18)
 	add_child(label)
+
+	timer_bar_text = Label.new()
+	timer_bar_text.text = "Time Remaining — Click to start!"
+	timer_bar_text.position = Vector2(20, 55)
+	timer_bar_text.add_theme_font_size_override("font_size", 14)
+	add_child(timer_bar_text)
+
+	timer_bar_bg = ColorRect.new()
+	timer_bar_bg.color = Color(0.2, 0.2, 0.2)
+	timer_bar_bg.size = Vector2(300, 22)
+	timer_bar_bg.position = Vector2(20, 75)
+	add_child(timer_bar_bg)
+
+	timer_bar_fill = ColorRect.new()
+	timer_bar_fill.color = Color(0.5, 0.5, 0.5)
+	timer_bar_fill.size = Vector2(300, 22)
+	timer_bar_fill.position = Vector2(20, 75)
+	add_child(timer_bar_fill)
+
+	timer_label = Label.new()
+	timer_label.text = "- - -"
+	timer_label.position = Vector2(20, 75)
+	timer_label.size = Vector2(300, 22)
+	timer_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	timer_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	timer_label.add_theme_font_size_override("font_size", 14)
+	timer_label.add_theme_color_override("font_color", Color(1, 1, 1))
+	add_child(timer_label)
 
 	bar_bg = ColorRect.new()
 	bar_bg.color = Color(0.2, 0.2, 0.2)
@@ -67,8 +105,8 @@ func _setup_ui():
 	add_child(bar_label)
 
 func _process(delta):
-	if is_complete:
-		wound_sprite.position = sprite_origin  # Snap back when done
+	if is_complete or is_failed:
+		wound_sprite.position = sprite_origin
 		return
 
 	var mouse_pos = get_global_mouse_position()
@@ -78,7 +116,20 @@ func _process(delta):
 
 	queue_redraw()
 
+	if timer_started:
+		time_remaining -= delta
+		_update_timer_ui()
+
+		if time_remaining <= 0:
+			_on_fail()
+			return
+
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and in_zone:
+
+		if not timer_started:
+			timer_started = true
+			timer_bar_text.text = "Time Remaining"
+
 		var delta_angle = current_angle - last_angle
 
 		if delta_angle > PI:
@@ -86,43 +137,74 @@ func _process(delta):
 		elif delta_angle < -PI:
 			delta_angle += TAU
 
-		if delta_angle > 0:
-			total_rotation += delta_angle
+		# Store direction for the bar color flash in _update_ui()
+		last_delta_angle = delta_angle
 
-		# Shake faster and more intensely as progress increases
+		if delta_angle > 0:
+			# Clockwise — gain progress
+			total_rotation += delta_angle
+		elif delta_angle < 0:
+			# Counter-clockwise — lose progress, floor at 0
+			total_rotation = max(0.0, total_rotation + delta_angle)
+
 		var progress = total_rotation / TAU / required_wraps
 		shake_timer += delta
 		_shake_sprite(delta, progress)
-
 		_update_ui()
 
 		if total_rotation / TAU >= required_wraps:
 			_on_complete()
 
 	else:
-		# Smoothly return sprite to resting position when not wrapping
+		last_delta_angle = 0.0
 		wound_sprite.position = wound_sprite.position.lerp(sprite_origin, delta * 10.0)
 		shake_timer = 0.0
 
-		if dist < min_radius:
-			label.text = "Too close! Move cursor outward."
-		elif dist > max_radius:
-			label.text = "Too far! Move cursor closer to the wound."
+		if not timer_started:
+			if dist < min_radius:
+				label.text = "Too close! Move cursor outward."
+			elif dist > max_radius:
+				label.text = "Too far! Move cursor closer to the wound."
+			else:
+				label.text = "Hold left click inside the ring to start!"
 		else:
-			label.text = "Hold left click and circle the wound!"
+			if dist < min_radius:
+				label.text = "Too close! Move cursor outward."
+			elif dist > max_radius:
+				label.text = "Too far! Move cursor closer to the wound."
+			else:
+				label.text = "Keep holding and circling!"
 
 	last_angle = current_angle
 
 func _shake_sprite(delta, progress):
-	# Scale up shake intensity and speed as the player makes progress
 	var current_intensity = shake_intensity * (0.5 + progress * 1.5)
-	var current_speed = shake_speed * (1.0 + progress * 1.2)
-
-	# Use sine waves on both axes with slightly different speeds for organic feel
+	var current_speed = shake_speed * (1.0 + progress * 1.0)
 	var offset_x = sin(shake_timer * current_speed) * current_intensity
 	var offset_y = sin(shake_timer * current_speed * 1.3) * current_intensity * 0.7
-
 	wound_sprite.position = sprite_origin + Vector2(offset_x, offset_y)
+
+func _update_timer_ui():
+	var ratio = time_remaining / time_limit
+
+	timer_bar_fill.size.x = 300.0 * ratio
+
+	if ratio > 0.5:
+		timer_bar_fill.color = Color(0.2, 0.7, 1.0)
+	elif ratio > 0.25:
+		timer_bar_fill.color = Color(0.95, 0.75, 0.1)
+	else:
+		timer_bar_fill.color = Color(0.95, 0.2, 0.2)
+
+	timer_label.text = "%.1fs" % max(time_remaining, 0.0)
+
+	if time_remaining <= 3.0:
+		timer_label.add_theme_color_override("font_color", Color(1, 0.2, 0.2))
+		var pulse = 14 + int(sin(time_remaining * 10) * 3)
+		timer_label.add_theme_font_size_override("font_size", pulse)
+	else:
+		timer_label.add_theme_color_override("font_color", Color(1, 1, 1))
+		timer_label.add_theme_font_size_override("font_size", 14)
 
 func _draw():
 	var ring_color = Color(0.2, 1.0, 0.3, 0.5) if in_zone else Color(1.0, 0.3, 0.3, 0.4)
@@ -141,8 +223,11 @@ func _update_ui():
 
 	bar_fill.size.x = 400.0 * progress
 
-	if progress < 0.4:
-		bar_fill.color = Color(0.888, 0.0, 0.0, 1.0)
+	# Flash red when going counter-clockwise, normal colors when going clockwise
+	if last_delta_angle < 0:
+		bar_fill.color = Color(0.9, 0.2, 0.2)
+	elif progress < 0.5:
+		bar_fill.color = Color(0.957, 0.427, 0.0, 1.0)
 	elif progress < 0.85:
 		bar_fill.color = Color(0.9, 0.75, 0.1)
 	else:
@@ -156,3 +241,14 @@ func _on_complete():
 	bar_fill.color = Color(0.1, 0.9, 0.3)
 	label.text = "Great job! Bandage applied correctly!"
 	emit_signal("minigame_completed")
+
+func _on_fail():
+	is_failed = true
+	wound_sprite.position = sprite_origin
+	bar_fill.color = Color(0.8, 0.1, 0.1)
+	timer_bar_fill.size.x = 0
+	timer_label.text = "0.0s"
+	timer_label.add_theme_color_override("font_color", Color(1, 0.2, 0.2))
+	label.text = "Too slow! The wound wasn't wrapped in time."
+	label.add_theme_color_override("font_color", Color(1, 0.2, 0.2))
+	emit_signal("minigame_failed")

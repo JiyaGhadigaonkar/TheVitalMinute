@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dpft17pddxjs7"]
+
+[ext_resource type="Script" uid="uid://crwbfqtwerfnl" path="res://CPRMinigame.gd" id="1_wc2qv"]
+[ext_resource type="Texture2D" uid="uid://c4i1xqapqu04p" path="res://Assets/Character_Tutorial_Shock.png" id="2_yyu2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc2qv"]
+size = Vector2(20, 36.060684)
+
+[node name="CPRMinigame" type="Node2D" unique_id=1887062778]
+script = ExtResource("1_wc2qv")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=191864376]
+
+[node name="Patient" type="Sprite2D" parent="." unique_id=1005720331]
+position = Vector2(552, 305)
+scale = Vector2(0.25709218, 0.2570922)
+texture = ExtResource("2_yyu2f")
+
+[node name="ChestArea" type="Area2D" parent="Patient" unique_id=1009522858]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Patient/ChestArea" unique_id=16692972]
+position = Vector2(0, -213.93109)
+scale = Vector2(20.000004, 20)
+shape = SubResource("RectangleShape2D_wc2qv")
+
+[node name="RhythmIndicator" type="Node2D" parent="." unique_id=1707060410]
+
+[node name="BeatLight" type="ColorRect" parent="RhythmIndicator" unique_id=1493240966]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BeatLabel" type="Label" parent="RhythmIndicator" unique_id=654718662]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="QualityMeter" type="ProgressBar" parent="." unique_id=453382728]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="CompressionCount" type="Label" parent="." unique_id=670024270]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+
+[node name="FeedbackLabel" type="Label" parent="." unique_id=899388291]
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 60.0
+offset_bottom = 83.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1772673349]
+
+[node name="BeatTimer" type="Timer" parent="." unique_id=711581872]

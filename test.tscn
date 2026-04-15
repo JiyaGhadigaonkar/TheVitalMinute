@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://c8387gswfk2tj"]
 
-[ext_resource type="Texture2D" uid="uid://c4i1xqapqu04p" path="res://Assets/Character_Tutorial_Shock.png" id="1_37kl0"]
+[ext_resource type="Texture2D" uid="uid://cjo3q18jufxhd" path="res://Assets/Environment_Tutorial_02_color_2.png" id="1_37kl0"]
 
 [node name="Node2D" type="Node2D" unique_id=473967463]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254940804]
+[node name="Background" type="Sprite2D" parent="." unique_id=1186842752]
+position = Vector2(960, 533)
+scale = Vector2(0.7486111, 0.74861115)
 texture = ExtResource("1_37kl0")

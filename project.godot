@@ -11,14 +11,9 @@ config_version=5
 [application]
 
 config/name="The Vital Minute"
-run/main_scene="uid://cfglkmpjdf1em"
-config/features=PackedStringArray("4.6", "Mobile")
+run/main_scene="res://minigametest.tscn"
+config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 
 [dotnet]
 
@@ -28,6 +23,10 @@ project/assembly_name="The Vital Minute"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/arcweave/plugin.cfg")
 
 [physics]
 

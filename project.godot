@@ -14,6 +14,7 @@ config/name="The Vital Minute"
 run/main_scene="res://minigametest.tscn"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://cfglkmpjdf1em"
 
 [dotnet]
 

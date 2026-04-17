@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b64avg7yglkn1" path="res://BandageMiniGame.gd" id="1_otybf"]
 [ext_resource type="Texture2D" uid="uid://cf40vt4p0kp1l" path="res://Assets/Scene_Foot.png" id="2_otybf"]
+[ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="3_5e063"]
+[ext_resource type="Resource" uid="uid://csmi01qdd1bu4" path="res://addons/arcweave/TutorialStory.tres" id="4_l2m3s"]
 
 [node name="Node2D" type="Node2D" unique_id=1763727324]
 
@@ -20,3 +22,10 @@ offset_bottom = 27.0
 [node name="Label" type="Label" parent="Bandage MiniGame" unique_id=1784105215]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="ArcweaveNode" type="Node" parent="." unique_id=1510582654]
+script = ExtResource("3_5e063")
+ArcweaveAsset = ExtResource("4_l2m3s")
+metadata/_custom_type_script = "uid://ch6p62juc6acm"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1048496215]

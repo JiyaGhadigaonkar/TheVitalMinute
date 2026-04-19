@@ -40,16 +40,28 @@ var timer_bar_text: Label
 # --- Cursor ---
 var cursor_sprite: Sprite2D
 var cursor_in_zone: bool = false
+var cursor_is_grabbing: bool = false
+
+# --- Cursor Textures ---
+var open_hand_texture: Texture2D
+var closed_hand_texture: Texture2D
+
+# --- Background ---
+var background_sprite: Sprite2D
 
 # -------------------------------------------------------
 
 func _ready():
 	wound_center = get_viewport().get_visible_rect().size / 2
 	time_remaining = time_limit
+	_setup_background()
 	_setup_sprite()
 	_setup_cursor()
 	_setup_ui()
 	last_angle = wound_center.angle_to_point(get_global_mouse_position())
+
+func _setup_background():
+	background_sprite = $WoundSprite  # Change this to your actual node name
 
 func _setup_sprite():
 	wound_sprite = $WoundSprite
@@ -57,19 +69,14 @@ func _setup_sprite():
 	sprite_origin = wound_sprite.position
 
 func _setup_cursor():
+	# Load both hand textures — replace these paths with your actual images
+	open_hand_texture = load("res://Assets/UI_Hand_Open.png")
+	closed_hand_texture = load("res://Assets/UI_Hand_Gauze.png")
+
 	cursor_sprite = Sprite2D.new()
-
-	# --- Load your bandage texture here ---
-	# Replace this path with wherever your bandage image is in your project
-	cursor_sprite.texture = load("res://Assets/Item_Tutorial_Gauze.png")
-
-	# Scale it down to a reasonable cursor size
+	cursor_sprite.texture = open_hand_texture
 	cursor_sprite.scale = Vector2(0.3, 0.3)
-
-	# Hide it by default — only shows when in the zone
 	cursor_sprite.visible = false
-
-	# Add it last so it draws on top of everything else
 	add_child(cursor_sprite)
 
 func _setup_ui():
@@ -136,15 +143,20 @@ func _process(delta):
 	in_zone = dist > min_radius and dist < max_radius
 	var current_angle = wound_center.angle_to_point(mouse_pos)
 
-	# --- Update cursor sprite position every frame ---
 	cursor_sprite.position = mouse_pos
 
-	# --- Rotate the cursor sprite to point away from the wound center ---
-	# This makes the bandage sprite angle naturally as you orbit the wound
-
-	# --- Swap cursor when entering or leaving the zone ---
-	if in_zone and not cursor_in_zone:
-		_show_bandage_cursor()
+	# --- Handle cursor visibility and texture ---
+	if in_zone:
+		if not cursor_in_zone:
+			_show_bandage_cursor()
+		# Switch between open and closed hand based on click
+		var is_clicking = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+		if is_clicking and not cursor_is_grabbing:
+			cursor_sprite.texture = closed_hand_texture
+			cursor_is_grabbing = true
+		elif not is_clicking and cursor_is_grabbing:
+			cursor_sprite.texture = open_hand_texture
+			cursor_is_grabbing = false
 	elif not in_zone and cursor_in_zone:
 		_show_system_cursor()
 
@@ -210,13 +222,16 @@ func _process(delta):
 
 func _show_bandage_cursor():
 	cursor_in_zone = true
+	cursor_is_grabbing = false
+	cursor_sprite.texture = open_hand_texture
 	cursor_sprite.visible = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)  # Hide the system cursor
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _show_system_cursor():
 	cursor_in_zone = false
+	cursor_is_grabbing = false
 	cursor_sprite.visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # Restore the system cursor
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _shake_sprite(delta, progress):
 	var current_intensity = shake_intensity * (0.5 + progress * 1.5)
@@ -280,6 +295,10 @@ func _on_complete():
 	bar_fill.size.x = 400.0
 	bar_fill.color = Color(0.1, 0.9, 0.3)
 	label.text = "Great job! Bandage applied correctly!"
+
+	# Swap the background sprite to the completed version
+	background_sprite.texture = load("res://Assets/Scene_Foot_Wrapped.png")
+
 	_show_system_cursor()
 	emit_signal("minigame_completed")
 

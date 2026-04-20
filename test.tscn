@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://cln7kxakg01cr" path="res://Assets/Item_Tutorial_Chair.png" id="5_ykrsh"]
 [ext_resource type="Texture2D" uid="uid://doco5q8mx8so0" path="res://Assets/Item_Tutorial_MedicalBag.png" id="6_g14j6"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="6_vbegm"]
+[ext_resource type="Texture2D" uid="uid://byqop1yosrvve" path="res://Assets/Item_Tutorial_Napkins.png" id="7_77dp3"]
+[ext_resource type="Texture2D" uid="uid://cgk3435hspksx" path="res://Assets/Item_Tutorial_CuttingBoard.png" id="9_5tkv4"]
+[ext_resource type="Texture2D" uid="uid://fkne2i3evsoh" path="res://Assets/Item_Tutorial_Knife (1).png" id="10_0m0f1"]
+[ext_resource type="Texture2D" uid="uid://bmj3ntyo881o6" path="res://Assets/Item_Tutorial_Glass.png" id="11_b0q6j"]
 
 [node name="Control" type="Control" unique_id=458891453]
 layout_mode = 3
@@ -92,9 +96,27 @@ offset_bottom = 1209.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 
+[node name="Napkins" type="Sprite2D" parent="." unique_id=1896403202]
+position = Vector2(1005, 416)
+scale = Vector2(0.28423232, 0.28423235)
+texture = ExtResource("7_77dp3")
+
 [node name="Healthpack" type="Sprite2D" parent="." unique_id=647737841]
-position = Vector2(865, 399.00003)
-scale = Vector2(0.41129017, 0.41129017)
+position = Vector2(850, 401)
+scale = Vector2(0.38244072, 0.38244072)
 texture = ExtResource("6_g14j6")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1896403202]
+[node name="Cutting Board" type="Sprite2D" parent="." unique_id=1913701622]
+position = Vector2(1432, 575)
+scale = Vector2(0.44375002, 0.44375002)
+texture = ExtResource("9_5tkv4")
+
+[node name="Knife" type="Sprite2D" parent="." unique_id=2083365399]
+position = Vector2(1500, 555)
+scale = Vector2(0.3975, 0.3975)
+texture = ExtResource("10_0m0f1")
+
+[node name="Glass" type="Sprite2D" parent="." unique_id=830270770]
+position = Vector2(1222, 501)
+scale = Vector2(0.27962086, 0.2796209)
+texture = ExtResource("11_b0q6j")

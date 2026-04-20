@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpft17pddxjs7"]
 
-[ext_resource type="Script" uid="uid://crwbfqtwerfnl" path="res://CPRMinigame.gd" id="1_wc2qv"]
-[ext_resource type="Texture2D" uid="uid://c4i1xqapqu04p" path="res://Assets/Character_Tutorial_Shock.png" id="2_yyu2f"]
+[ext_resource type="Script" path="res://CPRMinigame.gd" id="1_wc2qv"]
+[ext_resource type="Texture2D" uid="uid://c4i1xqapqu04p" path="res://Assets/portraits/Frank_Shocked.png" id="2_yyu2f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc2qv"]
 size = Vector2(20, 36.060684)

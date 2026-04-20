@@ -1,9 +1,74 @@
 [gd_scene format=3 uid="uid://b2it5wvdgtfpb"]
 
-[ext_resource type="Texture2D" uid="uid://c4i1xqapqu04p" path="res://Assets/Character_Tutorial_Shock.png" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://smjmuhx27bmi" path="res://test.gd" id="1_6uqi0"]
+[ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="2_ppyta"]
+[ext_resource type="Resource" uid="uid://csmi01qdd1bu4" path="res://addons/arcweave/TutorialStory.tres" id="3_ykrsh"]
+[ext_resource type="Texture2D" uid="uid://cjo3q18jufxhd" path="res://Assets/backgrounds/Background.png" id="4_ppyta"]
 
-[node name="Node2D" type="Node2D" unique_id=473967463]
+[node name="Control" type="Control" unique_id=458891453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6uqi0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1254940804]
-position = Vector2(61, -75)
-texture = ExtResource("1_37kl0")
+[node name="ArcweaveNode" type="Node" parent="." unique_id=468870287]
+script = ExtResource("2_ppyta")
+ArcweaveAsset = ExtResource("3_ykrsh")
+metadata/_custom_type_script = "uid://ch6p62juc6acm"
+
+[node name="Background" type="TextureRect" parent="." unique_id=639021278]
+layout_mode = 0
+offset_right = 4320.0
+offset_bottom = 1440.0
+texture = ExtResource("4_ppyta")
+expand_mode = 1
+
+[node name="Portrait" type="TextureRect" parent="." unique_id=1371913260]
+layout_mode = 0
+offset_left = 1768.0
+offset_top = 345.0
+offset_right = 2474.0
+offset_bottom = 1430.0
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=902575299]
+layout_mode = 0
+offset_top = 450.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="DialogueBox" type="PanelContainer" parent="." unique_id=1113851975]
+layout_mode = 1
+offset_left = 262.0
+offset_top = 1094.0
+offset_right = 4140.0
+offset_bottom = 1419.0
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="." unique_id=539439990]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 150.0
+offset_right = 1150.0
+offset_bottom = 450.0
+
+[node name="DialogueText" type="Label" parent="." unique_id=1182565923]
+layout_mode = 0
+offset_left = 299.0
+offset_top = 1116.0
+offset_right = 4109.0
+offset_bottom = 1405.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 3
+
+[node name="SpeakerName" type="Label" parent="." unique_id=1340434678]
+layout_mode = 0
+offset_left = 297.0
+offset_top = 1113.0
+offset_right = 1670.0
+offset_bottom = 1209.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30

@@ -11,10 +11,16 @@ config_version=5
 [application]
 
 config/name="The Vital Minute"
-run/main_scene="res://minigametest.tscn"
+run/main_scene="uid://b2it5wvdgtfpb"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="uid://cfglkmpjdf1em"
+
+[display]
+
+window/size/viewport_width=4320
+window/size/viewport_height=1440
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

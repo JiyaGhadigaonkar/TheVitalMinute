@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2it5wvdgtfpb"]
 
-[ext_resource type="Script" path="res://test.gd" id="1_6uqi0"]
+[ext_resource type="Script" uid="uid://smjmuhx27bmi" path="res://test.gd" id="1_6uqi0"]
 [ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="2_ppyta"]
 [ext_resource type="Resource" uid="uid://csmi01qdd1bu4" path="res://addons/arcweave/TutorialStory.tres" id="3_ykrsh"]
 [ext_resource type="Texture2D" uid="uid://cjo3q18jufxhd" path="res://Assets/backgrounds/Background.png" id="4_ppyta"]
@@ -60,6 +60,13 @@ offset_left = 1810.0
 offset_top = 550.0
 offset_right = 2610.0
 offset_bottom = 850.0
+
+[node name="AdvanceTrigger" type="Button" parent="." unique_id=1306178344]
+layout_mode = 0
+offset_right = 4320.0
+offset_bottom = 1440.0
+focus_mode = 0
+flat = true
 
 [node name="DialogueText" type="Label" parent="." unique_id=1182565923]
 layout_mode = 0

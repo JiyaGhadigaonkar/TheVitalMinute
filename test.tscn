@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjo3q18jufxhd" path="res://Assets/backgrounds/Background.png" id="4_ppyta"]
 [ext_resource type="Texture2D" uid="uid://cln7kxakg01cr" path="res://Assets/Item_Tutorial_Chair.png" id="5_ykrsh"]
 [ext_resource type="Texture2D" uid="uid://doco5q8mx8so0" path="res://Assets/Item_Tutorial_MedicalBag.png" id="6_g14j6"]
+[ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="6_vbegm"]
 
 [node name="Control" type="Control" unique_id=458891453]
 layout_mode = 3
@@ -31,9 +32,10 @@ expand_mode = 1
 [node name="Portrait" type="TextureRect" parent="." unique_id=1371913260]
 layout_mode = 0
 offset_left = 1768.0
-offset_top = 345.0
-offset_right = 2474.0
-offset_bottom = 1430.0
+offset_top = 150.0
+offset_right = 2473.0
+offset_bottom = 2100.0
+scale = Vector2(0.8, 0.8)
 expand_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=902575299]
@@ -47,12 +49,14 @@ position = Vector2(4073.0002, 1019)
 scale = Vector2(0.8495218, 0.8495219)
 texture = ExtResource("5_ykrsh")
 
-[node name="DialogueBox" type="PanelContainer" parent="." unique_id=1113851975]
+[node name="DialogueBox" type="TextureRect" parent="." unique_id=1080421011]
 layout_mode = 1
-offset_left = 262.0
+offset_left = 726.0
 offset_top = 1094.0
-offset_right = 4140.0
+offset_right = 3796.0
 offset_bottom = 1419.0
+texture = ExtResource("6_vbegm")
+expand_mode = 1
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="." unique_id=539439990]
 layout_mode = 0
@@ -63,18 +67,19 @@ offset_bottom = 850.0
 
 [node name="AdvanceTrigger" type="Button" parent="." unique_id=1306178344]
 layout_mode = 0
+offset_top = -1.0
 offset_right = 4320.0
-offset_bottom = 1440.0
+offset_bottom = 1439.0
 focus_mode = 0
 flat = true
 
 [node name="DialogueText" type="Label" parent="." unique_id=1182565923]
 layout_mode = 0
-offset_left = 299.0
-offset_top = 1116.0
-offset_right = 4109.0
-offset_bottom = 1405.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+offset_left = 858.0
+offset_top = 1150.0
+offset_right = 3690.0
+offset_bottom = 1379.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 autowrap_mode = 3
 

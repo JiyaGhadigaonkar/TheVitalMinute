@@ -77,24 +77,23 @@ offset_bottom = 1439.0
 focus_mode = 0
 flat = true
 
-[node name="DialogueText" type="Label" parent="." unique_id=1182565923]
+[node name="DialogueText" type="RichTextLabel" parent="." unique_id=2109737371]
 layout_mode = 0
 offset_left = 858.0
 offset_top = 1150.0
 offset_right = 3690.0
 offset_bottom = 1379.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-autowrap_mode = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
 
-[node name="SpeakerName" type="Label" parent="." unique_id=1340434678]
+[node name="SpeakerName" type="RichTextLabel" parent="." unique_id=147294589]
 layout_mode = 0
 offset_left = 297.0
 offset_top = 1113.0
 offset_right = 1670.0
 offset_bottom = 1209.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 30
+bbcode_enabled = true
 
 [node name="Napkins" type="Sprite2D" parent="." unique_id=1896403202]
 position = Vector2(1005, 416)

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://vok8f1d6hx8k"]
+
+[node name="Home menu" type="Node2D" unique_id=1457144512]
+
+[node name="Button" type="Button" parent="." unique_id=344635804]
+offset_top = 1.0
+offset_right = 202.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[node name="Button2" type="Button" parent="." unique_id=2074800042]
+offset_top = 128.0
+offset_right = 202.0
+offset_bottom = 241.0
+theme_override_font_sizes/font_size = 31
+text = "Level Select"

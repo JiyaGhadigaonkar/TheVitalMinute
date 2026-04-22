@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://smjmuhx27bmi" path="res://test.gd" id="1_6uqi0"]
 [ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="2_ppyta"]
 [ext_resource type="Resource" uid="uid://csmi01qdd1bu4" path="res://addons/arcweave/TutorialStory.tres" id="3_ykrsh"]
-[ext_resource type="Texture2D" uid="uid://cjo3q18jufxhd" path="res://Assets/backgrounds/Background.png" id="4_ppyta"]
+[ext_resource type="Texture2D" uid="uid://gs5eyup4ramw" path="res://Assets/Environment_Tutorial_02_color_noTable.png" id="4_5tkv4"]
 [ext_resource type="Texture2D" uid="uid://cln7kxakg01cr" path="res://Assets/Item_Tutorial_Chair.png" id="5_ykrsh"]
+[ext_resource type="Texture2D" uid="uid://dtu1hwh10n17v" path="res://Assets/Item_Tutorial_Table.png" id="6_0m0f1"]
 [ext_resource type="Texture2D" uid="uid://doco5q8mx8so0" path="res://Assets/Item_Tutorial_MedicalBag.png" id="6_g14j6"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="6_vbegm"]
 [ext_resource type="Texture2D" uid="uid://byqop1yosrvve" path="res://Assets/Item_Tutorial_Napkins.png" id="7_77dp3"]
@@ -30,7 +31,7 @@ metadata/_custom_type_script = "uid://ch6p62juc6acm"
 layout_mode = 0
 offset_right = 4320.0
 offset_bottom = 1440.0
-texture = ExtResource("4_ppyta")
+texture = ExtResource("4_5tkv4")
 expand_mode = 1
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1371913260]
@@ -49,9 +50,14 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Chair" type="Sprite2D" parent="." unique_id=2011640542]
-position = Vector2(4073.0002, 1019)
+position = Vector2(3304.0002, 820.00006)
 scale = Vector2(0.8495218, 0.8495219)
 texture = ExtResource("5_ykrsh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1307480867]
+position = Vector2(3709.8484, 905.8983)
+scale = Vector2(0.91853535, 0.91853535)
+texture = ExtResource("6_0m0f1")
 
 [node name="DialogueBox" type="TextureRect" parent="." unique_id=1080421011]
 layout_mode = 1

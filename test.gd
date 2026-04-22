@@ -39,7 +39,7 @@ func clean_name(raw_name: String) -> String:
 	return raw_name
 
 func repaint():
-	dialogue_text.text = story.GetCurrentRuntimeContent()
+	dialogue_text.text = story.GetCurrentRuntimeContent().strip_edges()
 	
 	var comp_name = get_component_name_for_element()
 	if comp_name != "" and comp_name != "Decoy":

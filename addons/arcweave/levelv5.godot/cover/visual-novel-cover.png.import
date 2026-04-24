@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciyviu0wxvake"
-path="res://.godot/imported/Outisde Party.png-46d2f9ae8804eccd380d953c6ceb776d.ctex"
+uid="uid://loxvjn187eeq"
+path="res://.godot/imported/visual-novel-cover.png-981544fd477d48c7da98a562b8bc520f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv4.godot/assets/BG/Outisde Party.png"
-dest_files=["res://.godot/imported/Outisde Party.png-46d2f9ae8804eccd380d953c6ceb776d.ctex"]
+source_file="res://addons/arcweave/levelv5.godot/cover/visual-novel-cover.png"
+dest_files=["res://.godot/imported/visual-novel-cover.png-981544fd477d48c7da98a562b8bc520f.ctex"]
 
 [params]
 

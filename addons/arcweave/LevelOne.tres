@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_dlukr")
-project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/levelv4.godot/project.json"
+project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/levelv5.godot/project.json"
 project_settings = {
 "assets": {
 "108aba64-252d-4533-9091-fc9d0d0b299a": {
@@ -267,6 +267,15 @@ project_settings = {
 },
 "56be90eb-9215-4e6e-b7db-5537a64e3c57": {
 "cId": "413e9339-8aff-4f38-8cc0-c5e39a29906b",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"5c25daaa-8657-48c5-b5cf-e18d3d831e20": {
+"cId": "d864510c-ff77-401d-908e-99198edea83f",
 "cType": "elements",
 "name": "Cha",
 "value": {
@@ -706,8 +715,8 @@ project_settings = {
 },
 "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
 "branches": [],
-"connections": ["d08d0672-f945-46ff-8919-6d26918800f9", "ca99db19-efb1-4a0e-9f48-c097644fde29", "1fd7db8f-df1d-40f2-ac39-9f216a0318d0", "f7d8bcac-e511-4813-908a-fb31f9684577", "7a820fb8-760e-414f-bd2e-a5e5c30d0083", "c3457483-39a6-43a4-b7c2-1491bec2b3b9", "8ca00d21-c3f6-4948-af4c-77ae0777cd79", "40910bbc-0a20-4b91-8d9c-4647272ae560", "e539c99f-761d-46df-9e7e-13d1d98abdd6", "44cbe662-6e56-43a6-b639-374973bf5136", "58253453-b508-4b59-82b4-8376b04dabad", "a494cf80-b297-470e-a597-7e72b38ff410", "7d4d0118-b699-4c82-8d56-6486d04bebb2", "93c802c8-0349-4c45-8b37-da530216decd", "21e1cbf7-08be-40ea-a880-f046b7ddc0fd", "0dbed1b5-f0fe-4249-ab06-5f7e4a956b6f", "27c6c433-a0de-4114-b010-301c2a2c121f", "c7b3d533-c867-45ac-a9dd-ad7ff72e0b75", "d2fc59ec-c723-4d0b-a7aa-371e30422254", "66f6a02b-78af-45cf-a242-99c045f3aacd", "a3b3ebce-498b-48c5-bbf8-47ce6a4d928d", "159d148c-7707-4ab3-8a34-01883ca02dd0", "9ebfae18-c9cf-4b02-853b-fa20e8580c08", "bd5b9830-672b-4762-bdec-957684f173fa", "f8e912a9-453c-4276-a112-960103580167", "b9ec0f4c-920b-40d9-8a6b-655a43113e72", "eb8978af-9d16-4a07-aa42-b099647553a8", "4f3160b5-e616-4a14-b91c-4ad1aa328021", "e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f", "0255b51c-c4f8-46c6-9daa-a6f86a1d6c45", "f3981ca7-1fff-4c8e-8096-3bdbad908988", "f7e721c2-f9fd-4c91-b501-92f44b983615", "2a3b6495-4885-489d-a8fa-5d9a75232c43", "776cf067-dde7-4c84-a905-66ffab40b530", "49bddfe3-d1ca-40a0-af66-ee19bd99c908", "0ba15876-7570-40f3-8fc4-5b59f43fd1f0", "580ffe6f-1e9e-4655-9317-dfa2c9606c8f", "3ea72a9c-850a-45cc-8f4d-d9296ff8b7a2", "025c8fee-9e3f-41d9-bbf0-6042bfd46732", "677d05e0-9108-49a0-81ec-6bb6a91b1bbe", "21ac3dd8-b7ef-4349-8efd-d09c811d8173", "3dcf3c6e-45fe-45b4-8504-6fd8cce06141", "39f14f95-b4cd-479a-ad36-da5e0e215661", "69b53444-9bbd-4d4a-8acc-0e168ee13306", "20da8c82-1a18-46d5-88cc-7b6b700d0e70", "0438034d-adb8-4b21-8920-936d7814bb4e", "11c94fa7-e53f-4648-a215-7070edc1615b", "dceac94d-fb54-46d0-977d-2b36a7e53abe", "13702496-ecb7-45c8-b5d3-cce555a3bf78", "92a6bb5f-5550-4be7-b024-d79577c483fd", "afd1784b-0f92-44d0-9dde-116c029d9274", "4772eb47-db04-462d-bfc9-c3cbb5c84fd8", "d406732e-dcc3-4dbc-90b1-17d98be33750", "f9a60e0c-735c-405e-b7c1-d2aa32ef3e09", "b74d2994-df90-4b43-89fb-8e8a718786b0", "5c8e7f00-27d9-4859-895b-fead4c258985", "b921ec36-add9-4f71-ac75-afc80d031dbe", "47c74cfa-f28f-4e66-ad50-7c3726bdb680", "a0d128d0-1e03-454c-902d-7131d5b1b037", "21b8f7d0-a632-48d9-9ecc-958b9a8ccef6", "61c25322-a055-4d17-9ed9-fce5bb340ccb", "2aac3ccf-b5d5-4b81-83a5-5b5fec0562df", "10668aea-632f-4cac-8665-342591f1c845", "727a8512-257f-4a06-a91c-da35c5f31382", "ed3e1d7f-1ba8-4090-bd20-5b81089548c5", "8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a", "4b96a6fc-a3fc-4871-b174-ba0711fb96d1", "d69b53af-61dc-4dbc-822a-d9e2acda5a94", "5affff52-68fe-4664-9de4-2ba96bb316d5", "143ceda5-bb38-417c-bb10-733de89fb06a", "1936da8f-7768-4368-ac28-654805c720a9", "514f127a-564a-4f93-a1b8-ebc421d294e6", "10b37d5b-050f-4b6d-ae9d-a5d3baafea78", "72b75380-7f19-407b-90b3-3e0bacf8114c", "88942ba9-0417-478a-b6a8-1832d8a1cb39", "c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6", "b9da7664-7fbf-4b0a-aa2f-888464993e99", "7487c508-af23-496b-946d-4529d1c9d19f", "f5d71f10-c7f0-4f8d-a036-65b81b244a41", "5727e0e7-6ab2-4a0e-84c7-8a03d1c68210", "324ef522-3c8e-46ab-bb7c-2b9f0f24417f", "5ac7cd7f-a072-4c0a-95e9-94064dd69ba3", "e8da0c77-5c51-4f4a-a1be-d4ba434d453c", "06d49c33-4a4f-4140-90d3-fd7a776afa15", "ffc1f1d2-19f9-4d08-a024-18d019bf9e44", "1f6dc7dc-950a-4802-92ea-4fc801f1a5c7", "725f1f4e-2af2-4adb-960f-4a7020af7973", "db1890d5-ead3-41b4-86bc-f3e50142d866", "1fd14cf6-e22b-482e-b151-305e9f475860", "b38585c7-81b3-4540-8726-0be6f45f46de", "b259e983-3c02-4186-b6ec-c65ec446237e", "20c5320d-27d2-45d3-a46b-7869025a6dd1", "c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec", "d1456cf0-bfd7-44bd-8280-7cdab0bb1a34", "6d36e4ae-7912-4dfd-9c85-88b6a3946cf6", "eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed", "f4ea93ba-e394-49bf-95a5-58b95413c3b8", "acef5b38-f88d-4161-b5f5-fd4795a32c83", "2516468a-ece2-4d8f-b872-fa46fb0c156a", "cf63fd58-306b-4cf5-948f-048a8d2bf0e9", "a6801a50-4d97-4b83-b63b-f6debda960d7", "b1fed950-209c-4f3e-b189-a553518c5859", "c9d6fe58-8b20-4c89-a067-00eadbef355c", "53e834e9-8572-46cd-ba21-977c91d8489f", "049d7b61-f593-499f-a446-b12689b47420", "2f8bd156-5047-4f39-a072-4ca4f1c81ad8", "2e92a76f-206d-4f2b-bf1c-6b404ab37981", "4ba0b139-8518-4c72-a4e1-9217a41beb10", "2be49d0b-30c9-4dae-bc89-19ecc4b1ad61", "5134910b-8432-4444-897d-a0322471d943", "96028cf4-92ee-41df-ba5a-67334a7dcfc4", "fe7b16a0-f15a-4202-a052-fb24958a46a1", "aa048f6d-0051-4ea2-b1af-f59d1b089e66", "c028d68d-7b86-4a90-afad-f5a32ee2c199", "77aa800d-fa60-4c86-9205-7ac214542105"],
-"elements": ["81ca4304-78c7-470d-8b99-6d5a2eb70edc", "ca8446d8-6bdb-499e-a49c-273f159548fa", "3860c83f-63fc-4632-a103-5e91fcdddf5a", "b6cad407-7c47-42e4-9bcf-c247662e8fb5", "d560c822-c3d4-46e6-b8d8-a5e2bc72c028", "17699794-7c76-4498-9ba6-8a18d0022c47", "1dcd98ca-942a-4387-a492-2b9e3709012f", "a71d90f3-f564-4803-8a45-58903fd2c2c6", "ef7710b0-9aa7-4fd9-adfc-e96a4503b051", "ddc81088-660b-4114-aa9a-21996054bf4d", "c604bcdf-7f2b-4c64-8d8b-ba70806a2238", "a6b83872-84ea-431e-8228-eb73c77a2359", "36c07e05-0b06-4962-9e74-9f65e2f23734", "243dab40-e347-4cbb-9ec2-dee66776f3bc", "e38ac378-7459-4c67-93c7-ba4be049631c", "72ba4268-a7ac-45e0-9ec4-11928379a737", "3647681a-f09b-4c7e-88da-37ec536b2710", "7b2a946e-bb94-4d2a-8a56-4d4caf3c294a", "f4b48678-44bd-476d-965e-c6a6032f6b57", "fabf46c1-a7ff-4460-84f4-ec89e33087e8", "92e9ca18-cf7e-4204-bff9-ab2fdc29e323", "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488", "4be3044e-e7a5-416d-a289-6683a492dd2d", "1a17b6ab-639e-481a-bef0-92deb0473239", "642a5cfc-4623-4293-8b31-c4b4351ebd70", "e5f7f3ab-471b-42ad-b207-9b1e0035c10a", "d070b02b-b689-4956-9c44-a16b4de2cdf6", "e8d059d1-ba3b-4732-a413-a0dc027ae038", "53e25832-31a9-4a2b-99cf-134eb6f488df", "f565f01d-d2d5-4745-a153-4a6c9029e07b", "4b2aeb83-46f8-4b69-b205-6eabd4db2b26", "af47edb6-9737-487f-b9b6-b5638d07e678", "e5499f5b-b60b-4752-976a-9f257afef06a", "96f8b622-c98d-471e-9de8-9f2917d0b614", "a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b", "1bc871cb-4ccd-4f39-8a1b-f86d1851911f", "b2d6843c-75f3-426a-a14e-fc870d52c6a8", "6b077b2a-3bef-421d-b073-414d6cc80816", "df1a4015-2832-414c-b9af-8563f42ff8da", "83523415-cabe-4d86-a4e0-cd38ddd0a064", "c89d3f0a-375e-4790-96b1-e371359b6f0d", "4afe38e3-9ad5-4e46-8b64-99ef752dc00b", "e4531320-4418-404a-b9e9-d54afef0142c", "d359777c-a124-4604-9062-b82f9462cf9d", "8ac3d98e-dea5-42e0-afa8-d2b891c93a79", "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab", "1be8758c-59f1-4573-897d-387fbca0ff98", "775cfc87-42c9-4c4e-a788-d09403beac48", "ee290ed0-dd96-4d27-b019-089731e7bec2", "a3a7adf3-1a1b-444d-8f02-01a2a440cd8b", "2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e", "f252ac82-4648-4d41-89f4-04799795c0b5", "78e0ef60-8665-4ec9-b7f9-e5c4d963a156", "18dc05a8-1583-4688-b7f3-b8094cf40158", "8ad165a7-818b-4f16-9528-4376c89d7406", "8a30a4b0-4427-4805-852c-2a2d2b00da35", "fadf0695-a237-4b38-9a6b-f54ade8bdc0f", "ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c", "f0175fba-75a1-4cb2-8bc1-8551e68a70b8", "bafd2280-33b7-45f3-8260-da68e57177fa", "de925341-5861-41e7-b508-897c401aa90c", "e67886eb-87cf-495f-bc93-44f536f20392", "490af16f-2603-43e6-85ae-f418e94cc070", "a8e9a04f-949d-430d-9de0-4ff88182353c", "6831a0a4-00e4-49bf-a3b2-c210e7979b22", "27beb68f-f883-4a95-b95a-3c167e65bddb", "355f7b6a-adc7-4eb6-b4fa-510066809f9e", "8c2b3480-f266-4bd1-9695-afa7a0ece06f", "3d3c392d-0440-417a-a3d8-3a7d48f64e26", "f2284647-5901-402f-9f18-96af7bcfb32e", "470aac9f-768c-41b3-8595-3d613fa6afb6", "59bcf675-fbb4-4096-8778-07bbb34c87af", "fd09b426-c4be-44bd-ac0c-8c2804c3ab70", "558aeac1-0f1d-4f0c-b0a6-aed2906dc724", "f8791b7e-3c53-418f-9c6f-777ae4d65a5e", "414c5a3b-3caa-4682-a490-670424170b7f", "ae897635-78bd-4fc4-9cd8-aeed10832b66", "2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a", "b965da7b-0b5a-429e-b186-22cd198f0261", "fac99888-f592-465d-9b89-b40d5656b804", "1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6", "84b19888-ff99-41b5-84e4-edf4e52c3d19", "fa52f960-9711-4abf-8101-d1fe0592c7df", "4da6a4dd-8b66-4577-b053-9cc3aaab4481", "94e225c5-6383-4516-b293-037a25c5c154", "430251d4-6008-48ca-a7db-88465f8fdc1e", "77a2eb09-585b-4fa3-96f1-1d5634414411", "b48c37a7-5018-41d7-862a-eefe8c138e06", "b7a6623c-b4f7-4c04-97d7-7676e1ce0991", "324b6d77-3896-467d-8687-edaae87748b3", "9b399fff-577d-4518-8854-86f9aa2220f7", "c10eb371-8ca2-4b34-bfa6-9c733a1ca628", "413e9339-8aff-4f38-8cc0-c5e39a29906b", "ef796571-a5ea-42c4-8bfb-66e184da9e82", "622ddedf-fe24-4b50-a390-64d8d7bd45bd", "ca4fb4d4-77a0-4403-a2f5-2b829be59aef", "7250a697-9722-4ab8-80ef-b34b22da5f54", "9b7ff1de-af2a-49ef-a25a-66501efa4477"],
+"connections": ["d08d0672-f945-46ff-8919-6d26918800f9", "ca99db19-efb1-4a0e-9f48-c097644fde29", "1fd7db8f-df1d-40f2-ac39-9f216a0318d0", "f7d8bcac-e511-4813-908a-fb31f9684577", "7a820fb8-760e-414f-bd2e-a5e5c30d0083", "c3457483-39a6-43a4-b7c2-1491bec2b3b9", "8ca00d21-c3f6-4948-af4c-77ae0777cd79", "40910bbc-0a20-4b91-8d9c-4647272ae560", "e539c99f-761d-46df-9e7e-13d1d98abdd6", "44cbe662-6e56-43a6-b639-374973bf5136", "58253453-b508-4b59-82b4-8376b04dabad", "a494cf80-b297-470e-a597-7e72b38ff410", "7d4d0118-b699-4c82-8d56-6486d04bebb2", "93c802c8-0349-4c45-8b37-da530216decd", "21e1cbf7-08be-40ea-a880-f046b7ddc0fd", "0dbed1b5-f0fe-4249-ab06-5f7e4a956b6f", "27c6c433-a0de-4114-b010-301c2a2c121f", "c7b3d533-c867-45ac-a9dd-ad7ff72e0b75", "d2fc59ec-c723-4d0b-a7aa-371e30422254", "66f6a02b-78af-45cf-a242-99c045f3aacd", "a3b3ebce-498b-48c5-bbf8-47ce6a4d928d", "159d148c-7707-4ab3-8a34-01883ca02dd0", "9ebfae18-c9cf-4b02-853b-fa20e8580c08", "bd5b9830-672b-4762-bdec-957684f173fa", "f8e912a9-453c-4276-a112-960103580167", "b9ec0f4c-920b-40d9-8a6b-655a43113e72", "eb8978af-9d16-4a07-aa42-b099647553a8", "4f3160b5-e616-4a14-b91c-4ad1aa328021", "e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f", "0255b51c-c4f8-46c6-9daa-a6f86a1d6c45", "f3981ca7-1fff-4c8e-8096-3bdbad908988", "f7e721c2-f9fd-4c91-b501-92f44b983615", "2a3b6495-4885-489d-a8fa-5d9a75232c43", "776cf067-dde7-4c84-a905-66ffab40b530", "49bddfe3-d1ca-40a0-af66-ee19bd99c908", "0ba15876-7570-40f3-8fc4-5b59f43fd1f0", "580ffe6f-1e9e-4655-9317-dfa2c9606c8f", "3ea72a9c-850a-45cc-8f4d-d9296ff8b7a2", "025c8fee-9e3f-41d9-bbf0-6042bfd46732", "677d05e0-9108-49a0-81ec-6bb6a91b1bbe", "21ac3dd8-b7ef-4349-8efd-d09c811d8173", "3dcf3c6e-45fe-45b4-8504-6fd8cce06141", "39f14f95-b4cd-479a-ad36-da5e0e215661", "69b53444-9bbd-4d4a-8acc-0e168ee13306", "20da8c82-1a18-46d5-88cc-7b6b700d0e70", "0438034d-adb8-4b21-8920-936d7814bb4e", "11c94fa7-e53f-4648-a215-7070edc1615b", "dceac94d-fb54-46d0-977d-2b36a7e53abe", "13702496-ecb7-45c8-b5d3-cce555a3bf78", "92a6bb5f-5550-4be7-b024-d79577c483fd", "afd1784b-0f92-44d0-9dde-116c029d9274", "4772eb47-db04-462d-bfc9-c3cbb5c84fd8", "d406732e-dcc3-4dbc-90b1-17d98be33750", "f9a60e0c-735c-405e-b7c1-d2aa32ef3e09", "b74d2994-df90-4b43-89fb-8e8a718786b0", "5c8e7f00-27d9-4859-895b-fead4c258985", "b921ec36-add9-4f71-ac75-afc80d031dbe", "47c74cfa-f28f-4e66-ad50-7c3726bdb680", "a0d128d0-1e03-454c-902d-7131d5b1b037", "21b8f7d0-a632-48d9-9ecc-958b9a8ccef6", "61c25322-a055-4d17-9ed9-fce5bb340ccb", "2aac3ccf-b5d5-4b81-83a5-5b5fec0562df", "10668aea-632f-4cac-8665-342591f1c845", "727a8512-257f-4a06-a91c-da35c5f31382", "ed3e1d7f-1ba8-4090-bd20-5b81089548c5", "8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a", "4b96a6fc-a3fc-4871-b174-ba0711fb96d1", "d69b53af-61dc-4dbc-822a-d9e2acda5a94", "5affff52-68fe-4664-9de4-2ba96bb316d5", "143ceda5-bb38-417c-bb10-733de89fb06a", "1936da8f-7768-4368-ac28-654805c720a9", "514f127a-564a-4f93-a1b8-ebc421d294e6", "10b37d5b-050f-4b6d-ae9d-a5d3baafea78", "72b75380-7f19-407b-90b3-3e0bacf8114c", "88942ba9-0417-478a-b6a8-1832d8a1cb39", "c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6", "b9da7664-7fbf-4b0a-aa2f-888464993e99", "7487c508-af23-496b-946d-4529d1c9d19f", "f5d71f10-c7f0-4f8d-a036-65b81b244a41", "5727e0e7-6ab2-4a0e-84c7-8a03d1c68210", "324ef522-3c8e-46ab-bb7c-2b9f0f24417f", "5ac7cd7f-a072-4c0a-95e9-94064dd69ba3", "e8da0c77-5c51-4f4a-a1be-d4ba434d453c", "06d49c33-4a4f-4140-90d3-fd7a776afa15", "ffc1f1d2-19f9-4d08-a024-18d019bf9e44", "1f6dc7dc-950a-4802-92ea-4fc801f1a5c7", "725f1f4e-2af2-4adb-960f-4a7020af7973", "db1890d5-ead3-41b4-86bc-f3e50142d866", "1fd14cf6-e22b-482e-b151-305e9f475860", "b38585c7-81b3-4540-8726-0be6f45f46de", "b259e983-3c02-4186-b6ec-c65ec446237e", "20c5320d-27d2-45d3-a46b-7869025a6dd1", "c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec", "d1456cf0-bfd7-44bd-8280-7cdab0bb1a34", "6d36e4ae-7912-4dfd-9c85-88b6a3946cf6", "eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed", "acef5b38-f88d-4161-b5f5-fd4795a32c83", "2516468a-ece2-4d8f-b872-fa46fb0c156a", "cf63fd58-306b-4cf5-948f-048a8d2bf0e9", "a6801a50-4d97-4b83-b63b-f6debda960d7", "b1fed950-209c-4f3e-b189-a553518c5859", "c9d6fe58-8b20-4c89-a067-00eadbef355c", "53e834e9-8572-46cd-ba21-977c91d8489f", "049d7b61-f593-499f-a446-b12689b47420", "2f8bd156-5047-4f39-a072-4ca4f1c81ad8", "2e92a76f-206d-4f2b-bf1c-6b404ab37981", "4ba0b139-8518-4c72-a4e1-9217a41beb10", "2be49d0b-30c9-4dae-bc89-19ecc4b1ad61", "5134910b-8432-4444-897d-a0322471d943", "96028cf4-92ee-41df-ba5a-67334a7dcfc4", "fe7b16a0-f15a-4202-a052-fb24958a46a1", "aa048f6d-0051-4ea2-b1af-f59d1b089e66", "c028d68d-7b86-4a90-afad-f5a32ee2c199", "77aa800d-fa60-4c86-9205-7ac214542105", "fe555436-cb45-4245-a473-38ced34f7b2b", "b4811369-731c-4f9c-9efb-16a30f338f9f"],
+"elements": ["81ca4304-78c7-470d-8b99-6d5a2eb70edc", "ca8446d8-6bdb-499e-a49c-273f159548fa", "3860c83f-63fc-4632-a103-5e91fcdddf5a", "b6cad407-7c47-42e4-9bcf-c247662e8fb5", "d560c822-c3d4-46e6-b8d8-a5e2bc72c028", "17699794-7c76-4498-9ba6-8a18d0022c47", "1dcd98ca-942a-4387-a492-2b9e3709012f", "a71d90f3-f564-4803-8a45-58903fd2c2c6", "ef7710b0-9aa7-4fd9-adfc-e96a4503b051", "ddc81088-660b-4114-aa9a-21996054bf4d", "c604bcdf-7f2b-4c64-8d8b-ba70806a2238", "a6b83872-84ea-431e-8228-eb73c77a2359", "36c07e05-0b06-4962-9e74-9f65e2f23734", "243dab40-e347-4cbb-9ec2-dee66776f3bc", "e38ac378-7459-4c67-93c7-ba4be049631c", "72ba4268-a7ac-45e0-9ec4-11928379a737", "3647681a-f09b-4c7e-88da-37ec536b2710", "7b2a946e-bb94-4d2a-8a56-4d4caf3c294a", "f4b48678-44bd-476d-965e-c6a6032f6b57", "fabf46c1-a7ff-4460-84f4-ec89e33087e8", "92e9ca18-cf7e-4204-bff9-ab2fdc29e323", "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488", "4be3044e-e7a5-416d-a289-6683a492dd2d", "1a17b6ab-639e-481a-bef0-92deb0473239", "642a5cfc-4623-4293-8b31-c4b4351ebd70", "e5f7f3ab-471b-42ad-b207-9b1e0035c10a", "d070b02b-b689-4956-9c44-a16b4de2cdf6", "e8d059d1-ba3b-4732-a413-a0dc027ae038", "53e25832-31a9-4a2b-99cf-134eb6f488df", "f565f01d-d2d5-4745-a153-4a6c9029e07b", "4b2aeb83-46f8-4b69-b205-6eabd4db2b26", "af47edb6-9737-487f-b9b6-b5638d07e678", "e5499f5b-b60b-4752-976a-9f257afef06a", "96f8b622-c98d-471e-9de8-9f2917d0b614", "a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b", "1bc871cb-4ccd-4f39-8a1b-f86d1851911f", "b2d6843c-75f3-426a-a14e-fc870d52c6a8", "6b077b2a-3bef-421d-b073-414d6cc80816", "df1a4015-2832-414c-b9af-8563f42ff8da", "83523415-cabe-4d86-a4e0-cd38ddd0a064", "c89d3f0a-375e-4790-96b1-e371359b6f0d", "4afe38e3-9ad5-4e46-8b64-99ef752dc00b", "e4531320-4418-404a-b9e9-d54afef0142c", "d359777c-a124-4604-9062-b82f9462cf9d", "8ac3d98e-dea5-42e0-afa8-d2b891c93a79", "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab", "1be8758c-59f1-4573-897d-387fbca0ff98", "775cfc87-42c9-4c4e-a788-d09403beac48", "ee290ed0-dd96-4d27-b019-089731e7bec2", "a3a7adf3-1a1b-444d-8f02-01a2a440cd8b", "2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e", "f252ac82-4648-4d41-89f4-04799795c0b5", "78e0ef60-8665-4ec9-b7f9-e5c4d963a156", "18dc05a8-1583-4688-b7f3-b8094cf40158", "8ad165a7-818b-4f16-9528-4376c89d7406", "8a30a4b0-4427-4805-852c-2a2d2b00da35", "fadf0695-a237-4b38-9a6b-f54ade8bdc0f", "ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c", "f0175fba-75a1-4cb2-8bc1-8551e68a70b8", "bafd2280-33b7-45f3-8260-da68e57177fa", "de925341-5861-41e7-b508-897c401aa90c", "e67886eb-87cf-495f-bc93-44f536f20392", "490af16f-2603-43e6-85ae-f418e94cc070", "a8e9a04f-949d-430d-9de0-4ff88182353c", "6831a0a4-00e4-49bf-a3b2-c210e7979b22", "27beb68f-f883-4a95-b95a-3c167e65bddb", "355f7b6a-adc7-4eb6-b4fa-510066809f9e", "8c2b3480-f266-4bd1-9695-afa7a0ece06f", "3d3c392d-0440-417a-a3d8-3a7d48f64e26", "f2284647-5901-402f-9f18-96af7bcfb32e", "470aac9f-768c-41b3-8595-3d613fa6afb6", "59bcf675-fbb4-4096-8778-07bbb34c87af", "fd09b426-c4be-44bd-ac0c-8c2804c3ab70", "558aeac1-0f1d-4f0c-b0a6-aed2906dc724", "f8791b7e-3c53-418f-9c6f-777ae4d65a5e", "414c5a3b-3caa-4682-a490-670424170b7f", "ae897635-78bd-4fc4-9cd8-aeed10832b66", "2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a", "b965da7b-0b5a-429e-b186-22cd198f0261", "fac99888-f592-465d-9b89-b40d5656b804", "1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6", "84b19888-ff99-41b5-84e4-edf4e52c3d19", "fa52f960-9711-4abf-8101-d1fe0592c7df", "4da6a4dd-8b66-4577-b053-9cc3aaab4481", "94e225c5-6383-4516-b293-037a25c5c154", "430251d4-6008-48ca-a7db-88465f8fdc1e", "77a2eb09-585b-4fa3-96f1-1d5634414411", "b48c37a7-5018-41d7-862a-eefe8c138e06", "b7a6623c-b4f7-4c04-97d7-7676e1ce0991", "324b6d77-3896-467d-8687-edaae87748b3", "9b399fff-577d-4518-8854-86f9aa2220f7", "c10eb371-8ca2-4b34-bfa6-9c733a1ca628", "413e9339-8aff-4f38-8cc0-c5e39a29906b", "ef796571-a5ea-42c4-8bfb-66e184da9e82", "622ddedf-fe24-4b50-a390-64d8d7bd45bd", "ca4fb4d4-77a0-4403-a2f5-2b829be59aef", "7250a697-9722-4ab8-80ef-b34b22da5f54", "9b7ff1de-af2a-49ef-a25a-66501efa4477", "d864510c-ff77-401d-908e-99198edea83f"],
 "jumpers": ["2b4a96ce-c2b9-457d-ab26-8a3887b8c69d"],
 "name": "Level 1 Board",
 "notes": []
@@ -1710,6 +1719,16 @@ project_settings = {
 "theme": "blue",
 "type": "Straight"
 },
+"b4811369-731c-4f9c-9efb-16a30f338f9f": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "d864510c-ff77-401d-908e-99198edea83f",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "ef796571-a5ea-42c4-8bfb-66e184da9e82",
+"theme": "blue",
+"type": "Bezier"
+},
 "b74d2994-df90-4b43-89fb-8e8a718786b0": {
 "label": "<p>Make Instant Tea</p>",
 "labelLocation": 0.5,
@@ -2003,17 +2022,6 @@ project_settings = {
 "theme": "blue",
 "type": "Straight"
 },
-"f4ea93ba-e394-49bf-95a5-58b95413c3b8": {
-"label": "<p>First, breathe. We need to put them on their back, now.</p>",
-"labelLocation": 0.5,
-"sourceType": "elements",
-"sourceid": "413e9339-8aff-4f38-8cc0-c5e39a29906b",
-"targetFace": "right",
-"targetType": "elements",
-"targetid": "ef796571-a5ea-42c4-8bfb-66e184da9e82",
-"theme": "blue",
-"type": "Straight"
-},
 "f5d71f10-c7f0-4f8d-a036-65b81b244a41": {
 "label": null,
 "labelLocation": 0.5,
@@ -2067,6 +2075,16 @@ project_settings = {
 "targetid": "f252ac82-4648-4d41-89f4-04799795c0b5",
 "theme": "blue",
 "type": "Straight"
+},
+"fe555436-cb45-4245-a473-38ced34f7b2b": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "413e9339-8aff-4f38-8cc0-c5e39a29906b",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "d864510c-ff77-401d-908e-99198edea83f",
+"theme": "blue",
+"type": "Bezier"
 },
 "fe7b16a0-f15a-4202-a052-fb24958a46a1": {
 "label": null,
@@ -2186,7 +2204,7 @@ project_settings = {
 "attributes": ["535bda3c-a33c-410a-9805-0d95df6e68a8"],
 "autoHeight": false,
 "components": ["7b408620-ebbc-4fbe-b4fd-ba7c1954625c"],
-"content": "<p>What kind of person comes to a party just to drink <em>water?</em> You sound crazy!</p>",
+"content": "<p>What kind of person comes to a party just to drink water<em>?</em> You sound crazy!</p>",
 "height": 441.0,
 "outputs": ["2be49d0b-30c9-4dae-bc89-19ecc4b1ad61"],
 "theme": "purple",
@@ -2253,7 +2271,7 @@ project_settings = {
 "attributes": ["3956e2aa-63b2-4b6a-a87b-721b8cae5b24"],
 "autoHeight": false,
 "components": [],
-"content": "<p>Player: Ok, I know what to do.</p>",
+"content": "<p>You: Ok, I know what to do.</p>",
 "height": 301.0,
 "outputs": ["5ac7cd7f-a072-4c0a-95e9-94064dd69ba3"],
 "theme": "purple",
@@ -2393,12 +2411,12 @@ project_settings = {
 "components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
 "content": "<p>Onlooker (Liv):<strong> </strong>I, um I’ve never been trained, but...</p>",
 "height": 421.0,
-"outputs": ["f4ea93ba-e394-49bf-95a5-58b95413c3b8"],
+"outputs": ["fe555436-cb45-4245-a473-38ced34f7b2b"],
 "theme": "purple",
 "title": null,
 "width": 340.969,
-"x": 16840.0,
-"y": 10540.0
+"x": 17080.0,
+"y": 10480.0
 },
 "414c5a3b-3caa-4682-a490-670424170b7f": {
 "assets": {
@@ -2569,7 +2587,7 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
-"content": "<p><em>Now that you’re outside, you and Liv drop Vicky on the patio.</em></p>",
+"content": "<p>Now that you’re outside, you and Liv drop Vicky on the patio.</p>",
 "height": 330.0,
 "outputs": ["7487c508-af23-496b-946d-4529d1c9d19f"],
 "theme": "purple",
@@ -2623,7 +2641,7 @@ project_settings = {
 "attributes": ["125944db-dd23-4dd3-ac16-8ba7cb902caf"],
 "autoHeight": false,
 "components": [],
-"content": "<p>Player:<strong> </strong>Chest compressions. You need to push hard into their chest.</p><p>Here, I can show you.</p>",
+"content": "<p>You:<strong> </strong>Chest compressions. You need to push hard into their chest.</p><p>Here, I can show you.</p>",
 "height": 401.0,
 "outputs": ["2516468a-ece2-4d8f-b872-fa46fb0c156a"],
 "theme": "purple",
@@ -2693,7 +2711,7 @@ project_settings = {
 "attributes": ["cdf1d7bf-454e-4653-b118-fa810a7424f1"],
 "autoHeight": false,
 "components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
-"content": "<p>Onlooker (Liv):<strong> </strong>Oh… oh god… ok… I’ll try my best.<br></p>",
+"content": "<p>Onlooker (Liv):<strong> </strong>Oh… oh god… ok… I’ll try my best. Please call for help, she needs it!<br></p>",
 "height": 441.0,
 "outputs": ["b1fed950-209c-4f3e-b189-a553518c5859"],
 "theme": "purple",
@@ -2747,7 +2765,7 @@ project_settings = {
 "attributes": ["d328f749-ceaf-44da-90aa-a7794ac81bd7"],
 "autoHeight": false,
 "components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
-"content": "<p>Player: Calm down. There's an amnesty clause. As long as you're helping, you won't get in trouble.</p>",
+"content": "<p>You: Calm down. There's an amnesty clause. As long as you're helping, you won't get in trouble.</p>",
 "height": 461.0,
 "outputs": ["b259e983-3c02-4186-b6ec-c65ec446237e"],
 "theme": "purple",
@@ -2829,7 +2847,7 @@ project_settings = {
 "attributes": ["8adec281-b5be-406c-906a-2d4f4cc2571a"],
 "autoHeight": false,
 "components": [],
-"content": "<p><em>I remember now! This is called \"recovery position\".</em></p>",
+"content": "<p>I remember now! This is called \"recovery position\".</p>",
 "height": 321.0,
 "outputs": ["1f6dc7dc-950a-4802-92ea-4fc801f1a5c7"],
 "theme": "purple",
@@ -2847,7 +2865,7 @@ project_settings = {
 "attributes": ["31ee2659-d10a-45e7-a6a0-ca6dc36eb90a"],
 "autoHeight": false,
 "components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
-"content": "<p><em>You give the person the hot water. They drink it with shaky hands.</em></p>",
+"content": "<p>You give the person the hot water. They drink it with shaky hands.</p>",
 "height": 441.0,
 "outputs": ["aa048f6d-0051-4ea2-b1af-f59d1b089e66"],
 "theme": "purple",
@@ -2882,7 +2900,7 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa"],
-"content": "<p><em>You mix the tea into the hot water.</em></p>",
+"content": "<p>You mix the tea into the hot water.</p>",
 "height": 379.0,
 "outputs": ["ed3e1d7f-1ba8-4090-bd20-5b81089548c5"],
 "theme": "purple",
@@ -2899,7 +2917,7 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
-"content": "<p><em>You and the Onlooker help Vicky stand.</em></p>",
+"content": "<p>You and the Onlooker help Vicky stand.</p>",
 "height": 379.0,
 "outputs": ["1936da8f-7768-4368-ac28-654805c720a9"],
 "theme": "purple",
@@ -2935,7 +2953,7 @@ project_settings = {
 "attributes": ["72267905-564a-4df1-83b4-f1d375e147e4"],
 "autoHeight": false,
 "components": [],
-"content": "<p>Player: I’m going to call 911. We don’t know if their condition will worsen.</p>",
+"content": "<p>You: I’m going to call 911. We don’t know if their condition will worsen.</p>",
 "height": 361.0,
 "outputs": ["1fd14cf6-e22b-482e-b151-305e9f475860"],
 "theme": "purple",
@@ -3025,7 +3043,7 @@ project_settings = {
 "attributes": ["4182b994-ff85-438f-a049-931147d05516"],
 "autoHeight": false,
 "components": [],
-"content": "<p><em>Oh no. Your friends drove you here. You don’t know the address!</em></p>",
+"content": "<p>Oh no. Your friends drove you here. You don’t know the address!</p>",
 "height": 363.0,
 "outputs": ["e539c99f-761d-46df-9e7e-13d1d98abdd6"],
 "theme": "purple",
@@ -3077,7 +3095,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
-"content": "<p><em>They start coughing a lot and look pale... Oh no, you forgot tea has caffeine!</em></p>",
+"content": "<p>They start looking a bit jittery and wired... Oh no, you forgot tea has caffeine, not the best combo with alcohol!</p>",
 "height": 421.0,
 "outputs": ["4b96a6fc-a3fc-4871-b174-ba0711fb96d1"],
 "theme": "purple",
@@ -3095,7 +3113,7 @@ project_settings = {
 "attributes": ["9e6f42c6-ea01-477c-9ec7-f3928e079613"],
 "autoHeight": false,
 "components": [],
-"content": "<p><em>You remember something about putting the victim on their side.</em></p>",
+"content": "<p>You remember something about putting the victim on their side.</p>",
 "height": 321.0,
 "outputs": ["324ef522-3c8e-46ab-bb7c-2b9f0f24417f"],
 "theme": "purple",
@@ -3183,7 +3201,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
-"content": "<p><em> Liv looks down at Vicky.</em></p><p><em>She's stopped breathing!</em></p>",
+"content": "<p> Liv looks down at Vicky.</p><p>She's stopped breathing!</p>",
 "height": 421.0,
 "outputs": ["c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec"],
 "theme": "purple",
@@ -3236,8 +3254,8 @@ project_settings = {
 },
 "autoHeight": true,
 "components": [],
-"content": "<p><em>You check Vicky's pulse.</em></p><p><em>She doesn't have a pulse!</em></p>",
-"height": 259.0,
+"content": "<p>You check Vicky's pulse.</p><p>She doesn't have a pulse!</p>",
+"height": 328.0,
 "outputs": ["eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed"],
 "theme": "purple",
 "title": null,
@@ -3290,12 +3308,12 @@ project_settings = {
 "attributes": ["d485d92a-1dbf-44bb-a76b-48f2273aa8fe"],
 "autoHeight": false,
 "components": [],
-"content": "<p><em>I remember learning this at a summer camp once.</em></p><p>They taught you the best way to keep time was to think about  a catchy rhythm with around 100 BPM.</p>",
-"height": 341.0,
+"content": "<p>I remember learning this at a summer camp once.</p><p>They taught you the best way to keep time was to think about  a catchy rhythm with around 100 BPM.</p>",
+"height": 401.0,
 "outputs": ["cf63fd58-306b-4cf5-948f-048a8d2bf0e9"],
 "theme": "purple",
 "title": null,
-"width": 421.0,
+"width": 501.0,
 "x": 15740.0,
 "y": 11220.0
 },
@@ -3356,7 +3374,7 @@ project_settings = {
 "attributes": ["4225bace-6ec9-45cc-90b6-1ce956bdac61"],
 "autoHeight": false,
 "components": [],
-"content": "<p><em>Sirens approach and Vicky gets carried away by EMS. Liv goes with her. </em></p><p><em>The sounds of the sirens cause partygoers to panic and scatter. After a bit, Frank stumbles out of the house, a little tipsy. You’re still sitting on the porch.</em></p><p></p>",
+"content": "<p>Sirens approach and Vicky gets carried away by EMS. Liv goes with her. </p><p>The sounds of the sirens cause partygoers to panic and scatter. After a bit, Frank stumbles out of the house, a little tipsy. You’re still sitting on the porch.</p><p></p>",
 "height": 401.0,
 "outputs": ["1fd7db8f-df1d-40f2-ac39-9f216a0318d0"],
 "theme": "purple",
@@ -3364,6 +3382,24 @@ project_settings = {
 "width": 300.994,
 "x": 18980.0,
 "y": 12120.0
+},
+"d864510c-ff77-401d-908e-99198edea83f": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["5c25daaa-8657-48c5-b5cf-e18d3d831e20"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>You:<strong> </strong>First, breathe. We need to put them on their back, now.</p>",
+"height": 461.0,
+"outputs": ["b4811369-731c-4f9c-9efb-16a30f338f9f"],
+"theme": "purple",
+"title": null,
+"width": 341.0,
+"x": 16700.0,
+"y": 10060.0
 },
 "ddc81088-660b-4114-aa9a-21996054bf4d": {
 "attributes": ["195775ec-6924-4f7c-9697-ca7222ce791c"],
@@ -3563,7 +3599,7 @@ project_settings = {
 "attributes": ["4fec1d23-1524-4827-936f-a11c863536ec"],
 "autoHeight": false,
 "components": [],
-"content": "<p><em>Luckily, you’re outside, so you just have to look to the right, and the house number is there. Then, look to the left, to see the street sign.</em></p><p></p>",
+"content": "<p>Luckily, you’re outside, so you just have to look to the right, and the house number is there. Then, look to the left, to see the street sign.</p><p></p>",
 "height": 361.0,
 "outputs": ["8ca00d21-c3f6-4948-af4c-77ae0777cd79"],
 "theme": "purple",
@@ -3582,7 +3618,7 @@ project_settings = {
 "autoHeight": false,
 "components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
 "content": "<p>Onlooker (Liv):<strong> </strong>I know they need to be on their back. Now what?</p>",
-"height": 441.0,
+"height": 442.0,
 "outputs": ["acef5b38-f88d-4161-b5f5-fd4795a32c83"],
 "theme": "purple",
 "title": null,
@@ -3684,7 +3720,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": [],
-"content": "<p><em>Vicky vomits and passes out, collapsing on the floor. Liv catches them.</em></p>",
+"content": "<p>Vicky vomits and passes out, collapsing on the floor. Liv catches them.</p>",
 "height": 341.0,
 "outputs": ["f5d71f10-c7f0-4f8d-a036-65b81b244a41"],
 "theme": "purple",
@@ -3717,10 +3753,10 @@ project_settings = {
 "id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
 }
 },
-"autoHeight": true,
+"autoHeight": false,
 "components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
-"content": "<p><em> Liv is holding Vicky steady on her side.</em></p>",
-"height": 121.0,
+"content": "<p> Liv is holding Vicky steady on her side.</p>",
+"height": 379.398,
 "outputs": ["725f1f4e-2af2-4adb-960f-4a7020af7973"],
 "theme": "purple",
 "title": null,
@@ -3755,7 +3791,7 @@ project_settings = {
 "attributes": ["5e74383d-f5d7-4259-9fe8-859f8d88cc62"],
 "autoHeight": false,
 "components": [],
-"content": "<p>Player: I’m putting her on her side so she doesn’t choke on her vomit.</p>",
+"content": "<p>You: I’m putting her on her side so she doesn’t choke on her vomit.</p>",
 "height": 321.0,
 "outputs": ["06d49c33-4a4f-4140-90d3-fd7a776afa15"],
 "theme": "purple",
@@ -3773,7 +3809,7 @@ project_settings = {
 "attributes": ["89b013b3-48ce-44af-aca3-4c2ad34abdab"],
 "autoHeight": false,
 "components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
-"content": "<p><em>You give the person the hot tea.</em></p>",
+"content": "<p>You give the person the hot tea.</p>",
 "height": 401.0,
 "outputs": ["8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a"],
 "theme": "purple",
@@ -3790,7 +3826,7 @@ project_settings = {
 },
 "autoHeight": true,
 "components": [],
-"content": "<p><em>Thankfully its hot out tonight.</em></p>",
+"content": "<p>Thankfully its hot out tonight.</p>",
 "height": 224.0,
 "outputs": ["b9da7664-7fbf-4b0a-aa2f-888464993e99"],
 "theme": "purple",

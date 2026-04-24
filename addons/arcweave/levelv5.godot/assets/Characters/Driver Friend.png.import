@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b26m263c6u2o1"
-path="res://.godot/imported/Onlooker Normal.png-b358b7c364626f9334212667ba468c8c.ctex"
+uid="uid://bl22rlpkhuxd4"
+path="res://.godot/imported/Driver Friend.png-2c9a32f512a77587fcb223d864d3a4d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv4.godot/assets/Characters/Onlooker Normal.png"
-dest_files=["res://.godot/imported/Onlooker Normal.png-b358b7c364626f9334212667ba468c8c.ctex"]
+source_file="res://addons/arcweave/levelv5.godot/assets/Characters/Driver Friend.png"
+dest_files=["res://.godot/imported/Driver Friend.png-2c9a32f512a77587fcb223d864d3a4d9.ctex"]
 
 [params]
 

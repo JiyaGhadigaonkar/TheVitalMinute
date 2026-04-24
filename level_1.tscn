@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bmj3ntyo881o6" path="res://Assets/Item_Tutorial_Glass.png" id="10_b6mmh"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="12_ia5ws"]
 [ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="13_be5co"]
-[ext_resource type="Texture2D" uid="uid://blvhpv83xkoke" path="res://Assets/Item_Tutorial_Gauze.png" id="14_hycyb"]
-[ext_resource type="Texture2D" uid="uid://byqop1yosrvve" path="res://Assets/Item_Tutorial_Napkins.png" id="15_swvua"]
 [ext_resource type="Texture2D" uid="uid://bi6geddrqn6uo" path="res://Assets/Item_Phone.png" id="16_ka01f"]
 [ext_resource type="Texture2D" uid="uid://1k4eknmovn00" path="res://Assets/inventory_close.png" id="17_notaq"]
 
@@ -169,28 +167,6 @@ offset_right = 1154.0
 offset_bottom = 1843.0
 scale = Vector2(0.43, 0.43)
 mouse_filter = 2
-
-[node name="GauzeRow" type="HBoxContainer" parent="InventoryUI/InventoryPopup/ItemsContainer" unique_id=891806867]
-layout_mode = 2
-
-[node name="Icon" type="TextureRect" parent="InventoryUI/InventoryPopup/ItemsContainer/GauzeRow" unique_id=585982573]
-layout_mode = 2
-texture = ExtResource("14_hycyb")
-
-[node name="Label" type="Label" parent="InventoryUI/InventoryPopup/ItemsContainer/GauzeRow" unique_id=2024787477]
-layout_mode = 2
-text = "Gauze"
-
-[node name="NapkinRow" type="HBoxContainer" parent="InventoryUI/InventoryPopup/ItemsContainer" unique_id=1184865430]
-layout_mode = 2
-
-[node name="Icon" type="TextureRect" parent="InventoryUI/InventoryPopup/ItemsContainer/NapkinRow" unique_id=244641646]
-layout_mode = 2
-texture = ExtResource("15_swvua")
-
-[node name="Label" type="Label" parent="InventoryUI/InventoryPopup/ItemsContainer/NapkinRow" unique_id=36569702]
-layout_mode = 2
-text = "Napkins"
 
 [node name="PhoneRow" type="HBoxContainer" parent="InventoryUI/InventoryPopup/ItemsContainer" unique_id=1280955369]
 layout_mode = 2

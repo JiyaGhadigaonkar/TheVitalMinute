@@ -11,6 +11,7 @@ extends Control
 @export var portrait_hitbox_padding := Vector2(90.0, 120.0)
 @export var onlooker_portrait_2_position := Vector2(800.0, 350.0)
 @export var onlooker_portrait_2_scale := Vector2(0.65, 0.7)
+@export var bypass_cpr_minigame := false
 
 @onready var world: Node2D = get_node_or_null("World")
 @onready var background_outside: TextureRect = get_node_or_null("World/BackgroundOutside")
@@ -37,6 +38,8 @@ extends Control
 
 const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_default.png")
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
+const CPR_MINIGAME_SCENE = preload("res://CPRMinigametest.tscn")
+const PASSED_OUT_TEXTURE = preload("res://Assets/PassedOut.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")
 const NAPKINS_TEXTURE = preload("res://Assets/Item_Tutorial_Napkins.png")
 const TALK_BUBBLE_TEXTURE = preload("res://Assets/talk.png")
@@ -51,14 +54,19 @@ const TALK_TO_FRANK_LABEL = "center talk to frank"
 const USE_GAUZE_LABEL = "use gauze"
 const USE_NAPKINS_LABEL = "use napkins"
 const OPEN_PHONE_LABEL = "open phone"
+const CALL_911_LABEL = "time for you to call 911"
 const GET_MORE_ALCOHOL_LABEL = "get more alcohol"
 const GET_HOT_WATER_LABEL = "get hot water"
+const PLAY_RHYTHM_GAME_LABEL = "play the rhythm game"
 const GIVE_HOT_WATER_LABEL = "give hot water"
 const MAKE_INSTANT_TEA_LABEL = "make instant tea"
 const GIVE_HOT_TEA_LABEL = "give hot tea"
 const CHECK_ON_OTHER_PERSON_LABEL = "check on the other person"
 const INTRO_PORTRAIT_UNLOCK_TEXT = "You step outside and notice it's warm despite being dark outside. Everyone sounds like they're having a good time at the party."
 const INSIDE_BACKGROUND_TRIGGER_TEXT = "Your friends go to party in some side room, so you can’t find them. Now you don't anyone and it's just awkward."
+const OUTSIDE_BACKGROUND_RETURN_TEXT = "Vicky: Hrrgh… I don’t wanna… Ugh… My head… hehe… Livvy.."
+const PASSED_OUT_BACKGROUND_TEXT = "Vicky vomits and passes out, collapsing on the floor. Liv catches them."
+const PASSED_OUT_BACKGROUND_END_TEXT = "Liv is holding Vicky steady on her side."
 const TWO_EXHAUSTED_PEOPLE_TEXT = "Suddenly, you see two people who seem very exhausted. They both appear to have trouble walking. You don't know who they are. Who do you help?"
 const ONLOOKER_ASSESSMENT_TEXT = "You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning. Someone has just walked over."
 const TALK_TO_ONLOOKER_LABEL = "talk to onlooker"
@@ -84,9 +92,13 @@ var pending_napkins_path = null
 var pending_phone_path = null
 var pending_alcohol_path = null
 var pending_hot_water_path = null
+var pending_rhythm_game_path = null
 var portraits_locked := false
 var inside_background_active := false
+var is_passed_out_background_active := false
+var has_entered_vicky_outside_sequence := false
 var default_background_size := Vector2.ZERO
+var default_outside_background_texture: Texture2D
 var portrait_1_hotspot: Button
 var portrait_2_hotspot: Button
 var alcohol_hotspot: Button
@@ -94,6 +106,33 @@ var hot_water_hotspot: Button
 var is_alcohol_interactive := false
 var is_hot_water_interactive := false
 var inside_scene_default_positions := {}
+var active_cpr_minigame_root: Node
+var active_cpr_minigame: Node
+
+func _escape_dialogue_bbcode(text: String) -> String:
+	return text.replace("[", "[lb]").replace("]", "[rb]")
+
+func _has_dialogue_speaker_prefix(text: String) -> bool:
+	var trimmed := text.strip_edges()
+	var colon_index := trimmed.find(":")
+	if colon_index <= 0:
+		return false
+
+	var prefix := trimmed.substr(0, colon_index).strip_edges()
+	if prefix.is_empty():
+		return false
+
+	var speaker_pattern := RegEx.new()
+	speaker_pattern.compile("^[A-Za-z0-9_ '\\-\\.\\\"]+$")
+	return speaker_pattern.search(prefix) != null
+
+func _format_dialogue_text(raw_text: String) -> String:
+	var escaped_text := _escape_dialogue_bbcode(raw_text.strip_edges())
+	if escaped_text.is_empty():
+		return ""
+	if _has_dialogue_speaker_prefix(raw_text):
+		return escaped_text
+	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % escaped_text
 
 func _ready() -> void:
 	if world != null:
@@ -101,6 +140,7 @@ func _ready() -> void:
 		default_world_position = world.position
 	if background_outside != null:
 		default_background_size = background_outside.size
+		default_outside_background_texture = background_outside.texture
 	_capture_inside_scene_default_positions()
 	if portrait_1 != null:
 		default_portrait_1_position = portrait_1.position
@@ -175,7 +215,7 @@ func repaint() -> void:
 	if dialogue_text != null:
 		dialogue_text.bbcode_enabled = true
 		dialogue_text.add_theme_color_override("default_color", Color.BLACK)
-		dialogue_text.text = story.GetCurrentRuntimeContent().strip_edges()
+		dialogue_text.text = _format_dialogue_text(story.GetCurrentRuntimeContent())
 
 	_update_portrait()
 	add_options()
@@ -196,6 +236,7 @@ func add_options() -> void:
 	pending_phone_path = null
 	pending_alcohol_path = null
 	pending_hot_water_path = null
+	pending_rhythm_game_path = null
 	var normal_choice_paths := []
 
 	var options = story.GenerateCurrentOptions()
@@ -233,6 +274,9 @@ func add_options() -> void:
 		if _is_get_hot_water_path(path):
 			pending_hot_water_path = path
 			continue
+		if _is_play_rhythm_game_path(path):
+			pending_rhythm_game_path = path
+			continue
 		if _is_tap_through_only_path(path):
 			continue
 		if _is_talk_to_onlooker_path(path):
@@ -257,11 +301,29 @@ func add_options() -> void:
 		portrait_1_action_path = normal_choice_paths[0]
 		portrait_2_action_path = normal_choice_paths[1]
 
+	if pending_rhythm_game_path != null and active_cpr_minigame_root == null:
+		if bypass_cpr_minigame:
+			call_deferred("_advance_pending_rhythm_game_path")
+			return
+		for option in choice_container.get_children():
+			option.queue_free()
+		visible_choice_count = 0
+		choice_container.visible = false
+		advance_trigger.visible = false
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_set_portrait_interactive(false)
+		_set_world_interactive(false, false)
+		_set_inventory_item_interactivity()
+		call_deferred("_start_cpr_minigame")
+		return
+
 	_set_portrait_interactive(portrait_1_action_path != null, portrait_2_action_path != null)
+	if is_passed_out_background_active:
+		_set_portrait_interactive(false, false)
 	_set_world_interactive(pending_alcohol_path != null, pending_hot_water_path != null)
 	choice_container.visible = visible_choice_count > 0
 
-	var has_manual_interaction := portrait_1_action_path != null or portrait_2_action_path != null or pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null or pending_alcohol_path != null or pending_hot_water_path != null
+	var has_manual_interaction := portrait_1_action_path != null or portrait_2_action_path != null or pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null or pending_alcohol_path != null or pending_hot_water_path != null or pending_rhythm_game_path != null
 	advance_trigger.visible = not choice_container.visible and not has_manual_interaction
 	advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP if advance_trigger.visible else Control.MOUSE_FILTER_IGNORE
 
@@ -289,7 +351,7 @@ func _create_choice_button(button_text: String, index, paths) -> TextureButton:
 	label.add_theme_color_override("font_color", Color.BLACK)
 	label.add_theme_font_size_override("font_size", 30)
 	label.position = Vector2(55.0, 22.0)
-	label.size = Vector2(CHOICE_BUBBLE_LAYOUT_SIZE.x - 110.0, CHOICE_BUBBLE_LAYOUT_SIZE.y - 28.0)
+	label.size = Vector2(CHOICE_BUBBLE_LAYOUT_SIZE.x - 80.0, CHOICE_BUBBLE_LAYOUT_SIZE.y - 28.0)
 	button.add_child(label)
 
 	return button
@@ -348,12 +410,53 @@ func _maybe_unlock_portraits() -> void:
 func _update_story_background() -> void:
 	if story == null:
 		return
+	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	if _is_passed_out_background_start_state(current_text):
+		has_entered_vicky_outside_sequence = true
+		is_passed_out_background_active = true
+	elif _is_passed_out_background_end_state(current_text):
+		is_passed_out_background_active = false
+	_reset_background_overrides()
+	if is_passed_out_background_active:
+		_set_inside_background_active(false)
+		_apply_passed_out_background()
+		return
+	if current_text == OUTSIDE_BACKGROUND_RETURN_TEXT:
+		has_entered_vicky_outside_sequence = true
+		is_passed_out_background_active = false
+		_set_inside_background_active(false)
+		return
+	if _is_passed_out_background_end_state(current_text):
+		_set_inside_background_active(false)
+		return
 	if inside_background_active:
 		_set_inside_background_active(true)
 		return
-	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
 	if current_text == INSIDE_BACKGROUND_TRIGGER_TEXT:
 		_set_inside_background_active(true)
+
+func _reset_background_overrides() -> void:
+	if background_outside != null and default_outside_background_texture != null:
+		background_outside.texture = default_outside_background_texture
+		background_outside.position = Vector2.ZERO
+		if default_background_size != Vector2.ZERO:
+			background_outside.size = default_background_size
+
+func _apply_passed_out_background() -> void:
+	if background_outside == null:
+		return
+	background_outside.texture = PASSED_OUT_TEXTURE
+	background_outside.position = Vector2.ZERO
+	background_outside.size = PASSED_OUT_TEXTURE.get_size()
+	if world != null:
+		_apply_world_focus(PASSED_OUT_TEXTURE.get_size().x * 0.5)
+
+func _is_passed_out_background_start_state(text: String) -> bool:
+	var normalized_text := _normalize_label(text)
+	return "vicky vomits and passes out" in normalized_text
+
+func _is_passed_out_background_end_state(text: String) -> bool:
+	return _normalize_label(text) == _normalize_label(PASSED_OUT_BACKGROUND_END_TEXT)
 
 func _set_inside_background_active(is_inside: bool) -> void:
 	inside_background_active = is_inside
@@ -590,6 +693,20 @@ func _set_inventory_open(is_open: bool) -> void:
 
 func _set_inventory_item_interactivity() -> void:
 	var is_open := inventory_popup_panel != null and inventory_popup_panel.visible
+	var has_inventory_action := pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null
+
+	if inventory_ui != null:
+		inventory_ui.visible = has_inventory_action
+	if not has_inventory_action:
+		if inventory_popup_panel != null:
+			inventory_popup_panel.visible = false
+		if inventory_popup_background != null:
+			inventory_popup_background.visible = false
+		if inventory_close_button != null:
+			inventory_close_button.visible = false
+		if inventory_items_container != null:
+			inventory_items_container.visible = false
+		is_open = false
 
 	if gauze_row != null:
 		gauze_row.mouse_filter = Control.MOUSE_FILTER_STOP if is_open and pending_gauze_path != null else Control.MOUSE_FILTER_IGNORE
@@ -640,6 +757,14 @@ func _set_world_interactive(alcohol_value: bool, hot_water_value: bool) -> void:
 	_update_world_hotspots()
 
 func _update_portrait() -> void:
+	if is_passed_out_background_active:
+		if portrait_1 != null:
+			portrait_1.visible = false
+		if portrait_2 != null:
+			portrait_2.visible = false
+		if speaker_name != null:
+			speaker_name.visible = false
+		return
 	if portraits_locked:
 		_apply_locked_portraits()
 		return
@@ -679,6 +804,8 @@ func _update_portrait() -> void:
 			speaker_name.text = ", ".join(visible_names)
 			speaker_name.visible = true
 
+	_apply_sticky_outside_vicky_portrait(visible_names)
+
 func _apply_locked_portraits() -> void:
 	var visible_names: Array[String] = []
 	current_portrait_names.clear()
@@ -710,6 +837,27 @@ func _apply_locked_portraits() -> void:
 		else:
 			speaker_name.text = ", ".join(visible_names)
 			speaker_name.visible = true
+
+func _apply_sticky_outside_vicky_portrait(visible_names: Array[String]) -> void:
+	if not _should_force_outside_vicky_portrait():
+		return
+	if visible_names.has("Vicky_Sick") or visible_names.has("Vicky Sick"):
+		return
+	var vicky_portrait_path := _get_portrait_path("Vicky_Sick")
+	if vicky_portrait_path == "":
+		return
+	if portrait_1 != null and not portrait_1.visible:
+		portrait_1.texture = load(vicky_portrait_path)
+		portrait_1.visible = true
+	elif portrait_2 != null and not portrait_2.visible:
+		portrait_2.texture = load(vicky_portrait_path)
+		portrait_2.visible = true
+	if speaker_name != null and not speaker_name.visible:
+		speaker_name.text = "Vicky_Sick"
+		speaker_name.visible = true
+
+func _should_force_outside_vicky_portrait() -> bool:
+	return has_entered_vicky_outside_sequence and not inside_background_active and not is_passed_out_background_active
 
 func _path_label_contains(path, text: String) -> bool:
 	return text in _normalize_label(path.label)
@@ -794,7 +942,8 @@ func _is_use_napkins_path(path) -> bool:
 	return _normalize_label(path.label) == USE_NAPKINS_LABEL
 
 func _is_open_phone_path(path) -> bool:
-	return _normalize_label(path.label) == OPEN_PHONE_LABEL
+	var normalized_label := _normalize_label(path.label)
+	return normalized_label == OPEN_PHONE_LABEL or normalized_label == CALL_911_LABEL
 
 func _is_get_more_alcohol_path(path) -> bool:
 	return _normalize_label(path.label) == GET_MORE_ALCOHOL_LABEL
@@ -802,9 +951,12 @@ func _is_get_more_alcohol_path(path) -> bool:
 func _is_get_hot_water_path(path) -> bool:
 	return _normalize_label(path.label) == GET_HOT_WATER_LABEL
 
+func _is_play_rhythm_game_path(path) -> bool:
+	return _normalize_label(path.label) == PLAY_RHYTHM_GAME_LABEL
+
 func _is_tap_through_only_path(path) -> bool:
 	var normalized_label := _normalize_label(path.label)
-	return normalized_label == GIVE_HOT_WATER_LABEL or normalized_label == MAKE_INSTANT_TEA_LABEL or normalized_label == GIVE_HOT_TEA_LABEL or normalized_label == CHECK_ON_OTHER_PERSON_LABEL
+	return normalized_label == GIVE_HOT_TEA_LABEL or normalized_label == CHECK_ON_OTHER_PERSON_LABEL
 
 func _is_talk_to_onlooker_path(path) -> bool:
 	return _normalize_label(path.label) == TALK_TO_ONLOOKER_LABEL
@@ -862,7 +1014,12 @@ func _on_portrait_2_gui_input(event) -> void:
 		_on_portrait_action_selected(portrait_2_action_path)
 
 func _on_option_pressed(index, paths) -> void:
-	story.SelectPath(paths[index])
+	var selected_path = paths[index]
+	if _is_play_rhythm_game_path(selected_path):
+		pending_rhythm_game_path = selected_path
+		_start_cpr_minigame()
+		return
+	story.SelectPath(selected_path)
 	repaint()
 
 func _on_choice_button_mouse_entered(button: TextureButton) -> void:
@@ -938,6 +1095,82 @@ func _on_continue_pressed() -> void:
 	if paths != null and paths.size() > 0:
 		story.SelectPath(paths[0])
 		repaint()
+
+func _advance_pending_rhythm_game_path() -> void:
+	if pending_rhythm_game_path == null:
+		return
+	var selected_path = pending_rhythm_game_path
+	pending_rhythm_game_path = null
+	story.SelectPath(selected_path)
+	repaint()
+
+func _start_cpr_minigame() -> void:
+	if active_cpr_minigame_root != null:
+		return
+	active_cpr_minigame_root = CPR_MINIGAME_SCENE.instantiate()
+	add_child(active_cpr_minigame_root)
+	if active_cpr_minigame_root is CanvasItem:
+		active_cpr_minigame_root.visible = true
+		if "z_index" in active_cpr_minigame_root:
+			active_cpr_minigame_root.z_index = 500
+	active_cpr_minigame = active_cpr_minigame_root.get_node_or_null("CPRMinigame")
+	if active_cpr_minigame == null and active_cpr_minigame_root.name == "CPRMinigame":
+		active_cpr_minigame = active_cpr_minigame_root
+	if active_cpr_minigame != null and active_cpr_minigame.has_signal("minigame_completed"):
+		active_cpr_minigame.minigame_completed.connect(_on_cpr_minigame_completed)
+	_set_main_scene_visible(false)
+	if cursor_sprite != null:
+		cursor_sprite.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _end_cpr_minigame() -> void:
+	if active_cpr_minigame_root != null:
+		active_cpr_minigame_root.queue_free()
+	active_cpr_minigame_root = null
+	active_cpr_minigame = null
+	_set_main_scene_visible(true)
+	if cursor_sprite != null:
+		cursor_sprite.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	set_default_cursor()
+
+func _on_cpr_minigame_completed(_score: float) -> void:
+	_end_cpr_minigame()
+	if pending_rhythm_game_path != null:
+		var selected_path = pending_rhythm_game_path
+		pending_rhythm_game_path = null
+		story.SelectPath(selected_path)
+		repaint()
+	else:
+		_on_continue_pressed()
+
+func _set_main_scene_visible(is_visible: bool) -> void:
+	if world != null:
+		world.visible = is_visible
+	if portrait_1 != null:
+		portrait_1.visible = is_visible and portrait_1.visible
+	if portrait_2 != null:
+		portrait_2.visible = is_visible and portrait_2.visible
+	if speaker_name != null:
+		speaker_name.visible = false if not is_visible else speaker_name.visible
+	if dialogue_box != null:
+		dialogue_box.visible = is_visible
+	if dialogue_text != null:
+		dialogue_text.visible = is_visible
+	if choice_container != null:
+		choice_container.visible = is_visible and choice_container.visible
+	if advance_trigger != null:
+		advance_trigger.visible = is_visible and advance_trigger.visible
+	if inventory_ui != null:
+		inventory_ui.visible = is_visible
+	if portrait_1_hotspot != null:
+		portrait_1_hotspot.visible = is_visible and is_portrait_1_interactive
+	if portrait_2_hotspot != null:
+		portrait_2_hotspot.visible = is_visible and is_portrait_2_interactive
+	if alcohol_hotspot != null:
+		alcohol_hotspot.visible = is_visible and is_alcohol_interactive
+	if hot_water_hotspot != null:
+		hot_water_hotspot.visible = is_visible and is_hot_water_interactive
 
 func _on_inventory_button_pressed() -> void:
 	_set_inventory_open(true)

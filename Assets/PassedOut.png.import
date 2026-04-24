@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j4psho1586k6"
-path="res://.godot/imported/Glass.png-70c2f28ceee1c26e3b7b092ec2e8dab2.ctex"
+uid="uid://4kkspxsmp0v8"
+path="res://.godot/imported/PassedOut.png-c07a477177d78bb297c1e4f780177f89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv4.godot/assets/Items/Glass.png"
-dest_files=["res://.godot/imported/Glass.png-70c2f28ceee1c26e3b7b092ec2e8dab2.ctex"]
+source_file="res://Assets/PassedOut.png"
+dest_files=["res://.godot/imported/PassedOut.png-c07a477177d78bb297c1e4f780177f89.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t5ti6sg0yjv6"
-path="res://.godot/imported/Driver Friend.png-db5a7594a3c461772629a12e9369714c.ctex"
+uid="uid://c3i5be8rysvvp"
+path="res://.godot/imported/Vicky Happy.png-db3d31ef08ca570b448113740be64f1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv4.godot/assets/Characters/Driver Friend.png"
-dest_files=["res://.godot/imported/Driver Friend.png-db5a7594a3c461772629a12e9369714c.ctex"]
+source_file="res://addons/arcweave/levelv5.godot/assets/Characters/Vicky Happy.png"
+dest_files=["res://.godot/imported/Vicky Happy.png-db3d31ef08ca570b448113740be64f1a.ctex"]
 
 [params]
 

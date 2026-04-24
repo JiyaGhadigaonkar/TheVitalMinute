@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm4oip6d0cmqk"
-path="res://.godot/imported/Inside Party.png-f8b8ca4f0d80979e6ada72284d169dc1.ctex"
+uid="uid://da5hew82pe76q"
+path="res://.godot/imported/Frank Shock.png-602265e644eef17b04b3aa380e981900.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv4.godot/assets/BG/Inside Party.png"
-dest_files=["res://.godot/imported/Inside Party.png-f8b8ca4f0d80979e6ada72284d169dc1.ctex"]
+source_file="res://addons/arcweave/levelv5.godot/assets/Characters/Frank Shock.png"
+dest_files=["res://.godot/imported/Frank Shock.png-602265e644eef17b04b3aa380e981900.ctex"]
 
 [params]
 

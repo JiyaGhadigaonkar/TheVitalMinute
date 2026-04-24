@@ -30,6 +30,7 @@ const FOOT_SCENE_TEXTURE = preload("res://Assets/Scene_Foot.png")
 const FOOT_WRAPPED_SCENE_TEXTURE = preload("res://Assets/Scene_Foot_Wrapped.png")
 const FOOT_PREVIEW_SOUND_PATH = "res://Assets/audio/foot_reveal.ogg"
 const BANDAGE_MINIGAME_SCENE = preload("res://minigametest.tscn")
+const TALK_BUBBLE_TEXTURE = preload("res://Assets/talk.png")
 const INVENTORY_ICON_TEXTURE = preload("res://Assets/tutorial_inventory.png")
 const INVENTORY_CLOSE_TEXTURE = preload("res://Assets/inventory_close.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")
@@ -55,11 +56,16 @@ const USE_NAPKINS_LABEL = "use napkins"
 const OPEN_PHONE_LABEL = "open phone"
 const WIN_GAME_LABEL = "win the game"
 const MISTAKES_WERE_MADE_LABEL = "mistakes were made"
+const TUTORIAL_LABEL = "tutorial"
+const SKIP_TO_LEVEL_1_LABEL = "skip to level 1"
 const MAIN_CHOICE_ELEMENT_ID = "126b988e-de6d-4ac7-bb37-8904d96075e1"
 const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
 const RETURN_TO_MAIN_SCENE_TEXT = "frank: ow, dammit! don't touch the knife!!"
+const RETURN_HOME_TEXT = "911-operator: \"we’re sending a unit over right now. please stay in place."
 const HEALTHPACK_HIT_PADDING = 36.0
 const CHAIR_HIT_PADDING = 48.0
+const CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(760.0, 120.0)
+const CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.22, 1.28)
 
 var arcweave_asset: ArcweaveAsset = preload("res://addons/arcweave/TutorialStory.tres")
 var Story = load("res://addons/arcweave/Story.cs")
@@ -151,6 +157,7 @@ func _ready():
 	_create_chair_hotspot()
 	_create_arrow_buttons()
 	_update_arrow_positions()
+	_configure_choice_container()
 	glass.is_interactive = false  # not clickable by default
 	project_data = arcweave_asset.project_settings
 	story = Story.new(project_data)
@@ -194,11 +201,36 @@ func clean_name(raw_name: String) -> String:
 		return raw_name.split("_")[0]
 	return raw_name
 
+func _escape_dialogue_bbcode(text: String) -> String:
+	return text.replace("[", "[lb]").replace("]", "[rb]")
+
+func _has_dialogue_speaker_prefix(text: String) -> bool:
+	var trimmed := text.strip_edges()
+	var colon_index := trimmed.find(":")
+	if colon_index <= 0:
+		return false
+
+	var prefix := trimmed.substr(0, colon_index).strip_edges()
+	if prefix.is_empty():
+		return false
+
+	var speaker_pattern := RegEx.new()
+	speaker_pattern.compile("^[A-Za-z0-9_ '\\-\\.\\\"]+$")
+	return speaker_pattern.search(prefix) != null
+
+func _format_dialogue_text(raw_text: String) -> String:
+	var escaped_text := _escape_dialogue_bbcode(raw_text.strip_edges())
+	if escaped_text.is_empty():
+		return ""
+	if _has_dialogue_speaker_prefix(raw_text):
+		return escaped_text
+	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % escaped_text
+
 func repaint():
 	_sync_scene_mode_with_story()
 	dialogue_text.bbcode_enabled = true
 	dialogue_text.add_theme_color_override("default_color", Color.BLACK)
-	dialogue_text.text = story.GetCurrentRuntimeContent().strip_edges()
+	dialogue_text.text = _format_dialogue_text(story.GetCurrentRuntimeContent())
 	
 	var comp_name = get_component_name_for_element()
 	var portrait_path = "res://Assets/portraits/" + comp_name + ".png"
@@ -239,6 +271,7 @@ func add_options():
 	
 	var has_object_paths = false
 	var has_frank_paths = false
+	var use_bubble_choices = _should_use_bubble_choices(paths)
 	for i in range(paths.size()):
 		if _is_glass_path(paths[i]):
 			has_object_paths = true
@@ -268,9 +301,10 @@ func add_options():
 		# Only add buttons for non-glass paths
 		for i in range(paths.size()):
 			if paths[i].IsValid and not _is_glass_path(paths[i]) and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]) and not _is_inventory_item_path(paths[i]) and not _is_bandage_result_path(paths[i]):
-				var button = Button.new()
-				button.text = _get_path_label_text(paths[i])
-				button.pressed.connect(_on_option_pressed.bind(i, paths))
+				var button = _create_choice_button(_get_path_label_text(paths[i]), i, paths) if use_bubble_choices else Button.new()
+				if not use_bubble_choices:
+					button.text = _get_path_label_text(paths[i])
+					button.pressed.connect(_on_option_pressed.bind(i, paths))
 				choice_container.add_child(button)
 		choice_container.visible = choice_container.get_child_count() > 0
 	elif paths.size() > 1:
@@ -280,9 +314,10 @@ func add_options():
 		choice_container.visible = true
 		for i in range(paths.size()):
 			if paths[i].IsValid and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]) and not _is_inventory_item_path(paths[i]) and not _is_bandage_result_path(paths[i]):
-				var button = Button.new()
-				button.text = _get_path_label_text(paths[i])
-				button.pressed.connect(_on_option_pressed.bind(i, paths))
+				var button = _create_choice_button(_get_path_label_text(paths[i]), i, paths) if use_bubble_choices else Button.new()
+				if not use_bubble_choices:
+					button.text = _get_path_label_text(paths[i])
+					button.pressed.connect(_on_option_pressed.bind(i, paths))
 				choice_container.add_child(button)
 		choice_container.visible = choice_container.get_child_count() > 0
 	else:
@@ -608,8 +643,9 @@ func _preview_wound_path(path):
 	_set_portrait_interactive(false)
 	_clear_active_arrows()
 	_play_foot_sound_once()
-	dialogue_text.text = story.GetCurrentRuntimeContent().strip_edges()
-	await get_tree().create_timer(_get_preview_duration(dialogue_text.text)).timeout
+	var preview_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	dialogue_text.text = _format_dialogue_text(preview_text)
+	await get_tree().create_timer(_get_preview_duration(preview_text)).timeout
 	story.LoadSave(saved_story)
 	background.texture = previous_background_texture
 	background.position = previous_background_position
@@ -1086,6 +1122,46 @@ func _set_portrait_interactive(value: bool):
 func _path_label_contains(path, text: String) -> bool:
 	return text in _normalize_label(path.label)
 
+func _should_use_bubble_choices(paths) -> bool:
+	if paths == null or paths.size() == 0:
+		return false
+	var normalized_labels := []
+	for path in paths:
+		if path == null or not path.IsValid:
+			continue
+		normalized_labels.append(_normalize_label(path.label))
+	return normalized_labels.has(TUTORIAL_LABEL) and normalized_labels.has(SKIP_TO_LEVEL_1_LABEL)
+
+func _create_choice_button(button_text: String, index, paths) -> TextureButton:
+	var button := TextureButton.new()
+	button.texture_normal = TALK_BUBBLE_TEXTURE
+	button.ignore_texture_size = true
+	button.stretch_mode = TextureButton.STRETCH_SCALE
+	button.custom_minimum_size = CHOICE_BUBBLE_LAYOUT_SIZE
+	button.size = CHOICE_BUBBLE_LAYOUT_SIZE
+	button.scale = CHOICE_BUBBLE_VISUAL_SCALE
+	button.mouse_filter = Control.MOUSE_FILTER_STOP
+	button.pressed.connect(_on_option_pressed.bind(index, paths))
+
+	var label := Label.new()
+	label.text = button_text
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.add_theme_color_override("font_color", Color.BLACK)
+	label.add_theme_font_size_override("font_size", 30)
+	label.position = Vector2(55.0, 22.0)
+	label.size = Vector2(CHOICE_BUBBLE_LAYOUT_SIZE.x - 80.0, CHOICE_BUBBLE_LAYOUT_SIZE.y - 28.0)
+	button.add_child(label)
+
+	return button
+
+func _configure_choice_container():
+	if choice_container == null:
+		return
+	choice_container.add_theme_constant_override("separation", -8)
+
 func _normalize_label(label) -> String:
 	if label == null:
 		return ""
@@ -1109,6 +1185,8 @@ func _get_path_label_text(path) -> String:
 	plain = plain.replace("<br>", " ")
 	plain = plain.replace("<br/>", " ")
 	plain = plain.replace("<br />", " ")
+	if _normalize_label(plain) == SKIP_TO_LEVEL_1_LABEL:
+		return "Level 1"
 	return plain.strip_edges()
 
 func _should_use_component_for_portrait(comp_name: String) -> bool:
@@ -1140,10 +1218,26 @@ func _on_portrait_gui_input(event):
 		on_frank_clicked()
 
 func _on_option_pressed(index, paths):
-	story.SelectPath(paths[index])
+	var selected_path = paths[index]
+	var selected_label = _normalize_label(selected_path.label)
+	if selected_label == SKIP_TO_LEVEL_1_LABEL:
+		get_tree().change_scene_to_file("res://level_1.tscn")
+		return
+	story.SelectPath(selected_path)
 	repaint()
 
 func _on_continue_pressed():
+	var current_text = story.GetCurrentRuntimeContent().strip_edges().to_lower()
+	if current_text == RETURN_HOME_TEXT:
+		story = Story.new(project_data)
+		current_view = "center"
+		world.position = default_world_position
+		_set_chair_interactive(false)
+		_set_healthpack_interactive(false)
+		_set_inventory_open(false)
+		_exit_wound_scene()
+		repaint()
+		return
 	var options = story.GenerateCurrentOptions()
 	var paths = options.Paths
 	if paths != null and paths.size() > 0:

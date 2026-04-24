@@ -31,10 +31,11 @@ var is_active         := true
 @onready var beat_light     : ColorRect   = $RhythmIndicator/BeatLight
 @onready var beat_timer     : Timer       = $BeatTimer
 @onready var chest_area     : Area2D      = $Patient/ChestArea
+@onready var chest_collision: CollisionShape2D = $Patient/ChestArea/CollisionShape2D
 @onready var patient_sprite : Node2D      = $Patient
-@onready var tick_sound     : AudioStreamPlayer = $TickSound  # optional – remove if unused
-@onready var good_sound     : AudioStreamPlayer = $GoodSound  # optional – remove if unused
-@onready var bad_sound      : AudioStreamPlayer = $BadSound   # optional – remove if unused
+@onready var tick_sound     : AudioStreamPlayer = get_node_or_null("TickSound") as AudioStreamPlayer
+@onready var good_sound     : AudioStreamPlayer = get_node_or_null("GoodSound") as AudioStreamPlayer
+@onready var bad_sound      : AudioStreamPlayer = get_node_or_null("BadSound") as AudioStreamPlayer
 
 # ─────────────────────────────────────────────
 #  READY
@@ -59,7 +60,18 @@ func _ready() -> void:
 	beat_light.color = Color.WHITE
 
 	# Connect chest click
+	chest_area.input_pickable = true
 	chest_area.input_event.connect(_on_chest_clicked)
+
+func _input(event: InputEvent) -> void:
+	if not is_active:
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if _is_event_on_chest(event.position):
+			do_compression()
+	elif event is InputEventScreenTouch and event.pressed:
+		if _is_event_on_chest(event.position):
+			do_compression()
 
 # ─────────────────────────────────────────────
 #  METRONOME PULSE  (visual guide for the player)
@@ -81,6 +93,24 @@ func _on_chest_clicked(_viewport: Node, event: InputEvent, _shape_idx: int) -> v
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		do_compression()
+	elif event is InputEventScreenTouch and event.pressed:
+		do_compression()
+
+func _is_event_on_chest(screen_position: Vector2) -> bool:
+	if chest_collision == null or chest_collision.shape == null or chest_collision.disabled:
+		return false
+
+	var local_position := chest_collision.global_transform.affine_inverse() * screen_position
+
+	if chest_collision.shape is RectangleShape2D:
+		var rect_shape := chest_collision.shape as RectangleShape2D
+		return abs(local_position.x) <= rect_shape.size.x * 0.5 and abs(local_position.y) <= rect_shape.size.y * 0.5
+
+	if chest_collision.shape is CircleShape2D:
+		var circle_shape := chest_collision.shape as CircleShape2D
+		return local_position.length() <= circle_shape.radius
+
+	return false
 
 # ─────────────────────────────────────────────
 #  CORE COMPRESSION LOGIC

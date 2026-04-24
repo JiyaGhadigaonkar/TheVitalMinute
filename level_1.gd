@@ -109,9 +109,6 @@ var inside_scene_default_positions := {}
 var active_cpr_minigame_root: Node
 var active_cpr_minigame: Node
 
-func _escape_dialogue_bbcode(text: String) -> String:
-	return text.replace("[", "[lb]").replace("]", "[rb]")
-
 func _has_dialogue_speaker_prefix(text: String) -> bool:
 	var trimmed := text.strip_edges()
 	var colon_index := trimmed.find(":")
@@ -123,16 +120,19 @@ func _has_dialogue_speaker_prefix(text: String) -> bool:
 		return false
 
 	var speaker_pattern := RegEx.new()
-	speaker_pattern.compile("^[A-Za-z0-9_ '\\-\\.\\\"]+$")
+	speaker_pattern.compile("^\\[?[A-Za-z0-9_ '\\-\\.\\\"]+\\]?$")
 	return speaker_pattern.search(prefix) != null
 
+func _sanitize_dialogue_text(raw_text: String) -> String:
+	return raw_text.strip_edges().replace(char(8), "").replace("\\b", "")
+
 func _format_dialogue_text(raw_text: String) -> String:
-	var escaped_text := _escape_dialogue_bbcode(raw_text.strip_edges())
-	if escaped_text.is_empty():
+	var sanitized_text := _sanitize_dialogue_text(raw_text)
+	if sanitized_text.is_empty():
 		return ""
 	if _has_dialogue_speaker_prefix(raw_text):
-		return escaped_text
-	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % escaped_text
+		return sanitized_text
+	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % sanitized_text
 
 func _ready() -> void:
 	if world != null:
@@ -1119,6 +1119,7 @@ func _start_cpr_minigame() -> void:
 	if active_cpr_minigame != null and active_cpr_minigame.has_signal("minigame_completed"):
 		active_cpr_minigame.minigame_completed.connect(_on_cpr_minigame_completed)
 	_set_main_scene_visible(false)
+	_set_main_scene_input_enabled(false)
 	if cursor_sprite != null:
 		cursor_sprite.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -1129,6 +1130,7 @@ func _end_cpr_minigame() -> void:
 	active_cpr_minigame_root = null
 	active_cpr_minigame = null
 	_set_main_scene_visible(true)
+	_set_main_scene_input_enabled(true)
 	if cursor_sprite != null:
 		cursor_sprite.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -1171,6 +1173,29 @@ func _set_main_scene_visible(is_visible: bool) -> void:
 		alcohol_hotspot.visible = is_visible and is_alcohol_interactive
 	if hot_water_hotspot != null:
 		hot_water_hotspot.visible = is_visible and is_hot_water_interactive
+
+func _set_main_scene_input_enabled(is_enabled: bool) -> void:
+	if advance_trigger != null:
+		if is_enabled:
+			advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP if advance_trigger.visible else Control.MOUSE_FILTER_IGNORE
+		else:
+			advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if portrait_1_hotspot != null:
+		portrait_1_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and is_portrait_1_interactive else Control.MOUSE_FILTER_IGNORE
+	if portrait_2_hotspot != null:
+		portrait_2_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and is_portrait_2_interactive else Control.MOUSE_FILTER_IGNORE
+	if alcohol_hotspot != null:
+		alcohol_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and is_alcohol_interactive else Control.MOUSE_FILTER_IGNORE
+	if hot_water_hotspot != null:
+		hot_water_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and is_hot_water_interactive else Control.MOUSE_FILTER_IGNORE
+	if inventory_button != null:
+		inventory_button.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled else Control.MOUSE_FILTER_IGNORE
+	if gauze_row != null:
+		gauze_row.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and inventory_popup_panel != null and inventory_popup_panel.visible and pending_gauze_path != null else Control.MOUSE_FILTER_IGNORE
+	if napkin_row != null:
+		napkin_row.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and inventory_popup_panel != null and inventory_popup_panel.visible and pending_napkins_path != null else Control.MOUSE_FILTER_IGNORE
+	if phone_row != null:
+		phone_row.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and inventory_popup_panel != null and inventory_popup_panel.visible and pending_phone_path != null else Control.MOUSE_FILTER_IGNORE
 
 func _on_inventory_button_pressed() -> void:
 	_set_inventory_open(true)

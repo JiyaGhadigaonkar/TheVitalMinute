@@ -201,9 +201,6 @@ func clean_name(raw_name: String) -> String:
 		return raw_name.split("_")[0]
 	return raw_name
 
-func _escape_dialogue_bbcode(text: String) -> String:
-	return text.replace("[", "[lb]").replace("]", "[rb]")
-
 func _has_dialogue_speaker_prefix(text: String) -> bool:
 	var trimmed := text.strip_edges()
 	var colon_index := trimmed.find(":")
@@ -215,16 +212,19 @@ func _has_dialogue_speaker_prefix(text: String) -> bool:
 		return false
 
 	var speaker_pattern := RegEx.new()
-	speaker_pattern.compile("^[A-Za-z0-9_ '\\-\\.\\\"]+$")
+	speaker_pattern.compile("^\\[?[A-Za-z0-9_ '\\-\\.\\\"]+\\]?$")
 	return speaker_pattern.search(prefix) != null
 
+func _sanitize_dialogue_text(raw_text: String) -> String:
+	return raw_text.strip_edges().replace(char(8), "").replace("\\b", "")
+
 func _format_dialogue_text(raw_text: String) -> String:
-	var escaped_text := _escape_dialogue_bbcode(raw_text.strip_edges())
-	if escaped_text.is_empty():
+	var sanitized_text := _sanitize_dialogue_text(raw_text)
+	if sanitized_text.is_empty():
 		return ""
 	if _has_dialogue_speaker_prefix(raw_text):
-		return escaped_text
-	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % escaped_text
+		return sanitized_text
+	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % sanitized_text
 
 func repaint():
 	_sync_scene_mode_with_story()
@@ -643,7 +643,7 @@ func _preview_wound_path(path):
 	_set_portrait_interactive(false)
 	_clear_active_arrows()
 	_play_foot_sound_once()
-	var preview_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	var preview_text: String = _sanitize_dialogue_text(story.GetCurrentRuntimeContent())
 	dialogue_text.text = _format_dialogue_text(preview_text)
 	await get_tree().create_timer(_get_preview_duration(preview_text)).timeout
 	story.LoadSave(saved_story)

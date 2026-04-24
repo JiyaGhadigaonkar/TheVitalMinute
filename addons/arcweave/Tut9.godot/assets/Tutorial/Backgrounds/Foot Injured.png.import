@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://camrpd7o2xh3j"
-path="res://.godot/imported/Glass.png-bdd812282b2ec605bcf4dfd73de8a0bf.ctex"
+uid="uid://cytf4d5iv2wg5"
+path="res://.godot/imported/Foot Injured.png-148f95a038fe1a2ad712ee914eaa023c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Items/Glass.png"
-dest_files=["res://.godot/imported/Glass.png-bdd812282b2ec605bcf4dfd73de8a0bf.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Backgrounds/Foot Injured.png"
+dest_files=["res://.godot/imported/Foot Injured.png-148f95a038fe1a2ad712ee914eaa023c.ctex"]
 
 [params]
 

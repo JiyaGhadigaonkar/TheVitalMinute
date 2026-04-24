@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d12bf5ke830td"
-path="res://.godot/imported/Phone.png-7b75bb9615b8abc3662d706601414123.ctex"
+uid="uid://drpv5xhbcgyk4"
+path="res://.godot/imported/Gauze.png-ca9dc8cf723be807cb929c2f2c75d91e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Items/Phone.png"
-dest_files=["res://.godot/imported/Phone.png-7b75bb9615b8abc3662d706601414123.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Items/Gauze.png"
+dest_files=["res://.godot/imported/Gauze.png-ca9dc8cf723be807cb929c2f2c75d91e.ctex"]
 
 [params]
 

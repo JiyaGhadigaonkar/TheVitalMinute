@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vlgr1mhllbtl"
-path="res://.godot/imported/Cutting Board.png-b0eb35da82d3c9bfb6aaadf1d357a9e8.ctex"
+uid="uid://cxrcjuuamfqlh"
+path="res://.godot/imported/Cutting Board.png-5c518e660cc1f572be85e6d9fcda7b1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Items/Cutting Board.png"
-dest_files=["res://.godot/imported/Cutting Board.png-b0eb35da82d3c9bfb6aaadf1d357a9e8.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Items/Cutting Board.png"
+dest_files=["res://.godot/imported/Cutting Board.png-5c518e660cc1f572be85e6d9fcda7b1c.ctex"]
 
 [params]
 

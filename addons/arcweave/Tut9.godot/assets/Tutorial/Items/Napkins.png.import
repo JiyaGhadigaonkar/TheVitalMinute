@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmfji6u5j4n1t"
-path="res://.godot/imported/Frank Shock Cropped.png-391f0df28b986cf51b224d2f89c8d986.ctex"
+uid="uid://b6tp23eiu8t1s"
+path="res://.godot/imported/Napkins.png-916945507aaeca540dffa982031067f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Characters/Cropped/Frank Shock Cropped.png"
-dest_files=["res://.godot/imported/Frank Shock Cropped.png-391f0df28b986cf51b224d2f89c8d986.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Items/Napkins.png"
+dest_files=["res://.godot/imported/Napkins.png-916945507aaeca540dffa982031067f5.ctex"]
 
 [params]
 

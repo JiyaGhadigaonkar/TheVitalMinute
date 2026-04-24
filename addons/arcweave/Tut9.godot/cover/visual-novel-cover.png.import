@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ggno0pf1eku"
-path="res://.godot/imported/Gauze.png-66bfe376b61bd71f51b374b871c631f9.ctex"
+uid="uid://dfdhybp46cccd"
+path="res://.godot/imported/visual-novel-cover.png-e5f615d6f08529c70b8deede5eb99211.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Items/Gauze.png"
-dest_files=["res://.godot/imported/Gauze.png-66bfe376b61bd71f51b374b871c631f9.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/cover/visual-novel-cover.png"
+dest_files=["res://.godot/imported/visual-novel-cover.png-e5f615d6f08529c70b8deede5eb99211.ctex"]
 
 [params]
 

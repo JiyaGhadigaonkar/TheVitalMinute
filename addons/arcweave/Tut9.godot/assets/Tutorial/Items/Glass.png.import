@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnffejqtjhj2l"
-path="res://.godot/imported/Frank Smile Cropped.png-af97369f13b24ff5941cd0a20582f32d.ctex"
+uid="uid://dgs1ibcrh300i"
+path="res://.godot/imported/Glass.png-eecd8fd21bf55ee511b031f9a1f83acd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Characters/Cropped/Frank Smile Cropped.png"
-dest_files=["res://.godot/imported/Frank Smile Cropped.png-af97369f13b24ff5941cd0a20582f32d.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Items/Glass.png"
+dest_files=["res://.godot/imported/Glass.png-eecd8fd21bf55ee511b031f9a1f83acd.ctex"]
 
 [params]
 

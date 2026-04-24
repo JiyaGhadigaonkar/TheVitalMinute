@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cecb0f3dcrehs"
-path="res://.godot/imported/First Aid Kit.png-9f83c2feb074485da20cf27b622e098a.ctex"
+uid="uid://dijj4pcv6juth"
+path="res://.godot/imported/Frank Smile.png-217ada2d300cebe89892663b4d07078d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Items/First Aid Kit.png"
-dest_files=["res://.godot/imported/First Aid Kit.png-9f83c2feb074485da20cf27b622e098a.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Characters/Frank Smile.png"
+dest_files=["res://.godot/imported/Frank Smile.png-217ada2d300cebe89892663b4d07078d.ctex"]
 
 [params]
 

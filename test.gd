@@ -14,6 +14,7 @@ extends Control
 @onready var inventory_items_container = $InventoryUI/InventoryPopup/ItemsContainer
 @onready var gauze_row = $InventoryUI/InventoryPopup/ItemsContainer/GauzeRow
 @onready var napkin_row = $InventoryUI/InventoryPopup/ItemsContainer/NapkinRow
+@onready var phone_row = $InventoryUI/InventoryPopup/ItemsContainer/PhoneRow
 @onready var glass = $World/Glass
 @onready var healthpack = $World/Healthpack
 @onready var chair = $World/Chair
@@ -51,10 +52,12 @@ const CLICK_CHAIR_LABEL = "click chair"
 const INSPECT_WOUND_LABEL = "inspect wound"
 const USE_GAUZE_LABEL = "use gauze"
 const USE_NAPKINS_LABEL = "use napkins"
+const OPEN_PHONE_LABEL = "open phone"
 const WIN_GAME_LABEL = "win the game"
 const MISTAKES_WERE_MADE_LABEL = "mistakes were made"
 const MAIN_CHOICE_ELEMENT_ID = "126b988e-de6d-4ac7-bb37-8904d96075e1"
 const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
+const RETURN_TO_MAIN_SCENE_TEXT = "frank: ow, dammit! don't touch the knife!!"
 const HEALTHPACK_HIT_PADDING = 36.0
 const CHAIR_HIT_PADDING = 48.0
 
@@ -82,6 +85,7 @@ var pending_healthpack_path = null
 var pending_chair_path = null
 var pending_gauze_path = null
 var pending_napkins_path = null
+var pending_phone_path = null
 var pending_bandage_success_path = null
 var pending_bandage_fail_path = null
 var is_healthpack_interactive := false
@@ -218,6 +222,7 @@ func add_options():
 	pending_chair_path = null
 	pending_gauze_path = null
 	pending_napkins_path = null
+	pending_phone_path = null
 	pending_bandage_success_path = null
 	pending_bandage_fail_path = null
 	
@@ -245,6 +250,8 @@ func add_options():
 			pending_gauze_path = paths[i]
 		if _is_use_napkins_path(paths[i]):
 			pending_napkins_path = paths[i]
+		if _is_open_phone_path(paths[i]):
+			pending_phone_path = paths[i]
 		if _is_bandage_success_path(paths[i]):
 			pending_bandage_success_path = paths[i]
 		if _is_bandage_fail_path(paths[i]):
@@ -298,6 +305,12 @@ func add_options():
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_set_portrait_interactive(false)
 		_set_chair_interactive(true)
+
+	if pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null:
+		choice_container.visible = false
+		advance_trigger.visible = false
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_set_portrait_interactive(false)
 
 	_set_inventory_item_interactivity()
 	_refresh_navigation_arrows()
@@ -443,8 +456,11 @@ func _is_use_gauze_path(path) -> bool:
 func _is_use_napkins_path(path) -> bool:
 	return _normalize_label(path.label) == USE_NAPKINS_LABEL
 
+func _is_open_phone_path(path) -> bool:
+	return _normalize_label(path.label) == OPEN_PHONE_LABEL
+
 func _is_inventory_item_path(path) -> bool:
-	return _is_use_gauze_path(path) or _is_use_napkins_path(path)
+	return _is_use_gauze_path(path) or _is_use_napkins_path(path) or _is_open_phone_path(path)
 
 func _is_bandage_success_path(path) -> bool:
 	return _normalize_label(path.label) == WIN_GAME_LABEL
@@ -628,13 +644,13 @@ func _exit_wound_scene():
 
 func _show_foot_background():
 	background.texture = FOOT_SCENE_TEXTURE
-	background.position = default_background_position
-	background.size = default_background_size
+	background.position = Vector2.ZERO
+	background.size = get_viewport_rect().size
 
 func _show_wrapped_foot_background():
 	background.texture = FOOT_WRAPPED_SCENE_TEXTURE
-	background.position = default_background_position
-	background.size = default_background_size
+	background.position = Vector2.ZERO
+	background.size = get_viewport_rect().size
 
 func _restore_default_background():
 	background.texture = default_background_texture
@@ -649,7 +665,10 @@ func _play_foot_sound_once():
 		has_played_foot_sound = true
 
 func _sync_scene_mode_with_story():
-	if is_wound_scene_active and story.GetCurrentElement().Id == MAIN_CHOICE_ELEMENT_ID:
+	if not is_wound_scene_active:
+		return
+	var current_text = story.GetCurrentRuntimeContent().strip_edges().to_lower()
+	if story.GetCurrentElement().Id == MAIN_CHOICE_ELEMENT_ID or current_text == RETURN_TO_MAIN_SCENE_TEXT:
 		_exit_wound_scene()
 
 func _begin_healthpack_pan(path):
@@ -744,6 +763,7 @@ func _end_bandage_minigame():
 	active_bandage_minigame = null
 	_set_main_scene_visible(true)
 	cursor_sprite.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	set_default_cursor()
 
 func _on_bandage_minigame_completed():
@@ -904,20 +924,27 @@ func _configure_inventory_rows():
 	var gauze_label = inventory_items_container.get_node("GauzeRow/Label")
 	var napkin_icon = inventory_items_container.get_node("NapkinRow/Icon")
 	var napkin_label = inventory_items_container.get_node("NapkinRow/Label")
+	var phone_icon = inventory_items_container.get_node("PhoneRow/Icon")
+	var phone_label = inventory_items_container.get_node("PhoneRow/Label")
 	gauze_icon.texture = GAUZE_TEXTURE
 	napkin_icon.texture = NAPKINS_TEXTURE
 	gauze_label.text = "Gauze"
 	napkin_label.text = "Napkin"
-	for node in [gauze_icon, gauze_label, napkin_icon, napkin_label]:
+	phone_label.text = "Phone"
+	for node in [gauze_icon, gauze_label, napkin_icon, napkin_label, phone_icon, phone_label]:
 		node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	gauze_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	napkin_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	phone_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	gauze_row.gui_input.connect(_on_gauze_row_gui_input)
 	napkin_row.gui_input.connect(_on_napkin_row_gui_input)
+	phone_row.gui_input.connect(_on_phone_row_gui_input)
 	gauze_row.mouse_entered.connect(_on_gauze_row_mouse_entered)
 	gauze_row.mouse_exited.connect(_on_inventory_row_mouse_exited)
 	napkin_row.mouse_entered.connect(_on_napkin_row_mouse_entered)
 	napkin_row.mouse_exited.connect(_on_inventory_row_mouse_exited)
+	phone_row.mouse_entered.connect(_on_phone_row_mouse_entered)
+	phone_row.mouse_exited.connect(_on_inventory_row_mouse_exited)
 
 func _on_inventory_button_pressed():
 	print("INVENTORY OPEN TRIGGERED")
@@ -932,10 +959,11 @@ func _on_gauze_row_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
 		var selected_path = pending_gauze_path
 		_set_inventory_open(false)
-		current_view = "center"
-		world.position = default_world_position
-		_set_chair_interactive(false)
-		_set_healthpack_interactive(false)
+		if not is_wound_scene_active:
+			current_view = "center"
+			world.position = default_world_position
+			_set_chair_interactive(false)
+			_set_healthpack_interactive(false)
 		story.SelectPath(selected_path)
 		repaint()
 
@@ -944,6 +972,20 @@ func _on_napkin_row_gui_input(event):
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
 		var selected_path = pending_napkins_path
+		_set_inventory_open(false)
+		if not is_wound_scene_active:
+			current_view = "center"
+			world.position = default_world_position
+			_set_chair_interactive(false)
+			_set_healthpack_interactive(false)
+		story.SelectPath(selected_path)
+		repaint()
+
+func _on_phone_row_gui_input(event):
+	if pending_phone_path == null:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		var selected_path = pending_phone_path
 		_set_inventory_open(false)
 		current_view = "center"
 		world.position = default_world_position
@@ -964,9 +1006,16 @@ func _on_napkin_row_mouse_entered():
 	napkin_row.modulate = HOVER_PORTRAIT_TINT
 	set_object_cursor()
 
+func _on_phone_row_mouse_entered():
+	if pending_phone_path == null:
+		return
+	phone_row.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
 func _on_inventory_row_mouse_exited():
 	gauze_row.modulate = Color.WHITE
 	napkin_row.modulate = Color.WHITE
+	phone_row.modulate = Color.WHITE
 	set_default_cursor()
 
 func _on_inventory_hotspot_mouse_entered():
@@ -992,14 +1041,17 @@ func _set_inventory_open(is_open: bool):
 	_set_inventory_item_interactivity()
 
 func _set_inventory_item_interactivity():
-	if not inventory_popup_panel.visible and pending_gauze_path == null and pending_napkins_path == null:
+	if not inventory_popup_panel.visible and pending_gauze_path == null and pending_napkins_path == null and pending_phone_path == null:
 		gauze_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		napkin_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		phone_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	else:
 		gauze_row.mouse_filter = Control.MOUSE_FILTER_STOP if pending_gauze_path != null else Control.MOUSE_FILTER_IGNORE
 		napkin_row.mouse_filter = Control.MOUSE_FILTER_STOP if pending_napkins_path != null else Control.MOUSE_FILTER_IGNORE
+		phone_row.mouse_filter = Control.MOUSE_FILTER_STOP if pending_phone_path != null else Control.MOUSE_FILTER_IGNORE
 	gauze_row.modulate = Color.WHITE
 	napkin_row.modulate = Color.WHITE
+	phone_row.modulate = Color.WHITE
 
 func _set_world_objects_visible(is_visible: bool):
 	for child in world.get_children():
@@ -1095,9 +1147,10 @@ func _on_continue_pressed():
 	var options = story.GenerateCurrentOptions()
 	var paths = options.Paths
 	if paths != null and paths.size() > 0:
-		current_view = "center"
-		world.position = default_world_position
-		_set_chair_interactive(false)
-		_set_healthpack_interactive(false)
+		if not is_wound_scene_active:
+			current_view = "center"
+			world.position = default_world_position
+			_set_chair_interactive(false)
+			_set_healthpack_interactive(false)
 		story.SelectPath(paths[0])
 		repaint()

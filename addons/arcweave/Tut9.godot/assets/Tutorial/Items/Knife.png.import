@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxgxf6eho8vhy"
-path="res://.godot/imported/Kitchen Background.png-032b83c3b01139a9071ff2ea4d064b12.ctex"
+uid="uid://cypl8ytlddhfo"
+path="res://.godot/imported/Knife.png-d74a3caec7b26897b6580c9d5f25cd59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Backgrounds/Kitchen Background.png"
-dest_files=["res://.godot/imported/Kitchen Background.png-032b83c3b01139a9071ff2ea4d064b12.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Items/Knife.png"
+dest_files=["res://.godot/imported/Knife.png-d74a3caec7b26897b6580c9d5f25cd59.ctex"]
 
 [params]
 

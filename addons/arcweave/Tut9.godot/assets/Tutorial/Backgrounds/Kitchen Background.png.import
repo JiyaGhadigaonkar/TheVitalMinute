@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbxojrjnuhs6o"
-path="res://.godot/imported/Foot Injured.png-93d1d7a2f1fa6bd587d3bca0ac6733b9.ctex"
+uid="uid://c1gd3yk2yhm0f"
+path="res://.godot/imported/Kitchen Background.png-9da72a609c7fe9cc2ae147eecedf13c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Backgrounds/Foot Injured.png"
-dest_files=["res://.godot/imported/Foot Injured.png-93d1d7a2f1fa6bd587d3bca0ac6733b9.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Backgrounds/Kitchen Background.png"
+dest_files=["res://.godot/imported/Kitchen Background.png-9da72a609c7fe9cc2ae147eecedf13c2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6mb3lf6uslys"
-path="res://.godot/imported/Foot Wrapped.png-1e9b5adcaa9b576729e6e3cbfdecb8c7.ctex"
+uid="uid://eiri7uxj6mt2"
+path="res://.godot/imported/Chair.png-aefce1d17386acf889c3cf6d8608fa74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Backgrounds/Foot Wrapped.png"
-dest_files=["res://.godot/imported/Foot Wrapped.png-1e9b5adcaa9b576729e6e3cbfdecb8c7.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Items/Chair.png"
+dest_files=["res://.godot/imported/Chair.png-aefce1d17386acf889c3cf6d8608fa74.ctex"]
 
 [params]
 

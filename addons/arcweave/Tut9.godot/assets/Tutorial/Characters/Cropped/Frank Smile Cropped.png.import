@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc47d8ny1ai4p"
-path="res://.godot/imported/Chair.png-490cf599c1c4fef12284d04975e208a1.ctex"
+uid="uid://chu70532ifrcu"
+path="res://.godot/imported/Frank Smile Cropped.png-935848139bf852afb66aac72dc572321.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/Tut8.godot/assets/Tutorial/Items/Chair.png"
-dest_files=["res://.godot/imported/Chair.png-490cf599c1c4fef12284d04975e208a1.ctex"]
+source_file="res://addons/arcweave/Tut9.godot/assets/Tutorial/Characters/Cropped/Frank Smile Cropped.png"
+dest_files=["res://.godot/imported/Frank Smile Cropped.png-935848139bf852afb66aac72dc572321.ctex"]
 
 [params]
 

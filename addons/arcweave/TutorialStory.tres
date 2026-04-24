@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_lynat")
-project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/Tut8.godot/project.json"
+project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/Tut9.godot/project.json"
 project_settings = {
 "assets": {
 "18f8df1a-66c3-46c9-98ca-324a847e6fc0": {
@@ -507,7 +507,7 @@ project_settings = {
 "type": "Bezier"
 },
 "57564ff4-d557-4cc2-949d-854b191debc1": {
-"label": null,
+"label": "<p>Open Phone</p>",
 "sourceType": "elements",
 "sourceid": "1d52a7cb-6bc1-4479-a812-bd452ce1d4ad",
 "targetFace": "top",
@@ -1306,8 +1306,8 @@ project_settings = {
 },
 "autoHeight": true,
 "components": [],
-"content": "<p>The timer starts now. you can interact with your phone to call 911.</p>",
-"height": 121.0,
+"content": "<p>You can interact with your phone to call 911.</p>",
+"height": 227.0,
 "outputs": ["57564ff4-d557-4cc2-949d-854b191debc1"],
 "theme": "purple",
 "title": null,

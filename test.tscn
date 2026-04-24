@@ -28,18 +28,58 @@ script = ExtResource("2_ppyta")
 ArcweaveAsset = ExtResource("3_ykrsh")
 metadata/_custom_type_script = "uid://ch6p62juc6acm"
 
-[node name="Background" type="TextureRect" parent="." unique_id=639021278]
-layout_mode = 0
+[node name="World" type="Node2D" parent="." unique_id=1531423680]
+
+[node name="Background" type="TextureRect" parent="World" unique_id=639021278]
 offset_right = 4320.0
 offset_bottom = 1440.0
 texture = ExtResource("4_5tkv4")
 expand_mode = 1
 
+[node name="Chair" type="Sprite2D" parent="World" unique_id=2011640542]
+position = Vector2(3304.0002, 820.00006)
+scale = Vector2(0.8495218, 0.8495219)
+texture = ExtResource("5_ykrsh")
+
+[node name="Napkins" type="Sprite2D" parent="World" unique_id=1896403202]
+position = Vector2(1005, 416)
+scale = Vector2(0.28423232, 0.28423235)
+texture = ExtResource("7_77dp3")
+
+[node name="Healthpack" type="Sprite2D" parent="World" unique_id=647737841]
+position = Vector2(850, 401)
+scale = Vector2(0.38244072, 0.38244072)
+texture = ExtResource("6_g14j6")
+
+[node name="Cutting Board" type="Sprite2D" parent="World" unique_id=1913701622]
+position = Vector2(1432, 575)
+scale = Vector2(0.44375002, 0.44375002)
+texture = ExtResource("9_5tkv4")
+
+[node name="Knife" type="Sprite2D" parent="World" unique_id=2083365399]
+position = Vector2(1500, 555)
+scale = Vector2(0.3975, 0.3975)
+texture = ExtResource("10_0m0f1")
+
+[node name="Table" type="Sprite2D" parent="World" unique_id=1307480867]
+position = Vector2(3709.8484, 905.8983)
+scale = Vector2(0.91853535, 0.91853535)
+texture = ExtResource("6_0m0f1")
+
+[node name="Glass" type="TextureButton" parent="World" unique_id=1230891532]
+offset_left = 1168.9999
+offset_top = 431.0
+offset_right = 1590.9999
+offset_bottom = 975.0
+scale = Vector2(0.27962086, 0.2796209)
+texture_normal = ExtResource("11_b0q6j")
+script = ExtResource("12_0m0f1")
+
 [node name="Portrait" type="TextureRect" parent="." unique_id=1371913260]
 layout_mode = 0
-offset_left = 1768.0
+offset_left = 1000.0
 offset_top = 150.0
-offset_right = 2473.0
+offset_right = 1705.0
 offset_bottom = 2100.0
 scale = Vector2(0.8, 0.8)
 expand_mode = 3
@@ -50,30 +90,19 @@ offset_top = 450.0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Chair" type="Sprite2D" parent="." unique_id=2011640542]
-position = Vector2(3304.0002, 820.00006)
-scale = Vector2(0.8495218, 0.8495219)
-texture = ExtResource("5_ykrsh")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1307480867]
-position = Vector2(3709.8484, 905.8983)
-scale = Vector2(0.91853535, 0.91853535)
-texture = ExtResource("6_0m0f1")
-
 [node name="DialogueBox" type="TextureRect" parent="." unique_id=1080421011]
 layout_mode = 1
-offset_left = 726.0
 offset_top = 1094.0
-offset_right = 3796.0
+offset_right = 2100.0
 offset_bottom = 1419.0
 texture = ExtResource("6_vbegm")
 expand_mode = 1
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="." unique_id=539439990]
 layout_mode = 0
-offset_left = 1810.0
+offset_left = 1300.0
 offset_top = 550.0
-offset_right = 2610.0
+offset_right = 2100.0
 offset_bottom = 850.0
 
 [node name="AdvanceTrigger" type="Button" parent="." unique_id=1306178344]
@@ -86,48 +115,19 @@ flat = true
 
 [node name="DialogueText" type="RichTextLabel" parent="." unique_id=2109737371]
 layout_mode = 0
-offset_left = 858.0
+offset_left = 70.0
 offset_top = 1150.0
-offset_right = 3690.0
+offset_right = 2020.0
 offset_bottom = 1379.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 
 [node name="SpeakerName" type="RichTextLabel" parent="." unique_id=147294589]
+visible = false
 layout_mode = 0
 offset_left = 297.0
 offset_top = 1113.0
 offset_right = 1670.0
 offset_bottom = 1209.0
 bbcode_enabled = true
-
-[node name="Napkins" type="Sprite2D" parent="." unique_id=1896403202]
-position = Vector2(1005, 416)
-scale = Vector2(0.28423232, 0.28423235)
-texture = ExtResource("7_77dp3")
-
-[node name="Healthpack" type="Sprite2D" parent="." unique_id=647737841]
-position = Vector2(850, 401)
-scale = Vector2(0.38244072, 0.38244072)
-texture = ExtResource("6_g14j6")
-
-[node name="Cutting Board" type="Sprite2D" parent="." unique_id=1913701622]
-position = Vector2(1432, 575)
-scale = Vector2(0.44375002, 0.44375002)
-texture = ExtResource("9_5tkv4")
-
-[node name="Knife" type="Sprite2D" parent="." unique_id=2083365399]
-position = Vector2(1500, 555)
-scale = Vector2(0.3975, 0.3975)
-texture = ExtResource("10_0m0f1")
-
-[node name="Glass" type="TextureButton" parent="." unique_id=1230891532]
-layout_mode = 0
-offset_left = 1168.9999
-offset_top = 431.0
-offset_right = 1590.9999
-offset_bottom = 975.0
-scale = Vector2(0.27962086, 0.2796209)
-texture_normal = ExtResource("11_b0q6j")
-script = ExtResource("12_0m0f1")

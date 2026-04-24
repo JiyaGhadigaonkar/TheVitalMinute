@@ -1,12 +1,13 @@
 extends Control
 
-@onready var background = $Background
+@onready var background = $World/Background
 @onready var portrait = $Portrait
 @onready var speaker_name = $SpeakerName
 @onready var dialogue_text = $DialogueText
 @onready var choice_container = $ChoiceContainer
 @onready var advance_trigger = $AdvanceTrigger
-@onready var glass = $Glass
+@onready var glass = $World/Glass
+@onready var world = $World
 
 var arcweave_asset: ArcweaveAsset = preload("res://addons/arcweave/TutorialStory.tres")
 var Story = load("res://addons/arcweave/Story.cs")
@@ -14,11 +15,14 @@ var story
 var project_data: Dictionary
 
 func _ready():
-	Input.set_custom_mouse_cursor(load("res://Assets/cursors/resized_cursor_default.png"))
+	world.position.x = -1080
+	var img = Image.new()
+	img.load("res://Assets/cursors/resized_cursor_default.png")
+	Input.set_custom_mouse_cursor(img, Input.CURSOR_ARROW, Vector2(8, 0))
 	advance_trigger.pressed.connect(_on_continue_pressed)
 	advance_trigger.flat = true
 	advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
-	glass.is_interactive = true  # not clickable by default
+	glass.is_interactive = false  # not clickable by default
 	project_data = arcweave_asset.project_settings
 	story = Story.new(project_data)
 	repaint()
@@ -71,7 +75,7 @@ func add_options():
 		choice_container.visible = false
 		advance_trigger.visible = true
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
-		glass.is_interactive = true
+		glass.is_interactive = false
 		return
 	
 	var has_object_paths = false
@@ -92,8 +96,7 @@ func add_options():
 				button.pressed.connect(_on_option_pressed.bind(i, paths))
 				choice_container.add_child(button)
 	elif paths.size() > 1:
-		glass.is_interactive = true
-		print("Glass is now interactive: ", glass.is_interactive)
+		glass.is_interactive = false
 		advance_trigger.visible = false
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		choice_container.visible = true
@@ -104,8 +107,7 @@ func add_options():
 				button.pressed.connect(_on_option_pressed.bind(i, paths))
 				choice_container.add_child(button)
 	else:
-		glass.is_interactive = true
-		print("Glass is now interactive: ", glass.is_interactive)
+		glass.is_interactive = false
 		choice_container.visible = false
 		advance_trigger.visible = true
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP

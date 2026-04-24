@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="2_ppyta"]
 [ext_resource type="Resource" uid="uid://csmi01qdd1bu4" path="res://addons/arcweave/TutorialStory.tres" id="3_ykrsh"]
 [ext_resource type="Texture2D" uid="uid://gs5eyup4ramw" path="res://Assets/Environment_Tutorial_02_color_noTable.png" id="4_5tkv4"]
+[ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="4_a3se8"]
+[ext_resource type="Texture2D" uid="uid://1k4eknmovn00" path="res://Assets/inventory_close.png" id="5_uty7l"]
 [ext_resource type="Texture2D" uid="uid://cln7kxakg01cr" path="res://Assets/Item_Tutorial_Chair.png" id="5_ykrsh"]
 [ext_resource type="Texture2D" uid="uid://dtu1hwh10n17v" path="res://Assets/Item_Tutorial_Table.png" id="6_0m0f1"]
+[ext_resource type="Texture2D" uid="uid://blvhpv83xkoke" path="res://Assets/Item_Tutorial_Gauze.png" id="6_45l4g"]
 [ext_resource type="Texture2D" uid="uid://doco5q8mx8so0" path="res://Assets/Item_Tutorial_MedicalBag.png" id="6_g14j6"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="6_vbegm"]
 [ext_resource type="Texture2D" uid="uid://byqop1yosrvve" path="res://Assets/Item_Tutorial_Napkins.png" id="7_77dp3"]
@@ -41,11 +44,6 @@ position = Vector2(3304.0002, 820.00006)
 scale = Vector2(0.8495218, 0.8495219)
 texture = ExtResource("5_ykrsh")
 
-[node name="Napkins" type="Sprite2D" parent="World" unique_id=1896403202]
-position = Vector2(1005, 416)
-scale = Vector2(0.28423232, 0.28423235)
-texture = ExtResource("7_77dp3")
-
 [node name="Healthpack" type="Sprite2D" parent="World" unique_id=647737841]
 position = Vector2(850, 401)
 scale = Vector2(0.38244072, 0.38244072)
@@ -77,10 +75,10 @@ script = ExtResource("12_0m0f1")
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1371913260]
 layout_mode = 0
-offset_left = 1000.0
-offset_top = 150.0
-offset_right = 1705.0
-offset_bottom = 2100.0
+offset_left = 1300.0
+offset_top = 142.0
+offset_right = 2005.0
+offset_bottom = 2092.0
 scale = Vector2(0.8, 0.8)
 expand_mode = 3
 
@@ -112,6 +110,81 @@ offset_right = 4320.0
 offset_bottom = 1439.0
 focus_mode = 0
 flat = true
+
+[node name="InventoryUI" type="Control" parent="." unique_id=1542538323]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="InventoryButton" type="TextureButton" parent="InventoryUI" unique_id=975140147]
+layout_mode = 0
+offset_left = 2116.0
+offset_top = 23.0
+offset_right = 2716.0
+offset_bottom = 823.0
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_a3se8")
+
+[node name="InventoryPopup" type="Panel" parent="InventoryUI" unique_id=535031018]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="PopupBackground" type="TextureRect" parent="InventoryUI/InventoryPopup" unique_id=828248479]
+layout_mode = 0
+offset_left = 1716.9999
+offset_top = 133.0
+offset_right = 2365.0
+offset_bottom = 933.0
+rotation = 1.5707964
+scale = Vector2(1.7, 1.7)
+mouse_filter = 2
+texture = ExtResource("4_a3se8")
+
+[node name="ItemsContainer" type="VBoxContainer" parent="InventoryUI/InventoryPopup" unique_id=733354636]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 180.0
+offset_right = 1143.0
+offset_bottom = 1224.0
+scale = Vector2(0.43, 0.43)
+mouse_filter = 2
+
+[node name="GauzeRow" type="HBoxContainer" parent="InventoryUI/InventoryPopup/ItemsContainer" unique_id=891806867]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/InventoryPopup/ItemsContainer/GauzeRow" unique_id=585982573]
+layout_mode = 2
+texture = ExtResource("6_45l4g")
+
+[node name="Label" type="Label" parent="InventoryUI/InventoryPopup/ItemsContainer/GauzeRow" unique_id=2024787477]
+layout_mode = 2
+text = "Gauze"
+
+[node name="NapkinRow" type="HBoxContainer" parent="InventoryUI/InventoryPopup/ItemsContainer" unique_id=1184865430]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/InventoryPopup/ItemsContainer/NapkinRow" unique_id=244641646]
+layout_mode = 2
+texture = ExtResource("7_77dp3")
+
+[node name="Label" type="Label" parent="InventoryUI/InventoryPopup/ItemsContainer/NapkinRow" unique_id=36569702]
+layout_mode = 2
+text = "Napkins"
+
+[node name="CloseButton" type="TextureButton" parent="InventoryUI/InventoryPopup" unique_id=1478898314]
+layout_mode = 0
+offset_left = 1518.0
+offset_top = 210.0
+offset_right = 2500.0
+offset_bottom = 1192.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_uty7l")
 
 [node name="DialogueText" type="RichTextLabel" parent="." unique_id=2109737371]
 layout_mode = 0

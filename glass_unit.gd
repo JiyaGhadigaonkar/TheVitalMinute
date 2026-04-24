@@ -2,6 +2,7 @@ extends TextureButton
 
 const HOVER_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const DEFAULT_TINT = Color(1.0, 1.0, 1.0, 1.0)
+const HIT_PADDING = 70.0
 
 var is_interactive := false:
 	set(value):
@@ -35,7 +36,10 @@ func _on_pressed():
 		get_parent().get_parent().on_glass_clicked()
 
 func _has_point(point: Vector2) -> bool:
-	var hit_rect = Rect2(Vector2(-18, -18), size + Vector2(36, 36))
+	var hit_rect = Rect2(
+		Vector2(-HIT_PADDING, -HIT_PADDING),
+		size + Vector2(HIT_PADDING * 2.0, HIT_PADDING * 2.0)
+	)
 	return hit_rect.has_point(point)
 
 func _set_default_cursor():

@@ -1523,7 +1523,7 @@ project_settings = {
 "type": "Straight"
 },
 "3716cc5f-eefe-4c6c-ae66-7a26895fe168": {
-"label": "<p>(Right) Investigate Sink</p>",
+"label": "<p>(Right1) Investigate Sink</p>",
 "labelLocation": 0.60069444444444,
 "sourceType": "elements",
 "sourceid": "5d00bdb7-a34f-49e5-ad42-a7373f72f7f0",
@@ -1984,7 +1984,7 @@ project_settings = {
 "type": "Bezier"
 },
 "6cc8bd1c-eb44-4c50-993d-9fb3f73675cb": {
-"label": "<p>(Center)Investigate Wound</p>",
+"label": "<p>(Center1)Investigate Wound</p>",
 "labelLocation": 0.6972656,
 "sourceType": "elements",
 "sourceid": "5d00bdb7-a34f-49e5-ad42-a7373f72f7f0",
@@ -2363,7 +2363,7 @@ project_settings = {
 "type": "Straight"
 },
 "9df096fd-52e9-4912-8097-835d42505431": {
-"label": "<p>(Left) Grab Frank's Bag</p>",
+"label": "<p>(Left1) Grab Frank's Bag</p>",
 "labelLocation": 0.53553427419355,
 "sourceType": "elements",
 "sourceid": "5d00bdb7-a34f-49e5-ad42-a7373f72f7f0",

@@ -12,6 +12,8 @@ extends Control
 @onready var inventory_popup_background = $InventoryUI/InventoryPopup/PopupBackground
 @onready var inventory_close_button = $InventoryUI/InventoryPopup/CloseButton
 @onready var inventory_items_container = $InventoryUI/InventoryPopup/ItemsContainer
+@onready var gauze_row = $InventoryUI/InventoryPopup/ItemsContainer/GauzeRow
+@onready var napkin_row = $InventoryUI/InventoryPopup/ItemsContainer/NapkinRow
 @onready var glass = $World/Glass
 @onready var healthpack = $World/Healthpack
 @onready var chair = $World/Chair
@@ -24,7 +26,9 @@ const RIGHT_ARROW_TEXTURE = preload("res://Assets/arrows/right_arrow.png")
 const DOWN_ARROW_TEXTURE = preload("res://Assets/arrows/down_arrow.png")
 const UP_ARROW_TEXTURE = preload("res://Assets/arrows/up_arrow.png")
 const FOOT_SCENE_TEXTURE = preload("res://Assets/Scene_Foot.png")
+const FOOT_WRAPPED_SCENE_TEXTURE = preload("res://Assets/Scene_Foot_Wrapped.png")
 const FOOT_PREVIEW_SOUND_PATH = "res://Assets/audio/foot_reveal.ogg"
+const BANDAGE_MINIGAME_SCENE = preload("res://minigametest.tscn")
 const INVENTORY_ICON_TEXTURE = preload("res://Assets/tutorial_inventory.png")
 const INVENTORY_CLOSE_TEXTURE = preload("res://Assets/inventory_close.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")
@@ -45,7 +49,12 @@ const CENTER_WOUND_LABEL = "center investigate wound"
 const CENTER_TALK_LABEL = "center talk to frank"
 const CLICK_CHAIR_LABEL = "click chair"
 const INSPECT_WOUND_LABEL = "inspect wound"
+const USE_GAUZE_LABEL = "use gauze"
+const USE_NAPKINS_LABEL = "use napkins"
+const WIN_GAME_LABEL = "win the game"
+const MISTAKES_WERE_MADE_LABEL = "mistakes were made"
 const MAIN_CHOICE_ELEMENT_ID = "126b988e-de6d-4ac7-bb37-8904d96075e1"
+const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
 const HEALTHPACK_HIT_PADDING = 36.0
 const CHAIR_HIT_PADDING = 48.0
 
@@ -57,6 +66,7 @@ var cursor_sprite: TextureRect
 var current_portrait_name := ""
 var is_portrait_interactive := false
 var default_background_texture: Texture2D
+var default_background_position := Vector2.ZERO
 var default_background_size := Vector2.ZERO
 var default_world_position := Vector2.ZERO
 var default_portrait_position := Vector2.ZERO
@@ -67,18 +77,28 @@ var is_showing_wound_preview := false
 var foot_preview_player: AudioStreamPlayer
 var healthpack_hotspot: TextureButton
 var chair_hotspot: TextureButton
+var inventory_hotspot: Button
 var pending_healthpack_path = null
 var pending_chair_path = null
+var pending_gauze_path = null
+var pending_napkins_path = null
+var pending_bandage_success_path = null
+var pending_bandage_fail_path = null
 var is_healthpack_interactive := false
 var is_chair_interactive := false
 var is_wound_scene_active := false
 var current_view := "center"
-var inventory_click_area: Button
+var was_left_mouse_down := false
+var has_played_foot_sound := false
+var active_bandage_minigame_root: Node
+var active_bandage_minigame: Node
+var last_bandage_minigame_trigger_text := ""
 
 func _ready():
 	world.position.x = -1080
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	default_background_texture = background.texture
+	default_background_position = background.position
 	default_background_size = background.size
 	default_world_position = world.position
 	default_portrait_position = portrait.position
@@ -99,8 +119,10 @@ func _ready():
 	portrait.gui_input.connect(_on_portrait_gui_input)
 	portrait.modulate = DEFAULT_PORTRAIT_TINT
 	inventory_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	inventory_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	inventory_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	inventory_button.pressed.connect(_on_inventory_button_pressed)
 	inventory_button.z_index = 250
+	inventory_button.ignore_texture_size = true
 	inventory_close_button.pressed.connect(_on_inventory_close_pressed)
 	inventory_ui.z_index = 200
 	inventory_popup_panel.z_index = 201
@@ -111,12 +133,12 @@ func _ready():
 	inventory_popup_background.visible = false
 	inventory_close_button.visible = false
 	inventory_items_container.visible = false
-	inventory_popup_panel.modulate = Color(1, 1, 1, 0)
+	inventory_popup_panel.modulate = Color(1, 1, 1, 1)
 	inventory_popup_background.rotation_degrees = 90
 	inventory_popup_background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_create_inventory_click_area()
-	_layout_inventory_ui()
+	inventory_popup_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_configure_inventory_rows()
+	_create_inventory_hotspot()
 	foot_preview_player = AudioStreamPlayer.new()
 	add_child(foot_preview_player)
 	if ResourceLoader.exists(FOOT_PREVIEW_SOUND_PATH):
@@ -133,16 +155,22 @@ func _ready():
 func _process(_delta):
 	if cursor_sprite == null:
 		return
-	cursor_sprite.position = get_viewport().get_mouse_position() - (CURSOR_HOTSPOT * CURSOR_SCALE)
+	var mouse_position = get_viewport().get_mouse_position()
+	cursor_sprite.position = mouse_position - (CURSOR_HOTSPOT * CURSOR_SCALE)
 	portrait.position = default_portrait_position + (world.position - default_world_position)
 	speaker_name.position = default_speaker_name_position
 	_update_healthpack_hotspot()
 	_update_chair_hotspot()
+	_update_inventory_hotspot()
+	_update_manual_hotspot_hover(mouse_position)
+	var is_left_mouse_down = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	if is_left_mouse_down and not was_left_mouse_down:
+		_handle_manual_hotspot_click(mouse_position)
+	was_left_mouse_down = is_left_mouse_down
 
 func _notification(what):
 	if what == NOTIFICATION_RESIZED:
 		_update_arrow_positions()
-		_layout_inventory_ui()
 
 func get_component_name_for_element() -> String:
 	var element = story.GetCurrentElement()
@@ -178,6 +206,7 @@ func repaint():
 		speaker_name.text = current_portrait_name
 	
 	add_options()
+	_maybe_trigger_bandage_minigame()
 
 func add_options():
 	for option in choice_container.get_children():
@@ -187,6 +216,10 @@ func add_options():
 	_set_healthpack_interactive(false)
 	_set_chair_interactive(false)
 	pending_chair_path = null
+	pending_gauze_path = null
+	pending_napkins_path = null
+	pending_bandage_success_path = null
+	pending_bandage_fail_path = null
 	
 	var options = story.GenerateCurrentOptions()
 	var paths = options.Paths
@@ -208,6 +241,14 @@ func add_options():
 			has_frank_paths = true
 		if _is_click_chair_path(paths[i]):
 			pending_chair_path = paths[i]
+		if _is_use_gauze_path(paths[i]):
+			pending_gauze_path = paths[i]
+		if _is_use_napkins_path(paths[i]):
+			pending_napkins_path = paths[i]
+		if _is_bandage_success_path(paths[i]):
+			pending_bandage_success_path = paths[i]
+		if _is_bandage_fail_path(paths[i]):
+			pending_bandage_fail_path = paths[i]
 		_register_arrow_path(paths[i])
 
 	_set_portrait_interactive(has_frank_paths)
@@ -219,7 +260,7 @@ func add_options():
 		glass.is_interactive = true
 		# Only add buttons for non-glass paths
 		for i in range(paths.size()):
-			if paths[i].IsValid and not _is_glass_path(paths[i]) and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]):
+			if paths[i].IsValid and not _is_glass_path(paths[i]) and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]) and not _is_inventory_item_path(paths[i]) and not _is_bandage_result_path(paths[i]):
 				var button = Button.new()
 				button.text = _get_path_label_text(paths[i])
 				button.pressed.connect(_on_option_pressed.bind(i, paths))
@@ -231,7 +272,7 @@ func add_options():
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		choice_container.visible = true
 		for i in range(paths.size()):
-			if paths[i].IsValid and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]):
+			if paths[i].IsValid and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]) and not _is_inventory_item_path(paths[i]) and not _is_bandage_result_path(paths[i]):
 				var button = Button.new()
 				button.text = _get_path_label_text(paths[i])
 				button.pressed.connect(_on_option_pressed.bind(i, paths))
@@ -258,6 +299,7 @@ func add_options():
 		_set_portrait_interactive(false)
 		_set_chair_interactive(true)
 
+	_set_inventory_item_interactivity()
 	_refresh_navigation_arrows()
 
 func on_glass_clicked():
@@ -395,6 +437,24 @@ func _is_arrow_path(path) -> bool:
 func _is_click_chair_path(path) -> bool:
 	return _normalize_label(path.label) == CLICK_CHAIR_LABEL
 
+func _is_use_gauze_path(path) -> bool:
+	return _normalize_label(path.label) == USE_GAUZE_LABEL
+
+func _is_use_napkins_path(path) -> bool:
+	return _normalize_label(path.label) == USE_NAPKINS_LABEL
+
+func _is_inventory_item_path(path) -> bool:
+	return _is_use_gauze_path(path) or _is_use_napkins_path(path)
+
+func _is_bandage_success_path(path) -> bool:
+	return _normalize_label(path.label) == WIN_GAME_LABEL
+
+func _is_bandage_fail_path(path) -> bool:
+	return _normalize_label(path.label) == MISTAKES_WERE_MADE_LABEL
+
+func _is_bandage_result_path(path) -> bool:
+	return _is_bandage_success_path(path) or _is_bandage_fail_path(path)
+
 func _is_arrow_direction_clickable(direction: String) -> bool:
 	if active_arrow_paths.has(direction):
 		return true
@@ -431,6 +491,24 @@ func _on_arrow_mouse_exited(direction: String):
 func _on_arrow_pressed(direction: String):
 	if not _is_arrow_direction_clickable(direction) or is_showing_wound_preview:
 		return
+	if active_arrow_paths.has(direction):
+		var directed_path = active_arrow_paths[direction]
+		var directed_label = _normalize_label(directed_path.label)
+		if directed_label == LEFT_BAG_LABEL:
+			_begin_healthpack_pan(directed_path)
+			return
+		if directed_label == RIGHT_SINK_LABEL:
+			story.SelectPath(directed_path)
+			repaint()
+			return
+		if directed_label == CENTER1_WOUND_LABEL:
+			_preview_wound_path(directed_path)
+			return
+		if directed_label == CENTER_WOUND_LABEL or directed_label == INSPECT_WOUND_LABEL:
+			story.SelectPath(directed_path)
+			_enter_wound_scene()
+			repaint()
+			return
 	if active_arrow_paths.has("down") and pending_chair_path == null:
 		if current_view == "center" and direction == "left":
 			current_view = "left"
@@ -488,33 +566,21 @@ func _on_arrow_pressed(direction: String):
 	if current_view == "left" and direction == "right" and pending_healthpack_path != null:
 		_return_to_center_view()
 		return
-	var path = active_arrow_paths[direction]
-	var label = _normalize_label(path.label)
-	if label == CENTER1_WOUND_LABEL:
-		_preview_wound_path(path)
-		return
-	if label == CENTER_WOUND_LABEL or label == INSPECT_WOUND_LABEL:
-		story.SelectPath(path)
-		_enter_wound_scene()
+	if active_arrow_paths.has(direction):
+		story.SelectPath(active_arrow_paths[direction])
 		repaint()
-		return
-	if label == LEFT_BAG_LABEL:
-		_begin_healthpack_pan(path)
-		return
-	story.SelectPath(path)
-	repaint()
 
 func _preview_wound_path(path):
 	is_showing_wound_preview = true
 	var saved_story = story.GetSave()
 	var previous_background_texture = background.texture
+	var previous_background_position = background.position
 	var previous_background_size = background.size
 	var previous_world_position = world.position
 	var previous_portrait_visible = portrait.visible
 	var previous_speaker_visible = speaker_name.visible
 	story.SelectPath(path)
-	background.texture = FOOT_SCENE_TEXTURE
-	background.size = FOOT_SCENE_TEXTURE.get_size()
+	_show_foot_background()
 	world.position = Vector2.ZERO
 	_set_world_objects_visible(false)
 	portrait.visible = false
@@ -525,12 +591,12 @@ func _preview_wound_path(path):
 	glass.is_interactive = false
 	_set_portrait_interactive(false)
 	_clear_active_arrows()
-	if foot_preview_player.stream != null:
-		foot_preview_player.play()
+	_play_foot_sound_once()
 	dialogue_text.text = story.GetCurrentRuntimeContent().strip_edges()
 	await get_tree().create_timer(_get_preview_duration(dialogue_text.text)).timeout
 	story.LoadSave(saved_story)
 	background.texture = previous_background_texture
+	background.position = previous_background_position
 	background.size = previous_background_size
 	world.position = previous_world_position
 	_set_world_objects_visible(true)
@@ -541,8 +607,7 @@ func _preview_wound_path(path):
 
 func _enter_wound_scene():
 	is_wound_scene_active = true
-	background.texture = FOOT_SCENE_TEXTURE
-	background.size = FOOT_SCENE_TEXTURE.get_size()
+	_show_foot_background()
 	world.position = Vector2.ZERO
 	_set_world_objects_visible(false)
 	portrait.visible = false
@@ -551,17 +616,37 @@ func _enter_wound_scene():
 	_set_healthpack_interactive(false)
 	_clear_active_arrows()
 	set_default_cursor()
-	if foot_preview_player.stream != null:
-		foot_preview_player.play()
+	_play_foot_sound_once()
 
 func _exit_wound_scene():
 	is_wound_scene_active = false
-	background.texture = default_background_texture
-	background.size = default_background_size
+	_restore_default_background()
 	world.position = default_world_position
 	current_view = "center"
 	_set_world_objects_visible(true)
 	portrait.visible = true
+
+func _show_foot_background():
+	background.texture = FOOT_SCENE_TEXTURE
+	background.position = default_background_position
+	background.size = default_background_size
+
+func _show_wrapped_foot_background():
+	background.texture = FOOT_WRAPPED_SCENE_TEXTURE
+	background.position = default_background_position
+	background.size = default_background_size
+
+func _restore_default_background():
+	background.texture = default_background_texture
+	background.position = default_background_position
+	background.size = default_background_size
+
+func _play_foot_sound_once():
+	if has_played_foot_sound:
+		return
+	if foot_preview_player.stream != null:
+		foot_preview_player.play()
+		has_played_foot_sound = true
 
 func _sync_scene_mode_with_story():
 	if is_wound_scene_active and story.GetCurrentElement().Id == MAIN_CHOICE_ELEMENT_ID:
@@ -591,9 +676,11 @@ func _create_healthpack_hotspot():
 	healthpack_hotspot.texture_normal = healthpack.texture
 	healthpack_hotspot.modulate = Color(1, 1, 1, 0.01)
 	healthpack_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP
+	healthpack_hotspot.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
 	healthpack_hotspot.visible = false
 	healthpack_hotspot.mouse_entered.connect(_on_healthpack_mouse_entered)
 	healthpack_hotspot.mouse_exited.connect(_on_healthpack_mouse_exited)
+	healthpack_hotspot.gui_input.connect(_on_healthpack_gui_input)
 	healthpack_hotspot.pressed.connect(_on_healthpack_pressed)
 	add_child(healthpack_hotspot)
 
@@ -602,11 +689,97 @@ func _create_chair_hotspot():
 	chair_hotspot.texture_normal = chair.texture
 	chair_hotspot.modulate = Color(1, 1, 1, 0.01)
 	chair_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP
+	chair_hotspot.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
 	chair_hotspot.visible = false
 	chair_hotspot.mouse_entered.connect(_on_chair_mouse_entered)
 	chair_hotspot.mouse_exited.connect(_on_chair_mouse_exited)
+	chair_hotspot.gui_input.connect(_on_chair_gui_input)
 	chair_hotspot.pressed.connect(_on_chair_pressed)
 	add_child(chair_hotspot)
+
+func _create_inventory_hotspot():
+	inventory_hotspot = Button.new()
+	inventory_hotspot.flat = true
+	inventory_hotspot.focus_mode = Control.FOCUS_NONE
+	inventory_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP
+	inventory_hotspot.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
+	inventory_hotspot.modulate = Color(1, 1, 1, 0.01)
+	inventory_hotspot.text = ""
+	inventory_hotspot.z_index = 260
+	inventory_hotspot.mouse_entered.connect(_on_inventory_hotspot_mouse_entered)
+	inventory_hotspot.mouse_exited.connect(_on_inventory_hotspot_mouse_exited)
+	inventory_hotspot.gui_input.connect(_on_inventory_hotspot_gui_input)
+	inventory_hotspot.pressed.connect(_on_inventory_button_pressed)
+	add_child(inventory_hotspot)
+
+func _maybe_trigger_bandage_minigame():
+	var current_text = story.GetCurrentRuntimeContent().strip_edges().to_lower()
+	if current_text != BANDAGE_MINIGAME_TRIGGER_TEXT:
+		if current_text != last_bandage_minigame_trigger_text:
+			last_bandage_minigame_trigger_text = ""
+		return
+	if active_bandage_minigame_root != null or last_bandage_minigame_trigger_text == current_text:
+		return
+	last_bandage_minigame_trigger_text = current_text
+	_start_bandage_minigame()
+
+func _start_bandage_minigame():
+	active_bandage_minigame_root = BANDAGE_MINIGAME_SCENE.instantiate()
+	add_child(active_bandage_minigame_root)
+	if active_bandage_minigame_root is CanvasItem:
+		active_bandage_minigame_root.visible = true
+		if "z_index" in active_bandage_minigame_root:
+			active_bandage_minigame_root.z_index = 500
+	active_bandage_minigame = active_bandage_minigame_root.get_node_or_null("Bandage MiniGame")
+	if active_bandage_minigame != null:
+		active_bandage_minigame.minigame_completed.connect(_on_bandage_minigame_completed)
+		active_bandage_minigame.minigame_failed.connect(_on_bandage_minigame_failed)
+	_set_main_scene_visible(false)
+	cursor_sprite.visible = false
+
+func _end_bandage_minigame():
+	if active_bandage_minigame_root != null:
+		active_bandage_minigame_root.queue_free()
+	active_bandage_minigame_root = null
+	active_bandage_minigame = null
+	_set_main_scene_visible(true)
+	cursor_sprite.visible = true
+	set_default_cursor()
+
+func _on_bandage_minigame_completed():
+	_end_bandage_minigame()
+	_show_wrapped_foot_background()
+	if pending_bandage_success_path != null:
+		story.SelectPath(pending_bandage_success_path)
+		repaint()
+	else:
+		_on_continue_pressed()
+
+func _on_bandage_minigame_failed():
+	_end_bandage_minigame()
+	_show_wrapped_foot_background()
+	if pending_bandage_fail_path != null:
+		story.SelectPath(pending_bandage_fail_path)
+		repaint()
+	else:
+		_on_continue_pressed()
+
+func _set_main_scene_visible(is_visible: bool):
+	world.visible = is_visible
+	portrait.visible = is_visible and not is_wound_scene_active
+	speaker_name.visible = false if not is_visible else speaker_name.visible
+	dialogue_text.visible = is_visible
+	choice_container.visible = is_visible and choice_container.visible
+	advance_trigger.visible = is_visible and advance_trigger.visible
+	inventory_ui.visible = is_visible
+	for button in arrow_buttons.values():
+		button.visible = is_visible and button.visible
+	if healthpack_hotspot != null:
+		healthpack_hotspot.visible = is_visible and is_healthpack_interactive
+	if chair_hotspot != null:
+		chair_hotspot.visible = is_visible and is_chair_interactive
+	if inventory_hotspot != null:
+		inventory_hotspot.visible = is_visible
 
 func _update_healthpack_hotspot():
 	if healthpack_hotspot == null or healthpack.texture == null:
@@ -621,6 +794,43 @@ func _update_chair_hotspot():
 	var texture_size = chair.texture.get_size() * chair.scale
 	chair_hotspot.size = texture_size + Vector2.ONE * CHAIR_HIT_PADDING * 2.0
 	chair_hotspot.position = chair.global_position - (texture_size / 2.0) - Vector2.ONE * CHAIR_HIT_PADDING
+
+func _update_inventory_hotspot():
+	if inventory_hotspot == null or inventory_button == null:
+		return
+	var button_rect = inventory_button.get_global_rect()
+	inventory_hotspot.position = button_rect.position
+	inventory_hotspot.size = button_rect.size
+
+func _update_manual_hotspot_hover(mouse_position: Vector2):
+	var hovering_healthpack = is_healthpack_interactive and _control_contains_mouse(healthpack_hotspot, mouse_position)
+	var hovering_chair = is_chair_interactive and _control_contains_mouse(chair_hotspot, mouse_position)
+	if hovering_healthpack:
+		healthpack.modulate = HOVER_PORTRAIT_TINT
+		set_object_cursor()
+	else:
+		healthpack.modulate = Color.WHITE
+	if hovering_chair:
+		chair.modulate = HOVER_PORTRAIT_TINT
+		set_object_cursor()
+	else:
+		chair.modulate = Color.WHITE
+
+func _handle_manual_hotspot_click(mouse_position: Vector2):
+	if inventory_popup_panel.visible and _control_contains_mouse(inventory_close_button, mouse_position):
+		_on_inventory_close_pressed()
+		return
+	if _control_contains_mouse(inventory_hotspot, mouse_position):
+		_on_inventory_button_pressed()
+		return
+	if is_healthpack_interactive and _control_contains_mouse(healthpack_hotspot, mouse_position):
+		_on_healthpack_pressed()
+		return
+	if is_chair_interactive and _control_contains_mouse(chair_hotspot, mouse_position):
+		_on_chair_pressed()
+
+func _control_contains_mouse(control: Control, mouse_position: Vector2) -> bool:
+	return control != null and control.visible and control.get_global_rect().has_point(mouse_position)
 
 func _set_healthpack_interactive(value: bool):
 	is_healthpack_interactive = value and pending_healthpack_path != null and not is_wound_scene_active
@@ -660,6 +870,10 @@ func _on_healthpack_pressed():
 	story.SelectPath(selected_path)
 	repaint()
 
+func _on_healthpack_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		_on_healthpack_pressed()
+
 func _on_chair_mouse_entered():
 	if not is_chair_interactive:
 		return
@@ -681,6 +895,10 @@ func _on_chair_pressed():
 	story.SelectPath(selected_path)
 	repaint()
 
+func _on_chair_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		_on_chair_pressed()
+
 func _configure_inventory_rows():
 	var gauze_icon = inventory_items_container.get_node("GauzeRow/Icon")
 	var gauze_label = inventory_items_container.get_node("GauzeRow/Label")
@@ -690,65 +908,98 @@ func _configure_inventory_rows():
 	napkin_icon.texture = NAPKINS_TEXTURE
 	gauze_label.text = "Gauze"
 	napkin_label.text = "Napkin"
-	gauze_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	napkin_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	gauze_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	napkin_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	gauze_icon.custom_minimum_size = Vector2(54, 54)
-	napkin_icon.custom_minimum_size = Vector2(54, 54)
-
-func _create_inventory_click_area():
-	inventory_click_area = Button.new()
-	inventory_click_area.flat = true
-	inventory_click_area.focus_mode = Control.FOCUS_NONE
-	inventory_click_area.mouse_filter = Control.MOUSE_FILTER_STOP
-	inventory_click_area.modulate = Color(1, 1, 1, 0.01)
-	inventory_click_area.text = ""
-	inventory_click_area.z_index = 260
-	inventory_click_area.pressed.connect(_on_inventory_button_pressed)
-	inventory_ui.add_child(inventory_click_area)
-
-func _layout_inventory_ui():
-	if inventory_ui == null or inventory_button == null or inventory_popup_panel == null or inventory_popup_background == null or inventory_close_button == null or inventory_items_container == null or inventory_click_area == null:
-		return
-	var viewport_size = get_viewport_rect().size
-	inventory_ui.position = Vector2.ZERO
-	inventory_ui.size = viewport_size
-	inventory_button.position = Vector2(viewport_size.x - 150, 24)
-	inventory_button.size = Vector2(108, 144)
-	inventory_button.scale = Vector2.ONE
-	inventory_button.pivot_offset = Vector2.ZERO
-	inventory_button.rotation_degrees = 0
-	inventory_button.ignore_texture_size = true
-	inventory_click_area.position = inventory_button.position
-	inventory_click_area.size = Vector2(108, 144)
-	inventory_popup_panel.position = Vector2.ZERO
-	inventory_popup_panel.size = viewport_size
-	inventory_popup_background.position = Vector2(1717, 133)
-	inventory_popup_background.size = Vector2(648, 800)
-	inventory_popup_background.scale = Vector2(1.7, 1.7)
-	inventory_popup_background.rotation_degrees = 90
-	inventory_popup_background.pivot_offset = Vector2.ZERO
-	inventory_close_button.position = Vector2(1518, 210)
-	inventory_close_button.size = Vector2(982, 982)
-	inventory_close_button.scale = Vector2(0.1, 0.1)
-	inventory_close_button.rotation_degrees = 0
-	inventory_items_container.position = Vector2(500, 180)
-	inventory_items_container.size = Vector2(643, 1044)
-	inventory_items_container.scale = Vector2(0.43, 0.43)
-	inventory_popup_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for node in [gauze_icon, gauze_label, napkin_icon, napkin_label]:
+		node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	gauze_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	napkin_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	gauze_row.gui_input.connect(_on_gauze_row_gui_input)
+	napkin_row.gui_input.connect(_on_napkin_row_gui_input)
+	gauze_row.mouse_entered.connect(_on_gauze_row_mouse_entered)
+	gauze_row.mouse_exited.connect(_on_inventory_row_mouse_exited)
+	napkin_row.mouse_entered.connect(_on_napkin_row_mouse_entered)
+	napkin_row.mouse_exited.connect(_on_inventory_row_mouse_exited)
 
 func _on_inventory_button_pressed():
+	print("INVENTORY OPEN TRIGGERED")
 	_set_inventory_open(true)
 
 func _on_inventory_close_pressed():
 	_set_inventory_open(false)
 
+func _on_gauze_row_gui_input(event):
+	if pending_gauze_path == null:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		var selected_path = pending_gauze_path
+		_set_inventory_open(false)
+		current_view = "center"
+		world.position = default_world_position
+		_set_chair_interactive(false)
+		_set_healthpack_interactive(false)
+		story.SelectPath(selected_path)
+		repaint()
+
+func _on_napkin_row_gui_input(event):
+	if pending_napkins_path == null:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		var selected_path = pending_napkins_path
+		_set_inventory_open(false)
+		current_view = "center"
+		world.position = default_world_position
+		_set_chair_interactive(false)
+		_set_healthpack_interactive(false)
+		story.SelectPath(selected_path)
+		repaint()
+
+func _on_gauze_row_mouse_entered():
+	if pending_gauze_path == null:
+		return
+	gauze_row.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_napkin_row_mouse_entered():
+	if pending_napkins_path == null:
+		return
+	napkin_row.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_inventory_row_mouse_exited():
+	gauze_row.modulate = Color.WHITE
+	napkin_row.modulate = Color.WHITE
+	set_default_cursor()
+
+func _on_inventory_hotspot_mouse_entered():
+	set_object_cursor()
+
+func _on_inventory_hotspot_mouse_exited():
+	set_default_cursor()
+
+func _on_inventory_hotspot_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		_on_inventory_button_pressed()
+
 func _set_inventory_open(is_open: bool):
+	print("SET INVENTORY OPEN: ", is_open)
 	inventory_popup_panel.visible = is_open
 	inventory_popup_background.visible = is_open
 	inventory_close_button.visible = is_open
 	inventory_items_container.visible = is_open
+	inventory_popup_panel.modulate = Color(1, 1, 1, 1)
+	inventory_popup_background.modulate = Color(1, 1, 1, 1)
+	inventory_close_button.modulate = Color(1, 1, 1, 1)
+	inventory_items_container.modulate = Color(1, 1, 1, 1)
+	_set_inventory_item_interactivity()
+
+func _set_inventory_item_interactivity():
+	if not inventory_popup_panel.visible and pending_gauze_path == null and pending_napkins_path == null:
+		gauze_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		napkin_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	else:
+		gauze_row.mouse_filter = Control.MOUSE_FILTER_STOP if pending_gauze_path != null else Control.MOUSE_FILTER_IGNORE
+		napkin_row.mouse_filter = Control.MOUSE_FILTER_STOP if pending_napkins_path != null else Control.MOUSE_FILTER_IGNORE
+	gauze_row.modulate = Color.WHITE
+	napkin_row.modulate = Color.WHITE
 
 func _set_world_objects_visible(is_visible: bool):
 	for child in world.get_children():
@@ -844,5 +1095,9 @@ func _on_continue_pressed():
 	var options = story.GenerateCurrentOptions()
 	var paths = options.Paths
 	if paths != null and paths.size() > 0:
+		current_view = "center"
+		world.position = default_world_position
+		_set_chair_interactive(false)
+		_set_healthpack_interactive(false)
 		story.SelectPath(paths[0])
 		repaint()

@@ -112,24 +112,34 @@ focus_mode = 0
 flat = true
 
 [node name="InventoryUI" type="Control" parent="." unique_id=1542538323]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
 [node name="InventoryButton" type="TextureButton" parent="InventoryUI" unique_id=975140147]
 layout_mode = 0
-offset_left = 2116.0
-offset_top = 23.0
-offset_right = 2716.0
-offset_bottom = 823.0
+offset_left = 1913.0
+offset_top = 17.0
+offset_right = 2140.0
+offset_bottom = 204.0
+ignore_texture_size = true
+
+[node name="InventoryButtonVisual" type="TextureRect" parent="InventoryUI/InventoryButton" unique_id=1493817217]
+layout_mode = 0
+offset_left = 228.0
+offset_top = -5.0
+offset_right = 828.0
+offset_bottom = 795.0
 rotation = 1.5707964
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("4_a3se8")
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+texture = ExtResource("4_a3se8")
 
 [node name="InventoryPopup" type="Panel" parent="InventoryUI" unique_id=535031018]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

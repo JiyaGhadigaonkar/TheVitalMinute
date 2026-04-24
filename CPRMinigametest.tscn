@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpft17pddxjs7"]
 
 [ext_resource type="Script" uid="uid://crwbfqtwerfnl" path="res://CPRMinigame.gd" id="1_wc2qv"]
-[ext_resource type="Texture2D" uid="uid://4kkspxsmp0v8" path="res://Assets/Scene_LVL1_CPR_01.png" id="2_wc2qv"]
+[ext_resource type="Texture2D" uid="uid://4kkspxsmp0v8" path="res://Assets/PassedOut.png" id="2_wc2qv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc2qv"]
 size = Vector2(24.361275, 32.695602)
@@ -12,8 +12,8 @@ script = ExtResource("1_wc2qv")
 [node name="Background" type="Sprite2D" parent="." unique_id=191864376]
 
 [node name="Patient" type="Sprite2D" parent="." unique_id=1005720331]
-position = Vector2(433.99997, 289)
-scale = Vector2(0.40169427, 0.40169433)
+position = Vector2(1084.0848, 722.39)
+scale = Vector2(1.0036248, 1.0036249)
 texture = ExtResource("2_wc2qv")
 
 [node name="ChestArea" type="Area2D" parent="Patient" unique_id=1009522858]
@@ -23,6 +23,7 @@ position = Vector2(266.84167, -225.69235)
 rotation = 2.3282692
 scale = Vector2(20.000011, 20)
 shape = SubResource("RectangleShape2D_wc2qv")
+debug_color = Color(0.08330556, 0.60543656, 0.65322477, 0.41960785)
 
 [node name="RhythmIndicator" type="Node2D" parent="." unique_id=1707060410]
 

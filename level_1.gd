@@ -40,6 +40,7 @@ const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_defa
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
 const CPR_MINIGAME_SCENE = preload("res://CPRMinigametest.tscn")
 const PASSED_OUT_TEXTURE = preload("res://Assets/PassedOut.png")
+const VICTORY_TEXTURE = preload("res://Assets/Victory.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")
 const NAPKINS_TEXTURE = preload("res://Assets/Item_Tutorial_Napkins.png")
 const TALK_BUBBLE_TEXTURE = preload("res://Assets/talk.png")
@@ -67,6 +68,7 @@ const INSIDE_BACKGROUND_TRIGGER_TEXT = "Your friends go to party in some side ro
 const OUTSIDE_BACKGROUND_RETURN_TEXT = "Vicky: Hrrgh… I don’t wanna… Ugh… My head… hehe… Livvy.."
 const PASSED_OUT_BACKGROUND_TEXT = "Vicky vomits and passes out, collapsing on the floor. Liv catches them."
 const PASSED_OUT_BACKGROUND_END_TEXT = "Liv is holding Vicky steady on her side."
+const LEVEL_END_TRIGGER_TEXT = "Frank: What the heck happened here?!"
 const TWO_EXHAUSTED_PEOPLE_TEXT = "Suddenly, you see two people who seem very exhausted. They both appear to have trouble walking. You don't know who they are. Who do you help?"
 const ONLOOKER_ASSESSMENT_TEXT = "You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning. Someone has just walked over."
 const TALK_TO_ONLOOKER_LABEL = "talk to onlooker"
@@ -108,6 +110,8 @@ var is_hot_water_interactive := false
 var inside_scene_default_positions := {}
 var active_cpr_minigame_root: Node
 var active_cpr_minigame: Node
+var victory_overlay: TextureRect
+var is_showing_victory_screen := false
 
 func _has_dialogue_speaker_prefix(text: String) -> bool:
 	var trimmed := text.strip_edges()
@@ -153,6 +157,7 @@ func _ready() -> void:
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_create_cursor_sprite()
+	_create_victory_overlay()
 	_connect_ui()
 	_configure_choice_container()
 	_create_portrait_hotspots()
@@ -494,6 +499,18 @@ func _create_cursor_sprite() -> void:
 	cursor_sprite.scale = Vector2.ONE * CURSOR_SCALE
 	add_child(cursor_sprite)
 	_set_cursor_texture(DEFAULT_CURSOR_TEXTURE)
+
+func _create_victory_overlay() -> void:
+	victory_overlay = TextureRect.new()
+	victory_overlay.texture = VICTORY_TEXTURE
+	victory_overlay.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	victory_overlay.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	victory_overlay.anchor_right = 1.0
+	victory_overlay.anchor_bottom = 1.0
+	victory_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	victory_overlay.visible = false
+	victory_overlay.z_index = 900
+	add_child(victory_overlay)
 
 func _create_portrait_hotspots() -> void:
 	portrait_1_hotspot = _create_portrait_hotspot(_on_portrait_mouse_entered, _on_portrait_mouse_exited, _on_portrait_1_gui_input)
@@ -1090,6 +1107,15 @@ func _on_hot_water_pressed() -> void:
 	repaint()
 
 func _on_continue_pressed() -> void:
+	if is_showing_victory_screen:
+		get_tree().change_scene_to_file("res://test.tscn")
+		return
+
+	var current_text := _get_current_story_text()
+	if current_text == LEVEL_END_TRIGGER_TEXT:
+		_set_victory_screen_visible(true)
+		return
+
 	var options = story.GenerateCurrentOptions()
 	var paths = options.Paths
 	if paths != null and paths.size() > 0:
@@ -1173,6 +1199,38 @@ func _set_main_scene_visible(is_visible: bool) -> void:
 		alcohol_hotspot.visible = is_visible and is_alcohol_interactive
 	if hot_water_hotspot != null:
 		hot_water_hotspot.visible = is_visible and is_hot_water_interactive
+
+func _set_victory_screen_visible(is_visible: bool) -> void:
+	is_showing_victory_screen = is_visible
+	if victory_overlay != null:
+		victory_overlay.visible = is_visible
+	if world != null:
+		world.visible = not is_visible
+	if portrait_1 != null:
+		portrait_1.visible = not is_visible and portrait_1.visible
+	if portrait_2 != null:
+		portrait_2.visible = not is_visible and portrait_2.visible
+	if dialogue_box != null:
+		dialogue_box.visible = not is_visible
+	if dialogue_text != null:
+		dialogue_text.visible = not is_visible
+	if speaker_name != null:
+		speaker_name.visible = not is_visible and speaker_name.visible
+	if choice_container != null and is_visible:
+		choice_container.visible = false
+	if inventory_ui != null and is_visible:
+		inventory_ui.visible = false
+	if advance_trigger != null:
+		advance_trigger.visible = true if is_visible else advance_trigger.visible
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP if advance_trigger.visible else Control.MOUSE_FILTER_IGNORE
+	if portrait_1_hotspot != null and is_visible:
+		portrait_1_hotspot.visible = false
+	if portrait_2_hotspot != null and is_visible:
+		portrait_2_hotspot.visible = false
+	if alcohol_hotspot != null and is_visible:
+		alcohol_hotspot.visible = false
+	if hot_water_hotspot != null and is_visible:
+		hot_water_hotspot.visible = false
 
 func _set_main_scene_input_enabled(is_enabled: bool) -> void:
 	if advance_trigger != null:

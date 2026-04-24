@@ -4,137 +4,115 @@
 
 [resource]
 script = ExtResource("1_lynat")
-project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/TutorialBoard.godot/project.json"
+project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/TutP4.godot/project.json"
 project_settings = {
 "assets": {
 "1237dc8e-70e3-4f1a-88f9-5d32a3949fdb": {
-"name": "vicky_smile.png",
+"name": "Vicky Smile.png",
 "type": "image"
 },
 "125567b5-55dd-44f6-8406-b1166cab26ca": {
-"children": ["c15bbb95-2240-4c71-945b-f29a58c18a2c", "d66f6114-6c15-449c-bbb1-f59bc77a8552", "9d1fa42f-2d07-47cc-8264-f9caf8395ae3", "6c70e226-fd29-4993-ab71-ddaff1e21f96", "1237dc8e-70e3-4f1a-88f9-5d32a3949fdb", "f0bffec5-7453-48fb-a64e-ee02117ede65", "47236e83-3d4f-4a76-b702-ef0da77b7411", "18f3dbee-8360-43da-91f5-18bf4351b825"],
+"children": ["c15bbb95-2240-4c71-945b-f29a58c18a2c", "d66f6114-6c15-449c-bbb1-f59bc77a8552", "9d1fa42f-2d07-47cc-8264-f9caf8395ae3", "6c70e226-fd29-4993-ab71-ddaff1e21f96", "1237dc8e-70e3-4f1a-88f9-5d32a3949fdb", "84c2a99d-54e7-4abe-9e82-4220d8eb8f2a", "e339af62-80c6-4ca3-9e0a-db916962dcda", "47236e83-3d4f-4a76-b702-ef0da77b7411", "f0bffec5-7453-48fb-a64e-ee02117ede65", "18f3dbee-8360-43da-91f5-18bf4351b825"],
 "name": "Characters"
 },
 "18f3dbee-8360-43da-91f5-18bf4351b825": {
-"name": "olivia_shocked.png",
+"name": "Olivia Shocked.png",
 "type": "image"
 },
 "18f8df1a-66c3-46c9-98ca-324a847e6fc0": {
-"name": "Item_Tutorial_Napkins.png",
+"name": "Napkins.png",
 "type": "image"
 },
 "1b1bff15-567b-4d1e-9b09-3a6fe0a4895d": {
-"name": "Item_Tutorial_Chair.png",
+"name": "Chair.png",
 "type": "image"
 },
 "2f3894eb-abf8-4148-b7bb-12c47963dc0d": {
 "children": ["b970c173-c768-4c9c-a94f-beb8f3449714"],
 "name": "Backgrounds"
 },
-"310945cd-5e90-4af6-b7ba-ab269d123784": {
-"name": "classroom.png",
-"type": "template-image"
-},
 "34e5426f-ba26-479e-8a15-072a05309340": {
-"name": "Item_LVL1_RedCup.png",
+"name": "Solo Cups.png",
 "type": "image"
 },
 "39df425d-0787-4bff-a7b8-fa87f83eff20": {
-"name": "Item_Tutorial_Knife.png",
+"name": "Knife.png",
 "type": "image"
 },
 "4346cbbe-6a4b-48d7-9a47-a8360e209025": {
-"name": "frank-smile_cropped.png",
+"name": "Frank Smile Cropped.png",
 "type": "image"
 },
-"46dc1dc5-cb59-4f8a-99dd-52632bdb26b0": {
-"name": "sunset.png",
-"type": "template-image"
-},
 "47236e83-3d4f-4a76-b702-ef0da77b7411": {
-"name": "olivia_smile.png",
+"name": "Olivia Smile.png",
 "type": "image"
 },
 "4aa4504b-137c-42b5-af10-9e147970131c": {
 "children": ["6ddc0643-388a-4316-9ee2-2275a6ad9307", "878284b3-9cb7-4d48-9df1-8e04e856a31f", "34e5426f-ba26-479e-8a15-072a05309340", "98200647-4ab0-4f8a-9fc7-7d059d3760bf"],
 "name": "Items"
 },
-"588547a5-1c12-41bb-9596-2712de1dcf24": {
-"name": "home.mp3",
-"type": "template-audio",
-"volume": 1.0
-},
-"58b381d9-d28c-4c8a-8a38-a8bc42ff0e96": {
-"name": "festival.mp3",
-"type": "template-audio",
-"volume": 1.0
-},
 "5ada5bba-6a70-4c95-a354-3ffb0336bc06": {
-"name": "frank_smile.png",
+"name": "Frank Smile.png",
 "type": "image"
 },
 "60aac92c-ff94-4228-8e74-c9bf35d19589": {
-"name": "Item_Tutorial_Gauze.png",
+"name": "Gauze.png",
 "type": "image"
 },
 "647d0495-341f-42b2-8788-b47dace22bf8": {
-"children": ["feb8488f-f035-49db-977c-6b3d58a8c34e", "ac61c2c0-029f-4257-97e5-2b6a4833f82f", "fdadc71b-618b-43b5-b45f-d7703f5fc5f2", "6d053f80-6bb1-4c23-9249-1dbc238fdcb2"],
+"children": ["feb8488f-f035-49db-977c-6b3d58a8c34e", "ac61c2c0-029f-4257-97e5-2b6a4833f82f"],
 "root": true
 },
-"6c70e226-fd29-4993-ab71-ddaff1e21f96": {
-"name": "vicky_passedout.png",
+"66b32244-18fc-496a-97e0-10a77ce25d33": {
+"name": "Foot Wrapped.png",
 "type": "image"
 },
-"6d053f80-6bb1-4c23-9249-1dbc238fdcb2": {
-"children": ["7981bafc-4fcc-4780-99c8-99bd95c293d7", "46dc1dc5-cb59-4f8a-99dd-52632bdb26b0", "b6f13187-fd33-415a-828f-38343a856f98", "7801bdd7-f722-44d4-9a4b-d1d16e048586", "310945cd-5e90-4af6-b7ba-ab269d123784"],
-"name": "BG"
+"6c70e226-fd29-4993-ab71-ddaff1e21f96": {
+"name": "Vicky Passed Out.png",
+"type": "image"
 },
 "6ddc0643-388a-4316-9ee2-2275a6ad9307": {
-"name": "Item_LVL1_Water.png",
+"name": "Water Dispenser.png",
 "type": "image"
 },
 "7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd": {
-"name": "Environment_Tutorial_02.png",
+"name": "Kitchen Background.png",
 "type": "image"
 },
 "727b3d89-cdc2-4e5b-90c6-32e2cd13d287": {
-"name": "Item_Phone.png",
+"name": "Phone.png",
 "type": "image"
 },
 "75a1c945-95ab-454b-9644-b527ae3bf348": {
-"name": "frank_shocked.png",
+"name": "Frank Shocked.png",
 "type": "image"
 },
-"7708228e-b959-4747-83c1-90dbd30f8342": {
-"name": "silhouette-cropped.png",
+"84c2a99d-54e7-4abe-9e82-4220d8eb8f2a": {
+"name": "Driver Friend Normal.png",
 "type": "image"
-},
-"7801bdd7-f722-44d4-9a4b-d1d16e048586": {
-"name": "school.png",
-"type": "template-image"
-},
-"7981bafc-4fcc-4780-99c8-99bd95c293d7": {
-"name": "festival.png",
-"type": "template-image"
 },
 "878284b3-9cb7-4d48-9df1-8e04e856a31f": {
-"name": "Item_LVL1_Tea.png",
+"name": "Tea.png",
+"type": "image"
+},
+"8bfe7259-406b-4c69-8bd6-f6d566686dec": {
+"name": "Foot Injured.png",
 "type": "image"
 },
 "961709b1-f792-4398-9d5a-25ddafbd97d8": {
-"name": "Item_Tutorial_MedicalBag.png",
+"name": "First Aid Kit.png",
 "type": "image"
 },
 "98200647-4ab0-4f8a-9fc7-7d059d3760bf": {
-"name": "Item_LVL1_Punch.png",
+"name": "Punch Bowl.png",
 "type": "image"
 },
 "9d1fa42f-2d07-47cc-8264-f9caf8395ae3": {
-"name": "NPC_LVL1_Dee_Neutral_02.png",
+"name": "Lvl 1 NPC Neutral.png",
 "type": "image"
 },
 "9ecece18-11c0-44b0-852c-e0ec6c1f8733": {
-"name": "Item_Tutorial_CuttingBoard.png",
+"name": "Cutting Board.png",
 "type": "image"
 },
 "ac61c2c0-029f-4257-97e5-2b6a4833f82f": {
@@ -145,66 +123,48 @@ project_settings = {
 "children": ["f5efbea5-bf3d-4ddf-a3d5-18b5502c83af", "75a1c945-95ab-454b-9644-b527ae3bf348", "5ada5bba-6a70-4c95-a354-3ffb0336bc06"],
 "name": "Characters"
 },
-"b6f13187-fd33-415a-828f-38343a856f98": {
-"name": "home.png",
-"type": "template-image"
-},
 "b970c173-c768-4c9c-a94f-beb8f3449714": {
 "name": "temp-bg.jpeg",
 "type": "image"
 },
 "c15bbb95-2240-4c71-945b-f29a58c18a2c": {
-"name": "vicky_sick.png",
+"name": "Vicky Sick.png",
 "type": "image"
 },
-"caa99cda-776d-4bc0-a80d-72f0326f648a": {
-"name": "school.mp3",
-"type": "template-audio",
-"volume": 1.0
-},
 "ce8859c4-4407-4f48-a79e-0977e8ef2492": {
-"children": ["18f8df1a-66c3-46c9-98ca-324a847e6fc0", "961709b1-f792-4398-9d5a-25ddafbd97d8", "60aac92c-ff94-4228-8e74-c9bf35d19589", "fec63c8a-5677-410b-a418-5ab379ae348b", "f5aaf153-85d9-4d6e-9e36-02096b6a1139", "727b3d89-cdc2-4e5b-90c6-32e2cd13d287", "39df425d-0787-4bff-a7b8-fa87f83eff20", "1b1bff15-567b-4d1e-9b09-3a6fe0a4895d", "9ecece18-11c0-44b0-852c-e0ec6c1f8733"],
+"children": ["18f8df1a-66c3-46c9-98ca-324a847e6fc0", "961709b1-f792-4398-9d5a-25ddafbd97d8", "60aac92c-ff94-4228-8e74-c9bf35d19589", "fec63c8a-5677-410b-a418-5ab379ae348b", "727b3d89-cdc2-4e5b-90c6-32e2cd13d287", "39df425d-0787-4bff-a7b8-fa87f83eff20", "1b1bff15-567b-4d1e-9b09-3a6fe0a4895d", "9ecece18-11c0-44b0-852c-e0ec6c1f8733"],
 "name": "Items"
 },
 "cfbeebe5-35e9-43c7-8533-0982939dfdc7": {
-"name": "frank-shocked_cropped.png",
+"name": "Frank Shock Cropped.png",
 "type": "image"
 },
 "d66f6114-6c15-449c-bbb1-f59bc77a8552": {
-"name": "vicky_woozy.png",
+"name": "Vicky Woozy.png",
 "type": "image"
 },
 "dfe2edde-595a-4b5c-923b-a9de9a9d1ba6": {
-"children": ["7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd"],
+"children": ["7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd", "66b32244-18fc-496a-97e0-10a77ce25d33", "8bfe7259-406b-4c69-8bd6-f6d566686dec"],
 "name": "Backgrounds"
 },
-"f0bffec5-7453-48fb-a64e-ee02117ede65": {
-"name": "olivia_worried.png",
+"e339af62-80c6-4ca3-9e0a-db916962dcda": {
+"name": "Driver Friend Smiling.png",
 "type": "image"
 },
-"f489449a-b7ec-4a5a-b099-8badf2f51eea": {
-"name": "ending.mp3",
-"type": "template-audio",
-"volume": 1.0
-},
-"f5aaf153-85d9-4d6e-9e36-02096b6a1139": {
-"name": "Item_Tutorial_KnifeRack.png",
+"f0bffec5-7453-48fb-a64e-ee02117ede65": {
+"name": "Olivia Worried.png",
 "type": "image"
 },
 "f5efbea5-bf3d-4ddf-a3d5-18b5502c83af": {
-"children": ["7708228e-b959-4747-83c1-90dbd30f8342", "4346cbbe-6a4b-48d7-9a47-a8360e209025", "cfbeebe5-35e9-43c7-8533-0982939dfdc7"],
+"children": ["4346cbbe-6a4b-48d7-9a47-a8360e209025", "cfbeebe5-35e9-43c7-8533-0982939dfdc7"],
 "name": "Cropped"
-},
-"fdadc71b-618b-43b5-b45f-d7703f5fc5f2": {
-"children": ["588547a5-1c12-41bb-9596-2712de1dcf24", "f489449a-b7ec-4a5a-b099-8badf2f51eea", "caa99cda-776d-4bc0-a80d-72f0326f648a", "58b381d9-d28c-4c8a-8a38-a8bc42ff0e96"],
-"name": "Music"
 },
 "feb8488f-f035-49db-977c-6b3d58a8c34e": {
 "children": ["dfe2edde-595a-4b5c-923b-a9de9a9d1ba6", "ce8859c4-4407-4f48-a79e-0977e8ef2492", "acb0c1b2-893a-48d2-aab9-c37c1a298814"],
 "name": "Tutorial"
 },
 "fec63c8a-5677-410b-a418-5ab379ae348b": {
-"name": "Item_Tutorial_Glass.png",
+"name": "Glass.png",
 "type": "image"
 }
 },
@@ -466,7 +426,7 @@ project_settings = {
 "cType": "components",
 "name": "Siblings",
 "value": {
-"data": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c", "647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"data": [],
 "type": "component-list"
 }
 },
@@ -956,8 +916,8 @@ project_settings = {
 },
 "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
 "branches": [],
-"connections": ["4ab6a842-4a58-4144-babb-fe76bee42ae0", "51077c30-3bc3-427a-b1a1-8d6be26dc197", "520395c4-13c3-44ce-b9e2-edca4d8818c6", "b5f4e76d-4c12-4255-bdac-985f24ce0402", "d6cc1b3c-3e70-42db-9a76-6de8a3fa613a", "731033fb-21a5-4759-9b65-652a9d95ff73", "9b7812a5-cdfa-455a-b4ac-3dcae78e3fe5", "98596f5e-524d-46ec-9e56-13d991a41183", "e066ceb6-44a5-428e-90b7-cecd562444ad", "668858ed-64d2-4760-aad2-5ba40ae9c12f", "a6bf159b-3a6b-473a-939f-03e75a60b6b5", "0af43e10-76e9-493b-834b-2d84e3de1764", "835a6775-7d3d-4597-ad06-dc419b8609ad", "a5aa4c8b-41b3-434d-b2d3-c1ea6e4a5371", "a8003cc2-63d6-44d1-9862-bb62db0da2e6", "e45bfe4c-1970-4cc7-99b0-0d13da51a307", "61a670e3-b125-4090-b420-5fa7930353e1", "1eb63a9e-bf9f-452d-9abf-224120165b59", "19c6b2f2-82a4-48e1-be47-3dfd1e57a0ba", "e618df92-b7b5-41a9-b666-44b6e9c3911f", "b92e1b7a-cb86-45ab-933b-54112c3c4726", "5d41dc9d-4a64-43a6-96bc-7d422ccf13df", "fd477598-e20d-4800-bec9-0737569f29eb", "951f28cb-abac-479d-be0e-c44018495f19", "f5295702-ff34-4e28-8fd9-bf620d827eaf", "1bb47402-0783-4f77-a918-d028ee335b68", "953619ee-9ff6-43fd-a4d7-a971758bce61", "79fbfce3-9fdc-47ec-abc8-e5a1362f59b8", "45132518-c264-4e9c-970d-a2e2344b5689", "3b4de932-bb96-429d-8532-330345b41c07", "c03dfa90-f107-4738-b06f-629724aec3fc", "937258bf-5d30-40cb-a313-56d8deabf500", "d2a8c61c-e408-41cf-9c58-4005757ad976", "e767f066-b96d-4cc1-b6d7-39242d4ba6a9", "c4847666-002b-4715-b18b-ed0f50964ae7", "04415eb8-f39b-444e-8eca-59b9b9ae0b47", "623f1db5-de80-4339-9c74-ac5e4bdb8a5b", "635caecd-c6cb-4e6f-bfcb-8703d2e52278", "3aea1d43-49ba-4bb8-8452-a1e764f8a110", "624a9884-accc-47cb-9bf4-e53e7dd78f57", "77b03aad-2946-4fa2-84ad-01702e15ad28", "157ca548-e4e1-4ac6-87d6-749428776442", "d69d9bed-8d3b-48f5-b27c-8985bd0e45db", "0a6ec49c-3a10-4c10-b8ca-b010bf83fe89", "18797318-5210-4f00-8b57-7993a59d043a", "6ab68936-cb58-4370-b19c-4b6d055eb8f9", "9a28d341-e45b-4a31-b5dd-75ac4a548eb4", "8c66afbc-c52a-49dc-a440-2273d633f28c", "e6174613-35e3-4cce-ba2c-3a3b51bc077e", "72eda5eb-69cf-48af-a161-4562a681350c", "133b7bcb-b8b3-423f-9fd1-d05a59adff6b", "074c70ca-ce13-43ff-89cc-6a55052de40c", "a5525dc9-1f8b-4e5f-811a-b0db59d6cf78", "4e64ef52-638a-4461-9646-7885d4309069", "46d3341a-0d74-4438-a282-2ec06090d8e4", "dbe7fc16-15c8-4a8d-8309-a9c51607069b", "83325201-efa6-4b0b-95b7-2a65faca6ce5", "78ab6ff5-7a7f-4542-8568-630fb6d0ce58", "a1dd8c78-e892-4e42-943e-cda1454d65c5", "5d06bab1-d846-495a-aeda-7b9af9aba459", "dcaa2e2e-6efb-4e24-a38e-187142c39f8a", "88f54c6e-83c2-473a-ad1e-64eb6b17472f", "c6f68ac6-b347-43b5-96fc-024302da1b2f", "e895a2e7-4927-4713-81ed-15f06cb59c6d", "5d15615c-a3e1-4c92-8744-cecb335092e7", "175bdb53-d25d-46d6-b812-efd70e3dd713", "c6fbbbb0-4e03-4409-a63f-a087ff15f43e", "7807c813-5024-4ac3-8953-62528a4a6ddb", "a491a8bb-d7e5-4b61-a845-9284c9b711e8", "c3f4443f-1cf2-49c9-891b-3ba251ff86e7", "50a20ddc-0a6e-4167-a492-82263b536bd3", "2ddce3ab-be48-4167-a55a-42166b8766d0", "22fb6d27-be24-432b-8702-02756f965ffc", "674c1c5f-ed3a-46fb-9f63-0e1823202945", "965c85c4-15b2-4b52-8385-0047a5dfb6eb", "ae13a657-547f-40a6-a71e-27405c6328d5", "33f36a09-f0fd-4777-9375-4e16c43adb02", "d6807ac5-72a0-4aaa-aec3-f5afe4d81573", "d65a8a84-cfc4-4184-99c0-0195516108b2", "0feaa40a-8475-436c-8f4b-a769501737cf", "c5a85a61-1147-4514-8a19-5c0d8b10aba0", "846268b8-293f-49c8-9573-1dea6a33908c", "57564ff4-d557-4cc2-949d-854b191debc1", "6546a995-6004-4cfb-9093-d178e7b14ea0", "fd02a401-5432-4c87-9aab-c89f22763af8", "6cc8bd1c-eb44-4c50-993d-9fb3f73675cb", "3716cc5f-eefe-4c6c-ae66-7a26895fe168", "9df096fd-52e9-4912-8097-835d42505431", "073c059a-4a19-4f34-ab06-931c46c4ce3c", "0b1aa186-faa6-4912-acd2-67afb4f8ac97"],
-"elements": ["cb35db92-3c07-41bf-9c45-580ad6b891b4", "abb0f32e-b35f-4271-b631-5f0860fddd42", "35533a31-2b6e-4cf2-9bf9-a904836fc398", "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05", "5d00bdb7-a34f-49e5-ad42-a7373f72f7f0", "7886024f-0500-45ed-ba40-f917f91309ff", "aa7603c6-9af8-409b-90a2-3be46d2c0058", "f46f5121-88de-4522-98dc-634636069fec", "7ef975df-c200-4880-bfa0-de3375ec51b7", "906fcd94-d1eb-4e43-9b38-5f9b04b7eec2", "94c9601f-9d07-4292-af4e-51791102419f", "95f3587c-a200-4d83-81d3-cb031c1b82b9", "0ee54dbb-ac8f-47be-a6aa-8c5db6737ada", "4cb6e722-9a5a-44a6-9026-08fcc10f14e9", "dd571a37-d393-4fd1-af4e-06158b4d9447", "c0914a0d-a9dc-433c-81af-78bd13360ca3", "8a7b4525-e1fd-47e7-a14e-a2129d0f8e99", "264b7f5f-19ed-431d-b8fe-0512c0850262", "bbfa3db7-45f9-46ce-b8e5-4a3902901719", "cab1c5b6-3598-466e-b78b-e86e50eb0c46", "2d654f5d-6e4b-4e13-9879-ac83ca6694d0", "b626231f-e929-4430-a614-71c495290d67", "fead337b-50f4-4ba1-a8c5-41af245adaab", "894903cc-624b-4cc2-9170-e974e93bfee8", "c653f38a-3ad8-4124-8cc4-af31970928e7", "d4cc204b-19c7-4289-ac50-1917bd32633e", "f28349fa-f30e-40b2-8672-0426a7ee8ecd", "60b60fb6-7139-434c-8c99-42c07e98b8b7", "b62f67cd-a9f0-4dc2-815b-9c52606ec4c9", "32767a7c-9281-46ec-b409-e5098882aa0b", "33352d95-eca8-4f8f-89e1-676ddc632bc7", "60bf6b98-6c55-4d0e-823b-6b66a9b0276d", "6a7bac0f-4fd3-40df-b9b7-9aebb7ead273", "d5af295e-8291-408b-b973-2ba41b683eeb", "6e551804-2622-4b8d-a0ac-93e09986d429", "73185b22-b435-4677-8710-7f4bd24fe369", "0b751d7e-7752-4c4c-a989-5feca13e5267", "ab261dea-d34d-48a2-a0b3-602fe16bd0ec", "126b988e-de6d-4ac7-bb37-8904d96075e1", "5970adbb-e287-4026-95e4-519d31230547", "9bcd7db2-fb3e-4d42-bd6a-5562d25a42ba", "0dc8856e-915d-4721-91f1-751ac5a93006", "aa31e639-f2e6-4cec-aad6-bd3ca242e92e", "6eaff6ac-2fdb-437a-a351-e3980f5ca749", "f77e378b-0bcc-4387-9f13-7d20e483e596", "f77d2647-faa5-4ec5-b9cd-a1040808f9e4", "d3153f62-fb30-4b46-af95-69301cc571f4", "07f149ff-7b50-4a78-be69-d200f2c422e6", "f09dc359-b3f0-4671-a615-56f33d37f4bb", "8d3a8257-11b7-4606-bc22-c5f1fa7b2659", "2417cc0d-d6fb-46a1-a687-376405f9dab1", "b4be1236-9e81-4344-81eb-949e9b345c6b", "3a7710bf-eece-48d9-a816-e66750fcb1d2", "a2269b29-e0d1-42c8-9b76-67060018ed14", "ba2697a0-0367-442b-9101-038f069bfd6b", "440bfc44-bdc4-47c2-a6a4-5f31afb842a2", "15fe7685-9090-4750-9192-81ca573d84eb", "f7cb21fb-d8e8-449e-8772-a1679440ec94", "628acbcc-c916-452f-8a83-4f829dbd4995", "30611252-18d7-4d79-a1d1-a6244fa38792", "6869ccd3-7024-4783-bc22-def7dea947c0", "075df522-6a99-4c26-a4c8-d8c91fc3975c", "1884e9c7-6a24-4fcb-b7f3-d1d0d990e855", "962d91ed-0391-4eb6-85b9-75a9cb1c7903", "c83f7823-cb7f-4aa2-b125-15dd6b8e50ea", "372748f0-158b-4417-b930-cadd7aba3cbc", "39d35cf1-d157-4104-9e1d-7ea75daa1e42", "c4796d0a-083a-43eb-8d2b-5f97231fc55b", "4d849e11-d08a-4f3d-ab21-c04da9330ede", "867b2073-485c-4c59-8213-6d9233640544", "842d9061-b68d-45c8-9f65-3cd4ae422b5e", "0bd61532-189d-44eb-bf38-edfea9672dd9", "9ea70bad-8602-4b25-aad4-f0f9ca3f231d", "bd1832aa-19bb-48e7-a968-0228cda927ca", "67146f49-df84-4d89-9203-40a46b0c8fb3", "1d52a7cb-6bc1-4479-a812-bd452ce1d4ad", "6c00464c-e3f3-4462-8ede-ea8c2f4ed096"],
+"connections": ["4ab6a842-4a58-4144-babb-fe76bee42ae0", "51077c30-3bc3-427a-b1a1-8d6be26dc197", "520395c4-13c3-44ce-b9e2-edca4d8818c6", "b5f4e76d-4c12-4255-bdac-985f24ce0402", "d6cc1b3c-3e70-42db-9a76-6de8a3fa613a", "731033fb-21a5-4759-9b65-652a9d95ff73", "9b7812a5-cdfa-455a-b4ac-3dcae78e3fe5", "98596f5e-524d-46ec-9e56-13d991a41183", "e066ceb6-44a5-428e-90b7-cecd562444ad", "668858ed-64d2-4760-aad2-5ba40ae9c12f", "a6bf159b-3a6b-473a-939f-03e75a60b6b5", "0af43e10-76e9-493b-834b-2d84e3de1764", "835a6775-7d3d-4597-ad06-dc419b8609ad", "a5aa4c8b-41b3-434d-b2d3-c1ea6e4a5371", "a8003cc2-63d6-44d1-9862-bb62db0da2e6", "e45bfe4c-1970-4cc7-99b0-0d13da51a307", "61a670e3-b125-4090-b420-5fa7930353e1", "1eb63a9e-bf9f-452d-9abf-224120165b59", "19c6b2f2-82a4-48e1-be47-3dfd1e57a0ba", "e618df92-b7b5-41a9-b666-44b6e9c3911f", "b92e1b7a-cb86-45ab-933b-54112c3c4726", "5d41dc9d-4a64-43a6-96bc-7d422ccf13df", "fd477598-e20d-4800-bec9-0737569f29eb", "951f28cb-abac-479d-be0e-c44018495f19", "f5295702-ff34-4e28-8fd9-bf620d827eaf", "1bb47402-0783-4f77-a918-d028ee335b68", "953619ee-9ff6-43fd-a4d7-a971758bce61", "79fbfce3-9fdc-47ec-abc8-e5a1362f59b8", "45132518-c264-4e9c-970d-a2e2344b5689", "3b4de932-bb96-429d-8532-330345b41c07", "c03dfa90-f107-4738-b06f-629724aec3fc", "937258bf-5d30-40cb-a313-56d8deabf500", "d2a8c61c-e408-41cf-9c58-4005757ad976", "e767f066-b96d-4cc1-b6d7-39242d4ba6a9", "c4847666-002b-4715-b18b-ed0f50964ae7", "04415eb8-f39b-444e-8eca-59b9b9ae0b47", "623f1db5-de80-4339-9c74-ac5e4bdb8a5b", "635caecd-c6cb-4e6f-bfcb-8703d2e52278", "3aea1d43-49ba-4bb8-8452-a1e764f8a110", "77b03aad-2946-4fa2-84ad-01702e15ad28", "157ca548-e4e1-4ac6-87d6-749428776442", "d69d9bed-8d3b-48f5-b27c-8985bd0e45db", "0a6ec49c-3a10-4c10-b8ca-b010bf83fe89", "18797318-5210-4f00-8b57-7993a59d043a", "6ab68936-cb58-4370-b19c-4b6d055eb8f9", "9a28d341-e45b-4a31-b5dd-75ac4a548eb4", "8c66afbc-c52a-49dc-a440-2273d633f28c", "e6174613-35e3-4cce-ba2c-3a3b51bc077e", "72eda5eb-69cf-48af-a161-4562a681350c", "133b7bcb-b8b3-423f-9fd1-d05a59adff6b", "074c70ca-ce13-43ff-89cc-6a55052de40c", "a5525dc9-1f8b-4e5f-811a-b0db59d6cf78", "4e64ef52-638a-4461-9646-7885d4309069", "46d3341a-0d74-4438-a282-2ec06090d8e4", "dbe7fc16-15c8-4a8d-8309-a9c51607069b", "83325201-efa6-4b0b-95b7-2a65faca6ce5", "78ab6ff5-7a7f-4542-8568-630fb6d0ce58", "a1dd8c78-e892-4e42-943e-cda1454d65c5", "5d06bab1-d846-495a-aeda-7b9af9aba459", "dcaa2e2e-6efb-4e24-a38e-187142c39f8a", "88f54c6e-83c2-473a-ad1e-64eb6b17472f", "c6f68ac6-b347-43b5-96fc-024302da1b2f", "e895a2e7-4927-4713-81ed-15f06cb59c6d", "5d15615c-a3e1-4c92-8744-cecb335092e7", "175bdb53-d25d-46d6-b812-efd70e3dd713", "c6fbbbb0-4e03-4409-a63f-a087ff15f43e", "7807c813-5024-4ac3-8953-62528a4a6ddb", "a491a8bb-d7e5-4b61-a845-9284c9b711e8", "c3f4443f-1cf2-49c9-891b-3ba251ff86e7", "50a20ddc-0a6e-4167-a492-82263b536bd3", "2ddce3ab-be48-4167-a55a-42166b8766d0", "22fb6d27-be24-432b-8702-02756f965ffc", "674c1c5f-ed3a-46fb-9f63-0e1823202945", "965c85c4-15b2-4b52-8385-0047a5dfb6eb", "ae13a657-547f-40a6-a71e-27405c6328d5", "33f36a09-f0fd-4777-9375-4e16c43adb02", "d6807ac5-72a0-4aaa-aec3-f5afe4d81573", "d65a8a84-cfc4-4184-99c0-0195516108b2", "0feaa40a-8475-436c-8f4b-a769501737cf", "c5a85a61-1147-4514-8a19-5c0d8b10aba0", "846268b8-293f-49c8-9573-1dea6a33908c", "57564ff4-d557-4cc2-949d-854b191debc1", "6546a995-6004-4cfb-9093-d178e7b14ea0", "fd02a401-5432-4c87-9aab-c89f22763af8", "6cc8bd1c-eb44-4c50-993d-9fb3f73675cb", "3716cc5f-eefe-4c6c-ae66-7a26895fe168", "9df096fd-52e9-4912-8097-835d42505431", "073c059a-4a19-4f34-ab06-931c46c4ce3c", "0b1aa186-faa6-4912-acd2-67afb4f8ac97", "02a28a83-2048-4dc6-bdbf-cf01b9c8be50"],
+"elements": ["cb35db92-3c07-41bf-9c45-580ad6b891b4", "abb0f32e-b35f-4271-b631-5f0860fddd42", "35533a31-2b6e-4cf2-9bf9-a904836fc398", "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05", "5d00bdb7-a34f-49e5-ad42-a7373f72f7f0", "7886024f-0500-45ed-ba40-f917f91309ff", "aa7603c6-9af8-409b-90a2-3be46d2c0058", "f46f5121-88de-4522-98dc-634636069fec", "7ef975df-c200-4880-bfa0-de3375ec51b7", "906fcd94-d1eb-4e43-9b38-5f9b04b7eec2", "94c9601f-9d07-4292-af4e-51791102419f", "95f3587c-a200-4d83-81d3-cb031c1b82b9", "0ee54dbb-ac8f-47be-a6aa-8c5db6737ada", "4cb6e722-9a5a-44a6-9026-08fcc10f14e9", "dd571a37-d393-4fd1-af4e-06158b4d9447", "c0914a0d-a9dc-433c-81af-78bd13360ca3", "8a7b4525-e1fd-47e7-a14e-a2129d0f8e99", "264b7f5f-19ed-431d-b8fe-0512c0850262", "bbfa3db7-45f9-46ce-b8e5-4a3902901719", "cab1c5b6-3598-466e-b78b-e86e50eb0c46", "2d654f5d-6e4b-4e13-9879-ac83ca6694d0", "b626231f-e929-4430-a614-71c495290d67", "fead337b-50f4-4ba1-a8c5-41af245adaab", "894903cc-624b-4cc2-9170-e974e93bfee8", "c653f38a-3ad8-4124-8cc4-af31970928e7", "d4cc204b-19c7-4289-ac50-1917bd32633e", "f28349fa-f30e-40b2-8672-0426a7ee8ecd", "60b60fb6-7139-434c-8c99-42c07e98b8b7", "b62f67cd-a9f0-4dc2-815b-9c52606ec4c9", "32767a7c-9281-46ec-b409-e5098882aa0b", "33352d95-eca8-4f8f-89e1-676ddc632bc7", "60bf6b98-6c55-4d0e-823b-6b66a9b0276d", "6a7bac0f-4fd3-40df-b9b7-9aebb7ead273", "d5af295e-8291-408b-b973-2ba41b683eeb", "6e551804-2622-4b8d-a0ac-93e09986d429", "73185b22-b435-4677-8710-7f4bd24fe369", "0b751d7e-7752-4c4c-a989-5feca13e5267", "ab261dea-d34d-48a2-a0b3-602fe16bd0ec", "126b988e-de6d-4ac7-bb37-8904d96075e1", "5970adbb-e287-4026-95e4-519d31230547", "9bcd7db2-fb3e-4d42-bd6a-5562d25a42ba", "0dc8856e-915d-4721-91f1-751ac5a93006", "aa31e639-f2e6-4cec-aad6-bd3ca242e92e", "6eaff6ac-2fdb-437a-a351-e3980f5ca749", "f77e378b-0bcc-4387-9f13-7d20e483e596", "f77d2647-faa5-4ec5-b9cd-a1040808f9e4", "d3153f62-fb30-4b46-af95-69301cc571f4", "07f149ff-7b50-4a78-be69-d200f2c422e6", "f09dc359-b3f0-4671-a615-56f33d37f4bb", "8d3a8257-11b7-4606-bc22-c5f1fa7b2659", "2417cc0d-d6fb-46a1-a687-376405f9dab1", "b4be1236-9e81-4344-81eb-949e9b345c6b", "3a7710bf-eece-48d9-a816-e66750fcb1d2", "a2269b29-e0d1-42c8-9b76-67060018ed14", "ba2697a0-0367-442b-9101-038f069bfd6b", "440bfc44-bdc4-47c2-a6a4-5f31afb842a2", "15fe7685-9090-4750-9192-81ca573d84eb", "f7cb21fb-d8e8-449e-8772-a1679440ec94", "628acbcc-c916-452f-8a83-4f829dbd4995", "30611252-18d7-4d79-a1d1-a6244fa38792", "6869ccd3-7024-4783-bc22-def7dea947c0", "075df522-6a99-4c26-a4c8-d8c91fc3975c", "1884e9c7-6a24-4fcb-b7f3-d1d0d990e855", "962d91ed-0391-4eb6-85b9-75a9cb1c7903", "c83f7823-cb7f-4aa2-b125-15dd6b8e50ea", "372748f0-158b-4417-b930-cadd7aba3cbc", "39d35cf1-d157-4104-9e1d-7ea75daa1e42", "c4796d0a-083a-43eb-8d2b-5f97231fc55b", "4d849e11-d08a-4f3d-ab21-c04da9330ede", "867b2073-485c-4c59-8213-6d9233640544", "842d9061-b68d-45c8-9f65-3cd4ae422b5e", "0bd61532-189d-44eb-bf38-edfea9672dd9", "9ea70bad-8602-4b25-aad4-f0f9ca3f231d", "bd1832aa-19bb-48e7-a968-0228cda927ca", "67146f49-df84-4d89-9203-40a46b0c8fb3", "1d52a7cb-6bc1-4479-a812-bd452ce1d4ad", "af617b45-8ee7-419e-aed9-b6d2b4ea0c0b"],
 "jumpers": ["2bcf278d-f6a2-4045-b14d-99893de059c0", "4324c90b-433e-4a0e-a283-8c4afa4eb304"],
 "name": "Main Board",
 "notes": ["8fadad9b-50d9-486d-bb86-f4723fdc939d", "f1bddc47-bc2c-4942-842d-5359ac1fb039", "145815ed-47d6-4eb9-9d58-9b88c47b1816", "137fd37b-86ce-4a02-8e8d-250172a3f0eb", "660685e7-83df-4ae2-83a3-856ec15d614e", "424bb5db-dd45-417b-bdb7-c4a838760078", "b36627c6-29f3-4971-980c-a8d45c547f57", "d23b9574-b3ae-4ca6-aaec-639879be8009", "39c8d2fd-4e11-4a2d-971b-c972c7771dd0", "4b662f1d-bdad-47c9-aad0-77cf6c313047", "0467057c-543d-4a47-a30e-3e10951dea4e", "36b0f4e4-2344-489f-bca7-e7d44ec26c26", "dea777b9-444a-44f6-b5c3-dee7a72e14ca", "9db8fd48-acc7-44fa-b8d2-430f8b45d78b", "3fd33728-d249-4683-a546-30bfcff6e6da", "ef914b97-7f4c-4269-8a6a-3c7c73b20373"]
@@ -972,9 +932,9 @@ project_settings = {
 },
 "da728c19-dcbd-4285-b505-066819ca1415": {
 "branches": [],
-"connections": ["d08d0672-f945-46ff-8919-6d26918800f9", "ca99db19-efb1-4a0e-9f48-c097644fde29", "1fd7db8f-df1d-40f2-ac39-9f216a0318d0", "f7d8bcac-e511-4813-908a-fb31f9684577", "7a820fb8-760e-414f-bd2e-a5e5c30d0083", "c3457483-39a6-43a4-b7c2-1491bec2b3b9", "dd398c0b-b724-4a40-b986-b89363a37626", "8ca00d21-c3f6-4948-af4c-77ae0777cd79", "40910bbc-0a20-4b91-8d9c-4647272ae560", "e714fcb4-50ac-407c-a622-c548f5141991", "e539c99f-761d-46df-9e7e-13d1d98abdd6", "44cbe662-6e56-43a6-b639-374973bf5136", "58253453-b508-4b59-82b4-8376b04dabad", "a494cf80-b297-470e-a597-7e72b38ff410", "9f2b925a-31a4-4535-9f97-a50f232fd21a", "7a825625-f2e8-4e11-bc08-1e2dcf5b9063", "7d4d0118-b699-4c82-8d56-6486d04bebb2", "93c802c8-0349-4c45-8b37-da530216decd", "21e1cbf7-08be-40ea-a880-f046b7ddc0fd", "0dbed1b5-f0fe-4249-ab06-5f7e4a956b6f", "27c6c433-a0de-4114-b010-301c2a2c121f", "c7b3d533-c867-45ac-a9dd-ad7ff72e0b75", "d2fc59ec-c723-4d0b-a7aa-371e30422254", "66f6a02b-78af-45cf-a242-99c045f3aacd", "a3b3ebce-498b-48c5-bbf8-47ce6a4d928d", "159d148c-7707-4ab3-8a34-01883ca02dd0", "9d86d99d-8827-4af8-9ae9-3aa59cacc486", "9ebfae18-c9cf-4b02-853b-fa20e8580c08", "bd5b9830-672b-4762-bdec-957684f173fa", "66043d8a-8d4c-40e9-981a-d2c1051d2314", "6f749f23-7cb0-4675-bf02-cf3662cbb4b3", "f4d7548d-d1b1-4720-ac93-54559fdbbf98", "f8e912a9-453c-4276-a112-960103580167", "c035aaec-2b39-41d5-b624-25f295023adf", "b9ec0f4c-920b-40d9-8a6b-655a43113e72", "eb8978af-9d16-4a07-aa42-b099647553a8", "fd96a846-0e80-4465-b656-99f75e679317", "4f3160b5-e616-4a14-b91c-4ad1aa328021", "e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f", "0255b51c-c4f8-46c6-9daa-a6f86a1d6c45", "f3981ca7-1fff-4c8e-8096-3bdbad908988", "f7e721c2-f9fd-4c91-b501-92f44b983615", "2a3b6495-4885-489d-a8fa-5d9a75232c43", "776cf067-dde7-4c84-a905-66ffab40b530", "49bddfe3-d1ca-40a0-af66-ee19bd99c908", "0ba15876-7570-40f3-8fc4-5b59f43fd1f0", "580ffe6f-1e9e-4655-9317-dfa2c9606c8f", "f6f95cce-4ae7-4c59-86f3-051aa9b89539", "87ad2c15-93f3-45eb-b485-6b3710a58719", "3ea72a9c-850a-45cc-8f4d-d9296ff8b7a2", "025c8fee-9e3f-41d9-bbf0-6042bfd46732", "677d05e0-9108-49a0-81ec-6bb6a91b1bbe", "21ac3dd8-b7ef-4349-8efd-d09c811d8173", "3dcf3c6e-45fe-45b4-8504-6fd8cce06141", "39f14f95-b4cd-479a-ad36-da5e0e215661", "69b53444-9bbd-4d4a-8acc-0e168ee13306", "20da8c82-1a18-46d5-88cc-7b6b700d0e70", "0438034d-adb8-4b21-8920-936d7814bb4e", "dd8a6e67-f874-4603-bafd-213865d9b5bd", "11c94fa7-e53f-4648-a215-7070edc1615b", "dceac94d-fb54-46d0-977d-2b36a7e53abe", "13702496-ecb7-45c8-b5d3-cce555a3bf78", "a413dccc-8cfa-4a90-8fcc-29b63446daa1", "92a6bb5f-5550-4be7-b024-d79577c483fd", "afd1784b-0f92-44d0-9dde-116c029d9274", "4772eb47-db04-462d-bfc9-c3cbb5c84fd8", "d406732e-dcc3-4dbc-90b1-17d98be33750", "4c40a7cd-7e60-4a48-ba17-0be2974fe377", "ac98d3b2-2027-4dd2-92f5-639fa254146c", "fa049d74-9ee2-4bf8-9881-c60586e61bc7", "f9a60e0c-735c-405e-b7c1-d2aa32ef3e09", "3c1ced71-f1c2-48c8-b1e9-2624e22756c7", "b74d2994-df90-4b43-89fb-8e8a718786b0", "5c8e7f00-27d9-4859-895b-fead4c258985", "b921ec36-add9-4f71-ac75-afc80d031dbe", "47c74cfa-f28f-4e66-ad50-7c3726bdb680", "a0d128d0-1e03-454c-902d-7131d5b1b037", "21b8f7d0-a632-48d9-9ecc-958b9a8ccef6", "61c25322-a055-4d17-9ed9-fce5bb340ccb", "2aac3ccf-b5d5-4b81-83a5-5b5fec0562df", "10668aea-632f-4cac-8665-342591f1c845", "727a8512-257f-4a06-a91c-da35c5f31382", "ed3e1d7f-1ba8-4090-bd20-5b81089548c5", "8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a", "9e386b63-6e94-4e2d-92f3-350f332b8bbd", "19eb57ec-4dae-431d-a4ca-d85613f83630", "4b96a6fc-a3fc-4871-b174-ba0711fb96d1", "6ea4756b-5fc4-4661-991a-974144b5cfc1", "9998a090-57e2-4eaa-81b3-15d0d3c13572", "d69b53af-61dc-4dbc-822a-d9e2acda5a94", "5affff52-68fe-4664-9de4-2ba96bb316d5", "143ceda5-bb38-417c-bb10-733de89fb06a", "1936da8f-7768-4368-ac28-654805c720a9", "514f127a-564a-4f93-a1b8-ebc421d294e6", "10b37d5b-050f-4b6d-ae9d-a5d3baafea78", "72b75380-7f19-407b-90b3-3e0bacf8114c", "88942ba9-0417-478a-b6a8-1832d8a1cb39", "c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6", "b9da7664-7fbf-4b0a-aa2f-888464993e99", "7487c508-af23-496b-946d-4529d1c9d19f", "f5d71f10-c7f0-4f8d-a036-65b81b244a41", "5727e0e7-6ab2-4a0e-84c7-8a03d1c68210", "324ef522-3c8e-46ab-bb7c-2b9f0f24417f", "5ac7cd7f-a072-4c0a-95e9-94064dd69ba3", "e8da0c77-5c51-4f4a-a1be-d4ba434d453c", "06d49c33-4a4f-4140-90d3-fd7a776afa15", "ffc1f1d2-19f9-4d08-a024-18d019bf9e44", "1f6dc7dc-950a-4802-92ea-4fc801f1a5c7", "725f1f4e-2af2-4adb-960f-4a7020af7973", "db1890d5-ead3-41b4-86bc-f3e50142d866", "1fd14cf6-e22b-482e-b151-305e9f475860", "b38585c7-81b3-4540-8726-0be6f45f46de", "b259e983-3c02-4186-b6ec-c65ec446237e", "20c5320d-27d2-45d3-a46b-7869025a6dd1", "c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec", "d1456cf0-bfd7-44bd-8280-7cdab0bb1a34", "6d36e4ae-7912-4dfd-9c85-88b6a3946cf6", "eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed", "f4ea93ba-e394-49bf-95a5-58b95413c3b8", "acef5b38-f88d-4161-b5f5-fd4795a32c83", "2516468a-ece2-4d8f-b872-fa46fb0c156a", "cf63fd58-306b-4cf5-948f-048a8d2bf0e9", "a6801a50-4d97-4b83-b63b-f6debda960d7", "b1fed950-209c-4f3e-b189-a553518c5859"],
+"connections": ["d08d0672-f945-46ff-8919-6d26918800f9", "ca99db19-efb1-4a0e-9f48-c097644fde29", "1fd7db8f-df1d-40f2-ac39-9f216a0318d0", "f7d8bcac-e511-4813-908a-fb31f9684577", "7a820fb8-760e-414f-bd2e-a5e5c30d0083", "c3457483-39a6-43a4-b7c2-1491bec2b3b9", "dd398c0b-b724-4a40-b986-b89363a37626", "8ca00d21-c3f6-4948-af4c-77ae0777cd79", "40910bbc-0a20-4b91-8d9c-4647272ae560", "e714fcb4-50ac-407c-a622-c548f5141991", "e539c99f-761d-46df-9e7e-13d1d98abdd6", "44cbe662-6e56-43a6-b639-374973bf5136", "58253453-b508-4b59-82b4-8376b04dabad", "a494cf80-b297-470e-a597-7e72b38ff410", "9f2b925a-31a4-4535-9f97-a50f232fd21a", "7a825625-f2e8-4e11-bc08-1e2dcf5b9063", "7d4d0118-b699-4c82-8d56-6486d04bebb2", "93c802c8-0349-4c45-8b37-da530216decd", "21e1cbf7-08be-40ea-a880-f046b7ddc0fd", "0dbed1b5-f0fe-4249-ab06-5f7e4a956b6f", "27c6c433-a0de-4114-b010-301c2a2c121f", "c7b3d533-c867-45ac-a9dd-ad7ff72e0b75", "d2fc59ec-c723-4d0b-a7aa-371e30422254", "66f6a02b-78af-45cf-a242-99c045f3aacd", "a3b3ebce-498b-48c5-bbf8-47ce6a4d928d", "159d148c-7707-4ab3-8a34-01883ca02dd0", "9d86d99d-8827-4af8-9ae9-3aa59cacc486", "9ebfae18-c9cf-4b02-853b-fa20e8580c08", "bd5b9830-672b-4762-bdec-957684f173fa", "66043d8a-8d4c-40e9-981a-d2c1051d2314", "6f749f23-7cb0-4675-bf02-cf3662cbb4b3", "f4d7548d-d1b1-4720-ac93-54559fdbbf98", "f8e912a9-453c-4276-a112-960103580167", "c035aaec-2b39-41d5-b624-25f295023adf", "b9ec0f4c-920b-40d9-8a6b-655a43113e72", "eb8978af-9d16-4a07-aa42-b099647553a8", "fd96a846-0e80-4465-b656-99f75e679317", "4f3160b5-e616-4a14-b91c-4ad1aa328021", "e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f", "0255b51c-c4f8-46c6-9daa-a6f86a1d6c45", "f3981ca7-1fff-4c8e-8096-3bdbad908988", "f7e721c2-f9fd-4c91-b501-92f44b983615", "2a3b6495-4885-489d-a8fa-5d9a75232c43", "776cf067-dde7-4c84-a905-66ffab40b530", "49bddfe3-d1ca-40a0-af66-ee19bd99c908", "0ba15876-7570-40f3-8fc4-5b59f43fd1f0", "580ffe6f-1e9e-4655-9317-dfa2c9606c8f", "f6f95cce-4ae7-4c59-86f3-051aa9b89539", "87ad2c15-93f3-45eb-b485-6b3710a58719", "3ea72a9c-850a-45cc-8f4d-d9296ff8b7a2", "025c8fee-9e3f-41d9-bbf0-6042bfd46732", "677d05e0-9108-49a0-81ec-6bb6a91b1bbe", "21ac3dd8-b7ef-4349-8efd-d09c811d8173", "3dcf3c6e-45fe-45b4-8504-6fd8cce06141", "39f14f95-b4cd-479a-ad36-da5e0e215661", "69b53444-9bbd-4d4a-8acc-0e168ee13306", "20da8c82-1a18-46d5-88cc-7b6b700d0e70", "0438034d-adb8-4b21-8920-936d7814bb4e", "dd8a6e67-f874-4603-bafd-213865d9b5bd", "11c94fa7-e53f-4648-a215-7070edc1615b", "dceac94d-fb54-46d0-977d-2b36a7e53abe", "13702496-ecb7-45c8-b5d3-cce555a3bf78", "a413dccc-8cfa-4a90-8fcc-29b63446daa1", "92a6bb5f-5550-4be7-b024-d79577c483fd", "afd1784b-0f92-44d0-9dde-116c029d9274", "4772eb47-db04-462d-bfc9-c3cbb5c84fd8", "d406732e-dcc3-4dbc-90b1-17d98be33750", "4c40a7cd-7e60-4a48-ba17-0be2974fe377", "ac98d3b2-2027-4dd2-92f5-639fa254146c", "fa049d74-9ee2-4bf8-9881-c60586e61bc7", "f9a60e0c-735c-405e-b7c1-d2aa32ef3e09", "3c1ced71-f1c2-48c8-b1e9-2624e22756c7", "b74d2994-df90-4b43-89fb-8e8a718786b0", "5c8e7f00-27d9-4859-895b-fead4c258985", "b921ec36-add9-4f71-ac75-afc80d031dbe", "47c74cfa-f28f-4e66-ad50-7c3726bdb680", "a0d128d0-1e03-454c-902d-7131d5b1b037", "21b8f7d0-a632-48d9-9ecc-958b9a8ccef6", "61c25322-a055-4d17-9ed9-fce5bb340ccb", "2aac3ccf-b5d5-4b81-83a5-5b5fec0562df", "10668aea-632f-4cac-8665-342591f1c845", "727a8512-257f-4a06-a91c-da35c5f31382", "ed3e1d7f-1ba8-4090-bd20-5b81089548c5", "8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a", "9e386b63-6e94-4e2d-92f3-350f332b8bbd", "19eb57ec-4dae-431d-a4ca-d85613f83630", "4b96a6fc-a3fc-4871-b174-ba0711fb96d1", "6ea4756b-5fc4-4661-991a-974144b5cfc1", "9998a090-57e2-4eaa-81b3-15d0d3c13572", "d69b53af-61dc-4dbc-822a-d9e2acda5a94", "5affff52-68fe-4664-9de4-2ba96bb316d5", "143ceda5-bb38-417c-bb10-733de89fb06a", "1936da8f-7768-4368-ac28-654805c720a9", "514f127a-564a-4f93-a1b8-ebc421d294e6", "10b37d5b-050f-4b6d-ae9d-a5d3baafea78", "72b75380-7f19-407b-90b3-3e0bacf8114c", "88942ba9-0417-478a-b6a8-1832d8a1cb39", "c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6", "b9da7664-7fbf-4b0a-aa2f-888464993e99", "7487c508-af23-496b-946d-4529d1c9d19f", "f5d71f10-c7f0-4f8d-a036-65b81b244a41", "5727e0e7-6ab2-4a0e-84c7-8a03d1c68210", "324ef522-3c8e-46ab-bb7c-2b9f0f24417f", "5ac7cd7f-a072-4c0a-95e9-94064dd69ba3", "e8da0c77-5c51-4f4a-a1be-d4ba434d453c", "06d49c33-4a4f-4140-90d3-fd7a776afa15", "ffc1f1d2-19f9-4d08-a024-18d019bf9e44", "1f6dc7dc-950a-4802-92ea-4fc801f1a5c7", "725f1f4e-2af2-4adb-960f-4a7020af7973", "db1890d5-ead3-41b4-86bc-f3e50142d866", "1fd14cf6-e22b-482e-b151-305e9f475860", "b38585c7-81b3-4540-8726-0be6f45f46de", "b259e983-3c02-4186-b6ec-c65ec446237e", "20c5320d-27d2-45d3-a46b-7869025a6dd1", "c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec", "d1456cf0-bfd7-44bd-8280-7cdab0bb1a34", "6d36e4ae-7912-4dfd-9c85-88b6a3946cf6", "eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed", "f4ea93ba-e394-49bf-95a5-58b95413c3b8", "acef5b38-f88d-4161-b5f5-fd4795a32c83", "2516468a-ece2-4d8f-b872-fa46fb0c156a", "cf63fd58-306b-4cf5-948f-048a8d2bf0e9", "a6801a50-4d97-4b83-b63b-f6debda960d7", "b1fed950-209c-4f3e-b189-a553518c5859", "c9d6fe58-8b20-4c89-a067-00eadbef355c"],
 "elements": ["81ca4304-78c7-470d-8b99-6d5a2eb70edc", "ca8446d8-6bdb-499e-a49c-273f159548fa", "3860c83f-63fc-4632-a103-5e91fcdddf5a", "b6cad407-7c47-42e4-9bcf-c247662e8fb5", "d560c822-c3d4-46e6-b8d8-a5e2bc72c028", "17699794-7c76-4498-9ba6-8a18d0022c47", "1dcd98ca-942a-4387-a492-2b9e3709012f", "a71d90f3-f564-4803-8a45-58903fd2c2c6", "f1571a5e-abc0-4b4f-9302-46d2bb9f96f0", "ef7710b0-9aa7-4fd9-adfc-e96a4503b051", "ddc81088-660b-4114-aa9a-21996054bf4d", "c604bcdf-7f2b-4c64-8d8b-ba70806a2238", "a6b83872-84ea-431e-8228-eb73c77a2359", "36c07e05-0b06-4962-9e74-9f65e2f23734", "243dab40-e347-4cbb-9ec2-dee66776f3bc", "e38ac378-7459-4c67-93c7-ba4be049631c", "54ccd07e-7b3d-435c-aa0e-b3f781f99118", "72ba4268-a7ac-45e0-9ec4-11928379a737", "3647681a-f09b-4c7e-88da-37ec536b2710", "7b2a946e-bb94-4d2a-8a56-4d4caf3c294a", "f4b48678-44bd-476d-965e-c6a6032f6b57", "fabf46c1-a7ff-4460-84f4-ec89e33087e8", "92e9ca18-cf7e-4204-bff9-ab2fdc29e323", "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488", "4be3044e-e7a5-416d-a289-6683a492dd2d", "1a17b6ab-639e-481a-bef0-92deb0473239", "642a5cfc-4623-4293-8b31-c4b4351ebd70", "e5f7f3ab-471b-42ad-b207-9b1e0035c10a", "84d21c6b-aff9-4777-944b-ea0764dfcfdf", "d070b02b-b689-4956-9c44-a16b4de2cdf6", "e8d059d1-ba3b-4732-a413-a0dc027ae038", "256789af-0c7e-4a31-9230-fc34881febbf", "53e25832-31a9-4a2b-99cf-134eb6f488df", "eb19b1f4-0cf1-48d7-b2f7-c4c219a3342e", "f565f01d-d2d5-4745-a153-4a6c9029e07b", "4b2aeb83-46f8-4b69-b205-6eabd4db2b26", "af47edb6-9737-487f-b9b6-b5638d07e678", "e5499f5b-b60b-4752-976a-9f257afef06a", "96f8b622-c98d-471e-9de8-9f2917d0b614", "a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b", "1bc871cb-4ccd-4f39-8a1b-f86d1851911f", "b2d6843c-75f3-426a-a14e-fc870d52c6a8", "6b077b2a-3bef-421d-b073-414d6cc80816", "df1a4015-2832-414c-b9af-8563f42ff8da", "76e9a5cb-971a-48b2-9de0-495ebc864bb0", "83523415-cabe-4d86-a4e0-cd38ddd0a064", "c89d3f0a-375e-4790-96b1-e371359b6f0d", "4afe38e3-9ad5-4e46-8b64-99ef752dc00b", "e4531320-4418-404a-b9e9-d54afef0142c", "d359777c-a124-4604-9062-b82f9462cf9d", "8ac3d98e-dea5-42e0-afa8-d2b891c93a79", "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab", "1be8758c-59f1-4573-897d-387fbca0ff98", "80aceeb1-4fba-4efd-ba11-9033809e7b3d", "775cfc87-42c9-4c4e-a788-d09403beac48", "ee290ed0-dd96-4d27-b019-089731e7bec2", "a3a7adf3-1a1b-444d-8f02-01a2a440cd8b", "2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e", "700cfc98-e5b0-43e3-96d0-5d3c460794a4", "f252ac82-4648-4d41-89f4-04799795c0b5", "78e0ef60-8665-4ec9-b7f9-e5c4d963a156", "18dc05a8-1583-4688-b7f3-b8094cf40158", "8ad165a7-818b-4f16-9528-4376c89d7406", "8a30a4b0-4427-4805-852c-2a2d2b00da35", "fadf0695-a237-4b38-9a6b-f54ade8bdc0f", "ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c", "f0175fba-75a1-4cb2-8bc1-8551e68a70b8", "bafd2280-33b7-45f3-8260-da68e57177fa", "de925341-5861-41e7-b508-897c401aa90c", "e67886eb-87cf-495f-bc93-44f536f20392", "490af16f-2603-43e6-85ae-f418e94cc070", "854b780b-74ae-4e8c-9081-e01e5aaec7e2", "a8e9a04f-949d-430d-9de0-4ff88182353c", "6831a0a4-00e4-49bf-a3b2-c210e7979b22", "eab3ff1d-33b8-4e95-ab86-ffe2645abfac", "27beb68f-f883-4a95-b95a-3c167e65bddb", "355f7b6a-adc7-4eb6-b4fa-510066809f9e", "8c2b3480-f266-4bd1-9695-afa7a0ece06f", "3d3c392d-0440-417a-a3d8-3a7d48f64e26", "f2284647-5901-402f-9f18-96af7bcfb32e", "470aac9f-768c-41b3-8595-3d613fa6afb6", "59bcf675-fbb4-4096-8778-07bbb34c87af", "fd09b426-c4be-44bd-ac0c-8c2804c3ab70", "558aeac1-0f1d-4f0c-b0a6-aed2906dc724", "f8791b7e-3c53-418f-9c6f-777ae4d65a5e", "414c5a3b-3caa-4682-a490-670424170b7f", "ae897635-78bd-4fc4-9cd8-aeed10832b66", "2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a", "b965da7b-0b5a-429e-b186-22cd198f0261", "fac99888-f592-465d-9b89-b40d5656b804", "1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6", "84b19888-ff99-41b5-84e4-edf4e52c3d19", "fa52f960-9711-4abf-8101-d1fe0592c7df", "4da6a4dd-8b66-4577-b053-9cc3aaab4481", "94e225c5-6383-4516-b293-037a25c5c154", "430251d4-6008-48ca-a7db-88465f8fdc1e", "77a2eb09-585b-4fa3-96f1-1d5634414411", "b48c37a7-5018-41d7-862a-eefe8c138e06", "b7a6623c-b4f7-4c04-97d7-7676e1ce0991", "324b6d77-3896-467d-8687-edaae87748b3", "9b399fff-577d-4518-8854-86f9aa2220f7", "c10eb371-8ca2-4b34-bfa6-9c733a1ca628", "413e9339-8aff-4f38-8cc0-c5e39a29906b", "ef796571-a5ea-42c4-8bfb-66e184da9e82", "622ddedf-fe24-4b50-a390-64d8d7bd45bd", "ca4fb4d4-77a0-4403-a2f5-2b829be59aef", "7250a697-9722-4ab8-80ef-b34b22da5f54", "9b7ff1de-af2a-49ef-a25a-66501efa4477"],
-"jumpers": [],
+"jumpers": ["2b4a96ce-c2b9-457d-ab26-8a3887b8c69d"],
 "name": "Level 1 Board",
 "notes": []
 }
@@ -982,12 +942,8 @@ project_settings = {
 "branches": {},
 "components": {
 "036db898-0cb9-4a29-b19d-3e8f3288d9a2": {
-"children": ["92637079-e29d-4a13-8651-1c31b3e726f5", "9fa4b1c1-1218-40d2-8882-80243038b362", "636b1daa-9bb8-44b1-8fca-631436349594", "4123ea5c-864d-40c8-a353-0cf7b556ab2a", "80a3059b-5a82-4dff-87c4-b633db257fdd"],
+"children": ["a43c63f4-72c5-461e-8c12-bb95bec19882", "45a9a8a7-0283-4f16-99bb-a3031b30d882", "6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "647349ca-9ebb-4d5f-b81e-500761ec1c5a", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c", "1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
 "name": "Characters"
-},
-"0e18aedd-a17b-43a6-a565-49ac910078ac": {
-"attributes": [],
-"name": "Untitled component"
 },
 "13e56f60-496d-4fbf-869d-830154e1a769": {
 "assets": {
@@ -997,7 +953,7 @@ project_settings = {
 }
 },
 "attributes": [],
-"name": "Untitled component"
+"name": "Napkin"
 },
 "1f4389b8-e21a-4d12-84c7-c36cc0c50345": {
 "assets": {
@@ -1006,11 +962,21 @@ project_settings = {
 }
 },
 "attributes": ["773fbaa5-5039-4886-baf4-aab9ebcf1c51", "d967e535-f831-4f27-b310-84565b9cfb10"],
-"name": "Decoy"
+"name": "Lvl 1 Decoy"
 },
 "4123ea5c-864d-40c8-a353-0cf7b556ab2a": {
-"children": ["894c2a71-952e-45c9-b55a-340794307a1d", "5e87633a-d1f5-40bf-b084-c5220a15ad97"],
-"name": "Jake"
+"children": ["f48f8f8e-9c8c-4bd2-b94f-0228e5832974", "7fb5bc29-b329-43d1-8102-4c81983c2f28", "13e56f60-496d-4fbf-869d-830154e1a769", "894c2a71-952e-45c9-b55a-340794307a1d", "5e87633a-d1f5-40bf-b084-c5220a15ad97", "bc2f9c19-b2fc-44d9-a057-7fff4fc77f41"],
+"name": "Items"
+},
+"45a9a8a7-0283-4f16-99bb-a3031b30d882": {
+"assets": {
+"cover": {
+"id": "47236e83-3d4f-4a76-b702-ef0da77b7411",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Lvl 1 Onlooker"
 },
 "5e87633a-d1f5-40bf-b084-c5220a15ad97": {
 "assets": {
@@ -1020,11 +986,7 @@ project_settings = {
 }
 },
 "attributes": [],
-"name": "Jake_smile"
-},
-"636b1daa-9bb8-44b1-8fca-631436349594": {
-"children": ["7fb5bc29-b329-43d1-8102-4c81983c2f28", "1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
-"name": "Player"
+"name": "Chair"
 },
 "647349ca-9ebb-4d5f-b81e-500761ec1c5a": {
 "assets": {
@@ -1037,9 +999,19 @@ project_settings = {
 "name": "Frank_Shocked"
 },
 "65005bda-15d0-41c5-867f-68c118829f08": {
-"children": ["13e56f60-496d-4fbf-869d-830154e1a769", "f48f8f8e-9c8c-4bd2-b94f-0228e5832974", "036db898-0cb9-4a29-b19d-3e8f3288d9a2"],
+"children": ["036db898-0cb9-4a29-b19d-3e8f3288d9a2", "4123ea5c-864d-40c8-a353-0cf7b556ab2a"],
 "name": "Root",
 "root": true
+},
+"6e7cb40a-b571-40f6-b830-4c2bc3d0d388": {
+"assets": {
+"cover": {
+"id": "6c70e226-fd29-4993-ab71-ddaff1e21f96",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Vicky"
 },
 "7fb5bc29-b329-43d1-8102-4c81983c2f28": {
 "assets": {
@@ -1049,11 +1021,7 @@ project_settings = {
 }
 },
 "attributes": [],
-"name": "Maya_smile"
-},
-"80a3059b-5a82-4dff-87c4-b633db257fdd": {
-"children": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"name": "Frank"
+"name": "Cup"
 },
 "894c2a71-952e-45c9-b55a-340794307a1d": {
 "assets": {
@@ -1063,15 +1031,17 @@ project_settings = {
 }
 },
 "attributes": ["4f961162-b637-4bd9-ac60-f6cde00d0cbe", "f88c8c9e-d2ae-44e9-8784-95115d37af0f"],
-"name": "Jake_default"
+"name": "Phone"
 },
-"92637079-e29d-4a13-8651-1c31b3e726f5": {
-"children": ["bc2f9c19-b2fc-44d9-a057-7fff4fc77f41", "fdbbaf8c-716d-4875-8d64-10a9c7269f32"],
-"name": "911 Operator"
+"a43c63f4-72c5-461e-8c12-bb95bec19882": {
+"assets": {
+"cover": {
+"id": "e339af62-80c6-4ca3-9e0a-db916962dcda",
+"type": "image"
+}
 },
-"9fa4b1c1-1218-40d2-8882-80243038b362": {
-"children": ["0e18aedd-a17b-43a6-a565-49ac910078ac"],
-"name": "Frank"
+"attributes": [],
+"name": "Driver Friend Normal"
 },
 "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c": {
 "assets": {
@@ -1091,7 +1061,7 @@ project_settings = {
 }
 },
 "attributes": [],
-"name": "Untitled component"
+"name": "First Aid Kit"
 },
 "f48f8f8e-9c8c-4bd2-b94f-0228e5832974": {
 "assets": {
@@ -1101,17 +1071,7 @@ project_settings = {
 }
 },
 "attributes": [],
-"name": "Untitled component"
-},
-"fdbbaf8c-716d-4875-8d64-10a9c7269f32": {
-"assets": {
-"cover": {
-"file": "delapouite/vibrating-smartphone",
-"type": "icon"
-}
-},
-"attributes": [],
-"name": "Phone"
+"name": "Gauze"
 }
 },
 "conditions": {},
@@ -1135,6 +1095,17 @@ project_settings = {
 "targetid": "c89d3f0a-375e-4790-96b1-e371359b6f0d",
 "theme": "blue",
 "type": "Straight"
+},
+"02a28a83-2048-4dc6-bdbf-cf01b9c8be50": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "7886024f-0500-45ed-ba40-f917f91309ff",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "126b988e-de6d-4ac7-bb37-8904d96075e1",
+"theme": "blue",
+"type": "Bezier"
 },
 "0438034d-adb8-4b21-8920-936d7814bb4e": {
 "label": "<p>When’s the last time you drank <em>water?</em></p>",
@@ -1780,7 +1751,7 @@ project_settings = {
 "type": "Straight"
 },
 "520395c4-13c3-44ce-b9e2-edca4d8818c6": {
-"label": "<p>Investigate broken glass</p>",
+"label": "<p>Investigate the glass cup</p>",
 "sourceFace": "right",
 "sourceType": "elements",
 "sourceid": "5d00bdb7-a34f-49e5-ad42-a7373f72f7f0",
@@ -1919,16 +1890,6 @@ project_settings = {
 "targetFace": "right",
 "targetType": "elements",
 "targetid": "5d00bdb7-a34f-49e5-ad42-a7373f72f7f0",
-"theme": "blue",
-"type": "Bezier"
-},
-"624a9884-accc-47cb-9bf4-e53e7dd78f57": {
-"label": null,
-"sourceType": "elements",
-"sourceid": "7886024f-0500-45ed-ba40-f917f91309ff",
-"targetFace": "left",
-"targetType": "elements",
-"targetid": "126b988e-de6d-4ac7-bb37-8904d96075e1",
 "theme": "blue",
 "type": "Bezier"
 },
@@ -2803,6 +2764,16 @@ project_settings = {
 "theme": "blue",
 "type": "Straight"
 },
+"c9d6fe58-8b20-4c89-a067-00eadbef355c": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "b6cad407-7c47-42e4-9bcf-c247662e8fb5",
+"targetFace": "top",
+"targetType": "jumpers",
+"targetid": "2b4a96ce-c2b9-457d-ab26-8a3887b8c69d",
+"theme": "blue",
+"type": "Straight"
+},
 "ca99db19-efb1-4a0e-9f48-c097644fde29": {
 "label": null,
 "sourceType": "elements",
@@ -3281,7 +3252,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "13e56f60-496d-4fbf-869d-830154e1a769", "7fb5bc29-b329-43d1-8102-4c81983c2f28"],
 "content": "<p>Frank: If you'd cleaned the wound with water or covered it with napkins, it could've introduced different types of infections to the wound.</p>",
 "height": 161.0,
 "outputs": ["a491a8bb-d7e5-4b61-a845-9284c9b711e8"],
@@ -3330,12 +3301,11 @@ project_settings = {
 "0bd61532-189d-44eb-bf38-edfea9672dd9": {
 "assets": {
 "cover": {
-"id": "7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd",
-"type": "image"
+"id": "66b32244-18fc-496a-97e0-10a77ce25d33"
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": [],
 "content": "<p>Frank: I know, I know, but god, it hurts… so much more now. It's bleeding through the wrappings.</p>",
 "height": 140.0,
 "outputs": ["0feaa40a-8475-436c-8f4b-a769501737cf"],
@@ -3353,7 +3323,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": [],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p>Frank: Just get my bag over there.</p>",
 "height": 121.0,
 "outputs": ["0a6ec49c-3a10-4c10-b8ca-b010bf83fe89"],
@@ -3372,14 +3342,14 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"content": "<p>[Name]: What do you normally eat. then?</p>",
-"height": 281.0,
+"content": "<p>You: What do you normally eat. then?</p>",
+"height": 321.0,
 "outputs": ["98596f5e-524d-46ec-9e56-13d991a41183"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
 "x": 7840.0,
-"y": 10620.0
+"y": 10480.0
 },
 "126b988e-de6d-4ac7-bb37-8904d96075e1": {
 "assets": {
@@ -3426,7 +3396,7 @@ project_settings = {
 },
 "attributes": ["bd624358-a988-492c-9da8-f544945f4289"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
+"components": ["a43c63f4-72c5-461e-8c12-bb95bec19882", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p><strong>Frank: </strong>Honestly, mostly it just itches. The doctors said I got lucky.</p>",
 "height": 341.0,
 "outputs": ["dd398c0b-b724-4a40-b986-b89363a37626"],
@@ -3444,7 +3414,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "f48f8f8e-9c8c-4bd2-b94f-0228e5832974"],
 "content": "<p>Frank: These gauze rolls, though, should be cleaner.</p>",
 "height": 313.0,
 "outputs": ["c3f4443f-1cf2-49c9-891b-3ba251ff86e7"],
@@ -3487,7 +3457,7 @@ project_settings = {
 },
 "attributes": ["6659272c-98f9-49f6-a987-fe5b8a5fb16a"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Liv: Oh, okay.</p>",
 "height": 341.0,
 "outputs": ["ffc1f1d2-19f9-4d08-a024-18d019bf9e44"],
@@ -3518,7 +3488,7 @@ project_settings = {
 },
 "attributes": ["d8feb09b-e6b5-438a-906e-24ca1c2fbb58"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>What kind of person comes to a party just to drink <em>water?</em> </p>",
 "height": 361.0,
 "outputs": ["dd8a6e67-f874-4603-bafd-213865d9b5bd"],
@@ -3592,7 +3562,7 @@ project_settings = {
 },
 "attributes": ["8b346347-feaf-4963-ad81-db93835f1072"],
 "autoHeight": true,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
+"components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p><strong>Frank: </strong>What? What do you want me to say? Thanks for the millionth time? </p>",
 "height": 326.0,
 "outputs": ["9f2b925a-31a4-4535-9f97-a50f232fd21a"],
@@ -3674,8 +3644,8 @@ project_settings = {
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 29860.0,
-"y": 20160.0
+"x": 30180.0,
+"y": 20200.0
 },
 "2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e": {
 "autoHeight": true,
@@ -3759,8 +3729,8 @@ project_settings = {
 "theme": "cyan",
 "title": "<p>Maya's Invitation</p>",
 "width": 321.0,
-"x": 8700.0,
-"y": 12620.0
+"x": 8860.0,
+"y": 12580.0
 },
 "33352d95-eca8-4f8f-89e1-676ddc632bc7": {
 "autoHeight": true,
@@ -3782,9 +3752,9 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"content": "<p><strong>You check your phone for the address.</strong></p><p><strong>[Name]: </strong>Alright, on my left… 8, 10… ah. 2012 Chimney Rock Road.</p>",
-"height": 415.0,
+"components": ["894c2a71-952e-45c9-b55a-340794307a1d"],
+"content": "<p>You check your phone for the address</p><p>You<strong>: </strong>Alright, on my left… 8, 10… ah. 2012 Chimney Rock Road.</p>",
+"height": 355.0,
 "outputs": ["b5f4e76d-4c12-4255-bdac-985f24ce0402"],
 "theme": "cyan",
 "title": "<p>Maya's Invitation</p>",
@@ -3801,7 +3771,7 @@ project_settings = {
 },
 "attributes": ["bae49141-33d2-42cc-a0eb-5bd53fe60365"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: Come on, Vic, let’s get you outside.</p>",
 "height": 341.0,
 "outputs": ["10b37d5b-050f-4b6d-ae9d-a5d3baafea78"],
@@ -3857,7 +3827,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "f48f8f8e-9c8c-4bd2-b94f-0228e5832974"],
 "content": "<p>Frank: Be careful with that knife, though. You’re not supposed to remove things when they pierce the skin.</p>",
 "height": 161.0,
 "outputs": ["2ddce3ab-be48-4167-a55a-42166b8766d0"],
@@ -3876,7 +3846,7 @@ project_settings = {
 },
 "attributes": ["21f53a75-8d57-41bf-b665-4929294836cd"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["a43c63f4-72c5-461e-8c12-bb95bec19882"],
 "content": "<p><strong>[Name]: </strong>How’s the, uh, injury?</p>",
 "height": 302.0,
 "outputs": ["f7d8bcac-e511-4813-908a-fb31f9684577"],
@@ -3894,7 +3864,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "f48f8f8e-9c8c-4bd2-b94f-0228e5832974"],
 "content": "<p>Frank: Keeping the knife in actually stops the foot from bleeding out faster.</p>",
 "height": 312.562,
 "outputs": ["22fb6d27-be24-432b-8702-02756f965ffc"],
@@ -3912,9 +3882,9 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p><em>You get the supplies and unlock the Inventory. You can now access the inventory, seeing the medical supplies as well as your cell phone. You can now go back to Frank, who is now sitting down on the floor, pressing his foot.</em></p>",
-"height": 343.0,
+"height": 401.0,
 "outputs": ["a1dd8c78-e892-4e42-943e-cda1454d65c5"],
 "theme": "purple",
 "title": null,
@@ -3931,7 +3901,7 @@ project_settings = {
 },
 "attributes": ["bf86951b-85db-4521-b191-71510f1e7087"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: Whatever. We need to get her outside...</p>",
 "height": 341.0,
 "outputs": ["143ceda5-bb38-417c-bb10-733de89fb06a"],
@@ -3969,8 +3939,8 @@ project_settings = {
 },
 "attributes": ["885d5876-b3ea-4d93-997e-183be448e167"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
-"content": "<p>Liv: Oh my god. What do I do???</p>",
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
+"content": "<p>Onlooker: Oh my god. What do I do???</p>",
 "height": 341.0,
 "outputs": ["5727e0e7-6ab2-4a0e-84c7-8a03d1c68210"],
 "theme": "purple",
@@ -3988,9 +3958,9 @@ project_settings = {
 },
 "attributes": ["42ce0dad-63c8-4283-821f-b58816b63228"],
 "autoHeight": false,
-"components": [],
+"components": ["45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p><strong>Liv: </strong>What? The police? Won't we get in trouble? I don't turn 21 until-</p>",
-"height": 301.0,
+"height": 341.0,
 "outputs": ["b38585c7-81b3-4540-8726-0be6f45f46de"],
 "theme": "purple",
 "title": null,
@@ -4006,7 +3976,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "f48f8f8e-9c8c-4bd2-b94f-0228e5832974", "13e56f60-496d-4fbf-869d-830154e1a769"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p><em>You can now click on the chair. You can also inspect the wound.</em></p>",
 "height": 361.0,
 "outputs": ["88f54c6e-83c2-473a-ad1e-64eb6b17472f", "c6f68ac6-b347-43b5-96fc-024302da1b2f"],
@@ -4025,7 +3995,7 @@ project_settings = {
 },
 "attributes": ["a8a8b58e-3dd2-4e7a-b9a9-7b0d8a735da9"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>Vicky: Since when were there two of you…?</p>",
 "height": 341.0,
 "outputs": ["72b75380-7f19-407b-90b3-3e0bacf8114c"],
@@ -4113,24 +4083,23 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"content": "<p>[Name]: You know, this is my first time seeing your new place. How's it been, here?</p>",
-"height": 281.0,
+"content": "<p>You: You know, this is my first time seeing your new place. How's it been, here?</p>",
+"height": 341.0,
 "outputs": ["668858ed-64d2-4760-aad2-5ba40ae9c12f"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
 "x": 7620.0,
-"y": 11380.0
+"y": 11340.0
 },
 "4d849e11-d08a-4f3d-ab21-c04da9330ede": {
 "assets": {
 "cover": {
-"id": "7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd",
-"type": "image"
+"id": "66b32244-18fc-496a-97e0-10a77ce25d33"
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": [],
 "content": "<p><em>You accidentally knock hard into the knife, causing it to dig deeper into the foot.</em></p>",
 "height": 140.0,
 "outputs": ["33f36a09-f0fd-4777-9375-4e16c43adb02"],
@@ -4149,15 +4118,15 @@ project_settings = {
 },
 "attributes": ["050216a5-3601-449f-b74d-75a25ddd08de"],
 "autoHeight": false,
-"components": [],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p><strong>Liv: </strong>What do we do now?</p><p></p>",
-"height": 261.0,
+"height": 301.0,
 "outputs": ["db1890d5-ead3-41b4-86bc-f3e50142d866"],
 "theme": "purple",
 "title": null,
 "width": 321.0,
 "x": 28740.0,
-"y": 18940.0
+"y": 18840.0
 },
 "53e25832-31a9-4a2b-99cf-134eb6f488df": {
 "assets": {
@@ -4187,7 +4156,7 @@ project_settings = {
 },
 "attributes": ["d2ad2e87-5c7b-44a8-9432-61ad6ae814ae"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
+"components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p><strong>Frank: </strong>Because I’ll say it! Thanks, [Name]! Now, let’s move on.</p>",
 "height": 326.0,
 "outputs": ["7a825625-f2e8-4e11-bc08-1e2dcf5b9063"],
@@ -4217,15 +4186,15 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": [],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p>[Name]: Are you okay??</p>",
 "height": 121.0,
 "outputs": ["77b03aad-2946-4fa2-84ad-01702e15ad28"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 10340.0,
-"y": 10180.0
+"x": 10400.0,
+"y": 9820.0
 },
 "59bcf675-fbb4-4096-8778-07bbb34c87af": {
 "assets": {
@@ -4236,8 +4205,8 @@ project_settings = {
 },
 "attributes": ["1aeb62c1-b82a-4cfc-991a-c1861d54212a"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
-"content": "<p>Onlooker (Liv): Her hands are cold… That’s not normal.</p>",
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
+"content": "<p>Onlooker: Her hands are cold… That’s not normal.</p>",
 "height": 341.0,
 "outputs": ["c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6"],
 "theme": "purple",
@@ -4273,15 +4242,15 @@ project_settings = {
 },
 "attributes": ["14aa1879-846f-494a-9d8e-dd31ea563d44"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>I… I only had like… like, four cups. </p>",
 "height": 341.0,
 "outputs": ["11c94fa7-e53f-4648-a215-7070edc1615b"],
 "theme": "purple",
 "title": null,
 "width": 341.0,
-"x": 24340.0,
-"y": 21400.0
+"x": 24420.0,
+"y": 21440.0
 },
 "60b60fb6-7139-434c-8c99-42c07e98b8b7": {
 "assets": {
@@ -4376,7 +4345,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "894c2a71-952e-45c9-b55a-340794307a1d"],
 "content": "<p>Frank: I’ll… keep the pressure on my foot.</p>",
 "height": 361.0,
 "outputs": ["6546a995-6004-4cfb-9093-d178e7b14ea0"],
@@ -4431,7 +4400,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["894c2a71-952e-45c9-b55a-340794307a1d"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "894c2a71-952e-45c9-b55a-340794307a1d"],
 "content": "<p><strong>Friend</strong> \"Hold up! That's not right!! It's 2012 Chimney Rock Road!\"</p>",
 "height": 368.0,
 "outputs": ["c03dfa90-f107-4738-b06f-629724aec3fc"],
@@ -4452,18 +4421,6 @@ project_settings = {
 "width": 301.0,
 "x": 25180.0,
 "y": 20380.0
-},
-"6c00464c-e3f3-4462-8ede-ea8c2f4ed096": {
-"autoHeight": true,
-"components": ["bc2f9c19-b2fc-44d9-a057-7fff4fc77f41"],
-"content": null,
-"height": 121.0,
-"outputs": [],
-"theme": "purple",
-"title": "<p><span class=\"mention mention-component\" data-id=\"bc2f9c19-b2fc-44d9-a057-7fff4fc77f41\" data-type=\"component\" data-label=\"Untitled component\">Untitled component</span></p>",
-"width": 301.0,
-"x": 11220.0,
-"y": 11080.0
 },
 "6e551804-2622-4b8d-a0ac-93e09986d429": {
 "assets": {
@@ -4491,15 +4448,15 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": [],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p>Frank: Geez, stop looking at it! Just get the bandages already!</p>",
 "height": 121.0,
 "outputs": ["8c66afbc-c52a-49dc-a440-2273d633f28c"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 10760.0,
-"y": 10040.0
+"x": 10780.0,
+"y": 9900.0
 },
 "700cfc98-e5b0-43e3-96d0-5d3c460794a4": {
 "assets": {
@@ -4510,7 +4467,7 @@ project_settings = {
 },
 "attributes": ["e01c0fc5-8873-469c-b7f6-4a615364c2ed"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: She may have had more…?</p>",
 "height": 341.0,
 "outputs": ["fa049d74-9ee2-4bf8-9881-c60586e61bc7"],
@@ -4566,7 +4523,7 @@ project_settings = {
 },
 "attributes": ["92a1e06b-8cb3-495e-8870-f52d431cf634"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["a43c63f4-72c5-461e-8c12-bb95bec19882"],
 "content": "<p><strong>Driver Friend:</strong> Oh, we’re here. Wow, it got dark out fast.</p>",
 "height": 321.0,
 "outputs": ["93c802c8-0349-4c45-8b37-da530216decd"],
@@ -4622,15 +4579,15 @@ project_settings = {
 },
 "attributes": ["f1445ec5-37cd-469e-8e45-a78103d40b25"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>Those… big old red ones… heh.</p><p>(They're pointing at a punch bowl with wine bottles next to it. )</p>",
-"height": 361.0,
+"height": 401.0,
 "outputs": ["dceac94d-fb54-46d0-977d-2b36a7e53abe"],
 "theme": "purple",
 "title": null,
-"width": 341.0,
-"x": 24900.0,
-"y": 21380.0
+"width": 421.0,
+"x": 24960.0,
+"y": 21360.0
 },
 "77a2eb09-585b-4fa3-96f1-1d5634414411": {
 "assets": {
@@ -4660,9 +4617,9 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["7fb5bc29-b329-43d1-8102-4c81983c2f28"],
-"content": "<p>You make note of the broken glass from your fallen water cup.</p>",
+"content": "<p>You make note of the cup that's close to the counter and move it, so you don't knock it over as you help. </p>",
 "height": 341.0,
-"outputs": ["624a9884-accc-47cb-9bf4-e53e7dd78f57"],
+"outputs": ["02a28a83-2048-4dc6-bdbf-cf01b9c8be50"],
 "theme": "purple",
 "title": "<p>Street Festival</p>",
 "width": 321.0,
@@ -4684,7 +4641,7 @@ project_settings = {
 "7b2a946e-bb94-4d2a-8a56-4d4caf3c294a": {
 "autoHeight": false,
 "components": [],
-"content": "<p><em>You’re at the party. Everyone appears to be having a good time. It’s late spring. It’s warm outside despite it being night.</em></p>",
+"content": "<p><em>You’re at the party, and everyone's having a good time. It’s late spring. It’s warm outside despite it being night.</em></p>",
 "height": 141.0,
 "outputs": ["21e1cbf7-08be-40ea-a880-f046b7ddc0fd"],
 "theme": "purple",
@@ -4702,7 +4659,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"content": "<p>You enter your friend's house. You pour yourself a glass of water, like a force of habit. Frank goes back to a cutting board, with various vegetables chopped up on the side. There are several knives hanging above the stove.</p>",
+"content": "<p><em>You enter your friend's house. You pour yourself a glass of water. Frank goes back to a cutting board, with various vegetables chopped up on the side. There are several knives hanging above the stove.</em></p>",
 "height": 381.0,
 "outputs": ["731033fb-21a5-4759-9b65-652a9d95ff73"],
 "theme": "purple",
@@ -4720,7 +4677,7 @@ project_settings = {
 },
 "attributes": ["ab9c1767-6b10-41f0-9493-5907bfcd31c7"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>You sound crazy.</p>",
 "height": 361.0,
 "outputs": ["a413dccc-8cfa-4a90-8fcc-29b63446daa1"],
@@ -4751,7 +4708,7 @@ project_settings = {
 },
 "attributes": ["db183381-4d55-485a-a7aa-33f7e08011a4"],
 "autoHeight": false,
-"components": [],
+"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
 "content": "<p>[Name]: Ok, there you go. How did you get here? Did you come with anyone?</p>",
 "height": 341.0,
 "outputs": ["025c8fee-9e3f-41d9-bbf0-6042bfd46732"],
@@ -4771,7 +4728,7 @@ project_settings = {
 "autoHeight": false,
 "components": [],
 "content": "<p>[Name]: It was an accident! I’m sorry!</p>",
-"height": 321.0,
+"height": 201.0,
 "outputs": ["d65a8a84-cfc4-4184-99c0-0195516108b2"],
 "theme": "purple",
 "title": null,
@@ -4906,8 +4863,8 @@ project_settings = {
 "theme": "purple",
 "title": null,
 "width": 321.0,
-"x": 8020.0,
-"y": 11320.0
+"x": 8040.0,
+"y": 11340.0
 },
 "8ac3d98e-dea5-42e0-afa8-d2b891c93a79": {
 "assets": {
@@ -4918,15 +4875,15 @@ project_settings = {
 },
 "attributes": ["8f79655c-0459-4d95-ba8a-6aedb74c5510"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>Oh, you know… Enough. </p>",
 "height": 341.0,
 "outputs": ["13702496-ecb7-45c8-b5d3-cce555a3bf78"],
 "theme": "purple",
 "title": null,
 "width": 341.0,
-"x": 24620.0,
-"y": 21760.0
+"x": 24300.0,
+"y": 21820.0
 },
 "8ad165a7-818b-4f16-9528-4376c89d7406": {
 "autoHeight": true,
@@ -4967,7 +4924,7 @@ project_settings = {
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 10780.0,
+"x": 10820.0,
 "y": 10320.0
 },
 "906fcd94-d1eb-4e43-9b38-5f9b04b7eec2": {
@@ -4980,7 +4937,7 @@ project_settings = {
 "autoHeight": false,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p>[Name]: So, what are you cooking up right now?</p>",
-"height": 281.0,
+"height": 321.0,
 "outputs": ["1eb63a9e-bf9f-452d-9abf-224120165b59"],
 "theme": "purple",
 "title": null,
@@ -5017,13 +4974,13 @@ project_settings = {
 "autoHeight": false,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p>Frank: A vegetable soup. I feel like I haven't been eating enough vegetables.</p>",
-"height": 301.0,
+"height": 321.0,
 "outputs": ["9b7812a5-cdfa-455a-b4ac-3dcae78e3fe5"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
 "x": 7440.0,
-"y": 10640.0
+"y": 10480.0
 },
 "94e225c5-6383-4516-b293-037a25c5c154": {
 "assets": {
@@ -5059,8 +5016,8 @@ project_settings = {
 "theme": "purple",
 "title": null,
 "width": 321.0,
-"x": 7640.0,
-"y": 10960.0
+"x": 7620.0,
+"y": 10940.0
 },
 "962d91ed-0391-4eb6-85b9-75a9cb1c7903": {
 "assets": {
@@ -5070,7 +5027,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "f48f8f8e-9c8c-4bd2-b94f-0228e5832974"],
 "content": "<p>Frank: More sterile than the napkins, at any rate.</p>",
 "height": 313.0,
 "outputs": ["50a20ddc-0a6e-4167-a492-82263b536bd3"],
@@ -5089,7 +5046,7 @@ project_settings = {
 },
 "attributes": ["a1115848-e4ae-4f64-a921-c61bfe63a95a"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: I doubt that’s changed today.</p>",
 "height": 341.0,
 "outputs": ["2a3b6495-4885-489d-a8fa-5d9a75232c43"],
@@ -5145,15 +5102,15 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": [],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p>Frank: I mean, I have a knife in my foot, but… I need to relax. Don’t want to go into shock or anything.</p>",
 "height": 140.0,
 "outputs": ["157ca548-e4e1-4ac6-87d6-749428776442"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 10260.0,
-"y": 9980.0
+"x": 9980.0,
+"y": 9780.0
 },
 "9ea70bad-8602-4b25-aad4-f0f9ca3f231d": {
 "assets": {
@@ -5200,7 +5157,7 @@ project_settings = {
 },
 "attributes": ["29089df1-b1b4-47a7-82e8-9e220ae4f080"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: I think they had like, 6 cups? </p><p>I haven’t been watching her constantly, though. </p>",
 "height": 341.0,
 "outputs": ["ac98d3b2-2027-4dd2-92f5-639fa254146c"],
@@ -5275,20 +5232,19 @@ project_settings = {
 "aa31e639-f2e6-4cec-aad6-bd3ca242e92e": {
 "assets": {
 "cover": {
-"id": "7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd",
-"type": "image"
+"id": "8bfe7259-406b-4c69-8bd6-f6d566686dec"
 }
 },
-"autoHeight": false,
+"autoHeight": true,
 "components": [],
 "content": "<p><em>You investigate the knife wound. It’s fully through the foot. Blood is coming out of the top and on the floor underneath.</em></p>",
-"height": 141.0,
+"height": 334.0,
 "outputs": ["9a28d341-e45b-4a31-b5dd-75ac4a548eb4"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 10420.0,
-"y": 10340.0
+"x": 10440.0,
+"y": 10220.0
 },
 "aa7603c6-9af8-409b-90a2-3be46d2c0058": {
 "assets": {
@@ -5298,9 +5254,9 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": [],
-"content": "<p>Frank: Wait, before you do anything, mind the glass there. I don't want us both to get stabbed in the foot.</p>",
-"height": 406.0,
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"content": "<p>Frank: Wait, before you do anything, mind the glass cup there. Make sure it's safe before you try to help. </p>",
+"height": 334.0,
 "outputs": ["635caecd-c6cb-4e6f-bfcb-8703d2e52278"],
 "theme": "orange",
 "title": "<p>Cozy Evening</p>",
@@ -5334,9 +5290,9 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"content": "<p>Your name is [Name]. Your best friend is Frank, a guy you met in freshman year at a chess club. You're majoring in different things, so you don't see each other very often. Today, he's invited you to his house for lunch.</p>",
-"height": 463.0,
+"components": [],
+"content": "<p>Your best friend is Frank, a guy you met in freshman year at a chess club. You're majoring in different things, so you don't see each other very often. Today, he's invited you to his house for lunch.</p>",
+"height": 296.0,
 "outputs": ["4ab6a842-4a58-4144-babb-fe76bee42ae0"],
 "theme": "cyan",
 "title": null,
@@ -5360,8 +5316,8 @@ project_settings = {
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 29800.0,
-"y": 20540.0
+"x": 30040.0,
+"y": 20560.0
 },
 "af47edb6-9737-487f-b9b6-b5638d07e678": {
 "assets": {
@@ -5372,7 +5328,7 @@ project_settings = {
 },
 "attributes": ["2e6fcf37-fe2d-4652-9fb7-02f8035dc5e9"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: Oh, I know them. They never drink. </p>",
 "height": 341.0,
 "outputs": ["f3981ca7-1fff-4c8e-8096-3bdbad908988"],
@@ -5381,6 +5337,18 @@ project_settings = {
 "width": 341.0,
 "x": 25040.0,
 "y": 18740.0
+},
+"af617b45-8ee7-419e-aed9-b6d2b4ea0c0b": {
+"autoHeight": true,
+"components": [],
+"content": null,
+"height": 121.0,
+"outputs": [],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 6200.0,
+"y": 11520.0
 },
 "b2d6843c-75f3-426a-a14e-fc870d52c6a8": {
 "autoHeight": true,
@@ -5465,7 +5433,7 @@ project_settings = {
 "title": "<p>Maya's Invitation</p>",
 "width": 321.0,
 "x": 8600.0,
-"y": 12220.0
+"y": 12300.0
 },
 "b6cad407-7c47-42e4-9bcf-c247662e8fb5": {
 "assets": {
@@ -5479,7 +5447,7 @@ project_settings = {
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p><strong>Frank: </strong>What the heck happened here!?</p>",
 "height": 302.0,
-"outputs": [],
+"outputs": ["c9d6fe58-8b20-4c89-a067-00eadbef355c"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
@@ -5507,15 +5475,15 @@ project_settings = {
 },
 "attributes": ["460a1d68-ef21-44d5-9f96-e9d3877332d7"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Liv: What are you doing?</p>",
 "height": 341.0,
 "outputs": ["e8da0c77-5c51-4f4a-a1be-d4ba434d453c"],
 "theme": "purple",
 "title": null,
 "width": 341.0,
-"x": 29920.0,
-"y": 19740.0
+"x": 30140.0,
+"y": 19700.0
 },
 "ba2697a0-0367-442b-9101-038f069bfd6b": {
 "assets": {
@@ -5527,11 +5495,11 @@ project_settings = {
 "autoHeight": false,
 "components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p>Frank: I need to keep pressure on the wound, but my arm’s getting sore.</p>",
-"height": 261.0,
+"height": 321.0,
 "outputs": ["dcaa2e2e-6efb-4e24-a38e-187142c39f8a"],
 "theme": "purple",
 "title": null,
-"width": 301.0,
+"width": 341.0,
 "x": 11700.0,
 "y": 10520.0
 },
@@ -5544,7 +5512,7 @@ project_settings = {
 },
 "attributes": ["70bf5004-9b62-47a7-9e22-145278155fba"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>Heck yeah! I'm inhjthrugfundet.</p>",
 "height": 361.0,
 "outputs": ["10668aea-632f-4cac-8665-342591f1c845"],
@@ -5580,7 +5548,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "894c2a71-952e-45c9-b55a-340794307a1d"],
 "content": "<p>Frank: Call for help already!</p>",
 "height": 422.0,
 "outputs": ["846268b8-293f-49c8-9573-1dea6a33908c"],
@@ -5623,12 +5591,11 @@ project_settings = {
 "c4796d0a-083a-43eb-8d2b-5f97231fc55b": {
 "assets": {
 "cover": {
-"id": "7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd",
-"type": "image"
+"id": "66b32244-18fc-496a-97e0-10a77ce25d33"
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": [],
 "content": "<p><em>You then finish wrapping. Absent-mindedly, you knock into the knife, causing it to dig into the foot more.</em></p>",
 "height": 140.0,
 "outputs": ["ae13a657-547f-40a6-a71e-27405c6328d5"],
@@ -5667,13 +5634,13 @@ project_settings = {
 "autoHeight": false,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p>[Name]: Is it really gory?</p>",
-"height": 281.0,
+"height": 301.0,
 "outputs": ["e618df92-b7b5-41a9-b666-44b6e9c3911f"],
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 8380.0,
-"y": 11180.0
+"x": 8420.0,
+"y": 10980.0
 },
 "c83f7823-cb7f-4aa2-b125-15dd6b8e50ea": {
 "assets": {
@@ -5683,7 +5650,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a", "f48f8f8e-9c8c-4bd2-b94f-0228e5832974"],
 "content": "<p><em>Gauze Wrapping microgame here.</em></p>",
 "height": 121.0,
 "outputs": ["674c1c5f-ed3a-46fb-9f63-0e1823202945", "965c85c4-15b2-4b52-8385-0047a5dfb6eb"],
@@ -5702,7 +5669,7 @@ project_settings = {
 },
 "attributes": ["22252d4d-4e68-4580-8e73-791ecd147590"],
 "autoHeight": false,
-"components": [],
+"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
 "content": "<p>[Name]: I don’t think you should be driving if you’re sleep deprived.</p>",
 "height": 341.0,
 "outputs": ["677d05e0-9108-49a0-81ec-6bb6a91b1bbe"],
@@ -5740,7 +5707,7 @@ project_settings = {
 },
 "attributes": ["1031f1bf-5e41-47c2-819d-6d3a6dd3c867"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["a43c63f4-72c5-461e-8c12-bb95bec19882"],
 "content": "<p><strong>Driver Friend:</strong> Glad you’re feeling good enough to go out.</p>",
 "height": 321.0,
 "outputs": ["ca99db19-efb1-4a0e-9f48-c097644fde29"],
@@ -5765,7 +5732,7 @@ project_settings = {
 "theme": "purple",
 "title": null,
 "width": 301.0,
-"x": 7780.0,
+"x": 7740.0,
 "y": 12060.0
 },
 "cb35db92-3c07-41bf-9c45-580ad6b891b4": {
@@ -5776,7 +5743,7 @@ project_settings = {
 }
 },
 "autoHeight": true,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": [],
 "content": "<p><em>Welcome to the Vital Minute!</em><br><em>Choose your name.</em></p>",
 "height": 390.0,
 "outputs": ["51077c30-3bc3-427a-b1a1-8d6be26dc197", "0b1aa186-faa6-4912-acd2-67afb4f8ac97"],
@@ -5825,7 +5792,7 @@ project_settings = {
 },
 "attributes": ["15065f24-17eb-45af-b26f-95d0154da7a4"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p>I… Drank what? I had a… one of those… glasses, like ten minutes ago.</p>",
 "height": 341.0,
 "outputs": ["0438034d-adb8-4b21-8920-936d7814bb4e"],
@@ -5917,7 +5884,7 @@ project_settings = {
 },
 "attributes": ["1f7c3344-557e-448c-b9a3-ccbaec7d4f2a"],
 "autoHeight": true,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
+"components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p><strong>Driver Friend:</strong> Bet you’re glad [Name] was there to save ya, huh?</p>",
 "height": 326.0,
 "outputs": ["44cbe662-6e56-43a6-b639-374973bf5136"],
@@ -5930,7 +5897,7 @@ project_settings = {
 "de925341-5861-41e7-b508-897c401aa90c": {
 "autoHeight": true,
 "components": [],
-"content": "<p>They start spitting out the alcohol and vomiting on the floor.</p>",
+"content": "<p>They start spitting out the alcohol and hacking and coughing on the floor.</p>",
 "height": 121.0,
 "outputs": ["727a8512-257f-4a06-a91c-da35c5f31382"],
 "theme": "purple",
@@ -5998,7 +5965,7 @@ project_settings = {
 },
 "attributes": ["771016cf-061a-4d82-9543-4045bf6bab7c"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: In all my years of knowing them, I’ve never seen them drink even once.</p>",
 "height": 341.0,
 "outputs": ["f7e721c2-f9fd-4c91-b501-92f44b983615"],
@@ -6029,7 +5996,7 @@ project_settings = {
 },
 "attributes": ["5b670f9d-477f-4f23-9874-68993ca808a2"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Onlooker: Oh god, Vicky! What the heck did you give her?</p>",
 "height": 341.0,
 "outputs": ["5affff52-68fe-4664-9de4-2ba96bb316d5"],
@@ -6204,7 +6171,7 @@ project_settings = {
 },
 "attributes": ["1b08e002-3aa2-4058-bb76-ce9e0a809bc7"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": ["a43c63f4-72c5-461e-8c12-bb95bec19882", "647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
 "content": "<p><strong>Frank: </strong>Usually that kind of injury means you lose the whole foot.</p>",
 "height": 341.0,
 "outputs": ["e714fcb4-50ac-407c-a622-c548f5141991"],
@@ -6223,7 +6190,7 @@ project_settings = {
 },
 "attributes": ["2564654f-b745-4868-8444-639057403b6a"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["6e7cb40a-b571-40f6-b830-4c2bc3d0d388", "45a9a8a7-0283-4f16-99bb-a3031b30d882"],
 "content": "<p>Vicky: Hrrgh… I don’t wanna… Ugh… My head… hehe… Livvy..</p>",
 "height": 341.0,
 "outputs": ["88942ba9-0417-478a-b6a8-1832d8a1cb39"],
@@ -6248,20 +6215,19 @@ project_settings = {
 "f28349fa-f30e-40b2-8672-0426a7ee8ecd": {
 "assets": {
 "cover": {
-"id": "7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd",
-"type": "image"
+"id": "8bfe7259-406b-4c69-8bd6-f6d566686dec"
 }
 },
 "autoHeight": false,
-"components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"content": "<p><em>Suddenly, one of the knives falls down and impales your friend’s foot. You stand up with a jolt, knocking your water glass onto the ground.</em><br></p>",
-"height": 321.0,
+"components": [],
+"content": "<p><em>Suddenly, one of the knives falls down and impales Frank's foot. You stand up with a jolt, knocking your water glass onto the ground.</em><br></p>",
+"height": 361.0,
 "outputs": ["5d41dc9d-4a64-43a6-96bc-7d422ccf13df"],
 "theme": "purple",
 "title": null,
 "width": 341.0,
-"x": 8560.0,
-"y": 11900.0
+"x": 8580.0,
+"y": 11880.0
 },
 "f46f5121-88de-4522-98dc-634636069fec": {
 "assets": {
@@ -6272,8 +6238,8 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
-"content": "<p><strong>Frank</strong></p><p>Oh, hello there! Come on in! I was almost done making the food.</p>",
-"height": 155.0,
+"content": "<p>Frank<strong>: </strong>Oh, hello there! Come on in! I was almost done making the food.</p>",
+"height": 313.0,
 "outputs": ["d6cc1b3c-3e70-42db-9a76-6de8a3fa613a"],
 "theme": "purple",
 "title": null,
@@ -6344,12 +6310,11 @@ project_settings = {
 "f7cb21fb-d8e8-449e-8772-a1679440ec94": {
 "assets": {
 "cover": {
-"id": "7202d1ea-e81d-4292-8cd3-bd9cf6d5b1bd",
-"type": "image"
+"id": "8bfe7259-406b-4c69-8bd6-f6d566686dec"
 }
 },
 "autoHeight": true,
-"components": ["647349ca-9ebb-4d5f-b81e-500761ec1c5a"],
+"components": [],
 "content": "<p><em>You look closer at the wound. Perhaps there was something in that medical bag that can help here?</em></p>",
 "height": 140.0,
 "outputs": ["5d15615c-a3e1-4c92-8744-cecb335092e7", "175bdb53-d25d-46d6-b812-efd70e3dd713"],
@@ -6380,7 +6345,7 @@ project_settings = {
 },
 "attributes": ["40e77927-dbe4-4dd9-ac39-404a90cf3aa2"],
 "autoHeight": false,
-"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "1f4389b8-e21a-4d12-84c7-c36cc0c50345"],
+"components": ["1f4389b8-e21a-4d12-84c7-c36cc0c50345", "6e7cb40a-b571-40f6-b830-4c2bc3d0d388"],
 "content": "<p><em>Suddenly, you see two people who appear very exhausted. They both appear to have trouble walking. You don't know who they are.</em></p><p><em>Who do you help?</em></p><p></p>",
 "height": 381.0,
 "outputs": ["d2fc59ec-c723-4d0b-a7aa-371e30422254", "a3b3ebce-498b-48c5-bbf8-47ce6a4d928d"],
@@ -6481,7 +6446,7 @@ project_settings = {
 "autoHeight": false,
 "components": ["ad3d9699-c9ea-4bc0-aa9f-e9656ca0791c"],
 "content": "<p>Frank:You think some of these situations are unbelievable, but then they always show pictures in the slides from real events.</p>",
-"height": 301.0,
+"height": 361.0,
 "outputs": ["19c6b2f2-82a4-48e1-be47-3dfd1e57a0ba"],
 "theme": "purple",
 "title": null,
@@ -6491,6 +6456,13 @@ project_settings = {
 }
 },
 "jumpers": {
+"2b4a96ce-c2b9-457d-ab26-8a3887b8c69d": {
+"elementId": "cb35db92-3c07-41bf-9c45-580ad6b891b4",
+"height": 86.0,
+"width": 185.0,
+"x": 29660.0,
+"y": 20140.0
+},
 "2bcf278d-f6a2-4045-b14d-99893de059c0": {
 "elementId": "cb35db92-3c07-41bf-9c45-580ad6b891b4",
 "height": 86.0,

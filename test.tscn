@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cgk3435hspksx" path="res://Assets/Item_Tutorial_CuttingBoard.png" id="9_5tkv4"]
 [ext_resource type="Texture2D" uid="uid://fkne2i3evsoh" path="res://Assets/Item_Tutorial_Knife (1).png" id="10_0m0f1"]
 [ext_resource type="Texture2D" uid="uid://bmj3ntyo881o6" path="res://Assets/Item_Tutorial_Glass.png" id="11_b0q6j"]
+[ext_resource type="Script" uid="uid://bl1k2najuuk76" path="res://glass_unit.gd" id="12_0m0f1"]
 
 [node name="Control" type="Control" unique_id=458891453]
 layout_mode = 3
@@ -121,7 +122,12 @@ position = Vector2(1500, 555)
 scale = Vector2(0.3975, 0.3975)
 texture = ExtResource("10_0m0f1")
 
-[node name="Glass" type="Sprite2D" parent="." unique_id=830270770]
-position = Vector2(1222, 501)
+[node name="Glass" type="TextureButton" parent="." unique_id=1230891532]
+layout_mode = 0
+offset_left = 1168.9999
+offset_top = 431.0
+offset_right = 1590.9999
+offset_bottom = 975.0
 scale = Vector2(0.27962086, 0.2796209)
-texture = ExtResource("11_b0q6j")
+texture_normal = ExtResource("11_b0q6j")
+script = ExtResource("12_0m0f1")

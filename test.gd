@@ -6,6 +6,7 @@ extends Control
 @onready var dialogue_text = $DialogueText
 @onready var choice_container = $ChoiceContainer
 @onready var advance_trigger = $AdvanceTrigger
+@onready var glass = $Glass
 
 var arcweave_asset: ArcweaveAsset = preload("res://addons/arcweave/TutorialStory.tres")
 var Story = load("res://addons/arcweave/Story.cs")
@@ -13,9 +14,11 @@ var story
 var project_data: Dictionary
 
 func _ready():
+	Input.set_custom_mouse_cursor(load("res://Assets/cursors/resized_cursor_default.png"))
 	advance_trigger.pressed.connect(_on_continue_pressed)
-	advance_trigger.flat = true  # makes button invisible
+	advance_trigger.flat = true
 	advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
+	glass.disabled = true  # not clickable by default
 	project_data = arcweave_asset.project_settings
 	story = Story.new(project_data)
 	repaint()
@@ -39,11 +42,13 @@ func clean_name(raw_name: String) -> String:
 	return raw_name
 
 func repaint():
+	dialogue_text.bbcode_enabled = true
+	dialogue_text.add_theme_color_override("default_color", Color.BLACK)
 	dialogue_text.text = story.GetCurrentRuntimeContent().strip_edges()
 	
 	var comp_name = get_component_name_for_element()
 	if comp_name != "" and comp_name != "Decoy":
-		speaker_name.text = clean_name(comp_name)
+		speaker_name.text = comp_name
 		var portrait_path = "res://Assets/portraits/" + comp_name + ".png"
 		if ResourceLoader.exists(portrait_path):
 			portrait.texture = load(portrait_path)
@@ -62,10 +67,27 @@ func add_options():
 	var options = story.GenerateCurrentOptions()
 	var paths = options.Paths
 	
-	if paths != null and paths.size() > 1:
-		# Multiple real choices — show choice buttons, hide tap trigger
+	if paths == null or paths.size() == 0:
+		choice_container.visible = false
+		advance_trigger.visible = true
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
+		glass.disabled = true
+		return
+	
+	var has_object_paths = false
+	for i in range(paths.size()):
+		if paths[i].label != null and "glass" in paths[i].label.to_lower():
+			has_object_paths = true
+	
+	if has_object_paths:
+		choice_container.visible = false
 		advance_trigger.visible = false
-		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE 
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		glass.disabled = false  # make clickable
+	elif paths.size() > 1:
+		glass.disabled = true
+		advance_trigger.visible = false
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		choice_container.visible = true
 		for i in range(paths.size()):
 			if paths[i].IsValid:
@@ -74,10 +96,19 @@ func add_options():
 				button.pressed.connect(_on_option_pressed.bind(i, paths))
 				choice_container.add_child(button)
 	else:
-		# Linear progression — hide choices, show tap trigger
+		glass.disabled = true
 		choice_container.visible = false
 		advance_trigger.visible = true
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
+
+func on_glass_clicked():
+	var options = story.GenerateCurrentOptions()
+	var paths = options.Paths
+	for i in range(paths.size()):
+		if paths[i].label != null and "glass" in paths[i].label.to_lower():
+			story.SelectPath(paths[i])
+			repaint()
+			break
 
 func _on_option_pressed(index, paths):
 	story.SelectPath(paths[index])

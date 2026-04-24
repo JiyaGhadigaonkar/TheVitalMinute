@@ -21,4 +21,4 @@ func _on_mouse_exited():
 
 func _on_pressed():
 	if is_interactive:
-		get_parent().on_glass_clicked()
+		get_parent().get_parent().on_glass_clicked()

@@ -1,0 +1,3822 @@
+[gd_resource type="Resource" script_class="ArcweaveAsset" format=3 uid="uid://cr841ivi5bim3"]
+
+[ext_resource type="Script" uid="uid://dpjvxabsow167" path="res://addons/arcweave/Editor/ArcweaveAssetScript.gd" id="1_dlukr"]
+
+[resource]
+script = ExtResource("1_dlukr")
+project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/levelv2.godot/project.json"
+project_settings = {
+"assets": {
+"108aba64-252d-4533-9091-fc9d0d0b299a": {
+"name": "Frank.png",
+"type": "image"
+},
+"2aa41baa-3f58-4a6a-bd85-549bbf372de0": {
+"name": "Punch.png",
+"type": "image"
+},
+"4924ee8d-0434-4f9b-8991-c75c642da030": {
+"name": "Glass.png",
+"type": "image"
+},
+"647d0495-341f-42b2-8788-b47dace22bf8": {
+"children": ["6d053f80-6bb1-4c23-9249-1dbc238fdcb2", "acb0c1b2-893a-48d2-aab9-c37c1a298814", "8e45502f-0261-4c9f-8aea-07d7d1e710a4"],
+"root": true
+},
+"6d053f80-6bb1-4c23-9249-1dbc238fdcb2": {
+"children": ["b2f11e22-aa02-4f06-969f-8b6c4724212c", "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff", "72d532e1-0247-4bf4-861f-1975c9dcdeed", "bc949811-1f26-4894-b1d9-7bce4e6049d3"],
+"name": "BG"
+},
+"72d532e1-0247-4bf4-861f-1975c9dcdeed": {
+"name": "Inside Party.png",
+"type": "image"
+},
+"82ffcc80-325d-4b1e-b818-a9f05d4f8640": {
+"name": "Onlooker Normal.png",
+"type": "image"
+},
+"85e4f7b1-814f-43a4-b01d-8a1f2ab765ff": {
+"name": "Outisde Party.png",
+"type": "image"
+},
+"8e45502f-0261-4c9f-8aea-07d7d1e710a4": {
+"children": ["2aa41baa-3f58-4a6a-bd85-549bbf372de0", "4924ee8d-0434-4f9b-8991-c75c642da030", "a9d2ebc5-5b34-43c5-a016-468e625c280f"],
+"name": "Items"
+},
+"93edd9a5-d2eb-4f35-8106-69f303be27eb": {
+"name": "Vicky Happy.png",
+"type": "image"
+},
+"a9d2ebc5-5b34-43c5-a016-468e625c280f": {
+"name": "Red Cup.png",
+"type": "image"
+},
+"acb0c1b2-893a-48d2-aab9-c37c1a298814": {
+"children": ["dfa27b70-1d44-4c10-90dd-ccf2d2aeaa73", "108aba64-252d-4533-9091-fc9d0d0b299a", "e48a9a70-0e38-4d66-a5f8-49417e71d511", "d66f9f8d-20b5-439f-9c3e-30d1312d13c7", "93edd9a5-d2eb-4f35-8106-69f303be27eb", "d4532ad6-e9d5-4356-a05f-9d4ebbd7095e", "ff0578e1-265e-4cf6-9fd6-2624225e7b3f", "82ffcc80-325d-4b1e-b818-a9f05d4f8640"],
+"name": "Characters"
+},
+"b2f11e22-aa02-4f06-969f-8b6c4724212c": {
+"name": "Vicky Collapsed (Green).png",
+"type": "image"
+},
+"bc949811-1f26-4894-b1d9-7bce4e6049d3": {
+"name": "Vicky Collapsed (Red).png",
+"type": "image"
+},
+"d4532ad6-e9d5-4356-a05f-9d4ebbd7095e": {
+"name": "Frank Shock.png",
+"type": "image"
+},
+"d66f9f8d-20b5-439f-9c3e-30d1312d13c7": {
+"name": "Driver Friend.png",
+"type": "image"
+},
+"dfa27b70-1d44-4c10-90dd-ccf2d2aeaa73": {
+"name": "Vicky Sick.png",
+"type": "image"
+},
+"e48a9a70-0e38-4d66-a5f8-49417e71d511": {
+"name": "Onlooker Fear.png",
+"type": "image"
+},
+"ff0578e1-265e-4cf6-9fd6-2624225e7b3f": {
+"name": "Decoy.png",
+"type": "image"
+}
+},
+"attributes": {
+"0345e465-c658-4f83-aed2-f1e28c99991a": {
+"cId": "1dcd98ca-942a-4387-a492-2b9e3709012f",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"086d6a2b-f41d-4836-a2bc-e246615618c8": {
+"cId": "96f8b622-c98d-471e-9de8-9f2917d0b614",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"0abd0a8b-04d7-4e80-a18c-cff566e5e656": {
+"cId": "36c07e05-0b06-4962-9e74-9f65e2f23734",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"0b7b0fb1-f750-4e96-aa29-fedcee3801ab": {
+"cId": "c89d3f0a-375e-4790-96b1-e371359b6f0d",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"0ddfc2b5-65a5-4d8e-989d-2497f9fae299": {
+"cId": "3647681a-f09b-4c7e-88da-37ec536b2710",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"125944db-dd23-4dd3-ac16-8ba7cb902caf": {
+"cId": "622ddedf-fe24-4b50-a390-64d8d7bd45bd",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"15674c8a-fa0f-477e-9a82-7182fa20ca06": {
+"cId": "e5499f5b-b60b-4752-976a-9f257afef06a",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"16c44ebf-f661-4463-bb86-437168b8886c": {
+"cId": "f2284647-5901-402f-9f18-96af7bcfb32e",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"195775ec-6924-4f7c-9697-ca7222ce791c": {
+"cId": "ddc81088-660b-4114-aa9a-21996054bf4d",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"2816ed05-b4fc-43b7-945d-ea5c806b4ab7": {
+"cId": "430251d4-6008-48ca-a7db-88465f8fdc1e",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"2ccec7d5-264b-403e-9c44-ce81c80629f3": {
+"cId": "27beb68f-f883-4a95-b95a-3c167e65bddb",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"31ee2659-d10a-45e7-a6a0-ca6dc36eb90a": {
+"cId": "8a30a4b0-4427-4805-852c-2a2d2b00da35",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"327ebe56-ba17-4f3f-ade9-efffa6409b7f": {
+"cId": "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"3956e2aa-63b2-4b6a-a87b-721b8cae5b24": {
+"cId": "2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"3ab2508d-107f-4857-b4ce-a77cfa5ff018": {
+"cId": "ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"4182b994-ff85-438f-a049-931147d05516": {
+"cId": "a6b83872-84ea-431e-8228-eb73c77a2359",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"4225bace-6ec9-45cc-90b6-1ce956bdac61": {
+"cId": "d560c822-c3d4-46e6-b8d8-a5e2bc72c028",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"4e4ca1ba-d062-4c6c-88d5-da0971ab7910": {
+"cId": "9b399fff-577d-4518-8854-86f9aa2220f7",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"4fec1d23-1524-4827-936f-a11c863536ec": {
+"cId": "ef7710b0-9aa7-4fd9-adfc-e96a4503b051",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"535bda3c-a33c-410a-9805-0d95df6e68a8": {
+"cId": "1be8758c-59f1-4573-897d-387fbca0ff98",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"56be90eb-9215-4e6e-b7db-5537a64e3c57": {
+"cId": "413e9339-8aff-4f38-8cc0-c5e39a29906b",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"5c776a02-a40b-48c1-82ce-af9d8395ea59": {
+"cId": "a3a7adf3-1a1b-444d-8f02-01a2a440cd8b",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"5e74383d-f5d7-4259-9fe8-859f8d88cc62": {
+"cId": "fac99888-f592-465d-9b89-b40d5656b804",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"6927c6ec-7dba-45e7-90f5-fa3921e3236c": {
+"cId": "490af16f-2603-43e6-85ae-f418e94cc070",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"6bc0609b-9e8f-445c-a308-6ed7773e6314": {
+"cId": "4da6a4dd-8b66-4577-b053-9cc3aaab4481",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"6cc35744-ceef-4939-bbde-f640a42e6057": {
+"cId": "17699794-7c76-4498-9ba6-8a18d0022c47",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"6e683f18-063b-474b-a768-91fbaa8a51ce": {
+"cId": "83523415-cabe-4d86-a4e0-cd38ddd0a064",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"6f848b0d-bd41-4bd2-982e-b2f592ab1ac2": {
+"cId": "bafd2280-33b7-45f3-8260-da68e57177fa",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"72267905-564a-4df1-83b4-f1d375e147e4": {
+"cId": "94e225c5-6383-4516-b293-037a25c5c154",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"742b7d93-8257-4bc5-bc0e-fe734b118723": {
+"cId": "af47edb6-9737-487f-b9b6-b5638d07e678",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"7a0b69fa-5447-4603-9a51-2f0e66e718e3": {
+"cId": "4be3044e-e7a5-416d-a289-6683a492dd2d",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"7bd0af04-dd20-4481-b913-65704c6ecc93": {
+"cId": "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"7d0e6038-f7f5-44de-8e86-fa7ae2e0c505": {
+"cId": "e67886eb-87cf-495f-bc93-44f536f20392",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"7eaa71a2-a0a4-46c6-8e4e-412fd74f368b": {
+"cId": "243dab40-e347-4cbb-9ec2-dee66776f3bc",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"8786b39c-f05b-4433-b451-12a7d8480ee6": {
+"cId": "e38ac378-7459-4c67-93c7-ba4be049631c",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"89b013b3-48ce-44af-aca3-4c2ad34abdab": {
+"cId": "fadf0695-a237-4b38-9a6b-f54ade8bdc0f",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"8adec281-b5be-406c-906a-2d4f4cc2571a": {
+"cId": "84b19888-ff99-41b5-84e4-edf4e52c3d19",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"8d475b96-9d65-464c-949f-e34c2afababa": {
+"cId": "355f7b6a-adc7-4eb6-b4fa-510066809f9e",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"8e3281e4-cb36-46ed-9f1f-bd1a7b7e913b": {
+"cId": "a71d90f3-f564-4803-8a45-58903fd2c2c6",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"922f261a-4025-4978-8c3c-2d09a0aead52": {
+"cId": "72ba4268-a7ac-45e0-9ec4-11928379a737",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"96e90a84-93ec-4e23-bbb6-8eb9e695c6a9": {
+"cId": "414c5a3b-3caa-4682-a490-670424170b7f",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"98619a82-1694-4972-8e82-1047b7a202d9": {
+"cId": "470aac9f-768c-41b3-8595-3d613fa6afb6",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"9e6f42c6-ea01-477c-9ec7-f3928e079613": {
+"cId": "ae897635-78bd-4fc4-9cd8-aeed10832b66",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"a7223a7f-e901-4d3c-bbce-27f9c038aca1": {
+"cId": "c604bcdf-7f2b-4c64-8d8b-ba70806a2238",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"a865dc1a-9b84-4b89-90f4-a9a69df7a950": {
+"cId": "6831a0a4-00e4-49bf-a3b2-c210e7979b22",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"aa9f7796-195c-4cb4-bdd2-07a3331717b1": {
+"cId": "d359777c-a124-4604-9062-b82f9462cf9d",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"ab80cd7d-290d-49af-a2e3-ee3f61cadc6e": {
+"cId": "b965da7b-0b5a-429e-b186-22cd198f0261",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"ad604ec2-0e16-4d9a-bd94-72abdd723d92": {
+"cId": "3d3c392d-0440-417a-a3d8-3a7d48f64e26",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"ae427d73-c66b-4e17-871c-c769623c268d": {
+"cId": "92e9ca18-cf7e-4204-bff9-ab2fdc29e323",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"b1541422-32a1-45e5-9425-bff10a187de3": {
+"cId": "4afe38e3-9ad5-4e46-8b64-99ef752dc00b",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"b45a928a-ac69-4ed7-8daf-35adc28d6d7a": {
+"cId": "59bcf675-fbb4-4096-8778-07bbb34c87af",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"b9b9fb71-6b96-4059-a7bd-8973fbbd7802": {
+"cId": "ef796571-a5ea-42c4-8bfb-66e184da9e82",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"bb011af7-4720-4e3c-8daf-f32ca00a677c": {
+"cId": "e8d059d1-ba3b-4732-a413-a0dc027ae038",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"bc0244d4-d41c-46a3-88a2-c62d63d74af5": {
+"cId": "775cfc87-42c9-4c4e-a788-d09403beac48",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"cdf1d7bf-454e-4653-b118-fa810a7424f1": {
+"cId": "7250a697-9722-4ab8-80ef-b34b22da5f54",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"cf150120-0154-43e9-9f6e-76eca562757f": {
+"cId": "324b6d77-3896-467d-8687-edaae87748b3",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"d23afb16-4e3a-42d0-970f-6d5017b33cae": {
+"cId": "8ac3d98e-dea5-42e0-afa8-d2b891c93a79",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"d328f749-ceaf-44da-90aa-a7794ac81bd7": {
+"cId": "77a2eb09-585b-4fa3-96f1-1d5634414411",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"d485d92a-1dbf-44bb-a76b-48f2273aa8fe": {
+"cId": "ca4fb4d4-77a0-4403-a2f5-2b829be59aef",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"e6d16f15-b01d-404d-b6e6-17f28454eb4a": {
+"cId": "b6cad407-7c47-42e4-9bcf-c247662e8fb5",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"ecdbb734-01cd-4fd6-9301-7b3392d4378b": {
+"cId": "1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"ef5c57b9-fa9d-4128-bc73-f87f19593303": {
+"cId": "53e25832-31a9-4a2b-99cf-134eb6f488df",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"f65517b9-6e5b-4d9e-a5a2-be5450f47209": {
+"cId": "fabf46c1-a7ff-4460-84f4-ec89e33087e8",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"f8c3ca21-c462-4915-b5fd-15ae6d3959c9": {
+"cId": "9b7ff1de-af2a-49ef-a25a-66501efa4477",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"f9c56411-c253-47a6-b7fa-41066f6d571d": {
+"cId": "b48c37a7-5018-41d7-862a-eefe8c138e06",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"faf0f2a8-33c0-4f15-b3c7-252f5e85cd92": {
+"cId": "3860c83f-63fc-4632-a103-5e91fcdddf5a",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"fe29f515-d072-455f-82c2-34d08154ca7c": {
+"cId": "ca8446d8-6bdb-499e-a49c-273f159548fa",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+},
+"fee8953e-a76b-4f61-af9c-649c39b7afee": {
+"cId": "df1a4015-2832-414c-b9af-8563f42ff8da",
+"cType": "elements",
+"name": "Cha",
+"value": {
+"data": [],
+"type": "asset-list"
+}
+}
+},
+"boards": {
+"2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+"children": ["630fdb8a-48d6-473e-9974-2460f7eb2b41"],
+"name": "Root",
+"root": true
+},
+"630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+"branches": [],
+"connections": ["d08d0672-f945-46ff-8919-6d26918800f9", "ca99db19-efb1-4a0e-9f48-c097644fde29", "1fd7db8f-df1d-40f2-ac39-9f216a0318d0", "f7d8bcac-e511-4813-908a-fb31f9684577", "7a820fb8-760e-414f-bd2e-a5e5c30d0083", "c3457483-39a6-43a4-b7c2-1491bec2b3b9", "8ca00d21-c3f6-4948-af4c-77ae0777cd79", "40910bbc-0a20-4b91-8d9c-4647272ae560", "e539c99f-761d-46df-9e7e-13d1d98abdd6", "44cbe662-6e56-43a6-b639-374973bf5136", "58253453-b508-4b59-82b4-8376b04dabad", "a494cf80-b297-470e-a597-7e72b38ff410", "7d4d0118-b699-4c82-8d56-6486d04bebb2", "93c802c8-0349-4c45-8b37-da530216decd", "21e1cbf7-08be-40ea-a880-f046b7ddc0fd", "0dbed1b5-f0fe-4249-ab06-5f7e4a956b6f", "27c6c433-a0de-4114-b010-301c2a2c121f", "c7b3d533-c867-45ac-a9dd-ad7ff72e0b75", "d2fc59ec-c723-4d0b-a7aa-371e30422254", "66f6a02b-78af-45cf-a242-99c045f3aacd", "a3b3ebce-498b-48c5-bbf8-47ce6a4d928d", "159d148c-7707-4ab3-8a34-01883ca02dd0", "9ebfae18-c9cf-4b02-853b-fa20e8580c08", "bd5b9830-672b-4762-bdec-957684f173fa", "f8e912a9-453c-4276-a112-960103580167", "b9ec0f4c-920b-40d9-8a6b-655a43113e72", "eb8978af-9d16-4a07-aa42-b099647553a8", "4f3160b5-e616-4a14-b91c-4ad1aa328021", "e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f", "0255b51c-c4f8-46c6-9daa-a6f86a1d6c45", "f3981ca7-1fff-4c8e-8096-3bdbad908988", "f7e721c2-f9fd-4c91-b501-92f44b983615", "2a3b6495-4885-489d-a8fa-5d9a75232c43", "776cf067-dde7-4c84-a905-66ffab40b530", "49bddfe3-d1ca-40a0-af66-ee19bd99c908", "0ba15876-7570-40f3-8fc4-5b59f43fd1f0", "580ffe6f-1e9e-4655-9317-dfa2c9606c8f", "3ea72a9c-850a-45cc-8f4d-d9296ff8b7a2", "025c8fee-9e3f-41d9-bbf0-6042bfd46732", "677d05e0-9108-49a0-81ec-6bb6a91b1bbe", "21ac3dd8-b7ef-4349-8efd-d09c811d8173", "3dcf3c6e-45fe-45b4-8504-6fd8cce06141", "39f14f95-b4cd-479a-ad36-da5e0e215661", "69b53444-9bbd-4d4a-8acc-0e168ee13306", "20da8c82-1a18-46d5-88cc-7b6b700d0e70", "0438034d-adb8-4b21-8920-936d7814bb4e", "11c94fa7-e53f-4648-a215-7070edc1615b", "dceac94d-fb54-46d0-977d-2b36a7e53abe", "13702496-ecb7-45c8-b5d3-cce555a3bf78", "92a6bb5f-5550-4be7-b024-d79577c483fd", "afd1784b-0f92-44d0-9dde-116c029d9274", "4772eb47-db04-462d-bfc9-c3cbb5c84fd8", "d406732e-dcc3-4dbc-90b1-17d98be33750", "f9a60e0c-735c-405e-b7c1-d2aa32ef3e09", "b74d2994-df90-4b43-89fb-8e8a718786b0", "5c8e7f00-27d9-4859-895b-fead4c258985", "b921ec36-add9-4f71-ac75-afc80d031dbe", "47c74cfa-f28f-4e66-ad50-7c3726bdb680", "a0d128d0-1e03-454c-902d-7131d5b1b037", "21b8f7d0-a632-48d9-9ecc-958b9a8ccef6", "61c25322-a055-4d17-9ed9-fce5bb340ccb", "2aac3ccf-b5d5-4b81-83a5-5b5fec0562df", "10668aea-632f-4cac-8665-342591f1c845", "727a8512-257f-4a06-a91c-da35c5f31382", "ed3e1d7f-1ba8-4090-bd20-5b81089548c5", "8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a", "4b96a6fc-a3fc-4871-b174-ba0711fb96d1", "d69b53af-61dc-4dbc-822a-d9e2acda5a94", "5affff52-68fe-4664-9de4-2ba96bb316d5", "143ceda5-bb38-417c-bb10-733de89fb06a", "1936da8f-7768-4368-ac28-654805c720a9", "514f127a-564a-4f93-a1b8-ebc421d294e6", "10b37d5b-050f-4b6d-ae9d-a5d3baafea78", "72b75380-7f19-407b-90b3-3e0bacf8114c", "88942ba9-0417-478a-b6a8-1832d8a1cb39", "c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6", "b9da7664-7fbf-4b0a-aa2f-888464993e99", "7487c508-af23-496b-946d-4529d1c9d19f", "f5d71f10-c7f0-4f8d-a036-65b81b244a41", "5727e0e7-6ab2-4a0e-84c7-8a03d1c68210", "324ef522-3c8e-46ab-bb7c-2b9f0f24417f", "5ac7cd7f-a072-4c0a-95e9-94064dd69ba3", "e8da0c77-5c51-4f4a-a1be-d4ba434d453c", "06d49c33-4a4f-4140-90d3-fd7a776afa15", "ffc1f1d2-19f9-4d08-a024-18d019bf9e44", "1f6dc7dc-950a-4802-92ea-4fc801f1a5c7", "725f1f4e-2af2-4adb-960f-4a7020af7973", "db1890d5-ead3-41b4-86bc-f3e50142d866", "1fd14cf6-e22b-482e-b151-305e9f475860", "b38585c7-81b3-4540-8726-0be6f45f46de", "b259e983-3c02-4186-b6ec-c65ec446237e", "20c5320d-27d2-45d3-a46b-7869025a6dd1", "c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec", "d1456cf0-bfd7-44bd-8280-7cdab0bb1a34", "6d36e4ae-7912-4dfd-9c85-88b6a3946cf6", "eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed", "f4ea93ba-e394-49bf-95a5-58b95413c3b8", "acef5b38-f88d-4161-b5f5-fd4795a32c83", "2516468a-ece2-4d8f-b872-fa46fb0c156a", "cf63fd58-306b-4cf5-948f-048a8d2bf0e9", "a6801a50-4d97-4b83-b63b-f6debda960d7", "b1fed950-209c-4f3e-b189-a553518c5859", "c9d6fe58-8b20-4c89-a067-00eadbef355c", "53e834e9-8572-46cd-ba21-977c91d8489f", "049d7b61-f593-499f-a446-b12689b47420", "2f8bd156-5047-4f39-a072-4ca4f1c81ad8", "2e92a76f-206d-4f2b-bf1c-6b404ab37981", "4ba0b139-8518-4c72-a4e1-9217a41beb10", "2be49d0b-30c9-4dae-bc89-19ecc4b1ad61", "5134910b-8432-4444-897d-a0322471d943", "96028cf4-92ee-41df-ba5a-67334a7dcfc4", "fe7b16a0-f15a-4202-a052-fb24958a46a1", "aa048f6d-0051-4ea2-b1af-f59d1b089e66", "c028d68d-7b86-4a90-afad-f5a32ee2c199", "77aa800d-fa60-4c86-9205-7ac214542105"],
+"elements": ["81ca4304-78c7-470d-8b99-6d5a2eb70edc", "ca8446d8-6bdb-499e-a49c-273f159548fa", "3860c83f-63fc-4632-a103-5e91fcdddf5a", "b6cad407-7c47-42e4-9bcf-c247662e8fb5", "d560c822-c3d4-46e6-b8d8-a5e2bc72c028", "17699794-7c76-4498-9ba6-8a18d0022c47", "1dcd98ca-942a-4387-a492-2b9e3709012f", "a71d90f3-f564-4803-8a45-58903fd2c2c6", "ef7710b0-9aa7-4fd9-adfc-e96a4503b051", "ddc81088-660b-4114-aa9a-21996054bf4d", "c604bcdf-7f2b-4c64-8d8b-ba70806a2238", "a6b83872-84ea-431e-8228-eb73c77a2359", "36c07e05-0b06-4962-9e74-9f65e2f23734", "243dab40-e347-4cbb-9ec2-dee66776f3bc", "e38ac378-7459-4c67-93c7-ba4be049631c", "72ba4268-a7ac-45e0-9ec4-11928379a737", "3647681a-f09b-4c7e-88da-37ec536b2710", "7b2a946e-bb94-4d2a-8a56-4d4caf3c294a", "f4b48678-44bd-476d-965e-c6a6032f6b57", "fabf46c1-a7ff-4460-84f4-ec89e33087e8", "92e9ca18-cf7e-4204-bff9-ab2fdc29e323", "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488", "4be3044e-e7a5-416d-a289-6683a492dd2d", "1a17b6ab-639e-481a-bef0-92deb0473239", "642a5cfc-4623-4293-8b31-c4b4351ebd70", "e5f7f3ab-471b-42ad-b207-9b1e0035c10a", "d070b02b-b689-4956-9c44-a16b4de2cdf6", "e8d059d1-ba3b-4732-a413-a0dc027ae038", "53e25832-31a9-4a2b-99cf-134eb6f488df", "f565f01d-d2d5-4745-a153-4a6c9029e07b", "4b2aeb83-46f8-4b69-b205-6eabd4db2b26", "af47edb6-9737-487f-b9b6-b5638d07e678", "e5499f5b-b60b-4752-976a-9f257afef06a", "96f8b622-c98d-471e-9de8-9f2917d0b614", "a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b", "1bc871cb-4ccd-4f39-8a1b-f86d1851911f", "b2d6843c-75f3-426a-a14e-fc870d52c6a8", "6b077b2a-3bef-421d-b073-414d6cc80816", "df1a4015-2832-414c-b9af-8563f42ff8da", "83523415-cabe-4d86-a4e0-cd38ddd0a064", "c89d3f0a-375e-4790-96b1-e371359b6f0d", "4afe38e3-9ad5-4e46-8b64-99ef752dc00b", "e4531320-4418-404a-b9e9-d54afef0142c", "d359777c-a124-4604-9062-b82f9462cf9d", "8ac3d98e-dea5-42e0-afa8-d2b891c93a79", "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab", "1be8758c-59f1-4573-897d-387fbca0ff98", "775cfc87-42c9-4c4e-a788-d09403beac48", "ee290ed0-dd96-4d27-b019-089731e7bec2", "a3a7adf3-1a1b-444d-8f02-01a2a440cd8b", "2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e", "f252ac82-4648-4d41-89f4-04799795c0b5", "78e0ef60-8665-4ec9-b7f9-e5c4d963a156", "18dc05a8-1583-4688-b7f3-b8094cf40158", "8ad165a7-818b-4f16-9528-4376c89d7406", "8a30a4b0-4427-4805-852c-2a2d2b00da35", "fadf0695-a237-4b38-9a6b-f54ade8bdc0f", "ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c", "f0175fba-75a1-4cb2-8bc1-8551e68a70b8", "bafd2280-33b7-45f3-8260-da68e57177fa", "de925341-5861-41e7-b508-897c401aa90c", "e67886eb-87cf-495f-bc93-44f536f20392", "490af16f-2603-43e6-85ae-f418e94cc070", "a8e9a04f-949d-430d-9de0-4ff88182353c", "6831a0a4-00e4-49bf-a3b2-c210e7979b22", "27beb68f-f883-4a95-b95a-3c167e65bddb", "355f7b6a-adc7-4eb6-b4fa-510066809f9e", "8c2b3480-f266-4bd1-9695-afa7a0ece06f", "3d3c392d-0440-417a-a3d8-3a7d48f64e26", "f2284647-5901-402f-9f18-96af7bcfb32e", "470aac9f-768c-41b3-8595-3d613fa6afb6", "59bcf675-fbb4-4096-8778-07bbb34c87af", "fd09b426-c4be-44bd-ac0c-8c2804c3ab70", "558aeac1-0f1d-4f0c-b0a6-aed2906dc724", "f8791b7e-3c53-418f-9c6f-777ae4d65a5e", "414c5a3b-3caa-4682-a490-670424170b7f", "ae897635-78bd-4fc4-9cd8-aeed10832b66", "2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a", "b965da7b-0b5a-429e-b186-22cd198f0261", "fac99888-f592-465d-9b89-b40d5656b804", "1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6", "84b19888-ff99-41b5-84e4-edf4e52c3d19", "fa52f960-9711-4abf-8101-d1fe0592c7df", "4da6a4dd-8b66-4577-b053-9cc3aaab4481", "94e225c5-6383-4516-b293-037a25c5c154", "430251d4-6008-48ca-a7db-88465f8fdc1e", "77a2eb09-585b-4fa3-96f1-1d5634414411", "b48c37a7-5018-41d7-862a-eefe8c138e06", "b7a6623c-b4f7-4c04-97d7-7676e1ce0991", "324b6d77-3896-467d-8687-edaae87748b3", "9b399fff-577d-4518-8854-86f9aa2220f7", "c10eb371-8ca2-4b34-bfa6-9c733a1ca628", "413e9339-8aff-4f38-8cc0-c5e39a29906b", "ef796571-a5ea-42c4-8bfb-66e184da9e82", "622ddedf-fe24-4b50-a390-64d8d7bd45bd", "ca4fb4d4-77a0-4403-a2f5-2b829be59aef", "7250a697-9722-4ab8-80ef-b34b22da5f54", "9b7ff1de-af2a-49ef-a25a-66501efa4477"],
+"jumpers": ["2b4a96ce-c2b9-457d-ab26-8a3887b8c69d"],
+"name": "Level 1 Board",
+"notes": []
+}
+},
+"branches": {},
+"components": {
+"036db898-0cb9-4a29-b19d-3e8f3288d9a2": {
+"children": ["93336bd2-7548-4e30-b75e-96d602c02dcb", "7b408620-ebbc-4fbe-b4fd-ba7c1954625c", "10e84276-ced6-484d-9f27-022fea26c2a2", "64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70", "36bbd17f-850c-4d0c-bf64-17234ee3064a", "11bbd231-9fdc-48c9-9886-e0df62f064bc", "6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
+"name": "Characters"
+},
+"0f2388d1-06d2-4ce0-82e3-120a9e57883e": {
+"assets": {
+"cover": {
+"id": "a9d2ebc5-5b34-43c5-a016-468e625c280f",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Red_Solo_Cup"
+},
+"10e84276-ced6-484d-9f27-022fea26c2a2": {
+"assets": {
+"cover": {
+"id": "ff0578e1-265e-4cf6-9fd6-2624225e7b3f",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Decoy"
+},
+"11bbd231-9fdc-48c9-9886-e0df62f064bc": {
+"assets": {
+"cover": {
+"id": "82ffcc80-325d-4b1e-b818-a9f05d4f8640",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Onlooker_Normal"
+},
+"18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70": {
+"assets": {
+"cover": {
+"id": "e48a9a70-0e38-4d66-a5f8-49417e71d511",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Onlooker_Fear"
+},
+"36bbd17f-850c-4d0c-bf64-17234ee3064a": {
+"assets": {
+"cover": {
+"id": "d66f9f8d-20b5-439f-9c3e-30d1312d13c7",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Driver_Friend"
+},
+"62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa": {
+"assets": {
+"cover": {
+"id": "4924ee8d-0434-4f9b-8991-c75c642da030",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Glass_Cup"
+},
+"64e7e1bf-ec61-4d56-ba0e-1776054607ea": {
+"assets": {
+"cover": {
+"id": "dfa27b70-1d44-4c10-90dd-ccf2d2aeaa73",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Vicky_Sick"
+},
+"65005bda-15d0-41c5-867f-68c118829f08": {
+"children": ["d7b33150-7821-4c21-b290-646ab76b302c", "c372b18d-4f05-40c2-9736-57bcb5a0c8d5", "036db898-0cb9-4a29-b19d-3e8f3288d9a2"],
+"name": "Root",
+"root": true
+},
+"6dca6ec2-e72a-4e2d-9109-5af4a312f7c5": {
+"assets": {
+"cover": {
+"id": "108aba64-252d-4533-9091-fc9d0d0b299a",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Frank_Normal"
+},
+"7b408620-ebbc-4fbe-b4fd-ba7c1954625c": {
+"assets": {
+"cover": {
+"id": "93edd9a5-d2eb-4f35-8106-69f303be27eb",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Vicky_Happy"
+},
+"93336bd2-7548-4e30-b75e-96d602c02dcb": {
+"assets": {
+"cover": {
+"id": "d4532ad6-e9d5-4356-a05f-9d4ebbd7095e",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Frank_Shock"
+},
+"aad18d45-569c-44f2-ac03-877f02c7b10e": {
+"assets": {
+"cover": {
+"id": "2aa41baa-3f58-4a6a-bd85-549bbf372de0",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Punch_Bowl"
+},
+"c372b18d-4f05-40c2-9736-57bcb5a0c8d5": {
+"children": ["aad18d45-569c-44f2-ac03-877f02c7b10e", "0f2388d1-06d2-4ce0-82e3-120a9e57883e", "62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa"],
+"name": "Items"
+},
+"d7b33150-7821-4c21-b290-646ab76b302c": {
+"attributes": [],
+"name": "Untitled component"
+}
+},
+"conditions": {},
+"connections": {
+"0255b51c-c4f8-46c6-9daa-a6f86a1d6c45": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "4b2aeb83-46f8-4b69-b205-6eabd4db2b26",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "af47edb6-9737-487f-b9b6-b5638d07e678",
+"theme": "blue",
+"type": "Straight"
+},
+"025c8fee-9e3f-41d9-bbf0-6042bfd46732": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "83523415-cabe-4d86-a4e0-cd38ddd0a064",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "c89d3f0a-375e-4790-96b1-e371359b6f0d",
+"theme": "blue",
+"type": "Straight"
+},
+"0438034d-adb8-4b21-8920-936d7814bb4e": {
+"label": "<p>When’s the last time you drank <em>water?</em></p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "d359777c-a124-4604-9062-b82f9462cf9d",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "1be8758c-59f1-4573-897d-387fbca0ff98",
+"theme": "blue",
+"type": "Straight"
+},
+"049d7b61-f593-499f-a446-b12689b47420": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "243dab40-e347-4cbb-9ec2-dee66776f3bc",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "72ba4268-a7ac-45e0-9ec4-11928379a737",
+"theme": "blue",
+"type": "Straight"
+},
+"06d49c33-4a4f-4140-90d3-fd7a776afa15": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "fac99888-f592-465d-9b89-b40d5656b804",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6",
+"theme": "blue",
+"type": "Straight"
+},
+"0ba15876-7570-40f3-8fc4-5b59f43fd1f0": {
+"label": "<p>Make Instant Tea</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1bc871cb-4ccd-4f39-8a1b-f86d1851911f",
+"targetType": "elements",
+"targetid": "6b077b2a-3bef-421d-b073-414d6cc80816",
+"theme": "blue",
+"type": "Straight"
+},
+"0dbed1b5-f0fe-4249-ab06-5f7e4a956b6f": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "92e9ca18-cf7e-4204-bff9-ab2fdc29e323",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "fabf46c1-a7ff-4460-84f4-ec89e33087e8",
+"theme": "blue",
+"type": "Bezier"
+},
+"10668aea-632f-4cac-8665-342591f1c845": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "bafd2280-33b7-45f3-8260-da68e57177fa",
+"targetType": "elements",
+"targetid": "de925341-5861-41e7-b508-897c401aa90c",
+"theme": "blue",
+"type": "Straight"
+},
+"10b37d5b-050f-4b6d-ae9d-a5d3baafea78": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "355f7b6a-adc7-4eb6-b4fa-510066809f9e",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "f2284647-5901-402f-9f18-96af7bcfb32e",
+"theme": "blue",
+"type": "Straight"
+},
+"11c94fa7-e53f-4648-a215-7070edc1615b": {
+"label": "<p>Cups of… what?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "775cfc87-42c9-4c4e-a788-d09403beac48",
+"theme": "blue",
+"type": "Straight"
+},
+"13702496-ecb7-45c8-b5d3-cce555a3bf78": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "8ac3d98e-dea5-42e0-afa8-d2b891c93a79",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"theme": "blue",
+"type": "Straight"
+},
+"143ceda5-bb38-417c-bb10-733de89fb06a": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "3d3c392d-0440-417a-a3d8-3a7d48f64e26",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "8c2b3480-f266-4bd1-9695-afa7a0ece06f",
+"theme": "blue",
+"type": "Straight"
+},
+"159d148c-7707-4ab3-8a34-01883ca02dd0": {
+"label": "<p>Ask: How much did you drink?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1a17b6ab-639e-481a-bef0-92deb0473239",
+"targetType": "elements",
+"targetid": "e5f7f3ab-471b-42ad-b207-9b1e0035c10a",
+"theme": "blue",
+"type": "Straight"
+},
+"1936da8f-7768-4368-ac28-654805c720a9": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "8c2b3480-f266-4bd1-9695-afa7a0ece06f",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "355f7b6a-adc7-4eb6-b4fa-510066809f9e",
+"theme": "blue",
+"type": "Straight"
+},
+"1f6dc7dc-950a-4802-92ea-4fc801f1a5c7": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "84b19888-ff99-41b5-84e4-edf4e52c3d19",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "fa52f960-9711-4abf-8101-d1fe0592c7df",
+"theme": "blue",
+"type": "Straight"
+},
+"1fd14cf6-e22b-482e-b151-305e9f475860": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "94e225c5-6383-4516-b293-037a25c5c154",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "430251d4-6008-48ca-a7db-88465f8fdc1e",
+"theme": "blue",
+"type": "Straight"
+},
+"1fd7db8f-df1d-40f2-ac39-9f216a0318d0": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "d560c822-c3d4-46e6-b8d8-a5e2bc72c028",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "b6cad407-7c47-42e4-9bcf-c247662e8fb5",
+"theme": "blue",
+"type": "Bezier"
+},
+"20c5320d-27d2-45d3-a46b-7869025a6dd1": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "b48c37a7-5018-41d7-862a-eefe8c138e06",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "b7a6623c-b4f7-4c04-97d7-7676e1ce0991",
+"theme": "blue",
+"type": "Straight"
+},
+"20da8c82-1a18-46d5-88cc-7b6b700d0e70": {
+"label": "<p>Ask: When’s the last time you drank?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "642a5cfc-4623-4293-8b31-c4b4351ebd70",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "d359777c-a124-4604-9062-b82f9462cf9d",
+"theme": "blue",
+"type": "Straight"
+},
+"21ac3dd8-b7ef-4349-8efd-d09c811d8173": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "4afe38e3-9ad5-4e46-8b64-99ef752dc00b",
+"targetType": "elements",
+"targetid": "e4531320-4418-404a-b9e9-d54afef0142c",
+"theme": "blue",
+"type": "Straight"
+},
+"21b8f7d0-a632-48d9-9ecc-958b9a8ccef6": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "f0175fba-75a1-4cb2-8bc1-8551e68a70b8",
+"theme": "blue",
+"type": "Straight"
+},
+"21e1cbf7-08be-40ea-a880-f046b7ddc0fd": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "7b2a946e-bb94-4d2a-8a56-4d4caf3c294a",
+"targetType": "elements",
+"targetid": "f4b48678-44bd-476d-965e-c6a6032f6b57",
+"theme": "blue",
+"type": "Straight"
+},
+"2516468a-ece2-4d8f-b872-fa46fb0c156a": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "622ddedf-fe24-4b50-a390-64d8d7bd45bd",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "ca4fb4d4-77a0-4403-a2f5-2b829be59aef",
+"theme": "blue",
+"type": "Straight"
+},
+"27c6c433-a0de-4114-b010-301c2a2c121f": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "fabf46c1-a7ff-4460-84f4-ec89e33087e8",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "3647681a-f09b-4c7e-88da-37ec536b2710",
+"theme": "blue",
+"type": "Bezier"
+},
+"2a3b6495-4885-489d-a8fa-5d9a75232c43": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "96f8b622-c98d-471e-9de8-9f2917d0b614",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"theme": "blue",
+"type": "Straight"
+},
+"2aac3ccf-b5d5-4b81-83a5-5b5fec0562df": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "18dc05a8-1583-4688-b7f3-b8094cf40158",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "bafd2280-33b7-45f3-8260-da68e57177fa",
+"theme": "blue",
+"type": "Straight"
+},
+"2be49d0b-30c9-4dae-bc89-19ecc4b1ad61": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1be8758c-59f1-4573-897d-387fbca0ff98",
+"targetType": "elements",
+"targetid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"theme": "blue",
+"type": "Straight"
+},
+"2e92a76f-206d-4f2b-bf1c-6b404ab37981": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "e8d059d1-ba3b-4732-a413-a0dc027ae038",
+"targetType": "elements",
+"targetid": "53e25832-31a9-4a2b-99cf-134eb6f488df",
+"theme": "blue",
+"type": "Straight"
+},
+"2f8bd156-5047-4f39-a072-4ca4f1c81ad8": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "e5f7f3ab-471b-42ad-b207-9b1e0035c10a",
+"targetType": "elements",
+"targetid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"theme": "blue",
+"type": "Straight"
+},
+"324ef522-3c8e-46ab-bb7c-2b9f0f24417f": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ae897635-78bd-4fc4-9cd8-aeed10832b66",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a",
+"theme": "blue",
+"type": "Straight"
+},
+"39f14f95-b4cd-479a-ad36-da5e0e215661": {
+"label": "<p>Ask: How much did you drink?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "642a5cfc-4623-4293-8b31-c4b4351ebd70",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab",
+"theme": "blue",
+"type": "Straight"
+},
+"3dcf3c6e-45fe-45b4-8504-6fd8cce06141": {
+"label": "<p>Check on the other person</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "e4531320-4418-404a-b9e9-d54afef0142c",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "642a5cfc-4623-4293-8b31-c4b4351ebd70",
+"theme": "blue",
+"type": "Straight"
+},
+"3ea72a9c-850a-45cc-8f4d-d9296ff8b7a2": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "df1a4015-2832-414c-b9af-8563f42ff8da",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "83523415-cabe-4d86-a4e0-cd38ddd0a064",
+"theme": "blue",
+"type": "Straight"
+},
+"40910bbc-0a20-4b91-8d9c-4647272ae560": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "c604bcdf-7f2b-4c64-8d8b-ba70806a2238",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "ef7710b0-9aa7-4fd9-adfc-e96a4503b051",
+"theme": "blue",
+"type": "Bezier"
+},
+"44cbe662-6e56-43a6-b639-374973bf5136": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ddc81088-660b-4114-aa9a-21996054bf4d",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "243dab40-e347-4cbb-9ec2-dee66776f3bc",
+"theme": "blue",
+"type": "Straight"
+},
+"4772eb47-db04-462d-bfc9-c3cbb5c84fd8": {
+"label": "<p>Ask: How much did you drink?</p>",
+"labelLocation": 0.50505514705882,
+"sourceType": "elements",
+"sourceid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab",
+"theme": "blue",
+"type": "Straight"
+},
+"47c74cfa-f28f-4e66-ad50-7c3726bdb680": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "b2d6843c-75f3-426a-a14e-fc870d52c6a8",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c",
+"theme": "blue",
+"type": "Straight"
+},
+"49bddfe3-d1ca-40a0-af66-ee19bd99c908": {
+"label": "<p>Get Hot Water</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b",
+"targetType": "elements",
+"targetid": "1bc871cb-4ccd-4f39-8a1b-f86d1851911f",
+"theme": "blue",
+"type": "Straight"
+},
+"4b96a6fc-a3fc-4871-b174-ba0711fb96d1": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "a8e9a04f-949d-430d-9de0-4ff88182353c",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "6831a0a4-00e4-49bf-a3b2-c210e7979b22",
+"theme": "blue",
+"type": "Straight"
+},
+"4ba0b139-8518-4c72-a4e1-9217a41beb10": {
+"label": "<p>Give Hot Tea</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "6b077b2a-3bef-421d-b073-414d6cc80816",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "83523415-cabe-4d86-a4e0-cd38ddd0a064",
+"theme": "blue",
+"type": "Straight"
+},
+"4f3160b5-e616-4a14-b91c-4ad1aa328021": {
+"label": "<p>Ask: How Much Sleep did you get last night?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "d070b02b-b689-4956-9c44-a16b4de2cdf6",
+"theme": "blue",
+"type": "Straight"
+},
+"5134910b-8432-4444-897d-a0322471d943": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "a3a7adf3-1a1b-444d-8f02-01a2a440cd8b",
+"targetType": "elements",
+"targetid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"theme": "blue",
+"type": "Straight"
+},
+"514f127a-564a-4f93-a1b8-ebc421d294e6": {
+"label": "<p>We should get them somewhere safe and quiet...</p>",
+"labelLocation": 0.5,
+"sourceFace": "top",
+"sourceType": "elements",
+"sourceid": "27beb68f-f883-4a95-b95a-3c167e65bddb",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "8c2b3480-f266-4bd1-9695-afa7a0ece06f",
+"theme": "blue",
+"type": "Straight"
+},
+"53e834e9-8572-46cd-ba21-977c91d8489f": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "17699794-7c76-4498-9ba6-8a18d0022c47",
+"targetType": "elements",
+"targetid": "ddc81088-660b-4114-aa9a-21996054bf4d",
+"theme": "blue",
+"type": "Straight"
+},
+"5727e0e7-6ab2-4a0e-84c7-8a03d1c68210": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "414c5a3b-3caa-4682-a490-670424170b7f",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "ae897635-78bd-4fc4-9cd8-aeed10832b66",
+"theme": "blue",
+"type": "Straight"
+},
+"580ffe6f-1e9e-4655-9317-dfa2c9606c8f": {
+"label": "<p>Give hot water</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1bc871cb-4ccd-4f39-8a1b-f86d1851911f",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "df1a4015-2832-414c-b9af-8563f42ff8da",
+"theme": "blue",
+"type": "Straight"
+},
+"58253453-b508-4b59-82b4-8376b04dabad": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "36c07e05-0b06-4962-9e74-9f65e2f23734",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "a6b83872-84ea-431e-8228-eb73c77a2359",
+"theme": "blue",
+"type": "Bezier"
+},
+"5ac7cd7f-a072-4c0a-95e9-94064dd69ba3": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "b965da7b-0b5a-429e-b186-22cd198f0261",
+"theme": "blue",
+"type": "Straight"
+},
+"5affff52-68fe-4664-9de4-2ba96bb316d5": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "e67886eb-87cf-495f-bc93-44f536f20392",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "3d3c392d-0440-417a-a3d8-3a7d48f64e26",
+"theme": "blue",
+"type": "Straight"
+},
+"5c8e7f00-27d9-4859-895b-fead4c258985": {
+"label": "<p>Give hot water</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "78e0ef60-8665-4ec9-b7f9-e5c4d963a156",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "8a30a4b0-4427-4805-852c-2a2d2b00da35",
+"theme": "blue",
+"type": "Straight"
+},
+"61c25322-a055-4d17-9ed9-fce5bb340ccb": {
+"label": "<p>Get More Alcohol</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f252ac82-4648-4d41-89f4-04799795c0b5",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "18dc05a8-1583-4688-b7f3-b8094cf40158",
+"theme": "blue",
+"type": "Straight"
+},
+"66f6a02b-78af-45cf-a242-99c045f3aacd": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "4be3044e-e7a5-416d-a289-6683a492dd2d",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "92e9ca18-cf7e-4204-bff9-ab2fdc29e323",
+"theme": "blue",
+"type": "Bezier"
+},
+"677d05e0-9108-49a0-81ec-6bb6a91b1bbe": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "c89d3f0a-375e-4790-96b1-e371359b6f0d",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "4afe38e3-9ad5-4e46-8b64-99ef752dc00b",
+"theme": "blue",
+"type": "Straight"
+},
+"69b53444-9bbd-4d4a-8acc-0e168ee13306": {
+"label": "<p>Ask: How much sleep did you get last night?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "642a5cfc-4623-4293-8b31-c4b4351ebd70",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "8ac3d98e-dea5-42e0-afa8-d2b891c93a79",
+"theme": "blue",
+"type": "Straight"
+},
+"6d36e4ae-7912-4dfd-9c85-88b6a3946cf6": {
+"label": "<p>Check Vicky's Pulse</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "324b6d77-3896-467d-8687-edaae87748b3",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "c10eb371-8ca2-4b34-bfa6-9c733a1ca628",
+"theme": "blue",
+"type": "Straight"
+},
+"725f1f4e-2af2-4adb-960f-4a7020af7973": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "fa52f960-9711-4abf-8101-d1fe0592c7df",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "4da6a4dd-8b66-4577-b053-9cc3aaab4481",
+"theme": "blue",
+"type": "Straight"
+},
+"727a8512-257f-4a06-a91c-da35c5f31382": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "de925341-5861-41e7-b508-897c401aa90c",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "e67886eb-87cf-495f-bc93-44f536f20392",
+"theme": "blue",
+"type": "Straight"
+},
+"72b75380-7f19-407b-90b3-3e0bacf8114c": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "470aac9f-768c-41b3-8595-3d613fa6afb6",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "59bcf675-fbb4-4096-8778-07bbb34c87af",
+"theme": "blue",
+"type": "Straight"
+},
+"7487c508-af23-496b-946d-4529d1c9d19f": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "558aeac1-0f1d-4f0c-b0a6-aed2906dc724",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "f8791b7e-3c53-418f-9c6f-777ae4d65a5e",
+"theme": "blue",
+"type": "Straight"
+},
+"776cf067-dde7-4c84-a905-66ffab40b530": {
+"label": "<p>Continue to Prognosis</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"targetType": "elements",
+"targetid": "a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b",
+"theme": "blue",
+"type": "Straight"
+},
+"77aa800d-fa60-4c86-9205-7ac214542105": {
+"label": "<p>Get More Alcohol</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b",
+"targetType": "elements",
+"targetid": "b2d6843c-75f3-426a-a14e-fc870d52c6a8",
+"theme": "blue",
+"type": "Straight"
+},
+"7a820fb8-760e-414f-bd2e-a5e5c30d0083": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1dcd98ca-942a-4387-a492-2b9e3709012f",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "d560c822-c3d4-46e6-b8d8-a5e2bc72c028",
+"theme": "blue",
+"type": "Bezier"
+},
+"7d4d0118-b699-4c82-8d56-6486d04bebb2": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "3647681a-f09b-4c7e-88da-37ec536b2710",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "e38ac378-7459-4c67-93c7-ba4be049631c",
+"theme": "blue",
+"type": "Bezier"
+},
+"8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "fadf0695-a237-4b38-9a6b-f54ade8bdc0f",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "490af16f-2603-43e6-85ae-f418e94cc070",
+"theme": "blue",
+"type": "Straight"
+},
+"88942ba9-0417-478a-b6a8-1832d8a1cb39": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f2284647-5901-402f-9f18-96af7bcfb32e",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "470aac9f-768c-41b3-8595-3d613fa6afb6",
+"theme": "blue",
+"type": "Straight"
+},
+"8ca00d21-c3f6-4948-af4c-77ae0777cd79": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ef7710b0-9aa7-4fd9-adfc-e96a4503b051",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "a71d90f3-f564-4803-8a45-58903fd2c2c6",
+"theme": "blue",
+"type": "Bezier"
+},
+"92a6bb5f-5550-4be7-b024-d79577c483fd": {
+"label": "<p>Ask: When’s the last time you drank?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "d359777c-a124-4604-9062-b82f9462cf9d",
+"theme": "blue",
+"type": "Straight"
+},
+"93c802c8-0349-4c45-8b37-da530216decd": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "72ba4268-a7ac-45e0-9ec4-11928379a737",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "7b2a946e-bb94-4d2a-8a56-4d4caf3c294a",
+"theme": "blue",
+"type": "Straight"
+},
+"96028cf4-92ee-41df-ba5a-67334a7dcfc4": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "a3a7adf3-1a1b-444d-8f02-01a2a440cd8b",
+"theme": "blue",
+"type": "Straight"
+},
+"9ebfae18-c9cf-4b02-853b-fa20e8580c08": {
+"label": "<p>Ask: How much sleep did you get last night?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1a17b6ab-639e-481a-bef0-92deb0473239",
+"targetType": "elements",
+"targetid": "d070b02b-b689-4956-9c44-a16b4de2cdf6",
+"theme": "blue",
+"type": "Straight"
+},
+"a0d128d0-1e03-454c-902d-7131d5b1b037": {
+"label": "<p>Check on the other person</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f0175fba-75a1-4cb2-8bc1-8551e68a70b8",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "642a5cfc-4623-4293-8b31-c4b4351ebd70",
+"theme": "blue",
+"type": "Straight"
+},
+"a3b3ebce-498b-48c5-bbf8-47ce6a4d928d": {
+"label": "<p>Person 2</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488",
+"targetType": "elements",
+"targetid": "642a5cfc-4623-4293-8b31-c4b4351ebd70",
+"theme": "moss",
+"type": "Straight"
+},
+"a494cf80-b297-470e-a597-7e72b38ff410": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "e38ac378-7459-4c67-93c7-ba4be049631c",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "36c07e05-0b06-4962-9e74-9f65e2f23734",
+"theme": "blue",
+"type": "Bezier"
+},
+"a6801a50-4d97-4b83-b63b-f6debda960d7": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "9b7ff1de-af2a-49ef-a25a-66501efa4477",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "7250a697-9722-4ab8-80ef-b34b22da5f54",
+"theme": "blue",
+"type": "Straight"
+},
+"aa048f6d-0051-4ea2-b1af-f59d1b089e66": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "8a30a4b0-4427-4805-852c-2a2d2b00da35",
+"targetType": "elements",
+"targetid": "6831a0a4-00e4-49bf-a3b2-c210e7979b22",
+"theme": "blue",
+"type": "Straight"
+},
+"acef5b38-f88d-4161-b5f5-fd4795a32c83": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ef796571-a5ea-42c4-8bfb-66e184da9e82",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "622ddedf-fe24-4b50-a390-64d8d7bd45bd",
+"theme": "blue",
+"type": "Straight"
+},
+"afd1784b-0f92-44d0-9dde-116c029d9274": {
+"label": "<p>Ask: How much sleep did you get last night?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "8ac3d98e-dea5-42e0-afa8-d2b891c93a79",
+"theme": "blue",
+"type": "Straight"
+},
+"b1fed950-209c-4f3e-b189-a553518c5859": {
+"label": "<p>Time for you to call 911.</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "7250a697-9722-4ab8-80ef-b34b22da5f54",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "9b399fff-577d-4518-8854-86f9aa2220f7",
+"theme": "blue",
+"type": "Straight"
+},
+"b259e983-3c02-4186-b6ec-c65ec446237e": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "77a2eb09-585b-4fa3-96f1-1d5634414411",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "b48c37a7-5018-41d7-862a-eefe8c138e06",
+"theme": "blue",
+"type": "Straight"
+},
+"b38585c7-81b3-4540-8726-0be6f45f46de": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "430251d4-6008-48ca-a7db-88465f8fdc1e",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "77a2eb09-585b-4fa3-96f1-1d5634414411",
+"theme": "blue",
+"type": "Straight"
+},
+"b74d2994-df90-4b43-89fb-8e8a718786b0": {
+"label": "<p>Make Instant Tea</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "78e0ef60-8665-4ec9-b7f9-e5c4d963a156",
+"targetType": "elements",
+"targetid": "8ad165a7-818b-4f16-9528-4376c89d7406",
+"theme": "blue",
+"type": "Straight"
+},
+"b921ec36-add9-4f71-ac75-afc80d031dbe": {
+"label": "<p>Get Hot Water</p>",
+"labelLocation": 0.5,
+"sourceFace": "right",
+"sourceType": "elements",
+"sourceid": "f252ac82-4648-4d41-89f4-04799795c0b5",
+"targetType": "elements",
+"targetid": "78e0ef60-8665-4ec9-b7f9-e5c4d963a156",
+"theme": "blue",
+"type": "Straight"
+},
+"b9da7664-7fbf-4b0a-aa2f-888464993e99": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "fd09b426-c4be-44bd-ac0c-8c2804c3ab70",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "558aeac1-0f1d-4f0c-b0a6-aed2906dc724",
+"theme": "blue",
+"type": "Straight"
+},
+"b9ec0f4c-920b-40d9-8a6b-655a43113e72": {
+"label": "<p>Ask: When’s the last time you drank?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "e8d059d1-ba3b-4732-a413-a0dc027ae038",
+"theme": "blue",
+"type": "Straight"
+},
+"bd5b9830-672b-4762-bdec-957684f173fa": {
+"label": "<p>Ask: When’s the last time you drank anything?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1a17b6ab-639e-481a-bef0-92deb0473239",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "e8d059d1-ba3b-4732-a413-a0dc027ae038",
+"theme": "blue",
+"type": "Straight"
+},
+"c028d68d-7b86-4a90-afad-f5a32ee2c199": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "d070b02b-b689-4956-9c44-a16b4de2cdf6",
+"targetType": "elements",
+"targetid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"theme": "blue",
+"type": "Straight"
+},
+"c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "59bcf675-fbb4-4096-8778-07bbb34c87af",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "fd09b426-c4be-44bd-ac0c-8c2804c3ab70",
+"theme": "blue",
+"type": "Straight"
+},
+"c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec": {
+"label": null,
+"labelLocation": 0.5,
+"sourceFace": "bottom",
+"sourceType": "elements",
+"sourceid": "b7a6623c-b4f7-4c04-97d7-7676e1ce0991",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "324b6d77-3896-467d-8687-edaae87748b3",
+"theme": "blue",
+"type": "Straight"
+},
+"c3457483-39a6-43a4-b7c2-1491bec2b3b9": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "a71d90f3-f564-4803-8a45-58903fd2c2c6",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "1dcd98ca-942a-4387-a492-2b9e3709012f",
+"theme": "blue",
+"type": "Bezier"
+},
+"c7b3d533-c867-45ac-a9dd-ad7ff72e0b75": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f4b48678-44bd-476d-965e-c6a6032f6b57",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488",
+"theme": "blue",
+"type": "Straight"
+},
+"c9d6fe58-8b20-4c89-a067-00eadbef355c": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "b6cad407-7c47-42e4-9bcf-c247662e8fb5",
+"targetFace": "top",
+"targetType": "jumpers",
+"targetid": "2b4a96ce-c2b9-457d-ab26-8a3887b8c69d",
+"theme": "blue",
+"type": "Straight"
+},
+"ca99db19-efb1-4a0e-9f48-c097644fde29": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ca8446d8-6bdb-499e-a49c-273f159548fa",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "3860c83f-63fc-4632-a103-5e91fcdddf5a",
+"theme": "blue",
+"type": "Straight"
+},
+"cf63fd58-306b-4cf5-948f-048a8d2bf0e9": {
+"label": "<p>Play the Rhythm Game.</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ca4fb4d4-77a0-4403-a2f5-2b829be59aef",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "9b7ff1de-af2a-49ef-a25a-66501efa4477",
+"theme": "blue",
+"type": "Straight"
+},
+"d08d0672-f945-46ff-8919-6d26918800f9": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "81ca4304-78c7-470d-8b99-6d5a2eb70edc",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "ca8446d8-6bdb-499e-a49c-273f159548fa",
+"theme": "blue",
+"type": "Straight"
+},
+"d1456cf0-bfd7-44bd-8280-7cdab0bb1a34": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "9b399fff-577d-4518-8854-86f9aa2220f7",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "4be3044e-e7a5-416d-a289-6683a492dd2d",
+"theme": "blue",
+"type": "Straight"
+},
+"d2fc59ec-c723-4d0b-a7aa-371e30422254": {
+"label": "<p>Person 1</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f8fa5ace-c61b-4b8d-9f00-d5d85e54f488",
+"targetType": "elements",
+"targetid": "1a17b6ab-639e-481a-bef0-92deb0473239",
+"theme": "red",
+"type": "Straight"
+},
+"d406732e-dcc3-4dbc-90b1-17d98be33750": {
+"label": "<p>Talk to Onlooker</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e",
+"theme": "blue",
+"type": "Straight"
+},
+"d69b53af-61dc-4dbc-822a-d9e2acda5a94": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "6831a0a4-00e4-49bf-a3b2-c210e7979b22",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "27beb68f-f883-4a95-b95a-3c167e65bddb",
+"theme": "blue",
+"type": "Straight"
+},
+"db1890d5-ead3-41b4-86bc-f3e50142d866": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "4da6a4dd-8b66-4577-b053-9cc3aaab4481",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "94e225c5-6383-4516-b293-037a25c5c154",
+"theme": "blue",
+"type": "Straight"
+},
+"dceac94d-fb54-46d0-977d-2b36a7e53abe": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "775cfc87-42c9-4c4e-a788-d09403beac48",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"theme": "blue",
+"type": "Straight"
+},
+"e539c99f-761d-46df-9e7e-13d1d98abdd6": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "a6b83872-84ea-431e-8228-eb73c77a2359",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "c604bcdf-7f2b-4c64-8d8b-ba70806a2238",
+"theme": "blue",
+"type": "Bezier"
+},
+"e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f": {
+"label": "<p>Talk to Onlooker</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"targetType": "elements",
+"targetid": "4b2aeb83-46f8-4b69-b205-6eabd4db2b26",
+"theme": "blue",
+"type": "Straight"
+},
+"e8da0c77-5c51-4f4a-a1be-d4ba434d453c": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "b965da7b-0b5a-429e-b186-22cd198f0261",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "fac99888-f592-465d-9b89-b40d5656b804",
+"theme": "blue",
+"type": "Straight"
+},
+"eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed": {
+"label": "<p>Ask Liv: Do you know CPR?</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "c10eb371-8ca2-4b34-bfa6-9c733a1ca628",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "413e9339-8aff-4f38-8cc0-c5e39a29906b",
+"theme": "blue",
+"type": "Straight"
+},
+"eb8978af-9d16-4a07-aa42-b099647553a8": {
+"label": "<p>Ask: How Much did you drink?</p>",
+"labelLocation": 0.4858630952381,
+"sourceType": "elements",
+"sourceid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "e5f7f3ab-471b-42ad-b207-9b1e0035c10a",
+"theme": "blue",
+"type": "Straight"
+},
+"ed3e1d7f-1ba8-4090-bd20-5b81089548c5": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "8ad165a7-818b-4f16-9528-4376c89d7406",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "fadf0695-a237-4b38-9a6b-f54ade8bdc0f",
+"theme": "blue",
+"type": "Straight"
+},
+"f3981ca7-1fff-4c8e-8096-3bdbad908988": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "af47edb6-9737-487f-b9b6-b5638d07e678",
+"targetType": "elements",
+"targetid": "e5499f5b-b60b-4752-976a-9f257afef06a",
+"theme": "blue",
+"type": "Straight"
+},
+"f4ea93ba-e394-49bf-95a5-58b95413c3b8": {
+"label": "<p>First, breathe. We need to put them on their back, now.</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "413e9339-8aff-4f38-8cc0-c5e39a29906b",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "ef796571-a5ea-42c4-8bfb-66e184da9e82",
+"theme": "blue",
+"type": "Straight"
+},
+"f5d71f10-c7f0-4f8d-a036-65b81b244a41": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f8791b7e-3c53-418f-9c6f-777ae4d65a5e",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "414c5a3b-3caa-4682-a490-670424170b7f",
+"theme": "blue",
+"type": "Straight"
+},
+"f7d8bcac-e511-4813-908a-fb31f9684577": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "3860c83f-63fc-4632-a103-5e91fcdddf5a",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "17699794-7c76-4498-9ba6-8a18d0022c47",
+"theme": "blue",
+"type": "Straight"
+},
+"f7e721c2-f9fd-4c91-b501-92f44b983615": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "e5499f5b-b60b-4752-976a-9f257afef06a",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "96f8b622-c98d-471e-9de8-9f2917d0b614",
+"theme": "blue",
+"type": "Straight"
+},
+"f8e912a9-453c-4276-a112-960103580167": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "53e25832-31a9-4a2b-99cf-134eb6f488df",
+"targetFace": "bottom",
+"targetType": "elements",
+"targetid": "f565f01d-d2d5-4745-a153-4a6c9029e07b",
+"theme": "blue",
+"type": "Straight"
+},
+"f9a60e0c-735c-405e-b7c1-d2aa32ef3e09": {
+"label": "<p>Continue to Prognosis</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ee290ed0-dd96-4d27-b019-089731e7bec2",
+"targetType": "elements",
+"targetid": "f252ac82-4648-4d41-89f4-04799795c0b5",
+"theme": "blue",
+"type": "Straight"
+},
+"fe7b16a0-f15a-4202-a052-fb24958a46a1": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "490af16f-2603-43e6-85ae-f418e94cc070",
+"targetType": "elements",
+"targetid": "a8e9a04f-949d-430d-9de0-4ff88182353c",
+"theme": "blue",
+"type": "Straight"
+},
+"ffc1f1d2-19f9-4d08-a024-18d019bf9e44": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6",
+"targetFace": "right",
+"targetType": "elements",
+"targetid": "84b19888-ff99-41b5-84e4-edf4e52c3d19",
+"theme": "blue",
+"type": "Straight"
+}
+},
+"cover": {
+"file": "visual-novel-cover.png",
+"type": "template-image"
+},
+"elements": {
+"17699794-7c76-4498-9ba6-8a18d0022c47": {
+"attributes": ["6cc35744-ceef-4939-bbde-f640a42e6057"],
+"autoHeight": false,
+"components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
+"content": "<p>Frank: Honestly, it just itches. The doctors said I got lucky since usually you lose the whole foot.</p>",
+"height": 341.0,
+"outputs": ["53e834e9-8572-46cd-ba21-977c91d8489f"],
+"theme": "purple",
+"title": null,
+"width": 341.0,
+"x": 10780.0,
+"y": 12420.0
+},
+"18dc05a8-1583-4688-b7f3-b8094cf40158": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": false,
+"components": ["0f2388d1-06d2-4ce0-82e3-120a9e57883e", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p>You offer them more alcohol.</p>",
+"height": 379.0,
+"outputs": ["2aac3ccf-b5d5-4b81-83a5-5b5fec0562df"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 15660.0,
+"y": 13520.0
+},
+"1a17b6ab-639e-481a-bef0-92deb0473239": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": false,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>You see someone who is tired. You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning.</p>",
+"height": 441.0,
+"outputs": ["159d148c-7707-4ab3-8a34-01883ca02dd0", "9ebfae18-c9cf-4b02-853b-fa20e8580c08", "bd5b9830-672b-4762-bdec-957684f173fa"],
+"theme": "purple",
+"title": "<p>Decoy</p>",
+"width": 280.987,
+"x": 13140.0,
+"y": 11900.0
+},
+"1b6de7cf-e0ac-43cf-9ee4-d0d87b36c7d6": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["ecdbb734-01cd-4fd6-9301-7b3392d4378b"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv): Oh, okay.</p>",
+"height": 401.0,
+"outputs": ["ffc1f1d2-19f9-4d08-a024-18d019bf9e44"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 19360.0,
+"y": 11640.0
+},
+"1bc871cb-4ccd-4f39-8a1b-f86d1851911f": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa"],
+"content": "<p><em>You get a cup of hot water.</em></p>",
+"height": 379.0,
+"outputs": ["0ba15876-7570-40f3-8fc4-5b59f43fd1f0", "580ffe6f-1e9e-4655-9317-dfa2c9606c8f"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 15040.0,
+"y": 12480.0
+},
+"1be8758c-59f1-4573-897d-387fbca0ff98": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["535bda3c-a33c-410a-9805-0d95df6e68a8"],
+"autoHeight": false,
+"components": ["7b408620-ebbc-4fbe-b4fd-ba7c1954625c"],
+"content": "<p>What kind of person comes to a party just to drink <em>water?</em> You sound crazy!</p>",
+"height": 441.0,
+"outputs": ["2be49d0b-30c9-4dae-bc89-19ecc4b1ad61"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 14680.0,
+"y": 14700.0
+},
+"1dcd98ca-942a-4387-a492-2b9e3709012f": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"attributes": ["0345e465-c658-4f83-aed2-f1e28c99991a"],
+"autoHeight": false,
+"components": [],
+"content": "<p>911 Operator: We’re sending a unit over right now. Please stay in place. </p><p></p>",
+"height": 361.0,
+"outputs": ["7a820fb8-760e-414f-bd2e-a5e5c30d0083"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 18620.0,
+"y": 12280.0
+},
+"243dab40-e347-4cbb-9ec2-dee66776f3bc": {
+"attributes": ["7eaa71a2-a0a4-46c6-8e4e-412fd74f368b"],
+"autoHeight": true,
+"components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
+"content": "<p>Frank: What do you want me to say? Thanks for the millionth time? I'll say it! Thanks, [Name]! Now let's move on.</p>",
+"height": 140.0,
+"outputs": ["049d7b61-f593-499f-a446-b12689b47420"],
+"theme": "purple",
+"title": null,
+"width": 341.0,
+"x": 11460.0,
+"y": 12820.0
+},
+"27beb68f-f883-4a95-b95a-3c167e65bddb": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["2ccec7d5-264b-403e-9c44-ce81c80629f3"],
+"autoHeight": false,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker: What should we do now?</p>",
+"height": 421.0,
+"outputs": ["514f127a-564a-4f93-a1b8-ebc421d294e6"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 17600.0,
+"y": 13520.0
+},
+"2ca2526c-b9e4-47fd-82b5-8fc2d3a4ff2a": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["3956e2aa-63b2-4b6a-a87b-721b8cae5b24"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player: Ok, I know what to do.</p>",
+"height": 301.0,
+"outputs": ["5ac7cd7f-a072-4c0a-95e9-94064dd69ba3"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 20040.0,
+"y": 12580.0
+},
+"2d3ee6a5-b0d6-4f0e-9d83-ea74ab61a63e": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p>You: Did you see how much they drank?</p>",
+"height": 121.0,
+"outputs": ["96028cf4-92ee-41df-ba5a-67334a7dcfc4"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 15720.0,
+"y": 14560.0
+},
+"324b6d77-3896-467d-8687-edaae87748b3": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["cf150120-0154-43e9-9f6e-76eca562757f"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv): Oh god! She's not breathing! What do I do, she’s not breathing!!!</p>",
+"height": 441.0,
+"outputs": ["6d36e4ae-7912-4dfd-9c85-88b6a3946cf6"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 16820.0,
+"y": 11580.0
+},
+"355f7b6a-adc7-4eb6-b4fa-510066809f9e": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["8d475b96-9d65-464c-949f-e34c2afababa"],
+"autoHeight": false,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker: Come on, Vic, let’s get you outside.</p>",
+"height": 421.0,
+"outputs": ["10b37d5b-050f-4b6d-ae9d-a5d3baafea78"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 18020.0,
+"y": 13100.0
+},
+"3647681a-f09b-4c7e-88da-37ec536b2710": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["0ddfc2b5-65a5-4d8e-989d-2497f9fae299"],
+"autoHeight": false,
+"components": [],
+"content": "<p>911 Operator:<strong> </strong>Alright, keep doing that. How much alcohol did this person drink?</p><p></p>",
+"height": 363.0,
+"outputs": ["7d4d0118-b699-4c82-8d56-6486d04bebb2"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 16960.0,
+"y": 12060.0
+},
+"36c07e05-0b06-4962-9e74-9f65e2f23734": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["0abd0a8b-04d7-4e80-a18c-cff566e5e656"],
+"autoHeight": false,
+"components": [],
+"content": "<p>911 Operator:<strong> </strong>Alright, thank you. What is your current location? </p><p></p>",
+"height": 363.0,
+"outputs": ["58253453-b508-4b59-82b4-8376b04dabad"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 17680.0,
+"y": 12060.0
+},
+"3860c83f-63fc-4632-a103-5e91fcdddf5a": {
+"attributes": ["faf0f2a8-33c0-4f15-b3c7-252f5e85cd92"],
+"autoHeight": false,
+"components": [],
+"content": "<p>You<strong>: </strong>How’s the, uh, injury?</p>",
+"height": 302.0,
+"outputs": ["f7d8bcac-e511-4813-908a-fb31f9684577"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 10580.0,
+"y": 12840.0
+},
+"3d3c392d-0440-417a-a3d8-3a7d48f64e26": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["ad604ec2-0e16-4d9a-bd94-72abdd723d92"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker: Whatever. We need to get her outside...</p>",
+"height": 421.0,
+"outputs": ["143ceda5-bb38-417c-bb10-733de89fb06a"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 17220.0,
+"y": 13020.0
+},
+"413e9339-8aff-4f38-8cc0-c5e39a29906b": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["56be90eb-9215-4e6e-b7db-5537a64e3c57"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv):<strong> </strong>I, um I’ve never been trained, but...</p>",
+"height": 421.0,
+"outputs": ["f4ea93ba-e394-49bf-95a5-58b95413c3b8"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 16840.0,
+"y": 10540.0
+},
+"414c5a3b-3caa-4682-a490-670424170b7f": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["96e90a84-93ec-4e23-bbb6-8eb9e695c6a9"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv): Oh my god. What do I do?!</p>",
+"height": 401.0,
+"outputs": ["5727e0e7-6ab2-4a0e-84c7-8a03d1c68210"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 19620.0,
+"y": 13360.0
+},
+"430251d4-6008-48ca-a7db-88465f8fdc1e": {
+"assets": {
+"cover": {
+"id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
+}
+},
+"attributes": ["2816ed05-b4fc-43b7-945d-ea5c806b4ab7"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv): What? The police? Won't we get in trouble? I don't turn 21 until-</p>",
+"height": 441.0,
+"outputs": ["b38585c7-81b3-4540-8726-0be6f45f46de"],
+"theme": "purple",
+"title": null,
+"width": 381.0,
+"x": 17940.0,
+"y": 11060.0
+},
+"470aac9f-768c-41b3-8595-3d613fa6afb6": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["98619a82-1694-4972-8e82-1047b7a202d9"],
+"autoHeight": false,
+"components": ["7b408620-ebbc-4fbe-b4fd-ba7c1954625c", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Vicky: Look there's two of you! hehe...</p>",
+"height": 401.0,
+"outputs": ["72b75380-7f19-407b-90b3-3e0bacf8114c"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 18400.0,
+"y": 13500.0
+},
+"490af16f-2603-43e6-85ae-f418e94cc070": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["6927c6ec-7dba-45e7-90f5-fa3921e3236c"],
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "7b408620-ebbc-4fbe-b4fd-ba7c1954625c", "7b408620-ebbc-4fbe-b4fd-ba7c1954625c"],
+"content": "<p>WooaAH! That's got... A bit of BUZZ!</p><p>HahaHAha- </p>",
+"height": 441.0,
+"outputs": ["fe7b16a0-f15a-4202-a052-fb24958a46a1"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 17160.0,
+"y": 14580.0
+},
+"4afe38e3-9ad5-4e46-8b64-99ef752dc00b": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["b1541422-32a1-45e5-9425-bff10a187de3"],
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>I took the bus. Thank you. I’ll be fine.</p>",
+"height": 401.0,
+"outputs": ["21ac3dd8-b7ef-4349-8efd-d09c811d8173"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 14220.0,
+"y": 13300.0
+},
+"4b2aeb83-46f8-4b69-b205-6eabd4db2b26": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p>[Name]: Did you see how much they drank?</p>",
+"height": 121.0,
+"outputs": ["0255b51c-c4f8-46c6-9daa-a6f86a1d6c45"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 14900.0,
+"y": 11540.0
+},
+"4be3044e-e7a5-416d-a289-6683a492dd2d": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["7a0b69fa-5447-4603-9a51-2f0e66e718e3"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player:<strong> </strong>I’m at a party, and someone just passed out. They drank a lot of alcohol. They’ve been slurring speech since a few minutes ago. They just stopped breathing.</p>",
+"height": 401.0,
+"outputs": ["66f6a02b-78af-45cf-a242-99c045f3aacd"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 15920.0,
+"y": 12060.0
+},
+"4da6a4dd-8b66-4577-b053-9cc3aaab4481": {
+"assets": {
+"cover": {
+"id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
+}
+},
+"attributes": ["6bc0609b-9e8f-445c-a308-6ed7773e6314"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv): What do we do now?</p><p></p>",
+"height": 401.0,
+"outputs": ["db1890d5-ead3-41b4-86bc-f3e50142d866"],
+"theme": "purple",
+"title": null,
+"width": 321.0,
+"x": 18580.0,
+"y": 11080.0
+},
+"53e25832-31a9-4a2b-99cf-134eb6f488df": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["ef5c57b9-fa9d-4128-bc73-f87f19593303"],
+"autoHeight": false,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>Honestly, water could be good. Or some tea.</p>",
+"height": 421.0,
+"outputs": ["f8e912a9-453c-4276-a112-960103580167"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 14060.0,
+"y": 12420.0
+},
+"558aeac1-0f1d-4f0c-b0a6-aed2906dc724": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"autoHeight": true,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p><em>Now that you’re outside, you and Liv drop Vicky on the patio.</em></p>",
+"height": 330.0,
+"outputs": ["7487c508-af23-496b-946d-4529d1c9d19f"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 19220.0,
+"y": 13020.0
+},
+"59bcf675-fbb4-4096-8778-07bbb34c87af": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["b45a928a-ac69-4ed7-8daf-35adc28d6d7a"],
+"autoHeight": false,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv): Her hands are cold… That’s not normal! We don't want her to get too cold!</p>",
+"height": 441.0,
+"outputs": ["c05e6ef3-98fc-4ec0-a4c2-26d7c021e5b6"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 18800.0,
+"y": 13460.0
+},
+"5f927cbb-97f3-47bc-bd2d-4e1b2560d4ab": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["327ebe56-ba17-4f3f-ade9-efffa6409b7f"],
+"autoHeight": false,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p>I… I only had like… like, four cups. </p>",
+"height": 421.0,
+"outputs": ["11c94fa7-e53f-4648-a215-7070edc1615b"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 14300.0,
+"y": 13720.0
+},
+"622ddedf-fe24-4b50-a390-64d8d7bd45bd": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["125944db-dd23-4dd3-ac16-8ba7cb902caf"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player:<strong> </strong>Chest compressions. You need to push hard into their chest.</p><p>Here, I can show you.</p>",
+"height": 401.0,
+"outputs": ["2516468a-ece2-4d8f-b872-fa46fb0c156a"],
+"theme": "purple",
+"title": null,
+"width": 381.994,
+"x": 15900.0,
+"y": 10680.0
+},
+"642a5cfc-4623-4293-8b31-c4b4351ebd70": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p>You see someone who is tired. You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning.</p>",
+"height": 161.0,
+"outputs": ["39f14f95-b4cd-479a-ad36-da5e0e215661", "69b53444-9bbd-4d4a-8acc-0e168ee13306", "20da8c82-1a18-46d5-88cc-7b6b700d0e70"],
+"theme": "purple",
+"title": "<p>Alcoholism</p>",
+"width": 301.0,
+"x": 13620.0,
+"y": 13960.0
+},
+"6831a0a4-00e4-49bf-a3b2-c210e7979b22": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["a865dc1a-9b84-4b89-90f4-a9a69df7a950"],
+"autoHeight": false,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker: Oh god, Vicky!!! You really can't keep doing this!</p>",
+"height": 421.0,
+"outputs": ["d69b53af-61dc-4dbc-822a-d9e2acda5a94"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 17820.0,
+"y": 14000.0
+},
+"6b077b2a-3bef-421d-b073-414d6cc80816": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa"],
+"content": "<p>You mix the tea into the hot water and give it to them.</p>",
+"height": 399.0,
+"outputs": ["4ba0b139-8518-4c72-a4e1-9217a41beb10"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 14960.0,
+"y": 12900.0
+},
+"7250a697-9722-4ab8-80ef-b34b22da5f54": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["cdf1d7bf-454e-4653-b118-fa810a7424f1"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv):<strong> </strong>Oh… oh god… ok… I’ll try my best.<br></p>",
+"height": 441.0,
+"outputs": ["b1fed950-209c-4f3e-b189-a553518c5859"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 16340.0,
+"y": 11560.0
+},
+"72ba4268-a7ac-45e0-9ec4-11928379a737": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"attributes": ["922f261a-4025-4978-8c3c-2d09a0aead52"],
+"autoHeight": false,
+"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a"],
+"content": "<p>Driver Friend: We’re here are the party.</p>",
+"height": 321.0,
+"outputs": ["93c802c8-0349-4c45-8b37-da530216decd"],
+"theme": "purple",
+"title": null,
+"width": 341.0,
+"x": 11660.0,
+"y": 12320.0
+},
+"775cfc87-42c9-4c4e-a788-d09403beac48": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["bc0244d4-d41c-46a3-88a2-c62d63d74af5"],
+"autoHeight": false,
+"components": ["aad18d45-569c-44f2-ac03-877f02c7b10e", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p>Those… big old red ones… heh.</p><p>(They're pointing at a punch bowl with wine bottles next to it. )</p>",
+"height": 481.0,
+"outputs": ["dceac94d-fb54-46d0-977d-2b36a7e53abe"],
+"theme": "purple",
+"title": null,
+"width": 420.994,
+"x": 14860.0,
+"y": 13820.0
+},
+"77a2eb09-585b-4fa3-96f1-1d5634414411": {
+"assets": {
+"cover": {
+"id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
+}
+},
+"attributes": ["d328f749-ceaf-44da-90aa-a7794ac81bd7"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Player: Calm down. There's an amnesty clause. As long as you're helping, you won't get in trouble.</p>",
+"height": 461.0,
+"outputs": ["b259e983-3c02-4186-b6ec-c65ec446237e"],
+"theme": "purple",
+"title": null,
+"width": 360.994,
+"x": 17580.0,
+"y": 11540.0
+},
+"78e0ef60-8665-4ec9-b7f9-e5c4d963a156": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa"],
+"content": "<p>You got a cup of hot water.</p>",
+"height": 379.0,
+"outputs": ["b74d2994-df90-4b43-89fb-8e8a718786b0", "5c8e7f00-27d9-4859-895b-fead4c258985"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 16240.0,
+"y": 13560.0
+},
+"7b2a946e-bb94-4d2a-8a56-4d4caf3c294a": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p>You step outside and notice it's warm despite being dark outside. Everyone sounds like they're having a good time at the party.</p>",
+"height": 281.0,
+"outputs": ["21e1cbf7-08be-40ea-a880-f046b7ddc0fd"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 12140.0,
+"y": 12340.0
+},
+"81ca4304-78c7-470d-8b99-6d5a2eb70edc": {
+"autoHeight": false,
+"components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5", "36bbd17f-850c-4d0c-bf64-17234ee3064a"],
+"content": "<p>You're in the car with Frank and another friend. Frank has a cast on his foot. </p>",
+"height": 241.0,
+"outputs": ["d08d0672-f945-46ff-8919-6d26918800f9"],
+"theme": "purple",
+"title": "<p>Level 1 Start</p>",
+"width": 300.994,
+"x": 10140.0,
+"y": 12080.0
+},
+"83523415-cabe-4d86-a4e0-cd38ddd0a064": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["6e683f18-063b-474b-a768-91fbaa8a51ce"],
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>You: Ok, there you go. How did you get here? Did you come with anyone? </p>",
+"height": 421.0,
+"outputs": ["025c8fee-9e3f-41d9-bbf0-6042bfd46732"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 15280.0,
+"y": 13300.0
+},
+"84b19888-ff99-41b5-84e4-edf4e52c3d19": {
+"assets": {
+"cover": {
+"id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
+}
+},
+"attributes": ["8adec281-b5be-406c-906a-2d4f4cc2571a"],
+"autoHeight": false,
+"components": [],
+"content": "<p><em>I remember now! This is called \"recovery position\".</em></p>",
+"height": 321.0,
+"outputs": ["1f6dc7dc-950a-4802-92ea-4fc801f1a5c7"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 19100.0,
+"y": 11300.0
+},
+"8a30a4b0-4427-4805-852c-2a2d2b00da35": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["31ee2659-d10a-45e7-a6a0-ca6dc36eb90a"],
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p><em>You give the person the hot water. They drink it with shaky hands.</em></p>",
+"height": 441.0,
+"outputs": ["aa048f6d-0051-4ea2-b1af-f59d1b089e66"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 17020.0,
+"y": 13620.0
+},
+"8ac3d98e-dea5-42e0-afa8-d2b891c93a79": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["d23afb16-4e3a-42d0-970f-6d5017b33cae"],
+"autoHeight": false,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p>Oh, you know… Enough. </p>",
+"height": 421.0,
+"outputs": ["13702496-ecb7-45c8-b5d3-cce555a3bf78"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 14160.0,
+"y": 14160.0
+},
+"8ad165a7-818b-4f16-9528-4376c89d7406": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa"],
+"content": "<p><em>You mix the tea into the hot water.</em></p>",
+"height": 379.0,
+"outputs": ["ed3e1d7f-1ba8-4090-bd20-5b81089548c5"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 16620.0,
+"y": 13820.0
+},
+"8c2b3480-f266-4bd1-9695-afa7a0ece06f": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p><em>You and the Onlooker help Vicky stand.</em></p>",
+"height": 379.0,
+"outputs": ["1936da8f-7768-4368-ac28-654805c720a9"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 17640.0,
+"y": 13080.0
+},
+"92e9ca18-cf7e-4204-bff9-ab2fdc29e323": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["ae427d73-c66b-4e17-871c-c769623c268d"],
+"autoHeight": false,
+"components": [],
+"content": "<p>911 Operator:<strong> </strong>Did you check their pulse?</p>",
+"height": 363.0,
+"outputs": ["0dbed1b5-f0fe-4249-ab06-5f7e4a956b6f"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 16260.0,
+"y": 12060.0
+},
+"94e225c5-6383-4516-b293-037a25c5c154": {
+"assets": {
+"cover": {
+"id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
+}
+},
+"attributes": ["72267905-564a-4df1-83b4-f1d375e147e4"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player: I’m going to call 911. We don’t know if their condition will worsen.</p>",
+"height": 361.0,
+"outputs": ["1fd14cf6-e22b-482e-b151-305e9f475860"],
+"theme": "purple",
+"title": null,
+"width": 360.994,
+"x": 18220.0,
+"y": 11600.0
+},
+"96f8b622-c98d-471e-9de8-9f2917d0b614": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["086d6a2b-f41d-4836-a2bc-e246615618c8"],
+"autoHeight": false,
+"components": ["11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p>Onlooker: I doubt that’s changed today.</p>",
+"height": 421.0,
+"outputs": ["2a3b6495-4885-489d-a8fa-5d9a75232c43"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 15340.0,
+"y": 11600.0
+},
+"9b399fff-577d-4518-8854-86f9aa2220f7": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["4e4ca1ba-d062-4c6c-88d5-da0971ab7910"],
+"autoHeight": false,
+"components": [],
+"content": "<p>911 Operator:<strong> </strong>This is 911, what is your emergency?</p>",
+"height": 363.0,
+"outputs": ["d1456cf0-bfd7-44bd-8280-7cdab0bb1a34"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 15820.0,
+"y": 11640.0
+},
+"9b7ff1de-af2a-49ef-a25a-66501efa4477": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["f8c3ca21-c462-4915-b5fd-15ae6d3959c9"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player:<strong> </strong>There. You got that rhythm? You just need to keep doing that.</p>",
+"height": 361.0,
+"outputs": ["a6801a50-4d97-4b83-b63b-f6debda960d7"],
+"theme": "purple",
+"title": null,
+"width": 360.994,
+"x": 16420.0,
+"y": 11140.0
+},
+"a3a7adf3-1a1b-444d-8f02-01a2a440cd8b": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["5c776a02-a40b-48c1-82ce-af9d8395ea59"],
+"autoHeight": false,
+"components": ["11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p>Onlooker: I think they had like, 6 cups? Maybe more?</p><p>I haven’t been watching her constantly, though. </p>",
+"height": 481.0,
+"outputs": ["5134910b-8432-4444-897d-a0322471d943"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 16180.0,
+"y": 14120.0
+},
+"a6b83872-84ea-431e-8228-eb73c77a2359": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["4182b994-ff85-438f-a049-931147d05516"],
+"autoHeight": false,
+"components": [],
+"content": "<p><em>Oh no. Your friends drove you here. You don’t know the address!</em></p>",
+"height": 363.0,
+"outputs": ["e539c99f-761d-46df-9e7e-13d1d98abdd6"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 18100.0,
+"y": 12060.0
+},
+"a71d90f3-f564-4803-8a45-58903fd2c2c6": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"attributes": ["8e3281e4-cb36-46ed-9f1f-bd1a7b7e913b"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player: The address is 237 Stonecrest Street.</p><p></p><p></p>",
+"height": 361.0,
+"outputs": ["c3457483-39a6-43a4-b7c2-1491bec2b3b9"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 18180.0,
+"y": 12480.0
+},
+"a8e8eee6-76df-4ed4-bbf0-8ac65ec5877b": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p><em>Based on your assessment, how will you help?</em></p>",
+"height": 399.0,
+"outputs": ["49bddfe3-d1ca-40a0-af66-ee19bd99c908", "77aa800d-fa60-4c86-9205-7ac214542105"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 15020.0,
+"y": 11980.0
+},
+"a8e9a04f-949d-430d-9de0-4ff88182353c": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p><em>They start coughing a lot and look pale... Oh no, you forgot tea has caffeine!</em></p>",
+"height": 421.0,
+"outputs": ["4b96a6fc-a3fc-4871-b174-ba0711fb96d1"],
+"theme": "purple",
+"title": null,
+"width": 321.0,
+"x": 17660.0,
+"y": 14500.0
+},
+"ae897635-78bd-4fc4-9cd8-aeed10832b66": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["9e6f42c6-ea01-477c-9ec7-f3928e079613"],
+"autoHeight": false,
+"components": [],
+"content": "<p><em>You remember something about putting the victim on their side.</em></p>",
+"height": 321.0,
+"outputs": ["324ef522-3c8e-46ab-bb7c-2b9f0f24417f"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 19900.0,
+"y": 12940.0
+},
+"af47edb6-9737-487f-b9b6-b5638d07e678": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["742b7d93-8257-4bc5-bc0e-fe734b118723"],
+"autoHeight": false,
+"components": ["11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p>Onlooker: Oh, I know them. They never drink. </p>",
+"height": 401.0,
+"outputs": ["f3981ca7-1fff-4c8e-8096-3bdbad908988"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 14900.0,
+"y": 11040.0
+},
+"b2d6843c-75f3-426a-a14e-fc870d52c6a8": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["0f2388d1-06d2-4ce0-82e3-120a9e57883e", "10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p><em>Why would you do this?!</em></p>",
+"height": 379.0,
+"outputs": ["47c74cfa-f28f-4e66-ad50-7c3726bdb680"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 14620.0,
+"y": 12400.0
+},
+"b48c37a7-5018-41d7-862a-eefe8c138e06": {
+"assets": {
+"cover": {
+"id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
+}
+},
+"attributes": ["f9c56411-c253-47a6-b7fa-41066f6d571d"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv):<strong> </strong>You're right. What could be worse than this?</p>",
+"height": 421.0,
+"outputs": ["20c5320d-27d2-45d3-a46b-7869025a6dd1"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 17500.0,
+"y": 10760.0
+},
+"b6cad407-7c47-42e4-9bcf-c247662e8fb5": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"attributes": ["e6d16f15-b01d-404d-b6e6-17f28454eb4a"],
+"autoHeight": false,
+"components": ["93336bd2-7548-4e30-b75e-96d602c02dcb"],
+"content": "<p>Frank: What the heck happened here?!</p>",
+"height": 321.0,
+"outputs": ["c9d6fe58-8b20-4c89-a067-00eadbef355c"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 19400.0,
+"y": 12120.0
+},
+"b7a6623c-b4f7-4c04-97d7-7676e1ce0991": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p><em> Liv looks down at Vicky.</em></p><p><em>She's stopped breathing!</em></p>",
+"height": 421.0,
+"outputs": ["c0b5fd53-1cb0-4829-9fe5-e5fa1cad82ec"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 17200.0,
+"y": 11240.0
+},
+"b965da7b-0b5a-429e-b186-22cd198f0261": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["ab80cd7d-290d-49af-a2e3-ee3f61cadc6e"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv): What are you doing?</p>",
+"height": 421.0,
+"outputs": ["e8da0c77-5c51-4f4a-a1be-d4ba434d453c"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 20000.0,
+"y": 12080.0
+},
+"bafd2280-33b7-45f3-8260-da68e57177fa": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["6f848b0d-bd41-4bd2-982e-b2f592ab1ac2"],
+"autoHeight": false,
+"components": ["0f2388d1-06d2-4ce0-82e3-120a9e57883e", "7b408620-ebbc-4fbe-b4fd-ba7c1954625c"],
+"content": "<p>Heck yeah! I'm inhjthrugfundet.</p>",
+"height": 401.0,
+"outputs": ["10668aea-632f-4cac-8665-342591f1c845"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 15880.0,
+"y": 13000.0
+},
+"c10eb371-8ca2-4b34-bfa6-9c733a1ca628": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"autoHeight": true,
+"components": [],
+"content": "<p><em>You check Vicky's pulse.</em></p><p><em>She doesn't have a pulse!</em></p>",
+"height": 259.0,
+"outputs": ["eb6a091a-de8d-4e0d-8451-08a9e3a6f6ed"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 16840.0,
+"y": 11100.0
+},
+"c604bcdf-7f2b-4c64-8d8b-ba70806a2238": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"attributes": ["a7223a7f-e901-4d3c-bbce-27f9c038aca1"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player: I’ll check. One second.</p><p></p>",
+"height": 361.0,
+"outputs": ["40910bbc-0a20-4b91-8d9c-4647272ae560"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 17160.0,
+"y": 12540.0
+},
+"c89d3f0a-375e-4790-96b1-e371359b6f0d": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["0b7b0fb1-f750-4e96-aa29-fedcee3801ab"],
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>You: You shouldn't drive if you’re sleep deprived.</p>",
+"height": 421.0,
+"outputs": ["677d05e0-9108-49a0-81ec-6bb6a91b1bbe"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 14660.0,
+"y": 13360.0
+},
+"ca4fb4d4-77a0-4403-a2f5-2b829be59aef": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["d485d92a-1dbf-44bb-a76b-48f2273aa8fe"],
+"autoHeight": false,
+"components": [],
+"content": "<p><em>I remember learning this at a summer camp once.</em></p><p>They taught you the best way to keep time was to think about  a catchy rhythm with around 100 BPM.</p>",
+"height": 341.0,
+"outputs": ["cf63fd58-306b-4cf5-948f-048a8d2bf0e9"],
+"theme": "purple",
+"title": null,
+"width": 421.0,
+"x": 15740.0,
+"y": 11220.0
+},
+"ca8446d8-6bdb-499e-a49c-273f159548fa": {
+"attributes": ["fe29f515-d072-455f-82c2-34d08154ca7c"],
+"autoHeight": false,
+"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a"],
+"content": "<p>Driver Friend: Glad you’re feeling good enough to go out.</p>",
+"height": 321.0,
+"outputs": ["ca99db19-efb1-4a0e-9f48-c097644fde29"],
+"theme": "purple",
+"title": null,
+"width": 321.0,
+"x": 10360.0,
+"y": 12400.0
+},
+"d070b02b-b689-4956-9c44-a16b4de2cdf6": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>I had this project I wanted to get done before the party today, so I pulled an all-nighter to finish it.</p>",
+"height": 420.0,
+"outputs": ["c028d68d-7b86-4a90-afad-f5a32ee2c199"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 13780.0,
+"y": 11780.0
+},
+"d359777c-a124-4604-9062-b82f9462cf9d": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["aa9f7796-195c-4cb4-bdd2-07a3331717b1"],
+"autoHeight": true,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "0f2388d1-06d2-4ce0-82e3-120a9e57883e"],
+"content": "<p>I… Drank what? I had a… one of those… cups, like 10 minutes ago.</p>",
+"height": 426.0,
+"outputs": ["0438034d-adb8-4b21-8920-936d7814bb4e"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 14060.0,
+"y": 14640.0
+},
+"d560c822-c3d4-46e6-b8d8-a5e2bc72c028": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"attributes": ["4225bace-6ec9-45cc-90b6-1ce956bdac61"],
+"autoHeight": false,
+"components": [],
+"content": "<p><em>Sirens approach and Vicky gets carried away by EMS. Liv goes with her. </em></p><p><em>The sounds of the sirens cause partygoers to panic and scatter. After a bit, Frank stumbles out of the house, a little tipsy. You’re still sitting on the porch.</em></p><p></p>",
+"height": 401.0,
+"outputs": ["1fd7db8f-df1d-40f2-ac39-9f216a0318d0"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 18980.0,
+"y": 12120.0
+},
+"ddc81088-660b-4114-aa9a-21996054bf4d": {
+"attributes": ["195775ec-6924-4f7c-9697-ca7222ce791c"],
+"autoHeight": true,
+"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a"],
+"content": "<p>Driver Friend: Bet you’re glad [Name] was there to save ya, huh?</p>",
+"height": 326.0,
+"outputs": ["44cbe662-6e56-43a6-b639-374973bf5136"],
+"theme": "purple",
+"title": null,
+"width": 341.0,
+"x": 11220.0,
+"y": 12440.0
+},
+"de925341-5861-41e7-b508-897c401aa90c": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p><em>They start spitting out the alcohol and hacking and coughing on the floor.</em></p>",
+"height": 321.0,
+"outputs": ["727a8512-257f-4a06-a91c-da35c5f31382"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 16360.0,
+"y": 12980.0
+},
+"df1a4015-2832-414c-b9af-8563f42ff8da": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["fee8953e-a76b-4f61-af9c-649c39b7afee"],
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>You give the person the hot water.</p>",
+"height": 421.0,
+"outputs": ["3ea72a9c-850a-45cc-8f4d-d9296ff8b7a2"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 15420.0,
+"y": 12760.0
+},
+"e38ac378-7459-4c67-93c7-ba4be049631c": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["8786b39c-f05b-4433-b451-12a7d8480ee6"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player: I’m not sure exactly, but it was more than 8 shots. I’m not sure how strong the alcohol is here.</p><p></p><p></p>",
+"height": 364.0,
+"outputs": ["a494cf80-b297-470e-a597-7e72b38ff410"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 17300.0,
+"y": 12060.0
+},
+"e4531320-4418-404a-b9e9-d54afef0142c": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": [],
+"content": "<p>Now that they're feeling better, you decide to go check on the other person you saw.</p>",
+"height": 334.0,
+"outputs": ["3dcf3c6e-45fe-45b4-8504-6fd8cce06141"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 13800.0,
+"y": 13460.0
+},
+"e5499f5b-b60b-4752-976a-9f257afef06a": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["15674c8a-fa0f-477e-9a82-7182fa20ca06"],
+"autoHeight": false,
+"components": ["11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p>Onlooker: In all my years of knowing them, I’ve never seen them drink even once.</p>",
+"height": 441.0,
+"outputs": ["f7e721c2-f9fd-4c91-b501-92f44b983615"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 15340.0,
+"y": 11060.0
+},
+"e5f7f3ab-471b-42ad-b207-9b1e0035c10a": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": false,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>I didn’t drink anything. I don’t trust these punch bowls anyway. They always fill them with something.</p>",
+"height": 461.0,
+"outputs": ["2f8bd156-5047-4f39-a072-4ca4f1c81ad8"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 13760.0,
+"y": 11260.0
+},
+"e67886eb-87cf-495f-bc93-44f536f20392": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["7d0e6038-f7f5-44de-8e86-fa7ae2e0c505"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker: Oh god, Vicky! What the heck did you give her?!</p>",
+"height": 461.0,
+"outputs": ["5affff52-68fe-4664-9de4-2ba96bb316d5"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 16820.0,
+"y": 12980.0
+},
+"e8d059d1-ba3b-4732-a413-a0dc027ae038": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["bb011af7-4720-4e3c-8daf-f32ca00a677c"],
+"autoHeight": false,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>I…</p>",
+"height": 401.0,
+"outputs": ["2e92a76f-206d-4f2b-bf1c-6b404ab37981"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 13400.0,
+"y": 12460.0
+},
+"ebed1e6d-b16a-4b3a-8ccf-8615e6103f1c": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["3ab2508d-107f-4857-b4ce-a77cfa5ff018"],
+"autoHeight": false,
+"components": ["0f2388d1-06d2-4ce0-82e3-120a9e57883e", "10e84276-ced6-484d-9f27-022fea26c2a2"],
+"content": "<p>What the heck is this?! I told you I don't drink!</p><p>I don't think I want your help anymore.</p>",
+"height": 461.0,
+"outputs": ["21b8f7d0-a632-48d9-9ecc-958b9a8ccef6"],
+"theme": "purple",
+"title": null,
+"width": 360.994,
+"x": 14460.0,
+"y": 12820.0
+},
+"ee290ed0-dd96-4d27-b019-089731e7bec2": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p>You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning.</p><p>Someone has just walked over.</p>",
+"height": 176.0,
+"outputs": ["92a6bb5f-5550-4be7-b024-d79577c483fd", "afd1784b-0f92-44d0-9dde-116c029d9274", "4772eb47-db04-462d-bfc9-c3cbb5c84fd8", "d406732e-dcc3-4dbc-90b1-17d98be33750", "f9a60e0c-735c-405e-b7c1-d2aa32ef3e09"],
+"theme": "purple",
+"title": "<p>Vicky</p>",
+"width": 301.0,
+"x": 15340.0,
+"y": 14200.0
+},
+"ef7710b0-9aa7-4fd9-adfc-e96a4503b051": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"attributes": ["4fec1d23-1524-4827-936f-a11c863536ec"],
+"autoHeight": false,
+"components": [],
+"content": "<p><em>Luckily, you’re outside, so you just have to look to the right, and the house number is there. Then, look to the left, to see the street sign.</em></p><p></p>",
+"height": 361.0,
+"outputs": ["8ca00d21-c3f6-4948-af4c-77ae0777cd79"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 17660.0,
+"y": 12540.0
+},
+"ef796571-a5ea-42c4-8bfb-66e184da9e82": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["b9b9fb71-6b96-4059-a7bd-8973fbbd7802"],
+"autoHeight": false,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Onlooker (Liv):<strong> </strong>I know they need to be on their back. Now what?</p>",
+"height": 441.0,
+"outputs": ["acef5b38-f88d-4161-b5f5-fd4795a32c83"],
+"theme": "purple",
+"title": null,
+"width": 340.969,
+"x": 16420.0,
+"y": 10580.0
+},
+"f0175fba-75a1-4cb2-8bc1-8551e68a70b8": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p>Well that could've gone better. You can't help a person who doesn't want help, though.</p><p>A little ways away at the party, you see someone fall to the ground and start giggling.</p><p>They look exhausted.</p>",
+"height": 541.0,
+"outputs": ["a0d128d0-1e03-454c-902d-7131d5b1b037"],
+"theme": "purple",
+"title": null,
+"width": 381.0,
+"x": 13480.0,
+"y": 12900.0
+},
+"f2284647-5901-402f-9f18-96af7bcfb32e": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["16c44ebf-f661-4463-bb86-437168b8886c"],
+"autoHeight": false,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea", "18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p>Vicky: Hrrgh… I don’t wanna… Ugh… My head… hehe… Livvy..</p>",
+"height": 441.0,
+"outputs": ["88942ba9-0417-478a-b6a8-1832d8a1cb39"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 18420.0,
+"y": 12960.0
+},
+"f252ac82-4648-4d41-89f4-04799795c0b5": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": true,
+"components": ["64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p>Based on your assessment, how will you help?</p>",
+"height": 399.0,
+"outputs": ["b921ec36-add9-4f71-ac75-afc80d031dbe", "61c25322-a055-4d17-9ed9-fce5bb340ccb"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 15760.0,
+"y": 13980.0
+},
+"f4b48678-44bd-476d-965e-c6a6032f6b57": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p>Your friends go to party in some side room, so you can’t find them. Now you don't anyone and it's just awkward.</p>",
+"height": 381.0,
+"outputs": ["c7b3d533-c867-45ac-a9dd-ad7ff72e0b75"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 12260.0,
+"y": 12780.0
+},
+"f565f01d-d2d5-4745-a153-4a6c9029e07b": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"autoHeight": false,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2", "11bbd231-9fdc-48c9-9886-e0df62f064bc"],
+"content": "<p><em>You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning.</em></p><p><em>Someone has just walked over.</em></p>",
+"height": 461.0,
+"outputs": ["b9ec0f4c-920b-40d9-8a6b-655a43113e72", "eb8978af-9d16-4a07-aa42-b099647553a8", "4f3160b5-e616-4a14-b91c-4ad1aa328021", "e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f", "776cf067-dde7-4c84-a905-66ffab40b530"],
+"theme": "purple",
+"title": "<p>Decoy</p>",
+"width": 300.994,
+"x": 14480.0,
+"y": 11860.0
+},
+"f8791b7e-3c53-418f-9c6f-777ae4d65a5e": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p><em>Vicky vomits and passes out, collapsing on the floor. Liv catches them.</em></p>",
+"height": 341.0,
+"outputs": ["f5d71f10-c7f0-4f8d-a036-65b81b244a41"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 19220.0,
+"y": 13500.0
+},
+"f8fa5ace-c61b-4b8d-9f00-d5d85e54f488": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["7bd0af04-dd20-4481-b913-65704c6ecc93"],
+"autoHeight": false,
+"components": ["10e84276-ced6-484d-9f27-022fea26c2a2", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p>Suddenly, you see two people who seem very exhausted. They both appear to have trouble walking. You don't know who they are.</p><p>Who do you help?</p>",
+"height": 501.0,
+"outputs": ["d2fc59ec-c723-4d0b-a7aa-371e30422254", "a3b3ebce-498b-48c5-bbf8-47ce6a4d928d"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 12680.0,
+"y": 12280.0
+},
+"fa52f960-9711-4abf-8101-d1fe0592c7df": {
+"assets": {
+"cover": {
+"id": "b2f11e22-aa02-4f06-969f-8b6c4724212c"
+}
+},
+"autoHeight": true,
+"components": ["18b8d5a2-5e56-4dc7-9f9e-275ca98c3a70"],
+"content": "<p><em> Liv is holding Vicky steady on her side.</em></p>",
+"height": 121.0,
+"outputs": ["725f1f4e-2af2-4adb-960f-4a7020af7973"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 18800.0,
+"y": 11720.0
+},
+"fabf46c1-a7ff-4460-84f4-ec89e33087e8": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["f65517b9-6e5b-4d9e-a5a2-be5450f47209"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player: I already checked. No pulse. I have her friend giving CPR right now.</p><p></p>",
+"height": 364.0,
+"outputs": ["27c6c433-a0de-4114-b010-301c2a2c121f"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 16600.0,
+"y": 12060.0
+},
+"fac99888-f592-465d-9b89-b40d5656b804": {
+"assets": {
+"cover": {
+"id": "bc949811-1f26-4894-b1d9-7bce4e6049d3"
+}
+},
+"attributes": ["5e74383d-f5d7-4259-9fe8-859f8d88cc62"],
+"autoHeight": false,
+"components": [],
+"content": "<p>Player: I’m putting her on her side so she doesn’t choke on her vomit.</p>",
+"height": 321.0,
+"outputs": ["06d49c33-4a4f-4140-90d3-fd7a776afa15"],
+"theme": "purple",
+"title": null,
+"width": 300.994,
+"x": 19800.0,
+"y": 11680.0
+},
+"fadf0695-a237-4b38-9a6b-f54ade8bdc0f": {
+"assets": {
+"cover": {
+"id": "72d532e1-0247-4bf4-861f-1975c9dcdeed"
+}
+},
+"attributes": ["89b013b3-48ce-44af-aca3-4c2ad34abdab"],
+"autoHeight": false,
+"components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa", "64e7e1bf-ec61-4d56-ba0e-1776054607ea"],
+"content": "<p><em>You give the person the hot tea.</em></p>",
+"height": 401.0,
+"outputs": ["8429bcd9-be6f-4d0a-a1ec-2f8da3b6988a"],
+"theme": "purple",
+"title": null,
+"width": 340.987,
+"x": 16700.0,
+"y": 14320.0
+},
+"fd09b426-c4be-44bd-ac0c-8c2804c3ab70": {
+"assets": {
+"cover": {
+"id": "85e4f7b1-814f-43a4-b01d-8a1f2ab765ff"
+}
+},
+"autoHeight": true,
+"components": [],
+"content": "<p><em>Thankfully its hot out tonight.</em></p>",
+"height": 224.0,
+"outputs": ["b9da7664-7fbf-4b0a-aa2f-888464993e99"],
+"theme": "purple",
+"title": null,
+"width": 301.0,
+"x": 18820.0,
+"y": 13200.0
+}
+},
+"jumpers": {
+"2b4a96ce-c2b9-457d-ab26-8a3887b8c69d": {
+"elementId": null,
+"height": 86.0,
+"width": 185.0,
+"x": 19520.0,
+"y": 12520.0
+}
+},
+"name": "Level 1",
+"notes": {},
+"startingElement": "81ca4304-78c7-470d-8b99-6d5a2eb70edc",
+"variables": {
+"747d0495-341f-42b2-8788-b47dace22bf8": {
+"children": [],
+"root": true
+}
+}
+}
+metadata/_custom_type_script = "uid://dpjvxabsow167"

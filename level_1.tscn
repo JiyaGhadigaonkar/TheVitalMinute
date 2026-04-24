@@ -1,16 +1,10 @@
 [gd_scene format=3 uid="uid://bkpsvdm5tfd0n"]
 
-[ext_resource type="Script" uid="uid://smjmuhx27bmi" path="res://test.gd" id="1_lhbbi"]
+[ext_resource type="Script" uid="uid://b8ma51droe0gw" path="res://level_1.gd" id="1_gyffv"]
 [ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="2_gjkv5"]
-[ext_resource type="Resource" uid="uid://csmi01qdd1bu4" path="res://addons/arcweave/TutorialStory.tres" id="3_00ld1"]
-[ext_resource type="Texture2D" uid="uid://gs5eyup4ramw" path="res://Assets/Environment_Tutorial_02_color_noTable.png" id="4_3qmij"]
-[ext_resource type="Texture2D" uid="uid://cln7kxakg01cr" path="res://Assets/Item_Tutorial_Chair.png" id="5_kb5eu"]
-[ext_resource type="Texture2D" uid="uid://doco5q8mx8so0" path="res://Assets/Item_Tutorial_MedicalBag.png" id="6_lfy8a"]
-[ext_resource type="Texture2D" uid="uid://cgk3435hspksx" path="res://Assets/Item_Tutorial_CuttingBoard.png" id="7_ethxx"]
-[ext_resource type="Texture2D" uid="uid://fkne2i3evsoh" path="res://Assets/Item_Tutorial_Knife (1).png" id="8_3o2xh"]
-[ext_resource type="Texture2D" uid="uid://dtu1hwh10n17v" path="res://Assets/Item_Tutorial_Table.png" id="9_duihb"]
-[ext_resource type="Texture2D" uid="uid://bmj3ntyo881o6" path="res://Assets/Item_Tutorial_Glass.png" id="10_b6mmh"]
-[ext_resource type="Script" uid="uid://bl1k2najuuk76" path="res://glass_unit.gd" id="11_ttn6t"]
+[ext_resource type="Resource" uid="uid://cr841ivi5bim3" path="res://addons/arcweave/LevelOne.tres" id="3_1pe0h"]
+[ext_resource type="Texture2D" uid="uid://b6drg8k306qfq" path="res://Assets/backgrounds/outside.png" id="4_1pe0h"]
+[ext_resource type="Texture2D" uid="uid://4rf530un1ll2" path="res://Assets/backgrounds/inside.png" id="5_27bay"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="12_ia5ws"]
 [ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="13_be5co"]
 [ext_resource type="Texture2D" uid="uid://blvhpv83xkoke" path="res://Assets/Item_Tutorial_Gauze.png" id="14_hycyb"]
@@ -25,54 +19,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lhbbi")
+script = ExtResource("1_gyffv")
 
 [node name="ArcweaveNode" type="Node" parent="." unique_id=468870287]
 script = ExtResource("2_gjkv5")
-ArcweaveAsset = ExtResource("3_00ld1")
+ArcweaveAsset = ExtResource("3_1pe0h")
 metadata/_custom_type_script = "uid://ch6p62juc6acm"
 
 [node name="World" type="Node2D" parent="." unique_id=1531423680]
 
-[node name="Background" type="TextureRect" parent="World" unique_id=639021278]
+[node name="BackgroundOutside" type="TextureRect" parent="World" unique_id=639021278]
 offset_right = 4320.0
 offset_bottom = 1440.0
-texture = ExtResource("4_3qmij")
+texture = ExtResource("4_1pe0h")
 expand_mode = 1
 
-[node name="Chair" type="Sprite2D" parent="World" unique_id=2011640542]
-position = Vector2(3304.0002, 820.00006)
-scale = Vector2(0.8495218, 0.8495219)
-texture = ExtResource("5_kb5eu")
-
-[node name="Healthpack" type="Sprite2D" parent="World" unique_id=647737841]
-position = Vector2(850, 401)
-scale = Vector2(0.38244072, 0.38244072)
-texture = ExtResource("6_lfy8a")
-
-[node name="Cutting Board" type="Sprite2D" parent="World" unique_id=1913701622]
-position = Vector2(1432, 575)
-scale = Vector2(0.44375002, 0.44375002)
-texture = ExtResource("7_ethxx")
-
-[node name="Knife" type="Sprite2D" parent="World" unique_id=2083365399]
-position = Vector2(1500, 555)
-scale = Vector2(0.3975, 0.3975)
-texture = ExtResource("8_3o2xh")
-
-[node name="Table" type="Sprite2D" parent="World" unique_id=1307480867]
-position = Vector2(3709.8484, 905.8983)
-scale = Vector2(0.91853535, 0.91853535)
-texture = ExtResource("9_duihb")
-
-[node name="Glass" type="TextureButton" parent="World" unique_id=1230891532]
-offset_left = 1168.9999
-offset_top = 431.0
-offset_right = 1590.9999
-offset_bottom = 975.0
-scale = Vector2(0.27962086, 0.2796209)
-texture_normal = ExtResource("10_b6mmh")
-script = ExtResource("11_ttn6t")
+[node name="BackgroundInside" type="TextureRect" parent="World" unique_id=504324938]
+offset_left = 6.0
+offset_top = 1444.0
+offset_right = 4326.0
+offset_bottom = 2884.0
+texture = ExtResource("5_27bay")
+expand_mode = 1
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1371913260]
 layout_mode = 0
@@ -113,6 +81,7 @@ focus_mode = 0
 flat = true
 
 [node name="InventoryUI" type="Control" parent="." unique_id=1542538323]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,7 +188,6 @@ theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 
 [node name="SpeakerName" type="RichTextLabel" parent="." unique_id=147294589]
-visible = false
 layout_mode = 0
 offset_left = 297.0
 offset_top = 1113.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coqc8ro4gnd0j"
-path="res://.godot/imported/Vicky Collapsed (Green).png-17f5c05af606d727d9c36ea3cb211c7a.ctex"
+uid="uid://bc8fjsh6boq4a"
+path="res://.godot/imported/Frank Shock.png-36308dffa41a2e12971394149845e3ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv3.godot/assets/BG/Vicky Collapsed (Green).png"
-dest_files=["res://.godot/imported/Vicky Collapsed (Green).png-17f5c05af606d727d9c36ea3cb211c7a.ctex"]
+source_file="res://addons/arcweave/levelv4.godot/assets/Characters/Frank Shock.png"
+dest_files=["res://.godot/imported/Frank Shock.png-36308dffa41a2e12971394149845e3ea.ctex"]
 
 [params]
 

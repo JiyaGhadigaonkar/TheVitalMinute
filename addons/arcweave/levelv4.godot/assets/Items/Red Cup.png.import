@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpq8e4i7515xn"
-path="res://.godot/imported/Vicky Collapsed (Red).png-65c8211e994c03f2448e2ed16f8dd657.ctex"
+uid="uid://bj8duu56glil3"
+path="res://.godot/imported/Red Cup.png-e1deb6d79fc3f9579d18c447f8620242.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv3.godot/assets/BG/Vicky Collapsed (Red).png"
-dest_files=["res://.godot/imported/Vicky Collapsed (Red).png-65c8211e994c03f2448e2ed16f8dd657.ctex"]
+source_file="res://addons/arcweave/levelv4.godot/assets/Items/Red Cup.png"
+dest_files=["res://.godot/imported/Red Cup.png-e1deb6d79fc3f9579d18c447f8620242.ctex"]
 
 [params]
 

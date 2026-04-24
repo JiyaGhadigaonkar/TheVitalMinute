@@ -15,6 +15,9 @@ extends Control
 @onready var world: Node2D = get_node_or_null("World")
 @onready var background_outside: TextureRect = get_node_or_null("World/BackgroundOutside")
 @onready var background_inside: TextureRect = get_node_or_null("World/BackgroundInside")
+@onready var alcohol_sprite: Sprite2D = get_node_or_null("World/Alcohol")
+@onready var water_heater_sprite: Sprite2D = get_node_or_null("World/WaterHeater")
+@onready var hot_water_sprite: Sprite2D = get_node_or_null("World/HotWater")
 @onready var portrait_1: TextureRect = get_node_or_null("Portrait1")
 @onready var portrait_2: TextureRect = get_node_or_null("Portrait2")
 @onready var dialogue_box: TextureRect = get_node_or_null("DialogueBox")
@@ -48,6 +51,12 @@ const TALK_TO_FRANK_LABEL = "center talk to frank"
 const USE_GAUZE_LABEL = "use gauze"
 const USE_NAPKINS_LABEL = "use napkins"
 const OPEN_PHONE_LABEL = "open phone"
+const GET_MORE_ALCOHOL_LABEL = "get more alcohol"
+const GET_HOT_WATER_LABEL = "get hot water"
+const GIVE_HOT_WATER_LABEL = "give hot water"
+const MAKE_INSTANT_TEA_LABEL = "make instant tea"
+const GIVE_HOT_TEA_LABEL = "give hot tea"
+const CHECK_ON_OTHER_PERSON_LABEL = "check on the other person"
 const INTRO_PORTRAIT_UNLOCK_TEXT = "You step outside and notice it's warm despite being dark outside. Everyone sounds like they're having a good time at the party."
 const INSIDE_BACKGROUND_TRIGGER_TEXT = "Your friends go to party in some side room, so you can’t find them. Now you don't anyone and it's just awkward."
 const TWO_EXHAUSTED_PEOPLE_TEXT = "Suddenly, you see two people who seem very exhausted. They both appear to have trouble walking. You don't know who they are. Who do you help?"
@@ -73,11 +82,17 @@ var default_world_position := Vector2.ZERO
 var pending_gauze_path = null
 var pending_napkins_path = null
 var pending_phone_path = null
+var pending_alcohol_path = null
+var pending_hot_water_path = null
 var portraits_locked := false
 var inside_background_active := false
 var default_background_size := Vector2.ZERO
 var portrait_1_hotspot: Button
 var portrait_2_hotspot: Button
+var alcohol_hotspot: Button
+var hot_water_hotspot: Button
+var is_alcohol_interactive := false
+var is_hot_water_interactive := false
 var inside_scene_default_positions := {}
 
 func _ready() -> void:
@@ -101,6 +116,7 @@ func _ready() -> void:
 	_connect_ui()
 	_configure_choice_container()
 	_create_portrait_hotspots()
+	_create_world_hotspots()
 	_configure_inventory_rows()
 	portraits_locked = use_intro_portrait_lock
 	_set_inside_background_active(false)
@@ -133,6 +149,7 @@ func _process(_delta: float) -> void:
 	if speaker_name != null:
 		speaker_name.position = default_speaker_name_position
 	_update_portrait_hotspots()
+	_update_world_hotspots()
 
 func get_component_names_for_element() -> Array[String]:
 	var names: Array[String] = []
@@ -177,6 +194,8 @@ func add_options() -> void:
 	pending_gauze_path = null
 	pending_napkins_path = null
 	pending_phone_path = null
+	pending_alcohol_path = null
+	pending_hot_water_path = null
 	var normal_choice_paths := []
 
 	var options = story.GenerateCurrentOptions()
@@ -187,6 +206,7 @@ func add_options() -> void:
 		advance_trigger.visible = true
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
 		_set_portrait_interactive(false)
+		_set_world_interactive(false, false)
 		_set_inventory_item_interactivity()
 		return
 
@@ -206,6 +226,14 @@ func add_options() -> void:
 			continue
 		if _is_open_phone_path(path):
 			pending_phone_path = path
+			continue
+		if _is_get_more_alcohol_path(path):
+			pending_alcohol_path = path
+			continue
+		if _is_get_hot_water_path(path):
+			pending_hot_water_path = path
+			continue
+		if _is_tap_through_only_path(path):
 			continue
 		if _is_talk_to_onlooker_path(path):
 			portrait_2_action_path = path
@@ -230,9 +258,10 @@ func add_options() -> void:
 		portrait_2_action_path = normal_choice_paths[1]
 
 	_set_portrait_interactive(portrait_1_action_path != null, portrait_2_action_path != null)
+	_set_world_interactive(pending_alcohol_path != null, pending_hot_water_path != null)
 	choice_container.visible = visible_choice_count > 0
 
-	var has_manual_interaction := portrait_1_action_path != null or portrait_2_action_path != null or pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null
+	var has_manual_interaction := portrait_1_action_path != null or portrait_2_action_path != null or pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null or pending_alcohol_path != null or pending_hot_water_path != null
 	advance_trigger.visible = not choice_container.visible and not has_manual_interaction
 	advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP if advance_trigger.visible else Control.MOUSE_FILTER_IGNORE
 
@@ -367,6 +396,10 @@ func _create_portrait_hotspots() -> void:
 	portrait_1_hotspot = _create_portrait_hotspot(_on_portrait_mouse_entered, _on_portrait_mouse_exited, _on_portrait_1_gui_input)
 	portrait_2_hotspot = _create_portrait_hotspot(_on_portrait_2_mouse_entered, _on_portrait_2_mouse_exited, _on_portrait_2_gui_input)
 
+func _create_world_hotspots() -> void:
+	alcohol_hotspot = _create_portrait_hotspot(_on_alcohol_mouse_entered, _on_alcohol_mouse_exited, _on_alcohol_gui_input)
+	hot_water_hotspot = _create_portrait_hotspot(_on_hot_water_mouse_entered, _on_hot_water_mouse_exited, _on_hot_water_gui_input)
+
 func _create_portrait_hotspot(entered_handler: Callable, exited_handler: Callable, input_handler: Callable) -> Button:
 	var hotspot := Button.new()
 	hotspot.flat = true
@@ -393,6 +426,10 @@ func _update_portrait_hotspots() -> void:
 	_update_single_portrait_hotspot(portrait_1, portrait_1_hotspot, is_portrait_1_interactive)
 	_update_single_portrait_hotspot(portrait_2, portrait_2_hotspot, is_portrait_2_interactive)
 
+func _update_world_hotspots() -> void:
+	_update_sprite_hotspot(alcohol_sprite, alcohol_hotspot, is_alcohol_interactive)
+	_update_hot_water_hotspot()
+
 func _update_single_portrait_hotspot(portrait_node: TextureRect, hotspot: Button, is_interactive: bool) -> void:
 	if portrait_node == null or hotspot == null:
 		return
@@ -403,6 +440,37 @@ func _update_single_portrait_hotspot(portrait_node: TextureRect, hotspot: Button
 	hotspot.position = rect.position - portrait_hitbox_padding
 	hotspot.size = rect.size + (portrait_hitbox_padding * 2.0)
 	hotspot.visible = true
+
+func _update_sprite_hotspot(sprite: Sprite2D, hotspot: Button, is_interactive: bool) -> void:
+	if sprite == null or hotspot == null:
+		return
+	if not sprite.visible or not is_interactive:
+		hotspot.visible = false
+		return
+	var rect := _get_sprite_rect(sprite)
+	hotspot.position = rect.position
+	hotspot.size = rect.size
+	hotspot.visible = true
+
+func _update_hot_water_hotspot() -> void:
+	if hot_water_hotspot == null:
+		return
+	if not is_hot_water_interactive or hot_water_sprite == null or water_heater_sprite == null:
+		hot_water_hotspot.visible = false
+		return
+	if not hot_water_sprite.visible or not water_heater_sprite.visible:
+		hot_water_hotspot.visible = false
+		return
+	var combined_rect := _get_sprite_rect(hot_water_sprite).merge(_get_sprite_rect(water_heater_sprite))
+	hot_water_hotspot.position = combined_rect.position
+	hot_water_hotspot.size = combined_rect.size
+	hot_water_hotspot.visible = true
+
+func _get_sprite_rect(sprite: Sprite2D) -> Rect2:
+	if sprite == null or sprite.texture == null:
+		return Rect2()
+	var texture_size := sprite.texture.get_size() * sprite.scale.abs()
+	return Rect2(sprite.global_position - (texture_size / 2.0), texture_size)
 
 func _connect_ui() -> void:
 	if advance_trigger != null:
@@ -554,6 +622,22 @@ func _set_portrait_interactive(primary_value: bool, secondary_value: bool = fals
 	_update_portrait_hotspots()
 	if not is_portrait_1_interactive and not is_portrait_2_interactive:
 		set_default_cursor()
+
+func _set_world_interactive(alcohol_value: bool, hot_water_value: bool) -> void:
+	is_alcohol_interactive = alcohol_value and alcohol_sprite != null and pending_alcohol_path != null
+	is_hot_water_interactive = hot_water_value and hot_water_sprite != null and water_heater_sprite != null and pending_hot_water_path != null
+	if alcohol_hotspot != null:
+		alcohol_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_alcohol_interactive else Control.MOUSE_FILTER_IGNORE
+	if hot_water_hotspot != null:
+		hot_water_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_hot_water_interactive else Control.MOUSE_FILTER_IGNORE
+	if not is_alcohol_interactive and alcohol_sprite != null:
+		alcohol_sprite.modulate = Color.WHITE
+	if not is_hot_water_interactive:
+		if hot_water_sprite != null:
+			hot_water_sprite.modulate = Color.WHITE
+		if water_heater_sprite != null:
+			water_heater_sprite.modulate = Color.WHITE
+	_update_world_hotspots()
 
 func _update_portrait() -> void:
 	if portraits_locked:
@@ -712,6 +796,16 @@ func _is_use_napkins_path(path) -> bool:
 func _is_open_phone_path(path) -> bool:
 	return _normalize_label(path.label) == OPEN_PHONE_LABEL
 
+func _is_get_more_alcohol_path(path) -> bool:
+	return _normalize_label(path.label) == GET_MORE_ALCOHOL_LABEL
+
+func _is_get_hot_water_path(path) -> bool:
+	return _normalize_label(path.label) == GET_HOT_WATER_LABEL
+
+func _is_tap_through_only_path(path) -> bool:
+	var normalized_label := _normalize_label(path.label)
+	return normalized_label == GIVE_HOT_WATER_LABEL or normalized_label == MAKE_INSTANT_TEA_LABEL or normalized_label == GIVE_HOT_TEA_LABEL or normalized_label == CHECK_ON_OTHER_PERSON_LABEL
+
 func _is_talk_to_onlooker_path(path) -> bool:
 	return _normalize_label(path.label) == TALK_TO_ONLOOKER_LABEL
 
@@ -780,6 +874,63 @@ func _on_choice_button_mouse_exited(button: TextureButton) -> void:
 	if button != null:
 		button.modulate = Color.WHITE
 	set_default_cursor()
+
+func _on_alcohol_mouse_entered() -> void:
+	if not is_alcohol_interactive or alcohol_sprite == null:
+		return
+	alcohol_sprite.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_alcohol_mouse_exited() -> void:
+	if alcohol_sprite != null:
+		alcohol_sprite.modulate = Color.WHITE
+	set_default_cursor()
+
+func _on_alcohol_gui_input(event) -> void:
+	if not is_alcohol_interactive:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		_on_alcohol_pressed()
+
+func _on_alcohol_pressed() -> void:
+	if not is_alcohol_interactive or pending_alcohol_path == null:
+		return
+	var selected_path = pending_alcohol_path
+	pending_alcohol_path = null
+	_set_world_interactive(false, is_hot_water_interactive)
+	story.SelectPath(selected_path)
+	repaint()
+
+func _on_hot_water_mouse_entered() -> void:
+	if not is_hot_water_interactive:
+		return
+	if hot_water_sprite != null:
+		hot_water_sprite.modulate = HOVER_PORTRAIT_TINT
+	if water_heater_sprite != null:
+		water_heater_sprite.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_hot_water_mouse_exited() -> void:
+	if hot_water_sprite != null:
+		hot_water_sprite.modulate = Color.WHITE
+	if water_heater_sprite != null:
+		water_heater_sprite.modulate = Color.WHITE
+	set_default_cursor()
+
+func _on_hot_water_gui_input(event) -> void:
+	if not is_hot_water_interactive:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
+		_on_hot_water_pressed()
+
+func _on_hot_water_pressed() -> void:
+	if not is_hot_water_interactive or pending_hot_water_path == null:
+		return
+	var selected_path = pending_hot_water_path
+	pending_hot_water_path = null
+	_set_world_interactive(is_alcohol_interactive, false)
+	story.SelectPath(selected_path)
+	repaint()
 
 func _on_continue_pressed() -> void:
 	var options = story.GenerateCurrentOptions()

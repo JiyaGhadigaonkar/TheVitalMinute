@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_dlukr")
-project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/levelv3.godot/project.json"
+project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/levelv4.godot/project.json"
 project_settings = {
 "assets": {
 "108aba64-252d-4533-9091-fc9d0d0b299a": {
@@ -2168,7 +2168,7 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["62336e8f-f7ac-4d3d-804a-d9a5ce1c38fa"],
-"content": "<p><em>You get a cup of hot water.</em></p>",
+"content": "<p>You get a cup of hot water.</p>",
 "height": 379.0,
 "outputs": ["0ba15876-7570-40f3-8fc4-5b59f43fd1f0", "580ffe6f-1e9e-4655-9317-dfa2c9606c8f"],
 "theme": "purple",
@@ -2498,8 +2498,8 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["11bbd231-9fdc-48c9-9886-e0df62f064bc"],
-"content": "<p>[Name]: Did you see how much they drank?</p>",
-"height": 121.0,
+"content": "<p>You: Did you see how much they drank?</p>",
+"height": 379.0,
 "outputs": ["0255b51c-c4f8-46c6-9daa-a6f86a1d6c45"],
 "theme": "purple",
 "title": null,
@@ -3060,7 +3060,7 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["10e84276-ced6-484d-9f27-022fea26c2a2"],
-"content": "<p><em>Based on your assessment, how will you help?</em></p>",
+"content": "<p>Based on your assessment, how will you help?</p>",
 "height": 399.0,
 "outputs": ["49bddfe3-d1ca-40a0-af66-ee19bd99c908", "77aa800d-fa60-4c86-9205-7ac214542105"],
 "theme": "purple",
@@ -3130,7 +3130,7 @@ project_settings = {
 },
 "autoHeight": true,
 "components": ["0f2388d1-06d2-4ce0-82e3-120a9e57883e", "10e84276-ced6-484d-9f27-022fea26c2a2"],
-"content": "<p><em>Why would you do this?!</em></p>",
+"content": "<p>Why would you do this?!</p>",
 "height": 379.0,
 "outputs": ["47c74cfa-f28f-4e66-ad50-7c3726bdb680"],
 "theme": "purple",
@@ -3667,12 +3667,12 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["10e84276-ced6-484d-9f27-022fea26c2a2", "11bbd231-9fdc-48c9-9886-e0df62f064bc"],
-"content": "<p><em>You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning.</em></p><p><em>Someone has just walked over.</em></p>",
-"height": 461.0,
+"content": "<p>You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning.</p><p>Someone has just walked over.</p>",
+"height": 456.0,
 "outputs": ["b9ec0f4c-920b-40d9-8a6b-655a43113e72", "eb8978af-9d16-4a07-aa42-b099647553a8", "4f3160b5-e616-4a14-b91c-4ad1aa328021", "e7a8db94-3ef2-4bf4-8a15-88aa5edfea8f", "776cf067-dde7-4c84-a905-66ffab40b530"],
 "theme": "purple",
 "title": "<p>Decoy</p>",
-"width": 300.994,
+"width": 300.977,
 "x": 14480.0,
 "y": 11860.0
 },

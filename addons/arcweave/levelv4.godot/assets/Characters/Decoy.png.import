@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjvuv66srsj5w"
-path="res://.godot/imported/Inside Party.png-d8d642e8c7b9863c2af02a9df13be793.ctex"
+uid="uid://c7sw3swmnfyhg"
+path="res://.godot/imported/Decoy.png-0cd44261ef3d9d3f652673aa54fdb76b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv3.godot/assets/BG/Inside Party.png"
-dest_files=["res://.godot/imported/Inside Party.png-d8d642e8c7b9863c2af02a9df13be793.ctex"]
+source_file="res://addons/arcweave/levelv4.godot/assets/Characters/Decoy.png"
+dest_files=["res://.godot/imported/Decoy.png-0cd44261ef3d9d3f652673aa54fdb76b.ctex"]
 
 [params]
 

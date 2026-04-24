@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7wi4p7ui7g3w"
-path="res://.godot/imported/Frank Shock.png-6ac4f3cad2155549b293df2c2cbcb0e3.ctex"
+uid="uid://18busrotbap"
+path="res://.godot/imported/Punch.png-1e2b9cc8280773430ac8b0abc5788b67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv3.godot/assets/Characters/Frank Shock.png"
-dest_files=["res://.godot/imported/Frank Shock.png-6ac4f3cad2155549b293df2c2cbcb0e3.ctex"]
+source_file="res://addons/arcweave/levelv4.godot/assets/Items/Punch.png"
+dest_files=["res://.godot/imported/Punch.png-1e2b9cc8280773430ac8b0abc5788b67.ctex"]
 
 [params]
 

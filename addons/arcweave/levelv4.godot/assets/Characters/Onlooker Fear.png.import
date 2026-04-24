@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://grc75o8kslqm"
-path="res://.godot/imported/Vicky Sick.png-bcd85ace976b47648f3123d8806e8ecd.ctex"
+uid="uid://1l57l2aklq2m"
+path="res://.godot/imported/Onlooker Fear.png-530d95ae9c83556e128e8946fae316fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv3.godot/assets/Characters/Vicky Sick.png"
-dest_files=["res://.godot/imported/Vicky Sick.png-bcd85ace976b47648f3123d8806e8ecd.ctex"]
+source_file="res://addons/arcweave/levelv4.godot/assets/Characters/Onlooker Fear.png"
+dest_files=["res://.godot/imported/Onlooker Fear.png-530d95ae9c83556e128e8946fae316fe.ctex"]
 
 [params]
 

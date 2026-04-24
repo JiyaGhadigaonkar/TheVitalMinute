@@ -18,7 +18,7 @@ func _ready():
 	advance_trigger.pressed.connect(_on_continue_pressed)
 	advance_trigger.flat = true
 	advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
-	glass.disabled = true  # not clickable by default
+	glass.is_interactive = true  # not clickable by default
 	project_data = arcweave_asset.project_settings
 	story = Story.new(project_data)
 	repaint()
@@ -71,7 +71,7 @@ func add_options():
 		choice_container.visible = false
 		advance_trigger.visible = true
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
-		glass.disabled = true
+		glass.is_interactive = true
 		return
 	
 	var has_object_paths = false
@@ -80,12 +80,20 @@ func add_options():
 			has_object_paths = true
 	
 	if has_object_paths:
-		choice_container.visible = false
+		choice_container.visible = true
 		advance_trigger.visible = false
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		glass.disabled = false  # make clickable
+		glass.is_interactive = true
+		# Only add buttons for non-glass paths
+		for i in range(paths.size()):
+			if paths[i].IsValid and "glass" not in paths[i].label.to_lower():
+				var button = Button.new()
+				button.text = paths[i].label
+				button.pressed.connect(_on_option_pressed.bind(i, paths))
+				choice_container.add_child(button)
 	elif paths.size() > 1:
-		glass.disabled = true
+		glass.is_interactive = true
+		print("Glass is now interactive: ", glass.is_interactive)
 		advance_trigger.visible = false
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		choice_container.visible = true
@@ -96,7 +104,8 @@ func add_options():
 				button.pressed.connect(_on_option_pressed.bind(i, paths))
 				choice_container.add_child(button)
 	else:
-		glass.disabled = true
+		glass.is_interactive = true
+		print("Glass is now interactive: ", glass.is_interactive)
 		choice_container.visible = false
 		advance_trigger.visible = true
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP

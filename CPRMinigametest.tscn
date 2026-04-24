@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://4kkspxsmp0v8" path="res://Assets/Scene_LVL1_CPR_01.png" id="2_wc2qv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc2qv"]
-size = Vector2(24.972567, 32.774536)
+size = Vector2(24.361275, 32.695602)
 
 [node name="CPRMinigame" type="Node2D" unique_id=1887062778]
 script = ExtResource("1_wc2qv")
@@ -19,7 +19,7 @@ texture = ExtResource("2_wc2qv")
 [node name="ChestArea" type="Area2D" parent="Patient" unique_id=1009522858]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Patient/ChestArea" unique_id=16692972]
-position = Vector2(270.46826, -230.67621)
+position = Vector2(266.84167, -225.69235)
 rotation = 2.3282692
 scale = Vector2(20.000011, 20)
 shape = SubResource("RectangleShape2D_wc2qv")

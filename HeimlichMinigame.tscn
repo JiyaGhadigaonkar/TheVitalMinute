@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bn7cgxaqj7k3v"]
+
+[ext_resource type="Script" uid="uid://bh8roron7n12o" path="res://HeimlichMinigame.gd" id="1_f0fm5"]
+
+[node name="Node2D" type="Node2D" unique_id=1777648037]
+script = ExtResource("1_f0fm5")
+
+[node name="Control" type="Control" parent="." unique_id=1719919255]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1868790979]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ThrustBar" type="Control" parent="." unique_id=762770432]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BarBackground" type="ColorRect" parent="ThrustBar" unique_id=1706760996]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TargetZone" type="ColorRect" parent="ThrustBar" unique_id=1570643738]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Indicator" type="ColorRect" parent="ThrustBar" unique_id=1704457268]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ThrustCounter" type="Label" parent="." unique_id=1842379520]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1212987138]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=117783110]

@@ -9,8 +9,8 @@
 script = ExtResource("1_otybf")
 
 [node name="WoundSprite" type="Sprite2D" parent="Bandage MiniGame" unique_id=605482177]
-position = Vector2(976, 541)
-scale = Vector2(0.534, 0.534)
+position = Vector2(1080.4375, 720.62506)
+scale = Vector2(1.0005207, 1.0005208)
 texture = ExtResource("2_otybf")
 
 [node name="ProgressBar" type="ProgressBar" parent="Bandage MiniGame" unique_id=1699540893]

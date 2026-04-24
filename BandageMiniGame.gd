@@ -10,6 +10,8 @@ var required_wraps = 4.0
 var min_radius = 80.0
 var max_radius = 300.0
 var time_limit = 8.0
+@export var open_hand_scale = Vector2(2, 2)
+@export var closed_hand_scale = Vector2(.3, .3)
 
 # --- Internal state ---
 var total_rotation = 0.0
@@ -75,7 +77,7 @@ func _setup_cursor():
 
 	cursor_sprite = Sprite2D.new()
 	cursor_sprite.texture = open_hand_texture
-	cursor_sprite.scale = Vector2(0.3, 0.3)
+	cursor_sprite.scale = open_hand_scale
 	cursor_sprite.visible = false
 	add_child(cursor_sprite)
 
@@ -99,7 +101,7 @@ func _setup_ui():
 	add_child(timer_bar_bg)
 
 	timer_bar_fill = ColorRect.new()
-	timer_bar_fill.color = Color(0.5, 0.5, 0.5)
+	timer_bar_fill.color = Color(0.144, 0.144, 0.144, 1.0)
 	timer_bar_fill.size = Vector2(300, 22)
 	timer_bar_fill.position = Vector2(20, 75)
 	add_child(timer_bar_fill)
@@ -115,9 +117,9 @@ func _setup_ui():
 	add_child(timer_label)
 
 	bar_bg = ColorRect.new()
-	bar_bg.color = Color(0.2, 0.2, 0.2)
-	bar_bg.size = Vector2(400, 30)
-	bar_bg.position = Vector2(wound_center.x - 200, wound_center.y + 160)
+	bar_bg.color = Color(0.144, 0.144, 0.144, 1.0)
+	bar_bg.size = Vector2(800, 60)
+	bar_bg.position = Vector2(wound_center.x - 400, wound_center.y + 630)
 	add_child(bar_bg)
 
 	bar_fill = ColorRect.new()
@@ -128,8 +130,8 @@ func _setup_ui():
 
 	var bar_label = Label.new()
 	bar_label.text = "Bandage Progress"
-	bar_label.position = Vector2(bar_bg.position.x, bar_bg.position.y + 34)
-	bar_label.add_theme_font_size_override("font_size", 14)
+	bar_label.position = Vector2(bar_bg.position.x, bar_bg.position.y + 0)
+	bar_label.add_theme_font_size_override("font_size", 20)
 	add_child(bar_label)
 
 func _process(delta):
@@ -153,9 +155,11 @@ func _process(delta):
 		var is_clicking = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 		if is_clicking and not cursor_is_grabbing:
 			cursor_sprite.texture = closed_hand_texture
+			cursor_sprite.scale = closed_hand_scale
 			cursor_is_grabbing = true
 		elif not is_clicking and cursor_is_grabbing:
 			cursor_sprite.texture = open_hand_texture
+			cursor_sprite.scale = open_hand_scale
 			cursor_is_grabbing = false
 	elif not in_zone and cursor_in_zone:
 		_show_system_cursor()
@@ -224,6 +228,7 @@ func _show_bandage_cursor():
 	cursor_in_zone = true
 	cursor_is_grabbing = false
 	cursor_sprite.texture = open_hand_texture
+	cursor_sprite.scale = open_hand_scale
 	cursor_sprite.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
@@ -277,7 +282,8 @@ func _update_ui():
 	var wraps_done = total_rotation / TAU
 	var progress = wraps_done / required_wraps
 
-	bar_fill.size.x = 400.0 * progress
+	bar_fill.size.x = 800 * progress
+	bar_fill.size.y = 60
 
 	if last_delta_angle < 0:
 		bar_fill.color = Color(0.886, 0.102, 0.192, 1.0)
@@ -292,7 +298,7 @@ func _update_ui():
 
 func _on_complete():
 	is_complete = true
-	bar_fill.size.x = 400.0
+	bar_fill.size.x = 800
 	bar_fill.color = Color(0.1, 0.9, 0.3)
 	label.text = "Great job! Bandage applied correctly!"
 

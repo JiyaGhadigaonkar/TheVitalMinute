@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_dlukr")
-project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/levelv2.godot/project.json"
+project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/levelv3.godot/project.json"
 project_settings = {
 "assets": {
 "108aba64-252d-4533-9091-fc9d0d0b299a": {
@@ -2098,8 +2098,8 @@ project_settings = {
 "17699794-7c76-4498-9ba6-8a18d0022c47": {
 "attributes": ["6cc35744-ceef-4939-bbde-f640a42e6057"],
 "autoHeight": false,
-"components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
-"content": "<p>Frank: Honestly, it just itches. The doctors said I got lucky since usually you lose the whole foot.</p>",
+"components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5", "36bbd17f-850c-4d0c-bf64-17234ee3064a"],
+"content": "<p>Dave: Honestly, it just itches. The doctors said I got lucky since usually you lose the whole foot.</p>",
 "height": 341.0,
 "outputs": ["53e834e9-8572-46cd-ba21-977c91d8489f"],
 "theme": "purple",
@@ -2216,9 +2216,9 @@ project_settings = {
 "243dab40-e347-4cbb-9ec2-dee66776f3bc": {
 "attributes": ["7eaa71a2-a0a4-46c6-8e4e-412fd74f368b"],
 "autoHeight": true,
-"components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
-"content": "<p>Frank: What do you want me to say? Thanks for the millionth time? I'll say it! Thanks, [Name]! Now let's move on.</p>",
-"height": 140.0,
+"components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5", "36bbd17f-850c-4d0c-bf64-17234ee3064a"],
+"content": "<p>Frank: Trust me when I say I'll be living on takeout for a while...</p>",
+"height": 205.0,
 "outputs": ["049d7b61-f593-499f-a446-b12689b47420"],
 "theme": "purple",
 "title": null,
@@ -2354,7 +2354,7 @@ project_settings = {
 "3860c83f-63fc-4632-a103-5e91fcdddf5a": {
 "attributes": ["faf0f2a8-33c0-4f15-b3c7-252f5e85cd92"],
 "autoHeight": false,
-"components": [],
+"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a", "6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
 "content": "<p>You<strong>: </strong>How’s the, uh, injury?</p>",
 "height": 302.0,
 "outputs": ["f7d8bcac-e511-4813-908a-fb31f9684577"],
@@ -2710,13 +2710,13 @@ project_settings = {
 },
 "attributes": ["922f261a-4025-4978-8c3c-2d09a0aead52"],
 "autoHeight": false,
-"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a"],
-"content": "<p>Driver Friend: We’re here are the party.</p>",
-"height": 321.0,
+"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a", "6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
+"content": "<p>Dave: Well, hope this gets your mind off of things. We’re here are the party!</p>",
+"height": 381.0,
 "outputs": ["93c802c8-0349-4c45-8b37-da530216decd"],
 "theme": "purple",
 "title": null,
-"width": 341.0,
+"width": 381.0,
 "x": 11660.0,
 "y": 12320.0
 },
@@ -2793,7 +2793,7 @@ project_settings = {
 "81ca4304-78c7-470d-8b99-6d5a2eb70edc": {
 "autoHeight": false,
 "components": ["6dca6ec2-e72a-4e2d-9109-5af4a312f7c5", "36bbd17f-850c-4d0c-bf64-17234ee3064a"],
-"content": "<p>You're in the car with Frank and another friend. Frank has a cast on his foot. </p>",
+"content": "<p>You're with Frank and another friend. Frank has a cast on his foot. </p>",
 "height": 241.0,
 "outputs": ["d08d0672-f945-46ff-8919-6d26918800f9"],
 "theme": "purple",
@@ -3302,8 +3302,8 @@ project_settings = {
 "ca8446d8-6bdb-499e-a49c-273f159548fa": {
 "attributes": ["fe29f515-d072-455f-82c2-34d08154ca7c"],
 "autoHeight": false,
-"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a"],
-"content": "<p>Driver Friend: Glad you’re feeling good enough to go out.</p>",
+"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a", "6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
+"content": "<p>Dave: Glad you’re feeling good enough to go out.</p>",
 "height": 321.0,
 "outputs": ["ca99db19-efb1-4a0e-9f48-c097644fde29"],
 "theme": "purple",
@@ -3368,9 +3368,9 @@ project_settings = {
 "ddc81088-660b-4114-aa9a-21996054bf4d": {
 "attributes": ["195775ec-6924-4f7c-9697-ca7222ce791c"],
 "autoHeight": true,
-"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a"],
-"content": "<p>Driver Friend: Bet you’re glad [Name] was there to save ya, huh?</p>",
-"height": 326.0,
+"components": ["36bbd17f-850c-4d0c-bf64-17234ee3064a", "6dca6ec2-e72a-4e2d-9109-5af4a312f7c5"],
+"content": "<p>Dave: Bet you’re glad you had someone there with you.</p>",
+"height": 205.0,
 "outputs": ["44cbe662-6e56-43a6-b639-374973bf5136"],
 "theme": "purple",
 "title": null,

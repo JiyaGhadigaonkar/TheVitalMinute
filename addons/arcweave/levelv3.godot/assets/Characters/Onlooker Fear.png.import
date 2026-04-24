@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh8s0d5cvx5k6"
-path="res://.godot/imported/Decoy.png-88ff9452af51d6e749f701bcd337cfc2.ctex"
+uid="uid://cghcq1ahbaxm7"
+path="res://.godot/imported/Onlooker Fear.png-b361c0ca449c04414c2c6ef2a8fa0b66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Characters/Decoy.png"
-dest_files=["res://.godot/imported/Decoy.png-88ff9452af51d6e749f701bcd337cfc2.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/Characters/Onlooker Fear.png"
+dest_files=["res://.godot/imported/Onlooker Fear.png-b361c0ca449c04414c2c6ef2a8fa0b66.ctex"]
 
 [params]
 

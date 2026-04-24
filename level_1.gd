@@ -1,10 +1,22 @@
 extends Control
 
 @export var starting_focus_x := 2300.0
+@export var inside_focus_x := 1200
+@export var use_intro_portrait_lock := true
+@export var intro_portrait_1_name := "Frank_Normal"
+@export var intro_portrait_2_name := "Driver_Friend"
+@export var use_inside_portrait_positions := true
+@export var inside_portrait_1_position := Vector2(250.0, 142.0)
+@export var inside_portrait_2_position := Vector2(1510.0, 142.0)
+@export var portrait_hitbox_padding := Vector2(90.0, 120.0)
+@export var onlooker_portrait_2_position := Vector2(800.0, 350.0)
+@export var onlooker_portrait_2_scale := Vector2(0.65, 0.7)
 
 @onready var world: Node2D = get_node_or_null("World")
-@onready var background: TextureRect = get_node_or_null("World/Background")
-@onready var portrait: TextureRect = get_node_or_null("Portrait")
+@onready var background_outside: TextureRect = get_node_or_null("World/BackgroundOutside")
+@onready var background_inside: TextureRect = get_node_or_null("World/BackgroundInside")
+@onready var portrait_1: TextureRect = get_node_or_null("Portrait1")
+@onready var portrait_2: TextureRect = get_node_or_null("Portrait2")
 @onready var dialogue_box: TextureRect = get_node_or_null("DialogueBox")
 @onready var speaker_name: RichTextLabel = get_node_or_null("SpeakerName")
 @onready var dialogue_text: RichTextLabel = get_node_or_null("DialogueText")
@@ -24,43 +36,74 @@ const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_defa
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")
 const NAPKINS_TEXTURE = preload("res://Assets/Item_Tutorial_Napkins.png")
+const TALK_BUBBLE_TEXTURE = preload("res://Assets/talk.png")
 const CURSOR_HOTSPOT = Vector2(8, 0)
 const CURSOR_SCALE = 1.35
 const DEFAULT_PORTRAIT_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
+const CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(760.0, 120.0)
+const CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.22, 1.28)
+const INSIDE_SCENE_VERTICAL_OFFSET = 1444.0
 const TALK_TO_FRANK_LABEL = "center talk to frank"
 const USE_GAUZE_LABEL = "use gauze"
 const USE_NAPKINS_LABEL = "use napkins"
 const OPEN_PHONE_LABEL = "open phone"
+const INTRO_PORTRAIT_UNLOCK_TEXT = "You step outside and notice it's warm despite being dark outside. Everyone sounds like they're having a good time at the party."
+const INSIDE_BACKGROUND_TRIGGER_TEXT = "Your friends go to party in some side room, so you can’t find them. Now you don't anyone and it's just awkward."
+const TWO_EXHAUSTED_PEOPLE_TEXT = "Suddenly, you see two people who seem very exhausted. They both appear to have trouble walking. You don't know who they are. Who do you help?"
+const ONLOOKER_ASSESSMENT_TEXT = "You have to assess whether they are just sleep deprived, or actually suffering from alcohol poisoning. Someone has just walked over."
+const TALK_TO_ONLOOKER_LABEL = "talk to onlooker"
 
 var arcweave_asset: ArcweaveAsset = preload("res://addons/arcweave/LevelOne.tres")
 var Story = load("res://addons/arcweave/Story.cs")
 var story
 var project_data: Dictionary
 var cursor_sprite: TextureRect
-var current_portrait_name := ""
-var current_portrait_talk_path = null
-var is_portrait_interactive := false
-var default_portrait_position := Vector2.ZERO
+var current_portrait_names: Array[String] = []
+var portrait_1_action_path = null
+var portrait_2_action_path = null
+var is_portrait_1_interactive := false
+var is_portrait_2_interactive := false
+var default_portrait_1_position := Vector2.ZERO
+var default_portrait_2_position := Vector2.ZERO
+var default_portrait_1_scale := Vector2.ONE
+var default_portrait_2_scale := Vector2.ONE
 var default_speaker_name_position := Vector2.ZERO
 var default_world_position := Vector2.ZERO
 var pending_gauze_path = null
 var pending_napkins_path = null
 var pending_phone_path = null
+var portraits_locked := false
+var inside_background_active := false
+var default_background_size := Vector2.ZERO
+var portrait_1_hotspot: Button
+var portrait_2_hotspot: Button
+var inside_scene_default_positions := {}
 
 func _ready() -> void:
 	if world != null:
 		_apply_world_focus(starting_focus_x)
 		default_world_position = world.position
-	if portrait != null:
-		default_portrait_position = portrait.position
+	if background_outside != null:
+		default_background_size = background_outside.size
+	_capture_inside_scene_default_positions()
+	if portrait_1 != null:
+		default_portrait_1_position = portrait_1.position
+		default_portrait_1_scale = portrait_1.scale
+	if portrait_2 != null:
+		default_portrait_2_position = portrait_2.position
+		default_portrait_2_scale = portrait_2.scale
 	if speaker_name != null:
 		default_speaker_name_position = speaker_name.position
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_create_cursor_sprite()
 	_connect_ui()
+	_configure_choice_container()
+	_create_portrait_hotspots()
 	_configure_inventory_rows()
+	portraits_locked = use_intro_portrait_lock
+	_set_inside_background_active(false)
 
 	project_data = arcweave_asset.project_settings
 	if project_data.get("startingElement", null) == null:
@@ -79,27 +122,39 @@ func _process(_delta: float) -> void:
 		var mouse_position = get_viewport().get_mouse_position()
 		cursor_sprite.position = mouse_position - (CURSOR_HOTSPOT * CURSOR_SCALE)
 
-	if portrait != null and world != null:
-		portrait.position = default_portrait_position + (world.position - default_world_position)
+	if portrait_1 != null and world != null:
+		portrait_1.position = _get_active_portrait_position(default_portrait_1_position, inside_portrait_1_position)
+	if portrait_2 != null and world != null:
+		portrait_2.position = _get_active_portrait_position(default_portrait_2_position, inside_portrait_2_position)
+	if portrait_1 != null:
+		portrait_1.scale = default_portrait_1_scale
+	if portrait_2 != null:
+		portrait_2.scale = _get_active_portrait_2_scale()
 	if speaker_name != null:
 		speaker_name.position = default_speaker_name_position
+	_update_portrait_hotspots()
 
-func get_component_name_for_element() -> String:
+func get_component_names_for_element() -> Array[String]:
+	var names: Array[String] = []
 	var element = story.GetCurrentElement()
 	var element_id = element.Id
 	var elements = project_data.get("elements", {})
 	if elements.has(element_id):
 		var element_data = elements[element_id]
 		var component_ids = element_data.get("components", [])
-		if component_ids.size() > 0:
-			var components = project_data.get("components", {})
-			if components.has(component_ids[0]):
-				return components[component_ids[0]].get("name", "")
-	return ""
+		var components = project_data.get("components", {})
+		for component_id in component_ids:
+			if components.has(component_id):
+				var component_name := clean_name(str(components[component_id].get("name", "")))
+				if component_name != "" and _should_use_component_for_portrait(component_name) and not names.has(component_name):
+					names.append(component_name)
+	return names
 
 func repaint() -> void:
 	if story == null:
 		return
+	_maybe_unlock_portraits()
+	_update_story_background()
 	if dialogue_text != null:
 		dialogue_text.bbcode_enabled = true
 		dialogue_text.add_theme_color_override("default_color", Color.BLACK)
@@ -117,7 +172,8 @@ func add_options() -> void:
 	for option in choice_container.get_children():
 		option.queue_free()
 
-	current_portrait_talk_path = null
+	portrait_1_action_path = null
+	portrait_2_action_path = null
 	pending_gauze_path = null
 	pending_napkins_path = null
 	pending_phone_path = null
@@ -140,7 +196,7 @@ func add_options() -> void:
 		if not path.IsValid:
 			continue
 		if _is_frank_talk_path(path):
-			current_portrait_talk_path = path
+			portrait_1_action_path = path
 			continue
 		if _is_use_gauze_path(path):
 			pending_gauze_path = path
@@ -151,11 +207,12 @@ func add_options() -> void:
 		if _is_open_phone_path(path):
 			pending_phone_path = path
 			continue
+		if _is_talk_to_onlooker_path(path):
+			portrait_2_action_path = path
+			continue
 
 		normal_choice_paths.append(path)
-		var button := Button.new()
-		button.text = _get_path_label_text(path)
-		button.pressed.connect(_on_option_pressed.bind(i, paths))
+		var button := _create_choice_button(_get_path_label_text(path), i, paths)
 		choice_container.add_child(button)
 		visible_choice_count += 1
 
@@ -164,24 +221,74 @@ func add_options() -> void:
 			option.queue_free()
 		visible_choice_count = 0
 
-	_set_portrait_interactive(current_portrait_talk_path != null)
+	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	if _is_two_person_help_state(current_text) and normal_choice_paths.size() >= 2:
+		for option in choice_container.get_children():
+			option.queue_free()
+		visible_choice_count = 0
+		portrait_1_action_path = normal_choice_paths[0]
+		portrait_2_action_path = normal_choice_paths[1]
+
+	_set_portrait_interactive(portrait_1_action_path != null, portrait_2_action_path != null)
 	choice_container.visible = visible_choice_count > 0
 
-	var has_manual_interaction := current_portrait_talk_path != null or pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null
+	var has_manual_interaction := portrait_1_action_path != null or portrait_2_action_path != null or pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null
 	advance_trigger.visible = not choice_container.visible and not has_manual_interaction
 	advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP if advance_trigger.visible else Control.MOUSE_FILTER_IGNORE
 
 	_set_inventory_item_interactivity()
 
-func clean_name(raw_name: String) -> String:
-	if "_" in raw_name:
-		return raw_name.split("_")[0]
-	return raw_name
+func _create_choice_button(button_text: String, index, paths) -> TextureButton:
+	var button := TextureButton.new()
+	button.texture_normal = TALK_BUBBLE_TEXTURE
+	button.ignore_texture_size = true
+	button.stretch_mode = TextureButton.STRETCH_SCALE
+	button.custom_minimum_size = CHOICE_BUBBLE_LAYOUT_SIZE
+	button.size = CHOICE_BUBBLE_LAYOUT_SIZE
+	button.scale = CHOICE_BUBBLE_VISUAL_SCALE
+	button.mouse_filter = Control.MOUSE_FILTER_STOP
+	button.pressed.connect(_on_option_pressed.bind(index, paths))
+	button.mouse_entered.connect(_on_choice_button_mouse_entered.bind(button))
+	button.mouse_exited.connect(_on_choice_button_mouse_exited.bind(button))
 
-func on_frank_clicked() -> void:
-	if current_portrait_talk_path == null:
+	var label := Label.new()
+	label.text = button_text
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.add_theme_color_override("font_color", Color.BLACK)
+	label.add_theme_font_size_override("font_size", 30)
+	label.position = Vector2(55.0, 22.0)
+	label.size = Vector2(CHOICE_BUBBLE_LAYOUT_SIZE.x - 110.0, CHOICE_BUBBLE_LAYOUT_SIZE.y - 28.0)
+	button.add_child(label)
+
+	return button
+
+func _configure_choice_container() -> void:
+	if choice_container == null:
 		return
-	story.SelectPath(current_portrait_talk_path)
+	choice_container.add_theme_constant_override("separation", -8)
+
+func _get_active_portrait_2_scale() -> Vector2:
+	if _is_onlooker_assessment_state(_get_current_story_text()):
+		return onlooker_portrait_2_scale
+	return default_portrait_2_scale
+
+func _capture_inside_scene_default_positions() -> void:
+	if world == null:
+		return
+	for child in world.get_children():
+		if child is Sprite2D:
+			inside_scene_default_positions[child.name] = child.position
+
+func clean_name(raw_name: String) -> String:
+	return raw_name.strip_edges()
+
+func _on_portrait_action_selected(path) -> void:
+	if path == null:
+		return
+	story.SelectPath(path)
 	repaint()
 
 func set_object_cursor() -> void:
@@ -193,6 +300,54 @@ func set_default_cursor() -> void:
 func set_world_focus_x(focus_x: float) -> void:
 	_apply_world_focus(focus_x)
 	default_world_position = world.position
+
+func set_portrait_lock(enabled: bool) -> void:
+	portraits_locked = enabled
+	if not enabled:
+		_update_portrait()
+
+func unlock_portraits() -> void:
+	set_portrait_lock(false)
+
+func _maybe_unlock_portraits() -> void:
+	if not portraits_locked or story == null:
+		return
+	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	if current_text == INTRO_PORTRAIT_UNLOCK_TEXT:
+		portraits_locked = false
+
+func _update_story_background() -> void:
+	if story == null:
+		return
+	if inside_background_active:
+		_set_inside_background_active(true)
+		return
+	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	if current_text == INSIDE_BACKGROUND_TRIGGER_TEXT:
+		_set_inside_background_active(true)
+
+func _set_inside_background_active(is_inside: bool) -> void:
+	inside_background_active = is_inside
+	set_world_focus_x(inside_focus_x if is_inside else starting_focus_x)
+	if background_outside != null:
+		background_outside.visible = not is_inside
+		background_outside.position = Vector2.ZERO
+		if default_background_size != Vector2.ZERO:
+			background_outside.size = default_background_size
+	if background_inside != null:
+		background_inside.visible = is_inside
+		background_inside.position = Vector2.ZERO
+		if default_background_size != Vector2.ZERO:
+			background_inside.size = default_background_size
+	_update_inside_scene_props()
+
+func _update_inside_scene_props() -> void:
+	if world == null:
+		return
+	for child in world.get_children():
+		if child is Sprite2D and inside_scene_default_positions.has(child.name):
+			var base_position: Vector2 = inside_scene_default_positions[child.name]
+			child.position = base_position - Vector2(0, INSIDE_SCENE_VERTICAL_OFFSET) if inside_background_active else base_position
 
 func _apply_world_focus(focus_x: float) -> void:
 	if world == null:
@@ -208,18 +363,60 @@ func _create_cursor_sprite() -> void:
 	add_child(cursor_sprite)
 	_set_cursor_texture(DEFAULT_CURSOR_TEXTURE)
 
+func _create_portrait_hotspots() -> void:
+	portrait_1_hotspot = _create_portrait_hotspot(_on_portrait_mouse_entered, _on_portrait_mouse_exited, _on_portrait_1_gui_input)
+	portrait_2_hotspot = _create_portrait_hotspot(_on_portrait_2_mouse_entered, _on_portrait_2_mouse_exited, _on_portrait_2_gui_input)
+
+func _create_portrait_hotspot(entered_handler: Callable, exited_handler: Callable, input_handler: Callable) -> Button:
+	var hotspot := Button.new()
+	hotspot.flat = true
+	hotspot.focus_mode = Control.FOCUS_NONE
+	hotspot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hotspot.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
+	hotspot.modulate = Color(1, 1, 1, 0.01)
+	hotspot.text = ""
+	hotspot.z_index = 50
+	hotspot.mouse_entered.connect(entered_handler)
+	hotspot.mouse_exited.connect(exited_handler)
+	hotspot.gui_input.connect(input_handler)
+	add_child(hotspot)
+	return hotspot
+
+func _get_active_portrait_position(default_position: Vector2, inside_position: Vector2) -> Vector2:
+	if _is_onlooker_assessment_state(_get_current_story_text()) and inside_background_active and inside_position == inside_portrait_2_position:
+		return onlooker_portrait_2_position
+	if inside_background_active and use_inside_portrait_positions:
+		return inside_position
+	return default_position
+
+func _update_portrait_hotspots() -> void:
+	_update_single_portrait_hotspot(portrait_1, portrait_1_hotspot, is_portrait_1_interactive)
+	_update_single_portrait_hotspot(portrait_2, portrait_2_hotspot, is_portrait_2_interactive)
+
+func _update_single_portrait_hotspot(portrait_node: TextureRect, hotspot: Button, is_interactive: bool) -> void:
+	if portrait_node == null or hotspot == null:
+		return
+	if not portrait_node.visible or not is_interactive:
+		hotspot.visible = false
+		return
+	var rect := portrait_node.get_global_rect()
+	hotspot.position = rect.position - portrait_hitbox_padding
+	hotspot.size = rect.size + (portrait_hitbox_padding * 2.0)
+	hotspot.visible = true
+
 func _connect_ui() -> void:
 	if advance_trigger != null:
 		advance_trigger.flat = true
 		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
 		advance_trigger.pressed.connect(_on_continue_pressed)
 
-	if portrait != null:
-		portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		portrait.mouse_entered.connect(_on_portrait_mouse_entered)
-		portrait.mouse_exited.connect(_on_portrait_mouse_exited)
-		portrait.gui_input.connect(_on_portrait_gui_input)
-		portrait.modulate = DEFAULT_PORTRAIT_TINT
+	if portrait_1 != null:
+		portrait_1.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		portrait_1.modulate = DEFAULT_PORTRAIT_TINT
+
+	if portrait_2 != null:
+		portrait_2.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		portrait_2.modulate = DEFAULT_PORTRAIT_TINT
 
 	if dialogue_box != null:
 		dialogue_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -343,33 +540,92 @@ func _set_cursor_texture(texture: Texture2D) -> void:
 	cursor_sprite.custom_minimum_size = texture.get_size()
 	cursor_sprite.size = texture.get_size()
 
-func _set_portrait_interactive(value: bool) -> void:
-	is_portrait_interactive = value and portrait != null and current_portrait_talk_path != null
-	if portrait != null:
-		portrait.mouse_filter = Control.MOUSE_FILTER_STOP if is_portrait_interactive else Control.MOUSE_FILTER_IGNORE
-		portrait.modulate = DEFAULT_PORTRAIT_TINT
-	if not is_portrait_interactive:
+func _set_portrait_interactive(primary_value: bool, secondary_value: bool = false) -> void:
+	is_portrait_1_interactive = primary_value and portrait_1 != null and portrait_1_action_path != null
+	is_portrait_2_interactive = secondary_value and portrait_2 != null and portrait_2_action_path != null
+	if portrait_1 != null:
+		portrait_1.modulate = DEFAULT_PORTRAIT_TINT
+	if portrait_2 != null:
+		portrait_2.modulate = DEFAULT_PORTRAIT_TINT
+	if portrait_1_hotspot != null:
+		portrait_1_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_portrait_1_interactive else Control.MOUSE_FILTER_IGNORE
+	if portrait_2_hotspot != null:
+		portrait_2_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_portrait_2_interactive else Control.MOUSE_FILTER_IGNORE
+	_update_portrait_hotspots()
+	if not is_portrait_1_interactive and not is_portrait_2_interactive:
 		set_default_cursor()
 
 func _update_portrait() -> void:
-	if portrait == null:
+	if portraits_locked:
+		_apply_locked_portraits()
 		return
 
-	var component_name = clean_name(get_component_name_for_element())
-	var portrait_path = "res://Assets/portraits/" + component_name + ".png"
+	var component_names := get_component_names_for_element()
+	current_portrait_names.clear()
 
-	if _should_use_component_for_portrait(component_name) and ResourceLoader.exists(portrait_path):
-		current_portrait_name = component_name
-		portrait.texture = load(portrait_path)
-		portrait.visible = true
-		if speaker_name != null:
-			speaker_name.text = component_name
-			speaker_name.visible = true
-	else:
-		portrait.visible = false
-		if speaker_name != null:
-			speaker_name.text = current_portrait_name
+	var visible_names: Array[String] = []
+	for component_name in component_names:
+		var portrait_path := _get_portrait_path(component_name)
+		if portrait_path != "":
+			visible_names.append(component_name)
+			current_portrait_names.append(component_name)
+			if visible_names.size() == 1 and portrait_1 != null:
+				portrait_1.texture = load(portrait_path)
+				portrait_1.visible = true
+			elif visible_names.size() == 2 and portrait_2 != null:
+				portrait_2.texture = load(portrait_path)
+				portrait_2.visible = true
+
+	if portrait_1 != null and visible_names.is_empty():
+		portrait_1.visible = false
+	if portrait_2 != null:
+		portrait_2.visible = visible_names.size() > 1
+	elif portrait_1 != null and visible_names.size() == 1:
+		portrait_1.visible = true
+
+	if portrait_1 != null and visible_names.size() >= 1:
+		portrait_1.visible = true
+	if portrait_2 != null and visible_names.size() < 2:
+		portrait_2.visible = false
+
+	if speaker_name != null:
+		if visible_names.is_empty():
 			speaker_name.visible = false
+		else:
+			speaker_name.text = ", ".join(visible_names)
+			speaker_name.visible = true
+
+func _apply_locked_portraits() -> void:
+	var visible_names: Array[String] = []
+	current_portrait_names.clear()
+
+	var portrait_1_path := _get_portrait_path(intro_portrait_1_name)
+	var portrait_2_path := _get_portrait_path(intro_portrait_2_name)
+
+	if portrait_1 != null:
+		if portrait_1_path != "":
+			portrait_1.texture = load(portrait_1_path)
+			portrait_1.visible = true
+			visible_names.append(intro_portrait_1_name)
+			current_portrait_names.append(intro_portrait_1_name)
+		else:
+			portrait_1.visible = false
+
+	if portrait_2 != null:
+		if portrait_2_path != "":
+			portrait_2.texture = load(portrait_2_path)
+			portrait_2.visible = true
+			visible_names.append(intro_portrait_2_name)
+			current_portrait_names.append(intro_portrait_2_name)
+		else:
+			portrait_2.visible = false
+
+	if speaker_name != null:
+		if visible_names.is_empty():
+			speaker_name.visible = false
+		else:
+			speaker_name.text = ", ".join(visible_names)
+			speaker_name.visible = true
 
 func _path_label_contains(path, text: String) -> bool:
 	return text in _normalize_label(path.label)
@@ -400,9 +656,49 @@ func _get_path_label_text(path) -> String:
 	return plain.strip_edges()
 
 func _should_use_component_for_portrait(component_name: String) -> bool:
+	return component_name != ""
+
+func _is_two_person_help_state(text: String) -> bool:
+	var normalized_text := _normalize_label(text)
+	var normalized_trigger := _normalize_label(TWO_EXHAUSTED_PEOPLE_TEXT)
+	return normalized_trigger in normalized_text or (
+		"who do you help" in normalized_text
+		and "two people" in normalized_text
+		and "trouble walking" in normalized_text
+	)
+
+func _get_portrait_path(component_name: String) -> String:
 	if component_name == "":
-		return false
-	return "decoy" not in component_name.to_lower()
+		return ""
+
+	var candidates := []
+	var trimmed_name := component_name.strip_edges()
+	var underscored_name := trimmed_name.replace(" ", "_")
+	var dashed_name := trimmed_name.replace(" ", "-")
+
+	candidates.append("res://Assets/portraits/%s.png" % trimmed_name)
+	candidates.append("res://Assets/portraits/%s.png" % underscored_name)
+	candidates.append("res://Assets/portraits/%s.png" % dashed_name)
+
+	match trimmed_name.to_lower():
+		"frank":
+			candidates.append("res://Assets/portraits/Frank_Normal.png")
+		"frank shock", "frank shocked":
+			candidates.append("res://Assets/portraits/Frank_Shocked.png")
+		"driver friend":
+			candidates.append("res://Assets/portraits/Driver_Friend.png")
+		"vicky happy":
+			candidates.append("res://Assets/portraits/Vicky_Happy.png")
+		"vicky sick":
+			candidates.append("res://Assets/portraits/Vicky_Sick.png")
+		"onlooker fear":
+			candidates.append("res://Assets/portraits/Onlooker_Fear.png")
+
+	for candidate in candidates:
+		if ResourceLoader.exists(candidate):
+			return candidate
+
+	return ""
 
 func _is_frank_talk_path(path) -> bool:
 	return _normalize_label(path.label) == TALK_TO_FRANK_LABEL or _path_label_contains(path, "talking to frank")
@@ -416,26 +712,74 @@ func _is_use_napkins_path(path) -> bool:
 func _is_open_phone_path(path) -> bool:
 	return _normalize_label(path.label) == OPEN_PHONE_LABEL
 
+func _is_talk_to_onlooker_path(path) -> bool:
+	return _normalize_label(path.label) == TALK_TO_ONLOOKER_LABEL
+
+func _get_current_story_text() -> String:
+	if story == null:
+		return ""
+	return story.GetCurrentRuntimeContent().strip_edges()
+
+func _is_onlooker_assessment_state(text: String) -> bool:
+	var normalized_text := _normalize_label(text)
+	var normalized_trigger := _normalize_label(ONLOOKER_ASSESSMENT_TEXT)
+	return normalized_trigger in normalized_text or (
+		"sleep deprived" in normalized_text
+		and "alcohol poisoning" in normalized_text
+		and "someone has just walked over" in normalized_text
+	)
+
 func _on_portrait_mouse_entered() -> void:
-	if not is_portrait_interactive:
+	if not is_portrait_1_interactive:
 		return
-	portrait.modulate = HOVER_PORTRAIT_TINT
+	if portrait_1 != null:
+		portrait_1.modulate = HOVER_PORTRAIT_TINT
 	set_object_cursor()
 
 func _on_portrait_mouse_exited() -> void:
-	if portrait != null:
-		portrait.modulate = DEFAULT_PORTRAIT_TINT
-	set_default_cursor()
+	if portrait_1 != null:
+		portrait_1.modulate = DEFAULT_PORTRAIT_TINT
+	if not is_portrait_2_interactive or portrait_2 == null or portrait_2.modulate == DEFAULT_PORTRAIT_TINT:
+		set_default_cursor()
 
-func _on_portrait_gui_input(event) -> void:
-	if not is_portrait_interactive:
+func _on_portrait_1_gui_input(event) -> void:
+	if not is_portrait_1_interactive:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		on_frank_clicked()
+		_on_portrait_action_selected(portrait_1_action_path)
+
+func _on_portrait_2_mouse_entered() -> void:
+	if not is_portrait_2_interactive:
+		return
+	if portrait_2 != null:
+		portrait_2.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_portrait_2_mouse_exited() -> void:
+	if portrait_2 != null:
+		portrait_2.modulate = DEFAULT_PORTRAIT_TINT
+	if not is_portrait_1_interactive or portrait_1 == null or portrait_1.modulate == DEFAULT_PORTRAIT_TINT:
+		set_default_cursor()
+
+func _on_portrait_2_gui_input(event) -> void:
+	if not is_portrait_2_interactive:
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		_on_portrait_action_selected(portrait_2_action_path)
 
 func _on_option_pressed(index, paths) -> void:
 	story.SelectPath(paths[index])
 	repaint()
+
+func _on_choice_button_mouse_entered(button: TextureButton) -> void:
+	if button != null:
+		button.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_choice_button_mouse_exited(button: TextureButton) -> void:
+	if button != null:
+		button.modulate = Color.WHITE
+	set_default_cursor()
 
 func _on_continue_pressed() -> void:
 	var options = story.GenerateCurrentOptions()

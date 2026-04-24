@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://div5q2lns4o8b"
-path="res://.godot/imported/Outisde Party.png-6d6246dcb9375e24c9ed84d443845dfe.ctex"
+uid="uid://dyyf0uhlxber5"
+path="res://.godot/imported/Punch.png-176618710b9ca21f33ae9d338c082339.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/BG/Outisde Party.png"
-dest_files=["res://.godot/imported/Outisde Party.png-6d6246dcb9375e24c9ed84d443845dfe.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/Items/Punch.png"
+dest_files=["res://.godot/imported/Punch.png-176618710b9ca21f33ae9d338c082339.ctex"]
 
 [params]
 

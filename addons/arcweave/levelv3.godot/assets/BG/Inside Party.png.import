@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6mjw1mwfx11h"
-path="res://.godot/imported/Vicky Collapsed (Green).png-f61a82205828f08da0045954f4ef7aaf.ctex"
+uid="uid://cjvuv66srsj5w"
+path="res://.godot/imported/Inside Party.png-d8d642e8c7b9863c2af02a9df13be793.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/BG/Vicky Collapsed (Green).png"
-dest_files=["res://.godot/imported/Vicky Collapsed (Green).png-f61a82205828f08da0045954f4ef7aaf.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/BG/Inside Party.png"
+dest_files=["res://.godot/imported/Inside Party.png-d8d642e8c7b9863c2af02a9df13be793.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmd7rd0d4ekl8"
-path="res://.godot/imported/Punch.png-5275018f936b80c7794215cfe98b9e96.ctex"
+uid="uid://c7gavo47jml21"
+path="res://.godot/imported/talk.png-cbd6836f10ed7f9480ebb77978689146.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Items/Punch.png"
-dest_files=["res://.godot/imported/Punch.png-5275018f936b80c7794215cfe98b9e96.ctex"]
+source_file="res://Assets/talk.png"
+dest_files=["res://.godot/imported/talk.png-cbd6836f10ed7f9480ebb77978689146.ctex"]
 
 [params]
 

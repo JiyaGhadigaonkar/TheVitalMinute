@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jcaggt5fkhox"
-path="res://.godot/imported/visual-novel-cover.png-70ecb8e337de531a6c2ca8e53ab804a6.ctex"
+uid="uid://jrjleutpbbxd"
+path="res://.godot/imported/Decoy.png-08e18be25b7cb79794c74285b43ef3a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/cover/visual-novel-cover.png"
-dest_files=["res://.godot/imported/visual-novel-cover.png-70ecb8e337de531a6c2ca8e53ab804a6.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/Characters/Decoy.png"
+dest_files=["res://.godot/imported/Decoy.png-08e18be25b7cb79794c74285b43ef3a8.ctex"]
 
 [params]
 

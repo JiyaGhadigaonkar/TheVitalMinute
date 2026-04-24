@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgagy30mh6587"
-path="res://.godot/imported/Onlooker Normal.png-76baf3f4a132427e2c094b5423c814f1.ctex"
+uid="uid://buhx5isnr48ju"
+path="res://.godot/imported/Glass.png-48b4fce2ba95d75ae86cd9a8135d2d9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Characters/Onlooker Normal.png"
-dest_files=["res://.godot/imported/Onlooker Normal.png-76baf3f4a132427e2c094b5423c814f1.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/Items/Glass.png"
+dest_files=["res://.godot/imported/Glass.png-48b4fce2ba95d75ae86cd9a8135d2d9e.ctex"]
 
 [params]
 

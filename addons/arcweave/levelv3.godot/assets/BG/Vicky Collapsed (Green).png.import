@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bril6iikx3fdo"
-path="res://.godot/imported/Glass.png-101508d27ef8df7752de557d0b11cf00.ctex"
+uid="uid://coqc8ro4gnd0j"
+path="res://.godot/imported/Vicky Collapsed (Green).png-17f5c05af606d727d9c36ea3cb211c7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Items/Glass.png"
-dest_files=["res://.godot/imported/Glass.png-101508d27ef8df7752de557d0b11cf00.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/BG/Vicky Collapsed (Green).png"
+dest_files=["res://.godot/imported/Vicky Collapsed (Green).png-17f5c05af606d727d9c36ea3cb211c7a.ctex"]
 
 [params]
 

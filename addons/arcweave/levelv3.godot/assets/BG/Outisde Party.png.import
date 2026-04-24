@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccwtuetwml8nr"
-path="res://.godot/imported/Red Cup.png-ae4778b07cf2b54acc4d14b50fc47b72.ctex"
+uid="uid://4ibkaxteewsq"
+path="res://.godot/imported/Outisde Party.png-976cb257a562a0002746071295099e91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Items/Red Cup.png"
-dest_files=["res://.godot/imported/Red Cup.png-ae4778b07cf2b54acc4d14b50fc47b72.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/BG/Outisde Party.png"
+dest_files=["res://.godot/imported/Outisde Party.png-976cb257a562a0002746071295099e91.ctex"]
 
 [params]
 

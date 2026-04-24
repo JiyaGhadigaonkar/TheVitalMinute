@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmi41msqihea"
-path="res://.godot/imported/Inside Party.png-f126ced5488cb43d17a0e5df5bf8a875.ctex"
+uid="uid://ceq8e4pcfktra"
+path="res://.godot/imported/WaterHeater.png-0065a70597be3403914f51f374b3d10e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/BG/Inside Party.png"
-dest_files=["res://.godot/imported/Inside Party.png-f126ced5488cb43d17a0e5df5bf8a875.ctex"]
+source_file="res://Assets/WaterHeater.png"
+dest_files=["res://.godot/imported/WaterHeater.png-0065a70597be3403914f51f374b3d10e.ctex"]
 
 [params]
 

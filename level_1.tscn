@@ -5,6 +5,10 @@
 [ext_resource type="Resource" uid="uid://cr841ivi5bim3" path="res://addons/arcweave/LevelOne.tres" id="3_1pe0h"]
 [ext_resource type="Texture2D" uid="uid://b6drg8k306qfq" path="res://Assets/backgrounds/outside.png" id="4_1pe0h"]
 [ext_resource type="Texture2D" uid="uid://4rf530un1ll2" path="res://Assets/backgrounds/inside.png" id="5_27bay"]
+[ext_resource type="Texture2D" uid="uid://sl3ghectu6bc" path="res://Assets/RedSoloCup.png" id="6_ggavl"]
+[ext_resource type="Texture2D" uid="uid://ceq8e4pcfktra" path="res://Assets/WaterHeater.png" id="6_sof0w"]
+[ext_resource type="Texture2D" uid="uid://dsq6pqoooex16" path="res://Assets/TeaBags.png" id="7_ubhxj"]
+[ext_resource type="Texture2D" uid="uid://bmj3ntyo881o6" path="res://Assets/Item_Tutorial_Glass.png" id="10_b6mmh"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="12_ia5ws"]
 [ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="13_be5co"]
 [ext_resource type="Texture2D" uid="uid://blvhpv83xkoke" path="res://Assets/Item_Tutorial_Gauze.png" id="14_hycyb"]
@@ -42,11 +46,41 @@ offset_bottom = 2884.0
 texture = ExtResource("5_27bay")
 expand_mode = 1
 
-[node name="Portrait" type="TextureRect" parent="." unique_id=1371913260]
+[node name="Alcohol" type="Sprite2D" parent="World" unique_id=1785056037]
+position = Vector2(258.75, 2358.25)
+scale = Vector2(0.53083336, 0.5175002)
+texture = ExtResource("6_ggavl")
+
+[node name="TeaBags" type="Sprite2D" parent="World" unique_id=664442296]
+position = Vector2(1198.9999, 2396)
+rotation = 0.5846853
+scale = Vector2(0.284207, 0.2870843)
+texture = ExtResource("7_ubhxj")
+
+[node name="WaterHeater" type="Sprite2D" parent="World" unique_id=1792264797]
+position = Vector2(1107, 2112)
+scale = Vector2(0.6816667, 0.7)
+texture = ExtResource("6_sof0w")
+
+[node name="HotWater" type="Sprite2D" parent="World" unique_id=431559260]
+position = Vector2(1035, 2225.0002)
+scale = Vector2(0.30716842, 0.35799628)
+texture = ExtResource("10_b6mmh")
+
+[node name="Portrait1" type="TextureRect" parent="." unique_id=1371913260]
 layout_mode = 0
-offset_left = 1300.0
+offset_left = 100.0
 offset_top = 142.0
-offset_right = 2005.0
+offset_right = 805.0
+offset_bottom = 2092.0
+scale = Vector2(0.8, 0.8)
+expand_mode = 3
+
+[node name="Portrait2" type="TextureRect" parent="." unique_id=1244535015]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 142.0
+offset_right = 1465.0
 offset_bottom = 2092.0
 scale = Vector2(0.8, 0.8)
 expand_mode = 3
@@ -67,12 +101,13 @@ expand_mode = 1
 
 [node name="ChoiceContainer" type="VBoxContainer" parent="." unique_id=539439990]
 layout_mode = 0
-offset_left = 1300.0
-offset_top = 550.0
-offset_right = 2100.0
-offset_bottom = 850.0
+offset_left = 1231.0
+offset_top = 43.0
+offset_right = 2066.0
+offset_bottom = 738.0
 
 [node name="AdvanceTrigger" type="Button" parent="." unique_id=1306178344]
+visible = false
 layout_mode = 0
 offset_top = -1.0
 offset_right = 4320.0

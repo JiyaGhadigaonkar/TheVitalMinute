@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm3xoc4ilwkow"
-path="res://.godot/imported/Vicky Happy.png-4735de24d45098d4247029191920c0d0.ctex"
+uid="uid://bee6qr068dvx4"
+path="res://.godot/imported/visual-novel-cover.png-02d31f1f061858243544dd372fe52cb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Characters/Vicky Happy.png"
-dest_files=["res://.godot/imported/Vicky Happy.png-4735de24d45098d4247029191920c0d0.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/cover/visual-novel-cover.png"
+dest_files=["res://.godot/imported/visual-novel-cover.png-02d31f1f061858243544dd372fe52cb9.ctex"]
 
 [params]
 

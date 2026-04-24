@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dolkuiawvcmhf"
-path="res://.godot/imported/Frank.png-547cdbe8d3a5d9e721d08639fd9d7b3a.ctex"
+uid="uid://cvn8m8k4xjjqs"
+path="res://.godot/imported/Vicky Happy.png-02760e50e096a393941c284973ea2071.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Characters/Frank.png"
-dest_files=["res://.godot/imported/Frank.png-547cdbe8d3a5d9e721d08639fd9d7b3a.ctex"]
+source_file="res://addons/arcweave/levelv3.godot/assets/Characters/Vicky Happy.png"
+dest_files=["res://.godot/imported/Vicky Happy.png-02760e50e096a393941c284973ea2071.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rdiwmj5jb257"
-path="res://.godot/imported/Vicky Sick.png-bb57a61748c676ff35f7b88730d84419.ctex"
+uid="uid://sl3ghectu6bc"
+path="res://.godot/imported/RedSoloCup.png-25ec11d6a0e0625198cb87c18ef3a103.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv2.godot/assets/Characters/Vicky Sick.png"
-dest_files=["res://.godot/imported/Vicky Sick.png-bb57a61748c676ff35f7b88730d84419.ctex"]
+source_file="res://Assets/RedSoloCup.png"
+dest_files=["res://.godot/imported/RedSoloCup.png-25ec11d6a0e0625198cb87c18ef3a103.ctex"]
 
 [params]
 

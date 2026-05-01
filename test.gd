@@ -2,7 +2,9 @@ extends Control
 
 @onready var background = $World/Background
 @onready var portrait = $Portrait
+@onready var speaker_box = get_node_or_null("SpeakerBox")
 @onready var speaker_name = $SpeakerName
+@onready var dialogue_box = $DialogueBox
 @onready var dialogue_text = $DialogueText
 @onready var choice_container = $ChoiceContainer
 @onready var advance_trigger = $AdvanceTrigger
@@ -35,13 +37,20 @@ const INVENTORY_ICON_TEXTURE = preload("res://Assets/tutorial_inventory.png")
 const INVENTORY_CLOSE_TEXTURE = preload("res://Assets/inventory_close.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")
 const NAPKINS_TEXTURE = preload("res://Assets/Item_Tutorial_Napkins.png")
+const FRANK_NORMAL_TEXTURE = preload("res://Assets/portraits/Frank_Normal.png")
 const CURSOR_HOTSPOT = Vector2(8, 0)
 const CURSOR_SCALE = 1.35
+const DIALOGUE_TEXT_COLOR = "#1f3a5f"
+const SPEAKER_NAME_FONT_SIZE = 50
 const DEFAULT_PORTRAIT_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const DEFAULT_ARROW_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_ARROW_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const ARROW_SCALE = 0.22
+const FRANK_ANIMATED_PORTRAIT_PATH = "res://Assets/portraits/Frank_Normal_Animated.png"
+const FRANK_TALK_ANIMATION_INTERVAL = 0.32
+const FRANK_TALK_BOUNCE_OFFSET = -10.0
+const ENABLE_FRANK_TALK_ANIMATION = false
 const LEFT1_BAG_LABEL = "left1 grab frank's bag"
 const RIGHT1_SINK_LABEL = "right1 investigate sink"
 const CENTER1_WOUND_LABEL = "center1 investigate wound"
@@ -84,6 +93,7 @@ var default_background_size := Vector2.ZERO
 var default_world_position := Vector2.ZERO
 var default_portrait_position := Vector2.ZERO
 var default_speaker_name_position := Vector2.ZERO
+var portrait_animation_offset := Vector2.ZERO
 var arrow_buttons := {}
 var active_arrow_paths := {}
 var is_showing_wound_preview := false
@@ -107,6 +117,10 @@ var has_played_foot_sound := false
 var active_bandage_minigame_root: Node
 var active_bandage_minigame: Node
 var last_bandage_minigame_trigger_text := ""
+var frank_animated_texture: Texture2D
+var frank_talk_animation_timer: Timer
+var is_frank_talk_animating := false
+var is_frank_talk_animation_frame_active := false
 
 func _ready():
 	world.position.x = -1080
@@ -123,6 +137,7 @@ func _ready():
 	cursor_sprite.scale = Vector2.ONE * CURSOR_SCALE
 	add_child(cursor_sprite)
 	_set_cursor_texture(DEFAULT_CURSOR_TEXTURE)
+	_configure_frank_talk_animation()
 	set_process(true)
 	advance_trigger.pressed.connect(_on_continue_pressed)
 	advance_trigger.flat = true
@@ -163,6 +178,9 @@ func _ready():
 	_update_arrow_positions()
 	_configure_choice_container()
 	glass.is_interactive = false  # not clickable by default
+	dialogue_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	dialogue_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	speaker_name.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	project_data = arcweave_asset.project_settings
 	story = Story.new(project_data)
 	repaint()
@@ -172,7 +190,7 @@ func _process(_delta):
 		return
 	var mouse_position = get_viewport().get_mouse_position()
 	cursor_sprite.position = mouse_position - (CURSOR_HOTSPOT * CURSOR_SCALE)
-	portrait.position = default_portrait_position + (world.position - default_world_position)
+	portrait.position = default_portrait_position + (world.position - default_world_position) + portrait_animation_offset
 	speaker_name.position = default_speaker_name_position
 	_update_healthpack_hotspot()
 	_update_chair_hotspot()
@@ -205,48 +223,171 @@ func clean_name(raw_name: String) -> String:
 		return raw_name.split("_")[0]
 	return raw_name
 
-func _has_dialogue_speaker_prefix(text: String) -> bool:
-	var trimmed := text.strip_edges()
-	var colon_index := trimmed.find(":")
-	if colon_index <= 0:
-		return false
-
-	var prefix := trimmed.substr(0, colon_index).strip_edges()
-	if prefix.is_empty():
-		return false
-
-	var speaker_pattern := RegEx.new()
-	speaker_pattern.compile("^\\[?[A-Za-z0-9_ '\\-\\.\\\"]+\\]?$")
-	return speaker_pattern.search(prefix) != null
-
 func _sanitize_dialogue_text(raw_text: String) -> String:
 	return raw_text.strip_edges().replace(char(8), "").replace("\\b", "")
 
-func _format_dialogue_text(raw_text: String) -> String:
+func _strip_dialogue_markup(raw_text: String) -> String:
 	var sanitized_text := _sanitize_dialogue_text(raw_text)
-	if sanitized_text.is_empty():
+	var markup_pattern := RegEx.new()
+	markup_pattern.compile("<[^>]+>")
+	var plain_text := markup_pattern.sub(sanitized_text, "", true)
+	var bbcode_pattern := RegEx.new()
+	bbcode_pattern.compile("\\[/?(?:b|i|u|s|center|left|right|fill|indent|url|code|kbd|p|br|color|bgcolor|fgcolor|font_size|font|img|table|cell|wave|tornado|shake|fade|rainbow)(?:=[^\\]]+)?\\]")
+	plain_text = bbcode_pattern.sub(plain_text, "", true)
+	plain_text = plain_text.replace("&nbsp;", " ").replace(char(160), " ")
+	var whitespace_pattern := RegEx.new()
+	whitespace_pattern.compile("\\s+")
+	return whitespace_pattern.sub(plain_text, " ", true).strip_edges()
+
+func _is_likely_speaker_name(candidate: String) -> bool:
+	var trimmed := candidate.strip_edges()
+	if trimmed.is_empty() or trimmed.length() > 40:
+		return false
+	if trimmed.begins_with("\"") and trimmed.ends_with("\"") and trimmed.length() >= 2:
+		trimmed = trimmed.substr(1, trimmed.length() - 2).strip_edges()
+	for character in trimmed:
+		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")"
+		if not is_text_character:
+			return false
+	return true
+
+func _parse_dialogue_speaker(raw_text: String) -> Dictionary:
+	var plain_text := _strip_dialogue_markup(raw_text)
+	var colon_index := plain_text.find(":")
+	if colon_index <= 0:
+		return {
+			"speaker": "",
+			"body": plain_text,
+		}
+
+	var speaker := plain_text.substr(0, colon_index).strip_edges()
+	var body := plain_text.substr(colon_index + 1).strip_edges()
+	if speaker.begins_with("[") and speaker.ends_with("]") and speaker.length() >= 2:
+		speaker = speaker.substr(1, speaker.length() - 2).strip_edges()
+	if speaker.begins_with("\"") and speaker.ends_with("\"") and speaker.length() >= 2:
+		speaker = speaker.substr(1, speaker.length() - 2).strip_edges()
+	if not _is_likely_speaker_name(speaker):
+		print("Speaker parse miss [test]: raw=", raw_text, " | plain=", plain_text, " | speaker_candidate=", speaker)
+		return {
+			"speaker": "",
+			"body": plain_text,
+		}
+	return {
+		"speaker": speaker,
+		"body": body,
+	}
+
+func _has_dialogue_speaker_prefix(text: String) -> bool:
+	return not str(_parse_dialogue_speaker(text).get("speaker", "")).is_empty()
+
+func _get_dialogue_speaker_name(raw_text: String) -> String:
+	return str(_parse_dialogue_speaker(raw_text).get("speaker", ""))
+
+func _get_dialogue_body_text(raw_text: String) -> String:
+	return str(_parse_dialogue_speaker(raw_text).get("body", ""))
+
+func _update_speaker_name_display(raw_text: String) -> void:
+	if speaker_name == null:
+		return
+	var speaker := _get_dialogue_speaker_name(raw_text)
+	speaker_name.bbcode_enabled = true
+	speaker_name.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
+	if speaker.is_empty():
+		speaker_name.text = ""
+		speaker_name.visible = false
+		if speaker_box != null:
+			speaker_box.visible = false
+		return
+	speaker_name.text = "[center][font_size=%d][color=%s][b]%s[/b][/color][/font_size][/center]" % [SPEAKER_NAME_FONT_SIZE, DIALOGUE_TEXT_COLOR, speaker]
+	speaker_name.visible = true
+	if speaker_box != null:
+		speaker_box.visible = true
+
+func _format_dialogue_text(raw_text: String) -> String:
+	var body_text := _get_dialogue_body_text(raw_text)
+	if body_text.is_empty():
 		return ""
 	if _has_dialogue_speaker_prefix(raw_text):
-		return sanitized_text
-	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % sanitized_text
+		return "[font_size=35][color=%s]%s[/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
+	return "[font_size=35][color=%s][i]%s[/i][/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 
 func repaint():
 	_sync_scene_mode_with_story()
+	var current_story_text: String = story.GetCurrentRuntimeContent()
 	dialogue_text.bbcode_enabled = true
-	dialogue_text.add_theme_color_override("default_color", Color.BLACK)
-	dialogue_text.text = _format_dialogue_text(story.GetCurrentRuntimeContent())
+	dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
+	dialogue_text.text = _format_dialogue_text(current_story_text)
 	
 	var comp_name = get_component_name_for_element()
 	var portrait_path = "res://Assets/portraits/" + comp_name + ".png"
 	if _should_use_component_for_portrait(comp_name) and ResourceLoader.exists(portrait_path):
 		current_portrait_name = comp_name
-		speaker_name.text = comp_name
 		portrait.texture = load(portrait_path)
-	else:
-		speaker_name.text = current_portrait_name
+	_update_speaker_name_display(current_story_text)
+
+	_update_frank_talk_animation_state(current_story_text)
 	
 	add_options()
 	_maybe_trigger_bandage_minigame()
+
+func _configure_frank_talk_animation() -> void:
+	if not ENABLE_FRANK_TALK_ANIMATION:
+		return
+	if ResourceLoader.exists(FRANK_ANIMATED_PORTRAIT_PATH):
+		frank_animated_texture = load(FRANK_ANIMATED_PORTRAIT_PATH)
+	frank_talk_animation_timer = Timer.new()
+	frank_talk_animation_timer.wait_time = FRANK_TALK_ANIMATION_INTERVAL
+	frank_talk_animation_timer.one_shot = false
+	frank_talk_animation_timer.timeout.connect(_on_frank_talk_animation_timeout)
+	add_child(frank_talk_animation_timer)
+
+func _is_frank_current_speaker(raw_text: String) -> bool:
+	var speaker_pattern := RegEx.new()
+	speaker_pattern.compile("(?i)^frank\\s*:")
+	return speaker_pattern.search(raw_text.strip_edges()) != null
+
+func _update_frank_talk_animation_state(raw_text: String) -> void:
+	if not ENABLE_FRANK_TALK_ANIMATION:
+		is_frank_talk_animating = false
+		is_frank_talk_animation_frame_active = false
+		portrait_animation_offset = Vector2.ZERO
+		if portrait != null and current_portrait_name == "Frank_Normal":
+			portrait.texture = FRANK_NORMAL_TEXTURE
+		return
+	var should_animate := current_portrait_name == "Frank_Normal" and _is_frank_current_speaker(raw_text)
+	if should_animate == is_frank_talk_animating:
+		if should_animate:
+			_apply_frank_talk_animation_frame()
+		return
+
+	is_frank_talk_animating = should_animate
+	is_frank_talk_animation_frame_active = false
+	portrait_animation_offset = Vector2.ZERO
+
+	if should_animate:
+		_apply_frank_talk_animation_frame()
+		if frank_talk_animation_timer != null:
+			frank_talk_animation_timer.start()
+	else:
+		if frank_talk_animation_timer != null:
+			frank_talk_animation_timer.stop()
+		if portrait != null and current_portrait_name == "Frank_Normal":
+			portrait.texture = FRANK_NORMAL_TEXTURE
+
+func _apply_frank_talk_animation_frame() -> void:
+	if portrait == null or current_portrait_name != "Frank_Normal":
+		return
+	if is_frank_talk_animation_frame_active and frank_animated_texture != null:
+		portrait.texture = frank_animated_texture
+	else:
+		portrait.texture = FRANK_NORMAL_TEXTURE
+	portrait_animation_offset = Vector2(0.0, FRANK_TALK_BOUNCE_OFFSET if is_frank_talk_animation_frame_active else 0.0)
+
+func _on_frank_talk_animation_timeout() -> void:
+	if not is_frank_talk_animating:
+		return
+	is_frank_talk_animation_frame_active = not is_frank_talk_animation_frame_active
+	_apply_frank_talk_animation_frame()
 
 func _create_bubble_choice_button(button_text: String, index, paths) -> TextureButton:
 	var button := TextureButton.new()
@@ -666,7 +807,6 @@ func _preview_wound_path(path):
 	world.position = Vector2.ZERO
 	_set_world_objects_visible(false)
 	portrait.visible = false
-	speaker_name.visible = false
 	choice_container.visible = false
 	advance_trigger.visible = false
 	advance_trigger.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -674,8 +814,9 @@ func _preview_wound_path(path):
 	_set_portrait_interactive(false)
 	_clear_active_arrows()
 	_play_foot_sound_once()
-	var preview_text: String = _sanitize_dialogue_text(story.GetCurrentRuntimeContent())
+	var preview_text: String = story.GetCurrentRuntimeContent()
 	dialogue_text.text = _format_dialogue_text(preview_text)
+	_update_speaker_name_display(preview_text)
 	await get_tree().create_timer(_get_preview_duration(preview_text)).timeout
 	story.LoadSave(saved_story)
 	background.texture = previous_background_texture

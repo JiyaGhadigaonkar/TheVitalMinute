@@ -1,5 +1,7 @@
 extends Control
 
+const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
+
 @export var starting_focus_x := 2300.0
 @export var inside_focus_x := 1200
 @export var use_intro_portrait_lock := true
@@ -22,6 +24,7 @@ extends Control
 @onready var portrait_1: TextureRect = get_node_or_null("Portrait1")
 @onready var portrait_2: TextureRect = get_node_or_null("Portrait2")
 @onready var dialogue_box: TextureRect = get_node_or_null("DialogueBox")
+@onready var speaker_box: TextureRect = get_node_or_null("SpeakerBox")
 @onready var speaker_name: RichTextLabel = get_node_or_null("SpeakerName")
 @onready var dialogue_text: RichTextLabel = get_node_or_null("DialogueText")
 @onready var choice_container: VBoxContainer = get_node_or_null("ChoiceContainer")
@@ -46,6 +49,8 @@ const NAPKINS_TEXTURE = preload("res://Assets/Item_Tutorial_Napkins.png")
 const TALK_BUBBLE_TEXTURE = preload("res://Assets/talk.png")
 const CURSOR_HOTSPOT = Vector2(8, 0)
 const CURSOR_SCALE = 1.35
+const DIALOGUE_TEXT_COLOR = "#1f3a5f"
+const SPEAKER_NAME_FONT_SIZE = 50
 const DEFAULT_PORTRAIT_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(760.0, 120.0)
@@ -113,30 +118,93 @@ var active_cpr_minigame: Node
 var victory_overlay: TextureRect
 var is_showing_victory_screen := false
 
-func _has_dialogue_speaker_prefix(text: String) -> bool:
-	var trimmed := text.strip_edges()
-	var colon_index := trimmed.find(":")
-	if colon_index <= 0:
-		return false
-
-	var prefix := trimmed.substr(0, colon_index).strip_edges()
-	if prefix.is_empty():
-		return false
-
-	var speaker_pattern := RegEx.new()
-	speaker_pattern.compile("^\\[?[A-Za-z0-9_ '\\-\\.\\\"]+\\]?$")
-	return speaker_pattern.search(prefix) != null
-
 func _sanitize_dialogue_text(raw_text: String) -> String:
 	return raw_text.strip_edges().replace(char(8), "").replace("\\b", "")
 
-func _format_dialogue_text(raw_text: String) -> String:
+func _strip_dialogue_markup(raw_text: String) -> String:
 	var sanitized_text := _sanitize_dialogue_text(raw_text)
-	if sanitized_text.is_empty():
+	var markup_pattern := RegEx.new()
+	markup_pattern.compile("<[^>]+>")
+	var plain_text := markup_pattern.sub(sanitized_text, "", true)
+	var bbcode_pattern := RegEx.new()
+	bbcode_pattern.compile("\\[/?(?:b|i|u|s|center|left|right|fill|indent|url|code|kbd|p|br|color|bgcolor|fgcolor|font_size|font|img|table|cell|wave|tornado|shake|fade|rainbow)(?:=[^\\]]+)?\\]")
+	plain_text = bbcode_pattern.sub(plain_text, "", true)
+	plain_text = plain_text.replace("&nbsp;", " ").replace(char(160), " ")
+	var whitespace_pattern := RegEx.new()
+	whitespace_pattern.compile("\\s+")
+	return whitespace_pattern.sub(plain_text, " ", true).strip_edges()
+
+func _is_likely_speaker_name(candidate: String) -> bool:
+	var trimmed := candidate.strip_edges()
+	if trimmed.is_empty() or trimmed.length() > 40:
+		return false
+	if trimmed.begins_with("\"") and trimmed.ends_with("\"") and trimmed.length() >= 2:
+		trimmed = trimmed.substr(1, trimmed.length() - 2).strip_edges()
+	for character in trimmed:
+		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")"
+		if not is_text_character:
+			return false
+	return true
+
+func _parse_dialogue_speaker(raw_text: String) -> Dictionary:
+	var plain_text := _strip_dialogue_markup(raw_text)
+	var colon_index := plain_text.find(":")
+	if colon_index <= 0:
+		return {
+			"speaker": "",
+			"body": plain_text,
+		}
+
+	var speaker := plain_text.substr(0, colon_index).strip_edges()
+	var body := plain_text.substr(colon_index + 1).strip_edges()
+	if speaker.begins_with("[") and speaker.ends_with("]") and speaker.length() >= 2:
+		speaker = speaker.substr(1, speaker.length() - 2).strip_edges()
+	if speaker.begins_with("\"") and speaker.ends_with("\"") and speaker.length() >= 2:
+		speaker = speaker.substr(1, speaker.length() - 2).strip_edges()
+	if not _is_likely_speaker_name(speaker):
+		print("Speaker parse miss [level_1]: raw=", raw_text, " | plain=", plain_text, " | speaker_candidate=", speaker)
+		return {
+			"speaker": "",
+			"body": plain_text,
+		}
+	return {
+		"speaker": speaker,
+		"body": body,
+	}
+
+func _has_dialogue_speaker_prefix(text: String) -> bool:
+	return not str(_parse_dialogue_speaker(text).get("speaker", "")).is_empty()
+
+func _get_dialogue_speaker_name(raw_text: String) -> String:
+	return str(_parse_dialogue_speaker(raw_text).get("speaker", ""))
+
+func _get_dialogue_body_text(raw_text: String) -> String:
+	return str(_parse_dialogue_speaker(raw_text).get("body", ""))
+
+func _update_speaker_name_display(raw_text: String) -> void:
+	if speaker_name == null:
+		return
+	var speaker := _get_dialogue_speaker_name(raw_text)
+	speaker_name.bbcode_enabled = true
+	speaker_name.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
+	if speaker.is_empty():
+		speaker_name.text = ""
+		speaker_name.visible = false
+		if speaker_box != null:
+			speaker_box.visible = false
+		return
+	speaker_name.text = "[center][font_size=%d][color=%s][b]%s[/b][/color][/font_size][/center]" % [SPEAKER_NAME_FONT_SIZE, DIALOGUE_TEXT_COLOR, speaker]
+	speaker_name.visible = true
+	if speaker_box != null:
+		speaker_box.visible = true
+
+func _format_dialogue_text(raw_text: String) -> String:
+	var body_text := _get_dialogue_body_text(raw_text)
+	if body_text.is_empty():
 		return ""
 	if _has_dialogue_speaker_prefix(raw_text):
-		return sanitized_text
-	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % sanitized_text
+		return "[font_size=35][color=%s]%s[/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
+	return "[font_size=35][color=%s][i]%s[/i][/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 
 func _ready() -> void:
 	if world != null:
@@ -217,12 +285,14 @@ func repaint() -> void:
 		return
 	_maybe_unlock_portraits()
 	_update_story_background()
+	var current_story_text: String = story.GetCurrentRuntimeContent()
 	if dialogue_text != null:
 		dialogue_text.bbcode_enabled = true
-		dialogue_text.add_theme_color_override("default_color", Color.BLACK)
-		dialogue_text.text = _format_dialogue_text(story.GetCurrentRuntimeContent())
+		dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
+		dialogue_text.text = _format_dialogue_text(current_story_text)
 
 	_update_portrait()
+	_update_speaker_name_display(current_story_text)
 	add_options()
 
 func add_options() -> void:
@@ -814,13 +884,6 @@ func _update_portrait() -> void:
 	if portrait_2 != null and visible_names.size() < 2:
 		portrait_2.visible = false
 
-	if speaker_name != null:
-		if visible_names.is_empty():
-			speaker_name.visible = false
-		else:
-			speaker_name.text = ", ".join(visible_names)
-			speaker_name.visible = true
-
 	_apply_sticky_outside_vicky_portrait(visible_names)
 
 func _apply_locked_portraits() -> void:
@@ -848,13 +911,6 @@ func _apply_locked_portraits() -> void:
 		else:
 			portrait_2.visible = false
 
-	if speaker_name != null:
-		if visible_names.is_empty():
-			speaker_name.visible = false
-		else:
-			speaker_name.text = ", ".join(visible_names)
-			speaker_name.visible = true
-
 func _apply_sticky_outside_vicky_portrait(visible_names: Array[String]) -> void:
 	if not _should_force_outside_vicky_portrait():
 		return
@@ -869,10 +925,6 @@ func _apply_sticky_outside_vicky_portrait(visible_names: Array[String]) -> void:
 	elif portrait_2 != null and not portrait_2.visible:
 		portrait_2.texture = load(vicky_portrait_path)
 		portrait_2.visible = true
-	if speaker_name != null and not speaker_name.visible:
-		speaker_name.text = "Vicky_Sick"
-		speaker_name.visible = true
-
 func _should_force_outside_vicky_portrait() -> bool:
 	return has_entered_vicky_outside_sequence and not inside_background_active and not is_passed_out_background_active
 
@@ -1108,7 +1160,7 @@ func _on_hot_water_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	if is_showing_victory_screen:
-		get_tree().change_scene_to_file("res://test.tscn")
+		get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
 		return
 
 	var current_text := _get_current_story_text()

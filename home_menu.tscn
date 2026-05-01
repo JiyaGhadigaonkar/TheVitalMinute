@@ -1,17 +1,157 @@
-[gd_scene format=3 uid="uid://vok8f1d6hx8k"]
+[gd_scene format=3 uid="uid://2t8tqvch2q7g"]
 
-[node name="Home menu" type="Node2D" unique_id=1457144512]
+[ext_resource type="Script" uid="uid://bxdqijtg4f36s" path="res://home_menu.gd" id="1_jcpfv"]
+[ext_resource type="Texture2D" uid="uid://c4hhbga3tnsng" path="res://Assets/backgrounds/Start_Scene.png" id="2_tqwvy"]
 
-[node name="Button" type="Button" parent="." unique_id=344635804]
-offset_top = 1.0
-offset_right = 202.0
-offset_bottom = 114.0
-theme_override_font_sizes/font_size = 50
-text = "START"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.937255, 0.909804, 0.827451, 0.862745)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.278431, 0.164706, 0.101961, 0.701961)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_color = Color(0, 0, 0, 0.18)
+shadow_size = 12
 
-[node name="Button2" type="Button" parent="." unique_id=2074800042]
-offset_top = 128.0
-offset_right = 202.0
-offset_bottom = 241.0
-theme_override_font_sizes/font_size = 31
-text = "Level Select"
+[node name="HomeMenu" type="Control" unique_id=1167139044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jcpfv")
+
+[node name="Background" type="TextureRect" parent="." unique_id=589693627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tqwvy")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackdropGlow" type="ColorRect" parent="." unique_id=1193183490]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 156.0
+offset_right = 1944.0
+offset_bottom = 1286.0
+color = Color(0.788235, 0.631373, 0.411765, 0.14902)
+
+[node name="MenuLayer" type="MarginContainer" parent="." unique_id=432593747]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 220
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 220
+theme_override_constants/margin_bottom = 120
+
+[node name="MenuPanel" type="PanelContainer" parent="MenuLayer" unique_id=994749613]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="PanelMargin" type="MarginContainer" parent="MenuLayer/MenuPanel" unique_id=1623345246]
+layout_mode = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 72
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 72
+
+[node name="Content" type="VBoxContainer" parent="MenuLayer/MenuPanel/PanelMargin" unique_id=2039216943]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="Title" type="Label" parent="MenuLayer/MenuPanel/PanelMargin/Content" unique_id=149627217]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.141176, 0.180392, 0.231373, 1)
+theme_override_font_sizes/font_size = 68
+text = "The Vital Minute"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MenuLayer/MenuPanel/PanelMargin/Content" unique_id=1781003867]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.121569, 0.266667, 0.427451, 1)
+theme_override_font_sizes/font_size = 28
+text = "Choose a chapter to begin."
+horizontal_alignment = 1
+
+[node name="ButtonStack" type="VBoxContainer" parent="MenuLayer/MenuPanel/PanelMargin/Content" unique_id=494676676]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TutorialButton" type="TextureButton" parent="MenuLayer/MenuPanel/PanelMargin/Content/ButtonStack" unique_id=1422758217]
+custom_minimum_size = Vector2(760, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuLayer/MenuPanel/PanelMargin/Content/ButtonStack/TutorialButton" unique_id=1003386098]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 22.0
+offset_right = 680.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Level1Button" type="TextureButton" parent="MenuLayer/MenuPanel/PanelMargin/Content/ButtonStack" unique_id=901343827]
+custom_minimum_size = Vector2(760, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuLayer/MenuPanel/PanelMargin/Content/ButtonStack/Level1Button" unique_id=672454581]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 22.0
+offset_right = 680.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Level2Button" type="TextureButton" parent="MenuLayer/MenuPanel/PanelMargin/Content/ButtonStack" unique_id=778263068]
+custom_minimum_size = Vector2(760, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuLayer/MenuPanel/PanelMargin/Content/ButtonStack/Level2Button" unique_id=1105192724]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 22.0
+offset_right = 680.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Level 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdw0jkgig6vxf"
-path="res://.godot/imported/Restaurant.png-304d48e4ce6082371a94050e5a58fe30.ctex"
+uid="uid://78ne402b11h3"
+path="res://.godot/imported/Outisde Party.png-567a5ec8886553213311fcdd4902eea2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/level_2.godot/assets/BG/Restaurant.png"
-dest_files=["res://.godot/imported/Restaurant.png-304d48e4ce6082371a94050e5a58fe30.ctex"]
+source_file="res://addons/arcweave/level_1.godot/assets/BG/Outisde Party.png"
+dest_files=["res://.godot/imported/Outisde Party.png-567a5ec8886553213311fcdd4902eea2.ctex"]
 
 [params]
 

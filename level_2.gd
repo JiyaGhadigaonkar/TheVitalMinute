@@ -8,6 +8,7 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 
 @onready var world: Node2D = get_node_or_null("World")
 @onready var background_outside: TextureRect = get_node_or_null("World/BackgroundOutside")
+@onready var steak_sprite: Sprite2D = get_node_or_null("World/Steak")
 @onready var portrait_1: TextureRect = get_node_or_null("Portrait1")
 @onready var portrait_2: TextureRect = get_node_or_null("Portrait2")
 @onready var dialogue_box: TextureRect = get_node_or_null("DialogueBox")
@@ -39,6 +40,7 @@ const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(760.0, 120.0)
 const CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.22, 1.28)
 const PLAY_HEIMLICH_GAME_LABEL = "play the heimlich microgame"
+const RESTAURANT_STEAK_TRIGGER_TEXT = "Eventually, you stop at a restaurant. You head inside with him. He orders a steak, and you just order a frosty smoothie."
 const LEVEL_END_TRIGGER_TEXT = "You receive a text on their phone from Frank, inviting you to a picnic in the woods."
 
 var arcweave_asset: ArcweaveAsset = preload("res://addons/arcweave/LevelTwo.tres")
@@ -60,6 +62,7 @@ var default_speaker_name_position := Vector2.ZERO
 var default_world_position := Vector2.ZERO
 var default_background_size := Vector2.ZERO
 var default_outside_background_texture: Texture2D
+var has_reached_restaurant_steak_moment := false
 var portrait_1_hotspot: Button
 var portrait_2_hotspot: Button
 var active_heimlich_minigame_root: Node
@@ -162,6 +165,8 @@ func _ready() -> void:
 	if background_outside != null:
 		default_background_size = background_outside.size
 		default_outside_background_texture = background_outside.texture
+	if steak_sprite != null:
+		steak_sprite.visible = false
 	if portrait_1 != null:
 		default_portrait_1_position = portrait_1.position
 		default_portrait_1_scale = portrait_1.scale
@@ -335,6 +340,11 @@ func _update_story_background() -> void:
 	background_outside.position = Vector2.ZERO
 	if default_background_size != Vector2.ZERO:
 		background_outside.size = default_background_size
+	if steak_sprite != null:
+		var current_text := _strip_dialogue_markup(_get_current_story_text())
+		if current_text == RESTAURANT_STEAK_TRIGGER_TEXT:
+			has_reached_restaurant_steak_moment = true
+		steak_sprite.visible = has_reached_restaurant_steak_moment
 
 func _apply_world_focus(focus_x: float) -> void:
 	if world == null:
@@ -627,7 +637,7 @@ func _on_continue_pressed() -> void:
 		get_tree().change_scene_to_file(level_complete_scene_path)
 		return
 
-	var current_text := _normalize_label(_get_current_story_text())
+	var current_text := _normalize_label(_get_dialogue_body_text(_get_current_story_text()))
 	if current_text == _normalize_label(LEVEL_END_TRIGGER_TEXT):
 		_set_victory_screen_visible(true)
 		return

@@ -11,8 +11,6 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 @export var inside_portrait_1_position := Vector2(250.0, 142.0)
 @export var inside_portrait_2_position := Vector2(1510.0, 142.0)
 @export var portrait_hitbox_padding := Vector2(90.0, 120.0)
-@export var onlooker_portrait_2_position := Vector2(800.0, 350.0)
-@export var onlooker_portrait_2_scale := Vector2(0.65, 0.7)
 @export var bypass_cpr_minigame := false
 
 @onready var world: Node2D = get_node_or_null("World")
@@ -56,6 +54,10 @@ const DEFAULT_PORTRAIT_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(760.0, 120.0)
 const CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.22, 1.28)
+const ONLOOKER_CHOICE_CONTAINER_POSITION = Vector2(850.0, 40.0)
+const ONLOOKER_CHOICE_CONTAINER_SIZE = Vector2(700.0, 400.0)
+const ONLOOKER_CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(700.0, 102.0)
+const ONLOOKER_CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.0, 1.05)
 const INSIDE_SCENE_VERTICAL_OFFSET = 1444.0
 const TALK_TO_FRANK_LABEL = "center talk to frank"
 const USE_GAUZE_LABEL = "use gauze"
@@ -69,6 +71,10 @@ const GIVE_HOT_WATER_LABEL = "give hot water"
 const MAKE_INSTANT_TEA_LABEL = "make instant tea"
 const GIVE_HOT_TEA_LABEL = "give hot tea"
 const CHECK_ON_OTHER_PERSON_LABEL = "check on the other person"
+const DRANK_WATER_LABEL_FRAGMENT = "last time you drank water"
+const LIV_TRY_BEST_TEXT = "Liv: Oh... oh god... ok... I'll try my best."
+const LIV_TRY_BEST_TEXT_ALT = "Liv: Oh… oh god… ok… I’ll try my best."
+const CALL_FOR_HELP_INSERT_TEXT = "Call for help!"
 const INTRO_PORTRAIT_UNLOCK_TEXT = "You step outside and notice it's warm despite being dark outside. Everyone sounds like they're having a good time at the party."
 const INSIDE_BACKGROUND_TRIGGER_TEXT = "Your friends go to party in some side room, so you can’t find them. Now you don't anyone and it's just awkward."
 const OUTSIDE_BACKGROUND_RETURN_TEXT = "Vicky: Hrrgh… I don’t wanna… Ugh… My head… hehe… Livvy.."
@@ -95,6 +101,12 @@ var default_portrait_1_scale := Vector2.ONE
 var default_portrait_2_scale := Vector2.ONE
 var default_speaker_name_position := Vector2.ZERO
 var default_world_position := Vector2.ZERO
+var default_choice_container_position := Vector2.ZERO
+var default_choice_container_size := Vector2.ZERO
+var default_choice_container_offset_left := 0.0
+var default_choice_container_offset_top := 0.0
+var default_choice_container_offset_right := 0.0
+var default_choice_container_offset_bottom := 0.0
 var pending_gauze_path = null
 var pending_napkins_path = null
 var pending_phone_path = null
@@ -105,6 +117,7 @@ var portraits_locked := false
 var inside_background_active := false
 var is_passed_out_background_active := false
 var has_entered_vicky_outside_sequence := false
+var has_seen_vicky_collapse := false
 var default_background_size := Vector2.ZERO
 var default_outside_background_texture: Texture2D
 var portrait_1_hotspot: Button
@@ -118,6 +131,7 @@ var active_cpr_minigame_root: Node
 var active_cpr_minigame: Node
 var victory_overlay: TextureRect
 var is_showing_victory_screen := false
+var is_showing_inserted_call_for_help_line := false
 
 func _sanitize_dialogue_text(raw_text: String) -> String:
 	return raw_text.strip_edges().replace(char(8), "").replace("\\b", "")
@@ -223,6 +237,13 @@ func _ready() -> void:
 		default_portrait_2_scale = portrait_2.scale
 	if speaker_name != null:
 		default_speaker_name_position = speaker_name.position
+	if choice_container != null:
+		default_choice_container_position = choice_container.position
+		default_choice_container_size = choice_container.size
+		default_choice_container_offset_left = choice_container.offset_left
+		default_choice_container_offset_top = choice_container.offset_top
+		default_choice_container_offset_right = choice_container.offset_right
+		default_choice_container_offset_bottom = choice_container.offset_bottom
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_create_cursor_sprite()
@@ -262,6 +283,7 @@ func _process(_delta: float) -> void:
 		portrait_2.scale = _get_active_portrait_2_scale()
 	if speaker_name != null:
 		speaker_name.position = default_speaker_name_position
+	_update_choice_container_layout(_get_current_story_text())
 	_update_portrait_hotspots()
 	_update_world_hotspots()
 
@@ -287,6 +309,11 @@ func repaint() -> void:
 	_maybe_unlock_portraits()
 	_update_story_background()
 	var current_story_text: String = story.GetCurrentRuntimeContent()
+	if _should_show_call_for_help_insert(current_story_text):
+		is_showing_inserted_call_for_help_line = true
+		current_story_text = CALL_FOR_HELP_INSERT_TEXT
+	else:
+		is_showing_inserted_call_for_help_line = false
 	if dialogue_text != null:
 		dialogue_text.bbcode_enabled = true
 		dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
@@ -300,6 +327,16 @@ func add_options() -> void:
 	if story == null:
 		return
 	if choice_container == null or advance_trigger == null:
+		return
+	if is_showing_inserted_call_for_help_line:
+		for option in choice_container.get_children():
+			option.queue_free()
+		choice_container.visible = false
+		advance_trigger.visible = true
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
+		_set_portrait_interactive(false, false)
+		_set_world_interactive(false, false)
+		_set_inventory_item_interactivity()
 		return
 
 	for option in choice_container.get_children():
@@ -364,12 +401,13 @@ func add_options() -> void:
 		choice_container.add_child(button)
 		visible_choice_count += 1
 
-	if normal_choice_paths.size() == 1:
+	if normal_choice_paths.size() == 1 and not _should_keep_single_choice_button(normal_choice_paths[0]):
 		for option in choice_container.get_children():
 			option.queue_free()
 		visible_choice_count = 0
 
 	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	_update_choice_container_layout(current_text)
 	if _is_two_person_help_state(current_text) and normal_choice_paths.size() >= 2:
 		for option in choice_container.get_children():
 			option.queue_free()
@@ -406,13 +444,17 @@ func add_options() -> void:
 	_set_inventory_item_interactivity()
 
 func _create_choice_button(button_text: String, index, paths) -> TextureButton:
+	var is_onlooker_choice_state := _is_onlooker_assessment_state(_get_current_story_text())
+	var layout_size := ONLOOKER_CHOICE_BUBBLE_LAYOUT_SIZE if is_onlooker_choice_state else CHOICE_BUBBLE_LAYOUT_SIZE
+	var visual_scale := ONLOOKER_CHOICE_BUBBLE_VISUAL_SCALE if is_onlooker_choice_state else CHOICE_BUBBLE_VISUAL_SCALE
 	var button := TextureButton.new()
 	button.texture_normal = TALK_BUBBLE_TEXTURE
 	button.ignore_texture_size = true
 	button.stretch_mode = TextureButton.STRETCH_SCALE
-	button.custom_minimum_size = CHOICE_BUBBLE_LAYOUT_SIZE
-	button.size = CHOICE_BUBBLE_LAYOUT_SIZE
-	button.scale = CHOICE_BUBBLE_VISUAL_SCALE
+	button.custom_minimum_size = layout_size
+	button.size = layout_size
+	button.scale = visual_scale
+	button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER if is_onlooker_choice_state else Control.SIZE_FILL
 	button.mouse_filter = Control.MOUSE_FILTER_STOP
 	button.pressed.connect(_on_option_pressed.bind(index, paths))
 	button.mouse_entered.connect(_on_choice_button_mouse_entered.bind(button))
@@ -425,9 +467,9 @@ func _create_choice_button(button_text: String, index, paths) -> TextureButton:
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.add_theme_color_override("font_color", Color.BLACK)
-	label.add_theme_font_size_override("font_size", 30)
-	label.position = Vector2(55.0, 22.0)
-	label.size = Vector2(CHOICE_BUBBLE_LAYOUT_SIZE.x - 80.0, CHOICE_BUBBLE_LAYOUT_SIZE.y - 28.0)
+	label.add_theme_font_size_override("font_size", 26 if is_onlooker_choice_state else 30)
+	label.position = Vector2(42.0, 18.0) if is_onlooker_choice_state else Vector2(55.0, 22.0)
+	label.size = Vector2(layout_size.x - 68.0, layout_size.y - 22.0) if is_onlooker_choice_state else Vector2(layout_size.x - 80.0, layout_size.y - 28.0)
 	button.add_child(label)
 
 	return button
@@ -437,9 +479,21 @@ func _configure_choice_container() -> void:
 		return
 	choice_container.add_theme_constant_override("separation", -8)
 
+func _update_choice_container_layout(current_text: String) -> void:
+	if choice_container == null:
+		return
+	if _is_onlooker_assessment_state(current_text):
+		choice_container.offset_left = ONLOOKER_CHOICE_CONTAINER_POSITION.x
+		choice_container.offset_top = ONLOOKER_CHOICE_CONTAINER_POSITION.y
+		choice_container.offset_right = ONLOOKER_CHOICE_CONTAINER_POSITION.x + ONLOOKER_CHOICE_CONTAINER_SIZE.x
+		choice_container.offset_bottom = ONLOOKER_CHOICE_CONTAINER_POSITION.y + ONLOOKER_CHOICE_CONTAINER_SIZE.y
+	else:
+		choice_container.offset_left = default_choice_container_offset_left
+		choice_container.offset_top = default_choice_container_offset_top
+		choice_container.offset_right = default_choice_container_offset_right
+		choice_container.offset_bottom = default_choice_container_offset_bottom
+
 func _get_active_portrait_2_scale() -> Vector2:
-	if _is_onlooker_assessment_state(_get_current_story_text()):
-		return onlooker_portrait_2_scale
 	return default_portrait_2_scale
 
 func _capture_inside_scene_default_positions() -> void:
@@ -489,6 +543,7 @@ func _update_story_background() -> void:
 	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
 	if _is_passed_out_background_start_state(current_text):
 		has_entered_vicky_outside_sequence = true
+		has_seen_vicky_collapse = true
 		is_passed_out_background_active = true
 	elif _is_passed_out_background_end_state(current_text):
 		is_passed_out_background_active = false
@@ -607,8 +662,6 @@ func _create_portrait_hotspot(entered_handler: Callable, exited_handler: Callabl
 	return hotspot
 
 func _get_active_portrait_position(default_position: Vector2, inside_position: Vector2) -> Vector2:
-	if _is_onlooker_assessment_state(_get_current_story_text()) and inside_background_active and inside_position == inside_portrait_2_position:
-		return onlooker_portrait_2_position
 	if inside_background_active and use_inside_portrait_positions:
 		return inside_position
 	return default_position
@@ -868,6 +921,9 @@ func _update_portrait() -> void:
 
 	var visible_names: Array[String] = []
 	for component_name in component_names:
+		var normalized_component_name := _normalize_label(component_name)
+		if has_seen_vicky_collapse and normalized_component_name == "vicky sick":
+			continue
 		var portrait_path := _get_portrait_path(component_name)
 		if portrait_path != "":
 			visible_names.append(component_name)
@@ -891,7 +947,7 @@ func _update_portrait() -> void:
 	if portrait_2 != null and visible_names.size() < 2:
 		portrait_2.visible = false
 
-	_apply_sticky_outside_vicky_portrait(visible_names)
+	_apply_post_collapse_sticky_portrait(visible_names)
 
 func _apply_locked_portraits() -> void:
 	var visible_names: Array[String] = []
@@ -918,8 +974,16 @@ func _apply_locked_portraits() -> void:
 		else:
 			portrait_2.visible = false
 
-func _apply_sticky_outside_vicky_portrait(visible_names: Array[String]) -> void:
+func _apply_post_collapse_sticky_portrait(visible_names: Array[String]) -> void:
 	if not _should_force_outside_vicky_portrait():
+		return
+	if has_seen_vicky_collapse:
+		var onlooker_portrait_path := _get_portrait_path("Onlooker_Fear")
+		if onlooker_portrait_path == "":
+			return
+		if portrait_2 != null:
+			portrait_2.texture = load(onlooker_portrait_path)
+			portrait_2.visible = true
 		return
 	if visible_names.has("Vicky_Sick") or visible_names.has("Vicky Sick"):
 		return
@@ -1034,6 +1098,11 @@ func _is_tap_through_only_path(path) -> bool:
 	var normalized_label := _normalize_label(path.label)
 	return normalized_label == GIVE_HOT_TEA_LABEL or normalized_label == CHECK_ON_OTHER_PERSON_LABEL
 
+func _should_keep_single_choice_button(path) -> bool:
+	if path == null:
+		return false
+	return DRANK_WATER_LABEL_FRAGMENT in _normalize_label(path.label)
+
 func _is_talk_to_onlooker_path(path) -> bool:
 	return _normalize_label(path.label) == TALK_TO_ONLOOKER_LABEL
 
@@ -1046,9 +1115,8 @@ func _is_onlooker_assessment_state(text: String) -> bool:
 	var normalized_text := _normalize_label(text)
 	var normalized_trigger := _normalize_label(ONLOOKER_ASSESSMENT_TEXT)
 	return normalized_trigger in normalized_text or (
-		"sleep deprived" in normalized_text
-		and "alcohol poisoning" in normalized_text
-		and "someone has just walked over" in normalized_text
+		"alcohol poisoning" in normalized_text
+		and ("someone has just walked over" in normalized_text or "danny has just walked over" in normalized_text)
 	)
 
 func _on_portrait_mouse_entered() -> void:
@@ -1169,9 +1237,17 @@ func _on_continue_pressed() -> void:
 	if is_showing_victory_screen:
 		get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
 		return
+	if is_showing_inserted_call_for_help_line:
+		is_showing_inserted_call_for_help_line = false
+		var options = story.GenerateCurrentOptions()
+		var paths = options.Paths
+		if paths != null and paths.size() > 0:
+			story.SelectPath(paths[0])
+			repaint()
+		return
 
-	var current_text := _get_current_story_text()
-	if current_text == LEVEL_END_TRIGGER_TEXT:
+	var current_text := _normalize_label(_get_current_story_text())
+	if current_text == _normalize_label(LEVEL_END_TRIGGER_TEXT):
 		_set_victory_screen_visible(true)
 		return
 
@@ -1180,6 +1256,12 @@ func _on_continue_pressed() -> void:
 	if paths != null and paths.size() > 0:
 		story.SelectPath(paths[0])
 		repaint()
+
+func _should_show_call_for_help_insert(current_story_text: String) -> bool:
+	var normalized_text := _normalize_label(_strip_dialogue_markup(current_story_text))
+	var normalized_default := _normalize_label(LIV_TRY_BEST_TEXT)
+	var normalized_alt := _normalize_label(LIV_TRY_BEST_TEXT_ALT)
+	return normalized_text == normalized_default or normalized_text == normalized_alt
 
 func _advance_pending_rhythm_game_path() -> void:
 	if pending_rhythm_game_path == null:
@@ -1266,9 +1348,13 @@ func _set_victory_screen_visible(is_visible: bool) -> void:
 	if world != null:
 		world.visible = not is_visible
 	if portrait_1 != null:
-		portrait_1.visible = not is_visible and portrait_1.visible
+		portrait_1.visible = false if is_visible else portrait_1.visible
+		if is_visible:
+			portrait_1.texture = null
 	if portrait_2 != null:
-		portrait_2.visible = not is_visible and portrait_2.visible
+		portrait_2.visible = false if is_visible else portrait_2.visible
+		if is_visible:
+			portrait_2.texture = null
 	if dialogue_box != null:
 		dialogue_box.visible = not is_visible
 	if dialogue_text != null:

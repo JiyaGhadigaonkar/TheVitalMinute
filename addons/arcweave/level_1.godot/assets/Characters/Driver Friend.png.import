@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://loxvjn187eeq"
-path="res://.godot/imported/visual-novel-cover.png-981544fd477d48c7da98a562b8bc520f.ctex"
+uid="uid://cmwal4sph7ir3"
+path="res://.godot/imported/Driver Friend.png-19079c5bb98d9e106a31914e8a2738fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv5.godot/cover/visual-novel-cover.png"
-dest_files=["res://.godot/imported/visual-novel-cover.png-981544fd477d48c7da98a562b8bc520f.ctex"]
+source_file="res://addons/arcweave/level_1.godot/assets/Characters/Driver Friend.png"
+dest_files=["res://.godot/imported/Driver Friend.png-19079c5bb98d9e106a31914e8a2738fa.ctex"]
 
 [params]
 

@@ -11,12 +11,16 @@ project_settings = {
 "name": "Steak.png",
 "type": "image"
 },
+"181ece1f-aa61-4351-aed2-d16a3e209a71": {
+"name": "Item_Phone.png",
+"type": "image"
+},
 "5b9e32e9-62c8-403c-8251-e03cfd4e01ba": {
 "name": "Danny Smile.png",
 "type": "image"
 },
 "647d0495-341f-42b2-8788-b47dace22bf8": {
-"children": ["c4f97e8a-f14b-4224-8ef1-6b618b78cf4e", "acb0c1b2-893a-48d2-aab9-c37c1a298814", "dabf1aa9-04b5-4136-baeb-a98b095f5782"],
+"children": ["181ece1f-aa61-4351-aed2-d16a3e209a71", "c4f97e8a-f14b-4224-8ef1-6b618b78cf4e", "acb0c1b2-893a-48d2-aab9-c37c1a298814", "dabf1aa9-04b5-4136-baeb-a98b095f5782"],
 "root": true
 },
 "94fb0e96-a164-4c9c-9c01-8a10591c86d9": {
@@ -75,7 +79,7 @@ project_settings = {
 "branches": {},
 "components": {
 "036db898-0cb9-4a29-b19d-3e8f3288d9a2": {
-"children": ["33740df7-6eff-42fe-ac54-f81e443c5d93", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7", "a0ff9020-22a1-4918-bb8a-5e6f399852cd", "43584165-a718-481c-87be-fa99da28fc65"],
+"children": ["eb01a9e8-bd88-45a9-ac74-c2206d2b69b7", "33740df7-6eff-42fe-ac54-f81e443c5d93", "a0ff9020-22a1-4918-bb8a-5e6f399852cd", "43584165-a718-481c-87be-fa99da28fc65"],
 "name": "Characters"
 },
 "33740df7-6eff-42fe-ac54-f81e443c5d93": {
@@ -123,6 +127,16 @@ project_settings = {
 "attributes": [],
 "name": "Danny_Smile"
 },
+"a2e938a2-5cfd-4909-b78f-68fd4746e99c": {
+"assets": {
+"cover": {
+"id": "181ece1f-aa61-4351-aed2-d16a3e209a71",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Phone"
+},
 "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7": {
 "assets": {
 "cover": {
@@ -134,7 +148,7 @@ project_settings = {
 "name": "Danny_Choking"
 },
 "ee093b37-acd8-4cb3-9670-dbb2d8a87c42": {
-"children": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d"],
+"children": ["a2e938a2-5cfd-4909-b78f-68fd4746e99c", "351adeaa-4540-49a9-8756-9c3eafb8aa3d"],
 "name": "Items"
 }
 },
@@ -634,7 +648,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
-"content": "<p><strong>Player: </strong>You shouldn’t talk with food in your mouth, though.</p>",
+"content": "<p><strong>You: </strong>You shouldn’t talk with food in your mouth, though.</p>",
 "height": 481.0,
 "outputs": ["60513f4e-6702-465d-a850-de9c9fbb1760"],
 "theme": "cyan",
@@ -650,8 +664,8 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
-"content": "<p><strong>Player: </strong>You good?</p>",
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>You: </strong>You good?</p>",
 "height": 481.0,
 "outputs": ["5f080faf-d327-4fd5-a04e-52bb21a92173"],
 "theme": "cyan",
@@ -663,7 +677,7 @@ project_settings = {
 "0a54f928-6438-4e61-8a0a-e17d0697a144": {
 "autoHeight": false,
 "components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
-"content": "<p><strong>Player: </strong>I dunno. I just feel like I keep getting into situations. And I feel like I don’t always know what to do.</p>",
+"content": "<p><strong>You: </strong>I dunno. I just feel like I keep getting into situations. And I feel like I don’t always know what to do.</p>",
 "height": 481.0,
 "outputs": ["6b493739-197a-49f4-8186-ab8e172c3790"],
 "theme": "cyan",
@@ -680,7 +694,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7"],
-"content": "<p><strong>Player: </strong>Oh god, are you choking?!</p>",
+"content": "<p><strong>You: </strong>Oh god, are you choking?!</p>",
 "height": 481.0,
 "outputs": ["412efa39-ce69-4e8c-9d32-3cd9ec9d0a75"],
 "theme": "cyan",
@@ -697,7 +711,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
-"content": "<p><strong>Player: </strong>…So are you not gonna-</p>",
+"content": "<p><strong>You: </strong>…So are you not gonna-</p>",
 "height": 481.0,
 "outputs": ["4dbfb04f-9185-4c69-92a1-9b8f0a02102e"],
 "theme": "cyan",
@@ -765,7 +779,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
-"content": "<p><em>Eventually, you stop at a restaurant. You head inside with him. He orders a steak, and you just order a frosty smoothie or something.</em></p>",
+"content": "<p><em>Eventually, you stop at a restaurant. You head inside with him. He orders a steak, and you just order a frosty smoothie.</em></p>",
 "height": 481.0,
 "outputs": ["5eda1248-5370-4a1a-a3d8-c19d86b548ed"],
 "theme": "cyan",
@@ -828,7 +842,7 @@ project_settings = {
 "35533a31-2b6e-4cf2-9bf9-a904836fc398": {
 "autoHeight": false,
 "components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
-"content": "<p><strong>Player: </strong>Could’ve gone better.</p>",
+"content": "<p><strong>You: </strong>Could’ve gone better.</p>",
 "height": 261.0,
 "outputs": ["7c41bd83-ae2c-4ff0-b06d-5293676935c3"],
 "theme": "cyan",
@@ -845,7 +859,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
-"content": "<p><strong>Player: </strong>Ack- Brain freeze…</p>",
+"content": "<p><strong>You: </strong>Ack- Brain freeze…</p>",
 "height": 481.0,
 "outputs": ["66b43262-65ab-4376-b09a-323904249475"],
 "theme": "cyan",
@@ -896,7 +910,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
-"content": "<p><strong>Player: </strong>DANNY, NO!</p>",
+"content": "<p><strong>You: </strong>DANNY, NO!</p>",
 "height": 481.0,
 "outputs": ["bc2407fb-81e3-49c9-95d4-ff2cdabec1e5"],
 "theme": "cyan",
@@ -913,7 +927,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7"],
-"content": "<p><strong>Player: </strong>Ok, oh god, what do I do?!</p>",
+"content": "<p><strong>You: </strong>Ok, oh god, what do I do?!</p>",
 "height": 481.0,
 "outputs": ["3bee7b96-38b7-4b87-87b5-6f7c3193218e"],
 "theme": "cyan",
@@ -1055,8 +1069,8 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
-"content": "<p><strong>Danny: </strong>I should sue!!!</p>",
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Danny: </strong>I should sue.</p>",
 "height": 481.0,
 "outputs": ["30218030-be52-4a47-97bd-15fb534035bc"],
 "theme": "cyan",
@@ -1090,7 +1104,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
-"content": "<p><strong>Player: </strong>…Yeah. I’m feeling better.</p>",
+"content": "<p><strong>You: </strong>…Yeah. I’m feeling better.</p>",
 "height": 481.0,
 "outputs": ["b6542534-246d-4c78-a95d-c4bfb13f528d"],
 "theme": "cyan",
@@ -1102,7 +1116,7 @@ project_settings = {
 "a0053dd8-9fa9-44a5-b983-1db9ac2e354e": {
 "autoHeight": false,
 "components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
-"content": "<p><strong>Playey: </strong>Hey, it never hurts to be prepared. Anything is possible.</p>",
+"content": "<p><strong>You: </strong>Hey, it never hurts to be prepared. Anything is possible.</p>",
 "height": 481.0,
 "outputs": ["8e445455-951d-45fd-a16d-1d0e26eb83ae"],
 "theme": "cyan",
@@ -1118,7 +1132,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
 "content": "<p><strong>Danny: </strong>Hah… huah… hoo…</p>",
 "height": 481.0,
 "outputs": ["412fea52-8bd8-41f3-8feb-063585738cc0"],
@@ -1165,7 +1179,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
-"content": "<p><strong>Player: </strong>You already drive me around everywhere. I don’t want to start eating your food, too.</p>",
+"content": "<p><strong>You: </strong>You already drive me around everywhere. I don’t want to start eating your food, too.</p>",
 "height": 481.0,
 "outputs": ["4fbd467d-3fcc-400f-99b2-634c556d243e"],
 "theme": "cyan",
@@ -1181,7 +1195,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd", "a2e938a2-5cfd-4909-b78f-68fd4746e99c"],
 "content": "<p><em>Danny starts eating the rest of his steak. You receive a text on their phone from Frank, inviting you to a picnic in the woods.</em></p>",
 "height": 481.0,
 "outputs": [],
@@ -1228,7 +1242,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7"],
-"content": "<p><em>Danny nods. His eyes are watering. The timer appears.</em></p>",
+"content": "<p><em>Danny nods. His eyes are watering.</em></p>",
 "height": 481.0,
 "outputs": ["bd2eaa6c-4d1a-4fb5-8be9-75c7ed04c2d5"],
 "theme": "cyan",
@@ -1244,7 +1258,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
 "content": "<p><em>Danny is taking deep breaths.</em></p>",
 "height": 481.0,
 "outputs": ["f7f2f9c9-927b-4607-8cf8-398132c869d5"],
@@ -1286,7 +1300,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
-"content": "<p><strong>Player: </strong>I’m not that hungry…</p>",
+"content": "<p><strong>You: </strong>I’m not that hungry…</p>",
 "height": 481.0,
 "outputs": ["7fbd102a-75d1-455b-a50f-4a08fc1fe95e"],
 "theme": "cyan",
@@ -1298,7 +1312,7 @@ project_settings = {
 "e4a89ba5-e4e7-4a20-a2cd-c9446f7e4754": {
 "autoHeight": false,
 "components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
-"content": "<p><strong>Player: </strong>…You know, I really have been. I might switch to pre-med.</p>",
+"content": "<p><strong>You: </strong>…You know, I really have been. I might switch to pre-med.</p>",
 "height": 481.0,
 "outputs": ["318c3cd1-15a9-4da4-992b-9237e5714dfa"],
 "theme": "cyan",
@@ -1315,7 +1329,7 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
-"content": "<p><strong>Player: </strong>Are you okay?<br></p>",
+"content": "<p><strong>You: </strong>Are you okay?<br></p>",
 "height": 481.0,
 "outputs": ["c1cd697b-e9e1-489f-8a01-a2a658f32cc4"],
 "theme": "cyan",
@@ -1331,7 +1345,7 @@ project_settings = {
 }
 },
 "autoHeight": false,
-"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
 "content": "<p><strong>Danny: </strong>Y…Yeah… No sweat…</p>",
 "height": 481.0,
 "outputs": ["9fff5303-2d66-4150-a6b1-a37c69e5296a"],

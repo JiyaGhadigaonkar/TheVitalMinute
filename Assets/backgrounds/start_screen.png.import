@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3hb4aa00qk40"
-path="res://.godot/imported/Inside Party.png-e12eb0815de1ae13bc23fa8554bc7061.ctex"
+uid="uid://bnqoebo7e0qed"
+path="res://.godot/imported/start_screen.png-b5fe034bc50986ea398792ef8c5dc31a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv5.godot/assets/BG/Inside Party.png"
-dest_files=["res://.godot/imported/Inside Party.png-e12eb0815de1ae13bc23fa8554bc7061.ctex"]
+source_file="res://Assets/backgrounds/start_screen.png"
+dest_files=["res://.godot/imported/start_screen.png-b5fe034bc50986ea398792ef8c5dc31a.ctex"]
 
 [params]
 

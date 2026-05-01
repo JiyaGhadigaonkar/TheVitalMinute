@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ywns1pi8chqf"
-path="res://.godot/imported/Vicky Collapsed (Green).png-779341be24fe6f832f58b980cb8f8fd4.ctex"
+uid="uid://bmmcmcrk87qfv"
+path="res://.godot/imported/Item_Phone.png-10a3d644fb0de0d6a5c1c5ac700f0e0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv5.godot/assets/BG/Vicky Collapsed (Green).png"
-dest_files=["res://.godot/imported/Vicky Collapsed (Green).png-779341be24fe6f832f58b980cb8f8fd4.ctex"]
+source_file="res://addons/arcweave/level_2.godot/assets/Item_Phone.png"
+dest_files=["res://.godot/imported/Item_Phone.png-10a3d644fb0de0d6a5c1c5ac700f0e0f.ctex"]
 
 [params]
 

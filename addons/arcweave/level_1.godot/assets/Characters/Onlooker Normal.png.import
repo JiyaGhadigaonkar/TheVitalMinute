@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4hhbga3tnsng"
-path="res://.godot/imported/Start_Scene.png-5b23857163d60a3172ca4c9fa78e5a15.ctex"
+uid="uid://cnh70q4n6adww"
+path="res://.godot/imported/Onlooker Normal.png-29d7ee90772d27b5677fe58eb28ad19a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/backgrounds/Start_Scene.png"
-dest_files=["res://.godot/imported/Start_Scene.png-5b23857163d60a3172ca4c9fa78e5a15.ctex"]
+source_file="res://addons/arcweave/level_1.godot/assets/Characters/Onlooker Normal.png"
+dest_files=["res://.godot/imported/Onlooker Normal.png-29d7ee90772d27b5677fe58eb28ad19a.ctex"]
 
 [params]
 

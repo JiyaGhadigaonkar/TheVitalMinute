@@ -58,6 +58,10 @@ const WIN_GAME_LABEL = "win the game"
 const MISTAKES_WERE_MADE_LABEL = "mistakes were made"
 const TUTORIAL_LABEL = "tutorial"
 const SKIP_TO_LEVEL_1_LABEL = "skip to level 1"
+const ASK_FRIEND_FOR_ADDRESS_LABEL = "ask yout friend for the address"
+const ADDRESS_OPTION_1_LABEL = "2012 chimney rock road"
+const ADDRESS_OPTION_2_LABEL = "5492 gilbright street"
+const ADDRESS_OPTION_3_LABEL = "2342 chimney road"
 const MAIN_CHOICE_ELEMENT_ID = "126b988e-de6d-4ac7-bb37-8904d96075e1"
 const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
 const RETURN_TO_MAIN_SCENE_TEXT = "frank: ow, dammit! don't touch the knife!!"
@@ -201,9 +205,6 @@ func clean_name(raw_name: String) -> String:
 		return raw_name.split("_")[0]
 	return raw_name
 
-func _escape_dialogue_bbcode(text: String) -> String:
-	return text.replace("[", "[lb]").replace("]", "[rb]")
-
 func _has_dialogue_speaker_prefix(text: String) -> bool:
 	var trimmed := text.strip_edges()
 	var colon_index := trimmed.find(":")
@@ -215,16 +216,19 @@ func _has_dialogue_speaker_prefix(text: String) -> bool:
 		return false
 
 	var speaker_pattern := RegEx.new()
-	speaker_pattern.compile("^[A-Za-z0-9_ '\\-\\.\\\"]+$")
+	speaker_pattern.compile("^\\[?[A-Za-z0-9_ '\\-\\.\\\"]+\\]?$")
 	return speaker_pattern.search(prefix) != null
 
+func _sanitize_dialogue_text(raw_text: String) -> String:
+	return raw_text.strip_edges().replace(char(8), "").replace("\\b", "")
+
 func _format_dialogue_text(raw_text: String) -> String:
-	var escaped_text := _escape_dialogue_bbcode(raw_text.strip_edges())
-	if escaped_text.is_empty():
+	var sanitized_text := _sanitize_dialogue_text(raw_text)
+	if sanitized_text.is_empty():
 		return ""
 	if _has_dialogue_speaker_prefix(raw_text):
-		return escaped_text
-	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % escaped_text
+		return sanitized_text
+	return "[font_size=35][color=#1f3a5f][i]%s[/i][/color][/font_size]" % sanitized_text
 
 func repaint():
 	_sync_scene_mode_with_story()
@@ -243,6 +247,31 @@ func repaint():
 	
 	add_options()
 	_maybe_trigger_bandage_minigame()
+
+func _create_bubble_choice_button(button_text: String, index, paths) -> TextureButton:
+	var button := TextureButton.new()
+	button.texture_normal = TALK_BUBBLE_TEXTURE
+	button.ignore_texture_size = true
+	button.stretch_mode = TextureButton.STRETCH_SCALE
+	button.custom_minimum_size = CHOICE_BUBBLE_LAYOUT_SIZE
+	button.size = CHOICE_BUBBLE_LAYOUT_SIZE
+	button.scale = CHOICE_BUBBLE_VISUAL_SCALE
+	button.mouse_filter = Control.MOUSE_FILTER_STOP
+	button.pressed.connect(_on_option_pressed.bind(index, paths))
+
+	var label := Label.new()
+	label.text = button_text
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.add_theme_color_override("font_color", Color.BLACK)
+	label.add_theme_font_size_override("font_size", 30)
+	label.position = Vector2(55.0, 22.0)
+	label.size = Vector2(CHOICE_BUBBLE_LAYOUT_SIZE.x - 80.0, CHOICE_BUBBLE_LAYOUT_SIZE.y - 28.0)
+	button.add_child(label)
+
+	return button
 
 func add_options():
 	for option in choice_container.get_children():
@@ -301,7 +330,7 @@ func add_options():
 		# Only add buttons for non-glass paths
 		for i in range(paths.size()):
 			if paths[i].IsValid and not _is_glass_path(paths[i]) and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]) and not _is_inventory_item_path(paths[i]) and not _is_bandage_result_path(paths[i]):
-				var button = _create_choice_button(_get_path_label_text(paths[i]), i, paths) if use_bubble_choices else Button.new()
+				var button: BaseButton = _create_bubble_choice_button(_get_path_label_text(paths[i]), i, paths) if use_bubble_choices else Button.new()
 				if not use_bubble_choices:
 					button.text = _get_path_label_text(paths[i])
 					button.pressed.connect(_on_option_pressed.bind(i, paths))
@@ -314,7 +343,7 @@ func add_options():
 		choice_container.visible = true
 		for i in range(paths.size()):
 			if paths[i].IsValid and not _is_frank_talk_path(paths[i]) and not _is_arrow_path(paths[i]) and not _is_click_chair_path(paths[i]) and not _is_inventory_item_path(paths[i]) and not _is_bandage_result_path(paths[i]):
-				var button = _create_choice_button(_get_path_label_text(paths[i]), i, paths) if use_bubble_choices else Button.new()
+				var button: BaseButton = _create_bubble_choice_button(_get_path_label_text(paths[i]), i, paths) if use_bubble_choices else Button.new()
 				if not use_bubble_choices:
 					button.text = _get_path_label_text(paths[i])
 					button.pressed.connect(_on_option_pressed.bind(i, paths))
@@ -404,15 +433,14 @@ func _update_arrow_positions():
 
 func _register_arrow_path(path):
 	var label = _normalize_label(path.label)
+	if _is_sink_path(path):
+		_set_arrow_path("right", path)
+		return
 	match label:
 		LEFT1_BAG_LABEL:
 			_set_arrow_path("left", path)
 		LEFT_BAG_LABEL:
 			_set_arrow_path("left", path)
-		RIGHT1_SINK_LABEL:
-			_set_arrow_path("right", path)
-		RIGHT_SINK_LABEL:
-			_set_arrow_path("right", path)
 		CENTER1_WOUND_LABEL:
 			_set_arrow_path("down", path)
 		CENTER_WOUND_LABEL:
@@ -480,13 +508,16 @@ func _refresh_navigation_arrows():
 
 func _is_arrow_path(path) -> bool:
 	var label = _normalize_label(path.label)
-	return label == LEFT1_BAG_LABEL or label == RIGHT1_SINK_LABEL or label == CENTER1_WOUND_LABEL or label == LEFT_BAG_LABEL or label == RIGHT_SINK_LABEL or label == CENTER_WOUND_LABEL or label == INSPECT_WOUND_LABEL
+	return label == LEFT1_BAG_LABEL or _is_sink_path(path) or label == CENTER1_WOUND_LABEL or label == LEFT_BAG_LABEL or label == CENTER_WOUND_LABEL or label == INSPECT_WOUND_LABEL
 
 func _is_click_chair_path(path) -> bool:
 	return _normalize_label(path.label) == CLICK_CHAIR_LABEL
 
 func _is_use_gauze_path(path) -> bool:
 	return _normalize_label(path.label) == USE_GAUZE_LABEL
+
+func _is_sink_path(path) -> bool:
+	return "investigate sink" in _normalize_label(path.label)
 
 func _is_use_napkins_path(path) -> bool:
 	return _normalize_label(path.label) == USE_NAPKINS_LABEL
@@ -643,7 +674,7 @@ func _preview_wound_path(path):
 	_set_portrait_interactive(false)
 	_clear_active_arrows()
 	_play_foot_sound_once()
-	var preview_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	var preview_text: String = _sanitize_dialogue_text(story.GetCurrentRuntimeContent())
 	dialogue_text.text = _format_dialogue_text(preview_text)
 	await get_tree().create_timer(_get_preview_duration(preview_text)).timeout
 	story.LoadSave(saved_story)
@@ -1130,32 +1161,9 @@ func _should_use_bubble_choices(paths) -> bool:
 		if path == null or not path.IsValid:
 			continue
 		normalized_labels.append(_normalize_label(path.label))
-	return normalized_labels.has(TUTORIAL_LABEL) and normalized_labels.has(SKIP_TO_LEVEL_1_LABEL)
-
-func _create_choice_button(button_text: String, index, paths) -> TextureButton:
-	var button := TextureButton.new()
-	button.texture_normal = TALK_BUBBLE_TEXTURE
-	button.ignore_texture_size = true
-	button.stretch_mode = TextureButton.STRETCH_SCALE
-	button.custom_minimum_size = CHOICE_BUBBLE_LAYOUT_SIZE
-	button.size = CHOICE_BUBBLE_LAYOUT_SIZE
-	button.scale = CHOICE_BUBBLE_VISUAL_SCALE
-	button.mouse_filter = Control.MOUSE_FILTER_STOP
-	button.pressed.connect(_on_option_pressed.bind(index, paths))
-
-	var label := Label.new()
-	label.text = button_text
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	label.add_theme_color_override("font_color", Color.BLACK)
-	label.add_theme_font_size_override("font_size", 30)
-	label.position = Vector2(55.0, 22.0)
-	label.size = Vector2(CHOICE_BUBBLE_LAYOUT_SIZE.x - 80.0, CHOICE_BUBBLE_LAYOUT_SIZE.y - 28.0)
-	button.add_child(label)
-
-	return button
+	var is_start_menu = normalized_labels.has(TUTORIAL_LABEL) and normalized_labels.has(SKIP_TO_LEVEL_1_LABEL)
+	var is_address_quiz = normalized_labels.has(ASK_FRIEND_FOR_ADDRESS_LABEL) and normalized_labels.has(ADDRESS_OPTION_1_LABEL) and normalized_labels.has(ADDRESS_OPTION_2_LABEL) and normalized_labels.has(ADDRESS_OPTION_3_LABEL)
+	return is_start_menu or is_address_quiz
 
 func _configure_choice_container():
 	if choice_container == null:

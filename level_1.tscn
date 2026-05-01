@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ceq8e4pcfktra" path="res://Assets/WaterHeater.png" id="6_sof0w"]
 [ext_resource type="Texture2D" uid="uid://dsq6pqoooex16" path="res://Assets/TeaBags.png" id="7_ubhxj"]
 [ext_resource type="Texture2D" uid="uid://bmj3ntyo881o6" path="res://Assets/Item_Tutorial_Glass.png" id="10_b6mmh"]
+[ext_resource type="Texture2D" uid="uid://d26kwga01yft3" path="res://Assets/backpack.png" id="11_ggavl"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="12_ia5ws"]
 [ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="13_be5co"]
 [ext_resource type="Texture2D" uid="uid://bi6geddrqn6uo" path="res://Assets/Item_Phone.png" id="16_ka01f"]
@@ -141,16 +142,15 @@ offset_right = 2140.0
 offset_bottom = 204.0
 ignore_texture_size = true
 
-[node name="InventoryButtonVisual" type="TextureRect" parent="InventoryUI/InventoryButton" unique_id=1493817217]
+[node name="InventoryButtonVisual" type="TextureRect" parent="InventoryUI/InventoryButton" unique_id=916320533]
 layout_mode = 0
-offset_left = 228.0
-offset_top = -5.0
-offset_right = 828.0
-offset_bottom = 795.0
-rotation = 1.5707964
+offset_left = 53.0
+offset_top = -6.0
+offset_right = 669.6665
+offset_bottom = 630.6667
 scale = Vector2(0.3, 0.3)
 mouse_filter = 2
-texture = ExtResource("13_be5co")
+texture = ExtResource("11_ggavl")
 
 [node name="InventoryPopup" type="Panel" parent="InventoryUI" unique_id=535031018]
 layout_mode = 0

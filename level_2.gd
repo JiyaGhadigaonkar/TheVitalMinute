@@ -16,6 +16,14 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 @onready var dialogue_text: RichTextLabel = get_node_or_null("DialogueText")
 @onready var choice_container: VBoxContainer = get_node_or_null("ChoiceContainer")
 @onready var advance_trigger: Button = get_node_or_null("AdvanceTrigger")
+@onready var inventory_ui: Control = get_node_or_null("InventoryUI")
+@onready var inventory_button: TextureButton = get_node_or_null("InventoryUI/InventoryButton")
+@onready var inventory_button_visual: CanvasItem = get_node_or_null("InventoryUI/InventoryButton/InventoryButtonVisual2")
+@onready var inventory_popup_panel: Panel = get_node_or_null("InventoryUI/InventoryPopup")
+@onready var inventory_popup_background: TextureRect = get_node_or_null("InventoryUI/InventoryPopup/PopupBackground")
+@onready var inventory_close_button: TextureButton = get_node_or_null("InventoryUI/InventoryPopup/CloseButton")
+@onready var inventory_items_container: VBoxContainer = get_node_or_null("InventoryUI/InventoryPopup/ItemsContainer")
+@onready var phone_row: HBoxContainer = get_node_or_null("InventoryUI/InventoryPopup/ItemsContainer/PhoneRow")
 
 const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_default.png")
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
@@ -411,6 +419,51 @@ func _connect_ui() -> void:
 	if speaker_name != null:
 		speaker_name.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+	if inventory_ui != null:
+		inventory_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		inventory_ui.z_index = 200
+		inventory_ui.visible = true
+
+	if inventory_button != null:
+		inventory_button.mouse_filter = Control.MOUSE_FILTER_STOP
+		inventory_button.ignore_texture_size = true
+		inventory_button.z_index = 250
+		inventory_button.visible = true
+		inventory_button.modulate = Color.WHITE
+		inventory_button.pressed.connect(_on_inventory_button_pressed)
+		inventory_button.mouse_entered.connect(_on_inventory_hotspot_mouse_entered)
+		inventory_button.mouse_exited.connect(_on_inventory_hotspot_mouse_exited)
+	if inventory_button_visual != null:
+		inventory_button_visual.visible = true
+		inventory_button_visual.modulate = Color.WHITE
+
+	if inventory_popup_panel != null:
+		inventory_popup_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		inventory_popup_panel.z_index = 201
+		inventory_popup_panel.visible = false
+		inventory_popup_panel.modulate = Color.WHITE
+
+	if inventory_popup_background != null:
+		inventory_popup_background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		inventory_popup_background.z_index = 202
+		inventory_popup_background.visible = false
+		inventory_popup_background.rotation_degrees = 90
+		inventory_popup_background.modulate = Color.WHITE
+
+	if inventory_close_button != null:
+		inventory_close_button.z_index = 203
+		inventory_close_button.visible = false
+		inventory_close_button.modulate = Color.WHITE
+		inventory_close_button.pressed.connect(_on_inventory_close_pressed)
+
+	if inventory_items_container != null:
+		inventory_items_container.z_index = 203
+		inventory_items_container.visible = false
+		inventory_items_container.modulate = Color.WHITE
+
+	if phone_row != null:
+		phone_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 func _set_cursor_texture(texture: Texture2D) -> void:
 	if cursor_sprite == null:
 		return
@@ -651,6 +704,8 @@ func _set_main_scene_visible(is_visible: bool) -> void:
 		portrait_1_hotspot.visible = is_visible and is_portrait_1_interactive
 	if portrait_2_hotspot != null:
 		portrait_2_hotspot.visible = is_visible and is_portrait_2_interactive
+	if inventory_ui != null:
+		inventory_ui.visible = is_visible
 
 func _set_victory_screen_visible(is_visible: bool) -> void:
 	is_showing_victory_screen = is_visible
@@ -677,6 +732,8 @@ func _set_victory_screen_visible(is_visible: bool) -> void:
 		portrait_1_hotspot.visible = false
 	if portrait_2_hotspot != null and is_visible:
 		portrait_2_hotspot.visible = false
+	if inventory_ui != null:
+		inventory_ui.visible = not is_visible
 
 func _set_main_scene_input_enabled(is_enabled: bool) -> void:
 	if advance_trigger != null:
@@ -688,9 +745,43 @@ func _set_main_scene_input_enabled(is_enabled: bool) -> void:
 		portrait_1_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and is_portrait_1_interactive else Control.MOUSE_FILTER_IGNORE
 	if portrait_2_hotspot != null:
 		portrait_2_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled and is_portrait_2_interactive else Control.MOUSE_FILTER_IGNORE
+	if inventory_button != null:
+		inventory_button.mouse_filter = Control.MOUSE_FILTER_STOP if is_enabled else Control.MOUSE_FILTER_IGNORE
 
 func set_object_cursor() -> void:
 	_set_cursor_texture(OBJECT_CURSOR_TEXTURE)
 
 func set_default_cursor() -> void:
 	_set_cursor_texture(DEFAULT_CURSOR_TEXTURE)
+
+func _on_inventory_button_pressed() -> void:
+	_set_inventory_open(true)
+
+func _on_inventory_close_pressed() -> void:
+	_set_inventory_open(false)
+
+func _set_inventory_open(is_open: bool) -> void:
+	if inventory_popup_panel != null:
+		inventory_popup_panel.visible = is_open
+		inventory_popup_panel.modulate = Color.WHITE
+	if inventory_popup_background != null:
+		inventory_popup_background.visible = is_open
+		inventory_popup_background.modulate = Color.WHITE
+	if inventory_close_button != null:
+		inventory_close_button.visible = is_open
+		inventory_close_button.modulate = Color.WHITE
+	if inventory_items_container != null:
+		inventory_items_container.visible = is_open
+		inventory_items_container.modulate = Color.WHITE
+
+func _on_inventory_hotspot_mouse_entered() -> void:
+	_set_inventory_button_highlighted(true)
+	set_object_cursor()
+
+func _on_inventory_hotspot_mouse_exited() -> void:
+	_set_inventory_button_highlighted(false)
+	set_default_cursor()
+
+func _set_inventory_button_highlighted(is_highlighted: bool) -> void:
+	if inventory_button_visual != null:
+		inventory_button_visual.modulate = HOVER_PORTRAIT_TINT if is_highlighted else Color.WHITE

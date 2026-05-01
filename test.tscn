@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://fkne2i3evsoh" path="res://Assets/Item_Tutorial_Knife (1).png" id="10_0m0f1"]
 [ext_resource type="Texture2D" uid="uid://bmj3ntyo881o6" path="res://Assets/Item_Tutorial_Glass.png" id="11_b0q6j"]
 [ext_resource type="Script" uid="uid://bl1k2najuuk76" path="res://glass_unit.gd" id="12_0m0f1"]
+[ext_resource type="Texture2D" uid="uid://d26kwga01yft3" path="res://Assets/backpack.png" id="13_45l4g"]
 [ext_resource type="Texture2D" uid="uid://bi6geddrqn6uo" path="res://Assets/Item_Phone.png" id="16_uty7l"]
 
 [node name="Control" type="Control" unique_id=458891453]
@@ -141,14 +142,13 @@ ignore_texture_size = true
 
 [node name="InventoryButtonVisual" type="TextureRect" parent="InventoryUI/InventoryButton" unique_id=1493817217]
 layout_mode = 0
-offset_left = 228.0
-offset_top = -5.0
-offset_right = 828.0
-offset_bottom = 795.0
-rotation = 1.5707964
+offset_left = 49.000046
+offset_top = -4.0
+offset_right = 665.66656
+offset_bottom = 632.6667
 scale = Vector2(0.3, 0.3)
 mouse_filter = 2
-texture = ExtResource("4_a3se8")
+texture = ExtResource("13_45l4g")
 
 [node name="InventoryPopup" type="Panel" parent="InventoryUI" unique_id=535031018]
 layout_mode = 0

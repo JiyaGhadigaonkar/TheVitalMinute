@@ -25,6 +25,18 @@ scale = Vector2(20.000011, 20)
 shape = SubResource("RectangleShape2D_wc2qv")
 debug_color = Color(0.08330556, 0.60543656, 0.65322477, 0.41960785)
 
+[node name="ChestPrompt" type="Label" parent="." unique_id=335601755]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RhythmLane" type="Node2D" parent="." unique_id=888984746]
+position = Vector2(1332, 473)
+
+[node name="TargetRing" type="ColorRect" parent="RhythmLane" unique_id=722332287]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
 [node name="RhythmIndicator" type="Node2D" parent="." unique_id=1707060410]
 
 [node name="BeatLight" type="ColorRect" parent="RhythmIndicator" unique_id=1493240966]

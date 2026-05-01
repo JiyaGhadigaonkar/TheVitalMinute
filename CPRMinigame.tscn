@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bdg4j3twx3i8b"]
+
+[ext_resource type="Script" uid="uid://b81iyjsuh6jl1" path="res://cpr_minigame.gd" id="1_1widu"]
+[ext_resource type="Texture2D" uid="uid://4kkspxsmp0v8" path="res://Assets/PassedOut.png" id="2_37j2g"]
+
+[node name="CPRMinigame" type="Control" unique_id=1607324417]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1widu")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1131020700]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_37j2g")
+
+[node name="HUD" type="HBoxContainer" parent="." unique_id=1424158332]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=2036601153]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="LivesLabel" type="Label" parent="HUD" unique_id=591227800]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="ComboLabel" type="Label" parent="HUD" unique_id=1978668341]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1373744130]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Lane" type="ColorRect" parent="." unique_id=1060758968]
+layout_mode = 0
+offset_left = 1180.0
+offset_top = 420.0
+offset_right = 1880.0
+offset_bottom = 570.0
+color = Color(0.2, 0.16862746, 0.16862746, 1)
+
+[node name="TargetRing" type="Control" parent="Lane" unique_id=2078640741]
+anchors_preset = 0
+offset_top = 15.0
+offset_right = 120.0
+offset_bottom = 135.0
+
+[node name="BeatContainer" type="Control" parent="Lane" unique_id=1846866139]
+anchors_preset = 0
+offset_right = 700.0
+offset_bottom = 150.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1470893618]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FeedbackLabel" type="Label" parent="." unique_id=1640824631]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 40.0
+
+[node name="ResultPanel" type="Panel" parent="." unique_id=1987321369]
+layout_mode = 0
+offset_left = 1180.0
+offset_top = 581.0
+offset_right = 1880.0
+offset_bottom = 881.0
+
+[node name="VBox" type="VBoxContainer" parent="ResultPanel" unique_id=1383823482]
+layout_mode = 0
+offset_right = 699.0
+offset_bottom = 298.0
+
+[node name="TitleLabel" type="Label" parent="ResultPanel/VBox" unique_id=1879464864]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="GradeLabel" type="Label" parent="ResultPanel/VBox" unique_id=151901470]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+
+[node name="StatsLabel" type="Label" parent="ResultPanel/VBox" unique_id=1912659783]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="ResultPanel/VBox" unique_id=90636398]
+layout_mode = 2
+
+[node name="RetryBtn" type="Button" parent="ResultPanel/VBox/Buttons" unique_id=924447307]
+layout_mode = 2
+
+[node name="ContinueBtn" type="Button" parent="ResultPanel/VBox/Buttons" unique_id=1349658413]
+layout_mode = 2
+
+[node name="PromptPanel" type="Control" parent="." unique_id=523337199]
+anchors_preset = 0
+offset_left = 1181.0
+offset_top = 582.0
+offset_right = 1581.0
+offset_bottom = 632.0
+
+[node name="PromptLabel" type="Label" parent="PromptPanel" unique_id=1263750014]
+layout_mode = 0
+offset_right = 529.0
+offset_bottom = 273.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 70
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=348030414]
+
+[node name="MissSound" type="AudioStreamPlayer2D" parent="." unique_id=788363341]
+
+[node name="MetronomeSound" type="AudioStreamPlayer2D" parent="." unique_id=20887439]

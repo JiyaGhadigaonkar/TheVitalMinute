@@ -40,7 +40,7 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 
 const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_default.png")
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
-const CPR_MINIGAME_SCENE = preload("res://CPRMinigametest.tscn")
+const CPR_MINIGAME_SCENE = preload("res://CPRMinigame.tscn")
 const PASSED_OUT_TEXTURE = preload("res://Assets/PassedOut.png")
 const VICTORY_TEXTURE = preload("res://Assets/Victory.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")

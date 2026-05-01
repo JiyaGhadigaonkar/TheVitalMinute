@@ -498,20 +498,24 @@ func _set_portrait_interactive(primary_value: bool, secondary_value: bool = fals
 
 func _update_portrait() -> void:
 	var component_names := get_component_names_for_element()
-	current_portrait_names.clear()
-
 	var visible_names: Array[String] = []
 	for component_name in component_names:
 		var portrait_path := _get_portrait_path(component_name)
 		if portrait_path != "":
 			visible_names.append(component_name)
-			current_portrait_names.append(component_name)
-			if visible_names.size() == 1 and portrait_1 != null:
-				portrait_1.texture = load(portrait_path)
-				portrait_1.visible = true
-			elif visible_names.size() == 2 and portrait_2 != null:
-				portrait_2.texture = load(portrait_path)
-				portrait_2.visible = true
+	if visible_names.is_empty():
+		return
+
+	current_portrait_names.clear()
+	for component_name in visible_names:
+		var portrait_path := _get_portrait_path(component_name)
+		current_portrait_names.append(component_name)
+		if current_portrait_names.size() == 1 and portrait_1 != null:
+			portrait_1.texture = load(portrait_path)
+			portrait_1.visible = true
+		elif current_portrait_names.size() == 2 and portrait_2 != null:
+			portrait_2.texture = load(portrait_path)
+			portrait_2.visible = true
 
 	if portrait_1 != null and visible_names.is_empty():
 		portrait_1.visible = false

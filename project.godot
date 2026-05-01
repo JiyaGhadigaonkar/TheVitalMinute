@@ -14,6 +14,7 @@ config/name="The Vital Minute"
 run/main_scene="uid://2t8tqvch2q7g"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://cfglkmpjdf1em"
 
 [display]
 
@@ -42,3 +43,4 @@ enabled=PackedStringArray("res://addons/arcweave/plugin.cfg")
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -1,5 +1,7 @@
 extends Control
 
+const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
+
 @onready var background = $World/Background
 @onready var portrait = $Portrait
 @onready var speaker_box = get_node_or_null("SpeakerBox")
@@ -10,6 +12,7 @@ extends Control
 @onready var advance_trigger = $AdvanceTrigger
 @onready var inventory_ui = $InventoryUI
 @onready var inventory_button = $InventoryUI/InventoryButton
+@onready var inventory_button_visual = $InventoryUI/InventoryButton/InventoryButtonVisual
 @onready var inventory_popup_panel = $InventoryUI/InventoryPopup
 @onready var inventory_popup_background = $InventoryUI/InventoryPopup/PopupBackground
 @onready var inventory_close_button = $InventoryUI/InventoryPopup/CloseButton
@@ -75,7 +78,9 @@ const MAIN_CHOICE_ELEMENT_ID = "126b988e-de6d-4ac7-bb37-8904d96075e1"
 const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
 const RETURN_TO_MAIN_SCENE_TEXT = "frank: ow, dammit! don't touch the knife!!"
 const RETURN_HOME_TEXT = "911-operator: \"we’re sending a unit over right now. please stay in place."
-const HEALTHPACK_HIT_PADDING = 36.0
+const INVENTORY_UNLOCK_PROMPT_TEXT = "you got the supplies. check them out in the inventory. you can go back to frank, who is now sitting down on the floor, pressing his foot."
+const HEALTHPACK_HOTSPOT_SIZE = Vector2(150.0, 120.0)
+const HEALTHPACK_HOTSPOT_CENTER_OFFSET = Vector2(-52.0, -34.0)
 const CHAIR_HIT_PADDING = 48.0
 const CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(760.0, 120.0)
 const CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.22, 1.28)
@@ -117,6 +122,12 @@ var has_played_foot_sound := false
 var active_bandage_minigame_root: Node
 var active_bandage_minigame: Node
 var last_bandage_minigame_trigger_text := ""
+var is_showing_linear_preview := false
+var linear_preview_texts: Array[String] = []
+var linear_preview_index := 0
+var is_inventory_unlocked := false
+var should_flash_inventory_button := false
+var is_inventory_button_hovered := false
 var frank_animated_texture: Texture2D
 var frank_talk_animation_timer: Timer
 var is_frank_talk_animating := false
@@ -195,6 +206,7 @@ func _process(_delta):
 	_update_healthpack_hotspot()
 	_update_chair_hotspot()
 	_update_inventory_hotspot()
+	_update_inventory_button_flash()
 	_update_manual_hotspot_hover(mouse_position)
 	var is_left_mouse_down = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 	if is_left_mouse_down and not was_left_mouse_down:
@@ -317,6 +329,7 @@ func repaint():
 	dialogue_text.bbcode_enabled = true
 	dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
 	dialogue_text.text = _format_dialogue_text(current_story_text)
+	_update_inventory_unlock_state(current_story_text)
 	
 	var comp_name = get_component_name_for_element()
 	var portrait_path = "res://Assets/portraits/" + comp_name + ".png"
@@ -700,7 +713,7 @@ func _is_arrow_direction_clickable(direction: String) -> bool:
 	return false
 
 func _on_arrow_mouse_entered(direction: String):
-	if not _is_arrow_direction_clickable(direction) or is_showing_wound_preview:
+	if not _is_arrow_direction_clickable(direction) or is_showing_wound_preview or is_showing_linear_preview:
 		return
 	arrow_buttons[direction].modulate = HOVER_ARROW_TINT
 	set_object_cursor()
@@ -712,17 +725,23 @@ func _on_arrow_mouse_exited(direction: String):
 	set_default_cursor()
 
 func _on_arrow_pressed(direction: String):
-	if not _is_arrow_direction_clickable(direction) or is_showing_wound_preview:
+	if not _is_arrow_direction_clickable(direction) or is_showing_wound_preview or is_showing_linear_preview:
+		return
+	if direction == "right" and active_arrow_paths.has("right") and _is_sink_path(active_arrow_paths["right"]) and current_view == "left":
+		current_view = "center"
+		world.position = default_world_position
+		_refresh_navigation_arrows()
+		set_default_cursor()
+		repaint()
 		return
 	if active_arrow_paths.has(direction):
 		var directed_path = active_arrow_paths[direction]
 		var directed_label = _normalize_label(directed_path.label)
-		if directed_label == LEFT_BAG_LABEL:
+		if directed_label == LEFT1_BAG_LABEL or directed_label == LEFT_BAG_LABEL:
 			_begin_healthpack_pan(directed_path)
 			return
-		if directed_label == RIGHT_SINK_LABEL:
-			story.SelectPath(directed_path)
-			repaint()
+		if directed_label == RIGHT1_SINK_LABEL or directed_label == RIGHT_SINK_LABEL:
+			_start_linear_preview_from_path(directed_path)
 			return
 		if directed_label == CENTER1_WOUND_LABEL:
 			_preview_wound_path(directed_path)
@@ -792,6 +811,57 @@ func _on_arrow_pressed(direction: String):
 	if active_arrow_paths.has(direction):
 		story.SelectPath(active_arrow_paths[direction])
 		repaint()
+
+func _start_linear_preview_from_path(path, max_steps: int = 8):
+	if story == null or path == null or not path.IsValid:
+		return
+	var saved_story = story.GetSave()
+	var preview_texts: Array[String] = []
+	story.SelectPath(path)
+	for _i in range(max_steps):
+		var preview_text: String = story.GetCurrentRuntimeContent()
+		if not preview_text.strip_edges().is_empty():
+			preview_texts.append(preview_text)
+		var options = story.GenerateCurrentOptions()
+		var paths = options.Paths
+		if paths == null or paths.size() != 1:
+			break
+		var next_path = paths[0]
+		if next_path == null or not next_path.IsValid:
+			break
+		if _normalize_label(next_path.label) != "":
+			break
+		story.SelectPath(next_path)
+	story.LoadSave(saved_story)
+	if preview_texts.is_empty():
+		return
+	is_showing_linear_preview = true
+	linear_preview_texts = preview_texts
+	linear_preview_index = 0
+	current_view = "center"
+	world.position = default_world_position
+	choice_container.visible = false
+	advance_trigger.visible = true
+	advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
+	glass.is_interactive = false
+	_set_portrait_interactive(false)
+	_set_healthpack_interactive(false)
+	_set_chair_interactive(false)
+	_clear_active_arrows()
+	_show_linear_preview_text()
+
+func _show_linear_preview_text():
+	if linear_preview_texts.is_empty() or linear_preview_index >= linear_preview_texts.size():
+		return
+	var preview_text: String = linear_preview_texts[linear_preview_index]
+	dialogue_text.text = _format_dialogue_text(preview_text)
+	_update_speaker_name_display(preview_text)
+
+func _end_linear_preview():
+	is_showing_linear_preview = false
+	linear_preview_texts.clear()
+	linear_preview_index = 0
+	repaint()
 
 func _preview_wound_path(path):
 	is_showing_wound_preview = true
@@ -900,10 +970,10 @@ func _return_to_center_view():
 
 func _create_healthpack_hotspot():
 	healthpack_hotspot = TextureButton.new()
-	healthpack_hotspot.texture_normal = healthpack.texture
 	healthpack_hotspot.modulate = Color(1, 1, 1, 0.01)
 	healthpack_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP
 	healthpack_hotspot.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
+	healthpack_hotspot.ignore_texture_size = true
 	healthpack_hotspot.visible = false
 	healthpack_hotspot.mouse_entered.connect(_on_healthpack_mouse_entered)
 	healthpack_hotspot.mouse_exited.connect(_on_healthpack_mouse_exited)
@@ -1012,9 +1082,8 @@ func _set_main_scene_visible(is_visible: bool):
 func _update_healthpack_hotspot():
 	if healthpack_hotspot == null or healthpack.texture == null:
 		return
-	var texture_size = healthpack.texture.get_size() * healthpack.scale
-	healthpack_hotspot.size = texture_size + Vector2.ONE * HEALTHPACK_HIT_PADDING * 2.0
-	healthpack_hotspot.position = healthpack.global_position - (texture_size / 2.0) - Vector2.ONE * HEALTHPACK_HIT_PADDING
+	healthpack_hotspot.size = HEALTHPACK_HOTSPOT_SIZE
+	healthpack_hotspot.position = healthpack.global_position + HEALTHPACK_HOTSPOT_CENTER_OFFSET - (HEALTHPACK_HOTSPOT_SIZE / 2.0)
 
 func _update_chair_hotspot():
 	if chair_hotspot == null or chair.texture == null:
@@ -1068,6 +1137,39 @@ func _set_healthpack_interactive(value: bool):
 	if not is_healthpack_interactive:
 		healthpack.modulate = Color.WHITE
 		set_default_cursor()
+
+func _update_inventory_unlock_state(raw_text: String) -> void:
+	var plain_body_text := _get_dialogue_body_text(raw_text).to_lower()
+	if not is_inventory_unlocked and plain_body_text == INVENTORY_UNLOCK_PROMPT_TEXT:
+		is_inventory_unlocked = true
+	should_flash_inventory_button = plain_body_text == INVENTORY_UNLOCK_PROMPT_TEXT
+	_apply_inventory_button_visibility()
+
+func _apply_inventory_button_visibility() -> void:
+	var should_show_inventory := is_inventory_unlocked
+	inventory_button.visible = should_show_inventory
+	inventory_button.mouse_filter = Control.MOUSE_FILTER_STOP if should_show_inventory else Control.MOUSE_FILTER_IGNORE
+	if inventory_hotspot != null:
+		inventory_hotspot.visible = should_show_inventory
+		inventory_hotspot.mouse_filter = Control.MOUSE_FILTER_STOP if should_show_inventory else Control.MOUSE_FILTER_IGNORE
+	if not should_show_inventory:
+		is_inventory_button_hovered = false
+		inventory_button.modulate = Color.WHITE
+		_set_inventory_button_highlighted(false)
+
+func _update_inventory_button_flash() -> void:
+	if inventory_button == null or not inventory_button.visible:
+		return
+	if not should_flash_inventory_button:
+		inventory_button.modulate = Color.WHITE
+		return
+	var pulse := 0.82 + (0.18 * (sin(Time.get_ticks_msec() / 140.0) + 1.0))
+	inventory_button.modulate = Color(1.0, pulse, pulse * 0.75, 1.0)
+
+func _set_inventory_button_highlighted(is_highlighted: bool) -> void:
+	is_inventory_button_hovered = is_highlighted
+	if inventory_button_visual != null:
+		inventory_button_visual.modulate = HOVER_PORTRAIT_TINT if is_highlighted else Color.WHITE
 
 func _set_chair_interactive(value: bool):
 	is_chair_interactive = value and pending_chair_path != null and current_view == "right" and not is_wound_scene_active
@@ -1155,6 +1257,8 @@ func _configure_inventory_rows():
 	phone_row.mouse_exited.connect(_on_inventory_row_mouse_exited)
 
 func _on_inventory_button_pressed():
+	if not is_inventory_unlocked:
+		return
 	print("INVENTORY OPEN TRIGGERED")
 	_set_inventory_open(true)
 
@@ -1227,9 +1331,11 @@ func _on_inventory_row_mouse_exited():
 	set_default_cursor()
 
 func _on_inventory_hotspot_mouse_entered():
+	_set_inventory_button_highlighted(true)
 	set_object_cursor()
 
 func _on_inventory_hotspot_mouse_exited():
+	_set_inventory_button_highlighted(false)
 	set_default_cursor()
 
 func _on_inventory_hotspot_gui_input(event):
@@ -1376,16 +1482,16 @@ func _on_option_pressed(index, paths):
 	repaint()
 
 func _on_continue_pressed():
+	if is_showing_linear_preview:
+		linear_preview_index += 1
+		if linear_preview_index >= linear_preview_texts.size():
+			_end_linear_preview()
+		else:
+			_show_linear_preview_text()
+		return
 	var current_text = story.GetCurrentRuntimeContent().strip_edges().to_lower()
 	if current_text == RETURN_HOME_TEXT:
-		story = Story.new(project_data)
-		current_view = "center"
-		world.position = default_world_position
-		_set_chair_interactive(false)
-		_set_healthpack_interactive(false)
-		_set_inventory_open(false)
-		_exit_wound_scene()
-		repaint()
+		get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
 		return
 	var options = story.GenerateCurrentOptions()
 	var paths = options.Paths

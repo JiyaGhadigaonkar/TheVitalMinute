@@ -31,6 +31,7 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 @onready var advance_trigger: Button = get_node_or_null("AdvanceTrigger")
 @onready var inventory_ui: Control = get_node_or_null("InventoryUI")
 @onready var inventory_button: TextureButton = get_node_or_null("InventoryUI/InventoryButton")
+@onready var inventory_button_visual: CanvasItem = get_node_or_null("InventoryUI/InventoryButton/InventoryButtonVisual")
 @onready var inventory_popup_panel: Panel = get_node_or_null("InventoryUI/InventoryPopup")
 @onready var inventory_popup_background: TextureRect = get_node_or_null("InventoryUI/InventoryPopup/PopupBackground")
 @onready var inventory_close_button: TextureButton = get_node_or_null("InventoryUI/InventoryPopup/CloseButton")
@@ -688,14 +689,20 @@ func _connect_ui() -> void:
 	if inventory_ui != null:
 		inventory_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		inventory_ui.z_index = 200
+		inventory_ui.visible = true
 
 	if inventory_button != null:
 		inventory_button.mouse_filter = Control.MOUSE_FILTER_STOP
 		inventory_button.ignore_texture_size = true
 		inventory_button.z_index = 250
+		inventory_button.visible = true
+		inventory_button.modulate = Color.WHITE
 		inventory_button.pressed.connect(_on_inventory_button_pressed)
 		inventory_button.mouse_entered.connect(_on_inventory_hotspot_mouse_entered)
 		inventory_button.mouse_exited.connect(_on_inventory_hotspot_mouse_exited)
+	if inventory_button_visual != null:
+		inventory_button_visual.visible = true
+		inventory_button_visual.modulate = Color.WHITE
 
 	if inventory_popup_panel != null:
 		inventory_popup_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -783,8 +790,8 @@ func _set_inventory_item_interactivity() -> void:
 	var has_inventory_action := pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null
 
 	if inventory_ui != null:
-		inventory_ui.visible = has_inventory_action
-	if not has_inventory_action:
+		inventory_ui.visible = true
+	if not has_inventory_action and is_open:
 		if inventory_popup_panel != null:
 			inventory_popup_panel.visible = false
 		if inventory_popup_background != null:
@@ -1368,7 +1375,13 @@ func _on_inventory_row_mouse_exited() -> void:
 	set_default_cursor()
 
 func _on_inventory_hotspot_mouse_entered() -> void:
+	_set_inventory_button_highlighted(true)
 	set_object_cursor()
 
 func _on_inventory_hotspot_mouse_exited() -> void:
+	_set_inventory_button_highlighted(false)
 	set_default_cursor()
+
+func _set_inventory_button_highlighted(is_highlighted: bool) -> void:
+	if inventory_button_visual != null:
+		inventory_button_visual.modulate = HOVER_PORTRAIT_TINT if is_highlighted else Color.WHITE

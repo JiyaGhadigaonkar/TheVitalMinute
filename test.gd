@@ -23,6 +23,7 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 @onready var glass = $World/Glass
 @onready var healthpack = $World/Healthpack
 @onready var chair = $World/Chair
+@onready var knife = $"World/Knife"
 @onready var world = $World
 
 const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_default.png")
@@ -33,7 +34,6 @@ const DOWN_ARROW_TEXTURE = preload("res://Assets/arrows/down_arrow.png")
 const UP_ARROW_TEXTURE = preload("res://Assets/arrows/up_arrow.png")
 const FOOT_SCENE_TEXTURE = preload("res://Assets/Scene_Foot.png")
 const FOOT_WRAPPED_SCENE_TEXTURE = preload("res://Assets/Scene_Foot_Wrapped.png")
-const FOOT_PREVIEW_SOUND_PATH = "res://Assets/audio/foot_reveal.ogg"
 const BANDAGE_MINIGAME_SCENE = preload("res://minigametest.tscn")
 const TALK_BUBBLE_TEXTURE = preload("res://Assets/talk.png")
 const INVENTORY_ICON_TEXTURE = preload("res://Assets/tutorial_inventory.png")
@@ -49,7 +49,7 @@ const DEFAULT_PORTRAIT_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const DEFAULT_ARROW_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_ARROW_TINT = Color(1.0, 0.95, 0.8, 1.0)
-const ARROW_SCALE = 0.22
+const ARROW_SCALE = 0.65
 const FRANK_ANIMATED_PORTRAIT_PATH = "res://Assets/portraits/Frank_Normal_Animated.png"
 const FRANK_TALK_ANIMATION_INTERVAL = 0.32
 const FRANK_TALK_BOUNCE_OFFSET = -10.0
@@ -79,6 +79,9 @@ const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
 const RETURN_TO_MAIN_SCENE_TEXT = "frank: ow, dammit! don't touch the knife!!"
 const RETURN_HOME_TEXT = "911-operator: \"we’re sending a unit over right now. please stay in place."
 const INVENTORY_UNLOCK_PROMPT_TEXT = "you got the supplies. check them out in the inventory. you can go back to frank, who is now sitting down on the floor, pressing his foot."
+const FOOT_INCIDENT_TEXT = "suddenly, one of the knives falls down and impales frank's foot. you stand up with a jolt, knocking your water glass onto the ground."
+const FALLEN_GLASS_POSITION = Vector2(1328.0, 936.0)
+const FALLEN_GLASS_ROTATION_DEGREES = 86.0
 const HEALTHPACK_HOTSPOT_SIZE = Vector2(150.0, 120.0)
 const HEALTHPACK_HOTSPOT_CENTER_OFFSET = Vector2(-52.0, -34.0)
 const CHAIR_HIT_PADDING = 48.0
@@ -98,11 +101,13 @@ var default_background_size := Vector2.ZERO
 var default_world_position := Vector2.ZERO
 var default_portrait_position := Vector2.ZERO
 var default_speaker_name_position := Vector2.ZERO
+var default_glass_position := Vector2.ZERO
+var default_glass_rotation := 0.0
+var default_knife_visible := true
 var portrait_animation_offset := Vector2.ZERO
 var arrow_buttons := {}
 var active_arrow_paths := {}
 var is_showing_wound_preview := false
-var foot_preview_player: AudioStreamPlayer
 var healthpack_hotspot: TextureButton
 var chair_hotspot: TextureButton
 var inventory_hotspot: Button
@@ -118,13 +123,14 @@ var is_chair_interactive := false
 var is_wound_scene_active := false
 var current_view := "center"
 var was_left_mouse_down := false
-var has_played_foot_sound := false
 var active_bandage_minigame_root: Node
 var active_bandage_minigame: Node
 var last_bandage_minigame_trigger_text := ""
 var is_showing_linear_preview := false
 var linear_preview_texts: Array[String] = []
 var linear_preview_index := 0
+var is_showing_foot_incident_cutaway := false
+var has_seen_foot_incident_cutaway := false
 var is_inventory_unlocked := false
 var should_flash_inventory_button := false
 var is_inventory_button_hovered := false
@@ -142,6 +148,9 @@ func _ready():
 	default_world_position = world.position
 	default_portrait_position = portrait.position
 	default_speaker_name_position = speaker_name.position
+	default_glass_position = glass.position
+	default_glass_rotation = glass.rotation_degrees
+	default_knife_visible = knife.visible
 	cursor_sprite = TextureRect.new()
 	cursor_sprite.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	cursor_sprite.z_index = 1000
@@ -179,10 +188,6 @@ func _ready():
 	inventory_popup_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_configure_inventory_rows()
 	_create_inventory_hotspot()
-	foot_preview_player = AudioStreamPlayer.new()
-	add_child(foot_preview_player)
-	if ResourceLoader.exists(FOOT_PREVIEW_SOUND_PATH):
-		foot_preview_player.stream = load(FOOT_PREVIEW_SOUND_PATH)
 	_create_healthpack_hotspot()
 	_create_chair_hotspot()
 	_create_arrow_buttons()
@@ -329,6 +334,7 @@ func repaint():
 	dialogue_text.bbcode_enabled = true
 	dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
 	dialogue_text.text = _format_dialogue_text(current_story_text)
+	_update_foot_incident_scene_state(current_story_text)
 	_update_inventory_unlock_state(current_story_text)
 	
 	var comp_name = get_component_name_for_element()
@@ -339,6 +345,7 @@ func repaint():
 	_update_speaker_name_display(current_story_text)
 
 	_update_frank_talk_animation_state(current_story_text)
+	_apply_tutorial_incident_aftermath()
 	
 	add_options()
 	_maybe_trigger_bandage_minigame()
@@ -919,6 +926,7 @@ func _exit_wound_scene():
 	current_view = "center"
 	_set_world_objects_visible(true)
 	portrait.visible = true
+	_apply_tutorial_incident_aftermath()
 
 func _show_foot_background():
 	background.texture = FOOT_SCENE_TEXTURE
@@ -935,12 +943,38 @@ func _restore_default_background():
 	background.position = default_background_position
 	background.size = default_background_size
 
-func _play_foot_sound_once():
-	if has_played_foot_sound:
+func _update_foot_incident_scene_state(raw_text: String) -> void:
+	var plain_body_text := _get_dialogue_body_text(raw_text).to_lower()
+	var is_incident_line := plain_body_text == FOOT_INCIDENT_TEXT
+	if is_incident_line:
+		_show_foot_background()
+		world.position = Vector2.ZERO
+		_set_world_objects_visible(false)
+		portrait.visible = false
+		is_showing_foot_incident_cutaway = true
+		has_seen_foot_incident_cutaway = true
 		return
-	if foot_preview_player.stream != null:
-		foot_preview_player.play()
-		has_played_foot_sound = true
+	if is_showing_foot_incident_cutaway:
+		_restore_default_background()
+		world.position = default_world_position
+		_set_world_objects_visible(true)
+		portrait.visible = true
+		is_showing_foot_incident_cutaway = false
+
+func _apply_tutorial_incident_aftermath() -> void:
+	if knife == null or glass == null:
+		return
+	if has_seen_foot_incident_cutaway:
+		knife.visible = false
+		glass.position = FALLEN_GLASS_POSITION
+		glass.rotation_degrees = FALLEN_GLASS_ROTATION_DEGREES
+	else:
+		knife.visible = default_knife_visible
+		glass.position = default_glass_position
+		glass.rotation_degrees = default_glass_rotation
+
+func _play_foot_sound_once():
+	return
 
 func _sync_scene_mode_with_story():
 	if not is_wound_scene_active:
@@ -1375,7 +1409,7 @@ func _set_world_objects_visible(is_visible: bool):
 			child.visible = is_visible
 
 func _get_preview_duration(text: String) -> float:
-	return clamp(2.4 + (text.length() / 65.0), 3.2, 5.0)
+	return clamp(4.9 + (text.length() / 65.0), 5.7, 7.5)
 
 func set_object_cursor():
 	_set_cursor_texture(OBJECT_CURSOR_TEXTURE)

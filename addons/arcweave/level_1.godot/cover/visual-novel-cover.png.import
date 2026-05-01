@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d22gsom3gn50b"
-path="res://.godot/imported/Red Cup.png-ad244d9a4f0093cd835094457e21b1f3.ctex"
+uid="uid://cmaqs0v8k65n3"
+path="res://.godot/imported/visual-novel-cover.png-a3f85105f333dd9b176798132491597c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv5.godot/assets/Items/Red Cup.png"
-dest_files=["res://.godot/imported/Red Cup.png-ad244d9a4f0093cd835094457e21b1f3.ctex"]
+source_file="res://addons/arcweave/level_1.godot/cover/visual-novel-cover.png"
+dest_files=["res://.godot/imported/visual-novel-cover.png-a3f85105f333dd9b176798132491597c.ctex"]
 
 [params]
 

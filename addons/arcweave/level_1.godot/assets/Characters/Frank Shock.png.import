@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biydbm46j3s6b"
-path="res://.godot/imported/Onlooker Normal.png-c6c609a30352c8d43cd024472feae40c.ctex"
+uid="uid://om8n72sdvuv2"
+path="res://.godot/imported/Frank Shock.png-24856644ed251cfa45c4a78936255d04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/levelv5.godot/assets/Characters/Onlooker Normal.png"
-dest_files=["res://.godot/imported/Onlooker Normal.png-c6c609a30352c8d43cd024472feae40c.ctex"]
+source_file="res://addons/arcweave/level_1.godot/assets/Characters/Frank Shock.png"
+dest_files=["res://.godot/imported/Frank Shock.png-24856644ed251cfa45c4a78936255d04.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd4t45ft6j0un"
-path="res://.godot/imported/right_arrow.png-002e89da7dd109d7c84d5ad7e3150042.ctex"
+uid="uid://bwwob5kmtt7fq"
+path="res://.godot/imported/Red Cup.png-6f9c18002e74cf0bd718f5b73d629468.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/arrows/right_arrow.png"
-dest_files=["res://.godot/imported/right_arrow.png-002e89da7dd109d7c84d5ad7e3150042.ctex"]
+source_file="res://addons/arcweave/level_1.godot/assets/Items/Red Cup.png"
+dest_files=["res://.godot/imported/Red Cup.png-6f9c18002e74cf0bd718f5b73d629468.ctex"]
 
 [params]
 

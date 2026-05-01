@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="2_s77qv"]
 [ext_resource type="Resource" uid="uid://dwolhasfwptg8" path="res://addons/arcweave/LevelTwo.tres" id="3_xbcdb"]
 [ext_resource type="Texture2D" uid="uid://cm6ew4qs2g7wm" path="res://Assets/backgrounds/restaurant.png" id="4_yl73a"]
+[ext_resource type="Texture2D" uid="uid://dnqc7440r53js" path="res://Assets/Item_Steak.png" id="5_15wb7"]
 [ext_resource type="Texture2D" uid="uid://d26kwga01yft3" path="res://Assets/backpack.png" id="6_ehv2h"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="10_wvr33"]
 [ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="11_sgm4o"]
@@ -31,6 +32,11 @@ offset_right = 4320.0
 offset_bottom = 1440.0
 texture = ExtResource("4_yl73a")
 expand_mode = 1
+
+[node name="Steak" type="Sprite2D" parent="World" unique_id=1048995445]
+position = Vector2(2237, 995.00006)
+scale = Vector2(0.53083336, 0.5175002)
+texture = ExtResource("5_15wb7")
 
 [node name="Portrait1" type="TextureRect" parent="." unique_id=1371913260]
 layout_mode = 0
@@ -91,6 +97,7 @@ focus_mode = 0
 flat = true
 
 [node name="InventoryUI" type="Control" parent="." unique_id=1542538323]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

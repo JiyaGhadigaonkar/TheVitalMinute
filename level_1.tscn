@@ -210,8 +210,8 @@ bbcode_enabled = true
 
 [node name="SpeakerName" type="RichTextLabel" parent="." unique_id=1568874726]
 layout_mode = 0
-offset_left = 147.0
+offset_left = 97.0
 offset_top = 1033.0
-offset_right = 490.0
+offset_right = 528.0
 offset_bottom = 1127.0
 bbcode_enabled = true

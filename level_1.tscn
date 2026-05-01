@@ -97,6 +97,16 @@ offset_bottom = 1419.0
 texture = ExtResource("12_ia5ws")
 expand_mode = 1
 
+[node name="SpeakerBox" type="TextureRect" parent="." unique_id=1484458671]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 1144.0
+offset_right = 1052.0
+offset_bottom = 1288.0
+rotation = 3.1415927
+texture = ExtResource("12_ia5ws")
+expand_mode = 1
+
 [node name="ChoiceContainer" type="VBoxContainer" parent="." unique_id=539439990]
 layout_mode = 0
 offset_left = 1231.0
@@ -198,10 +208,10 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 
-[node name="SpeakerName" type="RichTextLabel" parent="." unique_id=147294589]
+[node name="SpeakerName" type="RichTextLabel" parent="." unique_id=1568874726]
 layout_mode = 0
-offset_left = 297.0
-offset_top = 1113.0
-offset_right = 1670.0
-offset_bottom = 1209.0
+offset_left = 147.0
+offset_top = 1033.0
+offset_right = 490.0
+offset_bottom = 1127.0
 bbcode_enabled = true

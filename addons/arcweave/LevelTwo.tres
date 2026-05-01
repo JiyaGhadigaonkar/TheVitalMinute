@@ -1,0 +1,1381 @@
+[gd_resource type="Resource" script_class="ArcweaveAsset" format=3 uid="uid://dwolhasfwptg8"]
+
+[ext_resource type="Script" uid="uid://dpjvxabsow167" path="res://addons/arcweave/Editor/ArcweaveAssetScript.gd" id="1_fsqmp"]
+
+[resource]
+script = ExtResource("1_fsqmp")
+project_file = "/Users/jiyaghadigaonkar/the-vital-minute/addons/arcweave/level_2.godot/project.json"
+project_settings = {
+"assets": {
+"14380ff9-499b-45e0-9a22-154f8df899b0": {
+"name": "Steak.png",
+"type": "image"
+},
+"5b9e32e9-62c8-403c-8251-e03cfd4e01ba": {
+"name": "Danny Smile.png",
+"type": "image"
+},
+"647d0495-341f-42b2-8788-b47dace22bf8": {
+"children": ["c4f97e8a-f14b-4224-8ef1-6b618b78cf4e", "acb0c1b2-893a-48d2-aab9-c37c1a298814", "dabf1aa9-04b5-4136-baeb-a98b095f5782"],
+"root": true
+},
+"94fb0e96-a164-4c9c-9c01-8a10591c86d9": {
+"name": "Heimlick Green.png",
+"type": "image"
+},
+"a81faaf1-db6e-472d-981a-434d25953ff5": {
+"name": "Danny Choking.png",
+"type": "image"
+},
+"ac6d34f3-b37e-4477-a83e-e39d1dc02427": {
+"name": "Heimlich Red.png",
+"type": "image"
+},
+"acb0c1b2-893a-48d2-aab9-c37c1a298814": {
+"children": ["5b9e32e9-62c8-403c-8251-e03cfd4e01ba", "dc58a51e-32fa-4c35-8925-2e9f2c06251d", "f5ea3b48-df57-407a-b6c9-c7f0e0a7d96b", "a81faaf1-db6e-472d-981a-434d25953ff5"],
+"name": "Characters"
+},
+"c4f97e8a-f14b-4224-8ef1-6b618b78cf4e": {
+"children": ["ac6d34f3-b37e-4477-a83e-e39d1dc02427", "ddebb928-2a59-4056-ba06-ec0c86ab5acf", "94fb0e96-a164-4c9c-9c01-8a10591c86d9"],
+"name": "BG"
+},
+"dabf1aa9-04b5-4136-baeb-a98b095f5782": {
+"children": ["14380ff9-499b-45e0-9a22-154f8df899b0"],
+"name": "Items"
+},
+"dc58a51e-32fa-4c35-8925-2e9f2c06251d": {
+"name": "Danny Fear.png",
+"type": "image"
+},
+"ddebb928-2a59-4056-ba06-ec0c86ab5acf": {
+"name": "Restaurant.png",
+"type": "image"
+},
+"f5ea3b48-df57-407a-b6c9-c7f0e0a7d96b": {
+"name": "Danny Normal.png",
+"type": "image"
+}
+},
+"attributes": {},
+"boards": {
+"2ad15ff6-f2ba-4f1d-9d9d-68938c683d7e": {
+"children": ["630fdb8a-48d6-473e-9974-2460f7eb2b41"],
+"name": "Root",
+"root": true
+},
+"630fdb8a-48d6-473e-9974-2460f7eb2b41": {
+"branches": [],
+"connections": ["7c41bd83-ae2c-4ff0-b06d-5293676935c3", "4ab6a842-4a58-4144-babb-fe76bee42ae0", "51077c30-3bc3-427a-b1a1-8d6be26dc197", "5ae07aa3-0300-4c23-b046-ed930b858539", "318c3cd1-15a9-4da4-992b-9237e5714dfa", "3e462e55-8a75-497a-94d5-484d5501e9c5", "6b493739-197a-49f4-8186-ab8e172c3790", "2cde8ca0-b8c8-4ef6-b152-7ff9c09ac6f5", "8e445455-951d-45fd-a16d-1d0e26eb83ae", "5eda1248-5370-4a1a-a3d8-c19d86b548ed", "1fea86ac-e833-4f4c-a9a3-1db71f9bf495", "7fbd102a-75d1-455b-a50f-4a08fc1fe95e", "d47a8677-5051-482e-ae83-e42d7e71e280", "4e386582-2975-424b-8fa6-839a9d4a041d", "905438bd-2fb4-4f24-917e-8df229372126", "4fbd467d-3fcc-400f-99b2-634c556d243e", "d2cc4c19-7932-4fe1-83bc-960ef265cc32", "02725f4b-f9a5-4891-a2df-10a9d30fc03d", "e888c221-93d8-4bf1-bddc-c9a05e8cc7f6", "b6542534-246d-4c78-a95d-c4bfb13f528d", "4647af0a-bf37-412b-908d-ff52dfc207f2", "c1cd697b-e9e1-489f-8a01-a2a658f32cc4", "60513f4e-6702-465d-a850-de9c9fbb1760", "66b43262-65ab-4376-b09a-323904249475", "412efa39-ce69-4e8c-9d32-3cd9ec9d0a75", "bd2eaa6c-4d1a-4fb5-8be9-75c7ed04c2d5", "3bee7b96-38b7-4b87-87b5-6f7c3193218e", "e8b8edf8-6fa7-4676-b5c3-36924220f13d", "5f080faf-d327-4fd5-a04e-52bb21a92173", "9b89b58c-80a0-4db0-9386-e10ac77db062", "412fea52-8bd8-41f3-8feb-063585738cc0", "2fbce843-1848-4c59-9990-f25b46f0ee03", "f7f2f9c9-927b-4607-8cf8-398132c869d5", "bee284a6-fbc5-47eb-aa45-c3d6619842a5", "2d92f78b-e8be-4ea2-b681-5c9816eaea9c", "30218030-be52-4a47-97bd-15fb534035bc", "54855601-e770-4a10-af8e-ff394f39fd0f", "abf1bcd2-ffbd-4667-bfe7-1b86e9671327", "a822b645-d23c-4929-8bef-029fdb57931e", "9fff5303-2d66-4150-a6b1-a37c69e5296a", "aae94a34-6d19-43a0-9a11-63fe3569a945", "55b29950-875c-4b54-9d91-149a09d15496", "bc2407fb-81e3-49c9-95d4-ff2cdabec1e5", "4dbfb04f-9185-4c69-92a1-9b8f0a02102e", "73ad4d75-5dac-4e86-89c2-2fc433337958"],
+"elements": ["cb35db92-3c07-41bf-9c45-580ad6b891b4", "abb0f32e-b35f-4271-b631-5f0860fddd42", "35533a31-2b6e-4cf2-9bf9-a904836fc398", "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05", "e4a89ba5-e4e7-4a20-a2cd-c9446f7e4754", "c5987bef-92fd-4b9f-89db-b38f93340f62", "0a54f928-6438-4e61-8a0a-e17d0697a144", "6bb9d7bd-3636-4df2-80bc-4e3b53f1f4b7", "a0053dd8-9fa9-44a5-b983-1db9ac2e354e", "cb89181a-16c8-4bef-9015-36c8ced76e9c", "245de091-7e65-434f-b94c-843e99e89f5e", "54ea7a8e-e318-41e8-b9e1-d809fe1fbdc0", "d110ae06-40d9-494e-bde2-622daa6fdb6b", "ffaa85ca-651e-49a6-8c34-96b8414fef32", "b57a6f11-3776-418b-a24f-46bac18c0f79", "504379f4-4482-46ab-b0be-80f91dc19a6e", "63100941-082e-48ed-b4f0-a713ceef892c", "3631258a-4ff3-452c-908a-67b92fae0cbc", "193600b0-fdb2-46ac-a661-b111cdf3c36c", "603cad8d-a70d-4157-9f97-e64a67439c90", "29bea066-38fd-4a7e-bbf6-c7b43fb4cf24", "9832d7f2-bf9a-4fe4-902f-0f3333e56171", "012cda5b-eb6d-49a3-942e-4da449f17898", "7ed0ce11-860d-4fb8-9c15-bf8093efadae", "f584c1f4-6197-4c9b-9739-18ac150b7107", "414c785c-f32a-403c-b6e2-c58ecf876088", "0be2e53f-b2eb-4874-89a3-af596833a655", "c98b94a2-12f0-43c3-960f-7db1b034dd16", "47416d64-05fa-4311-9a29-4c53c019b4a5", "14616e02-19a2-42bf-9b40-9124f059d860", "4af6ccf3-f4cf-4a1f-b770-bdfc27b05d38", "ab6633c4-fc87-4947-a877-3ff958ce09c5", "0a4594e1-29a1-4bea-9811-570511a2014b", "f6d4264a-0e47-4456-9811-8e8deff3e907", "47d66016-f4eb-4af8-bbff-f3d4e580ad01", "ca58b56d-7743-4ad7-ac00-61eb1c8f4ed8", "42f975bd-ff5c-47ff-9ca2-1b4759bdf055", "ad5d3859-8a67-43d9-94f5-3a4608106ec2", "1ce20f1d-9483-4598-84ae-299f80c69cc9", "2d822a98-42bc-415d-bffa-e88c65d0352c", "756780f6-a300-498b-beab-b9c9deefb21b", "12670fc8-ae77-422d-b7b2-c4f5e791a6e4", "2a08ff9e-7c6c-46b6-aa47-8e1c2346db12", "c37573b2-68bb-411f-b05a-3ea0f7a19fe7", "45ae10d7-3c26-4715-a5cb-0766b5854d91", "bd48a809-a35b-439b-8187-9ab09e9da936"],
+"jumpers": ["2bcf278d-f6a2-4045-b14d-99893de059c0"],
+"name": "Level 2 Board",
+"notes": []
+}
+},
+"branches": {},
+"components": {
+"036db898-0cb9-4a29-b19d-3e8f3288d9a2": {
+"children": ["33740df7-6eff-42fe-ac54-f81e443c5d93", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7", "a0ff9020-22a1-4918-bb8a-5e6f399852cd", "43584165-a718-481c-87be-fa99da28fc65"],
+"name": "Characters"
+},
+"33740df7-6eff-42fe-ac54-f81e443c5d93": {
+"assets": {
+"cover": {
+"id": "f5ea3b48-df57-407a-b6c9-c7f0e0a7d96b",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Danny_Normal"
+},
+"351adeaa-4540-49a9-8756-9c3eafb8aa3d": {
+"assets": {
+"cover": {
+"id": "14380ff9-499b-45e0-9a22-154f8df899b0",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Steak"
+},
+"43584165-a718-481c-87be-fa99da28fc65": {
+"assets": {
+"cover": {
+"id": "dc58a51e-32fa-4c35-8925-2e9f2c06251d",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Danny_Fear"
+},
+"65005bda-15d0-41c5-867f-68c118829f08": {
+"children": ["036db898-0cb9-4a29-b19d-3e8f3288d9a2", "ee093b37-acd8-4cb3-9670-dbb2d8a87c42"],
+"name": "Root",
+"root": true
+},
+"a0ff9020-22a1-4918-bb8a-5e6f399852cd": {
+"assets": {
+"cover": {
+"id": "5b9e32e9-62c8-403c-8251-e03cfd4e01ba",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Danny_Smile"
+},
+"eb01a9e8-bd88-45a9-ac74-c2206d2b69b7": {
+"assets": {
+"cover": {
+"id": "a81faaf1-db6e-472d-981a-434d25953ff5",
+"type": "image"
+}
+},
+"attributes": [],
+"name": "Danny_Choking"
+},
+"ee093b37-acd8-4cb3-9670-dbb2d8a87c42": {
+"children": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d"],
+"name": "Items"
+}
+},
+"conditions": {},
+"connections": {
+"02725f4b-f9a5-4891-a2df-10a9d30fc03d": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "603cad8d-a70d-4157-9f97-e64a67439c90",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "29bea066-38fd-4a7e-bbf6-c7b43fb4cf24",
+"theme": "blue",
+"type": "Flowchart"
+},
+"1fea86ac-e833-4f4c-a9a3-1db71f9bf495": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "54ea7a8e-e318-41e8-b9e1-d809fe1fbdc0",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "d110ae06-40d9-494e-bde2-622daa6fdb6b",
+"theme": "blue",
+"type": "Flowchart"
+},
+"2cde8ca0-b8c8-4ef6-b152-7ff9c09ac6f5": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "6bb9d7bd-3636-4df2-80bc-4e3b53f1f4b7",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "a0053dd8-9fa9-44a5-b983-1db9ac2e354e",
+"theme": "blue",
+"type": "Flowchart"
+},
+"2d92f78b-e8be-4ea2-b681-5c9816eaea9c": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "ad5d3859-8a67-43d9-94f5-3a4608106ec2",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "1ce20f1d-9483-4598-84ae-299f80c69cc9",
+"theme": "blue",
+"type": "Flowchart"
+},
+"2fbce843-1848-4c59-9990-f25b46f0ee03": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "47d66016-f4eb-4af8-bbff-f3d4e580ad01",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "ca58b56d-7743-4ad7-ac00-61eb1c8f4ed8",
+"theme": "blue",
+"type": "Flowchart"
+},
+"30218030-be52-4a47-97bd-15fb534035bc": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "756780f6-a300-498b-beab-b9c9deefb21b",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "12670fc8-ae77-422d-b7b2-c4f5e791a6e4",
+"theme": "blue",
+"type": "Flowchart"
+},
+"318c3cd1-15a9-4da4-992b-9237e5714dfa": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "e4a89ba5-e4e7-4a20-a2cd-c9446f7e4754",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "c5987bef-92fd-4b9f-89db-b38f93340f62",
+"theme": "blue",
+"type": "Flowchart"
+},
+"3bee7b96-38b7-4b87-87b5-6f7c3193218e": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "47416d64-05fa-4311-9a29-4c53c019b4a5",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "14616e02-19a2-42bf-9b40-9124f059d860",
+"theme": "blue",
+"type": "Flowchart"
+},
+"3e462e55-8a75-497a-94d5-484d5501e9c5": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "c5987bef-92fd-4b9f-89db-b38f93340f62",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "0a54f928-6438-4e61-8a0a-e17d0697a144",
+"theme": "blue",
+"type": "Flowchart"
+},
+"412efa39-ce69-4e8c-9d32-3cd9ec9d0a75": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "0be2e53f-b2eb-4874-89a3-af596833a655",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "c98b94a2-12f0-43c3-960f-7db1b034dd16",
+"theme": "blue",
+"type": "Flowchart"
+},
+"412fea52-8bd8-41f3-8feb-063585738cc0": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ab6633c4-fc87-4947-a877-3ff958ce09c5",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "0a4594e1-29a1-4bea-9811-570511a2014b",
+"theme": "blue",
+"type": "Flowchart"
+},
+"4647af0a-bf37-412b-908d-ff52dfc207f2": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "7ed0ce11-860d-4fb8-9c15-bf8093efadae",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "f584c1f4-6197-4c9b-9739-18ac150b7107",
+"theme": "blue",
+"type": "Flowchart"
+},
+"4ab6a842-4a58-4144-babb-fe76bee42ae0": {
+"label": null,
+"sourceFace": "right",
+"sourceType": "elements",
+"sourceid": "abb0f32e-b35f-4271-b631-5f0860fddd42",
+"targetType": "elements",
+"targetid": "35533a31-2b6e-4cf2-9bf9-a904836fc398",
+"theme": "blue",
+"type": "Bezier"
+},
+"4dbfb04f-9185-4c69-92a1-9b8f0a02102e": {
+"label": null,
+"labelLocation": 0.5,
+"sourceFace": "bottom",
+"sourceType": "elements",
+"sourceid": "12670fc8-ae77-422d-b7b2-c4f5e791a6e4",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "2a08ff9e-7c6c-46b6-aa47-8e1c2346db12",
+"theme": "blue",
+"type": "Flowchart"
+},
+"4e386582-2975-424b-8fa6-839a9d4a041d": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "504379f4-4482-46ab-b0be-80f91dc19a6e",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "63100941-082e-48ed-b4f0-a713ceef892c",
+"theme": "blue",
+"type": "Flowchart"
+},
+"4fbd467d-3fcc-400f-99b2-634c556d243e": {
+"label": "<p>Drink Milkshake</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "b57a6f11-3776-418b-a24f-46bac18c0f79",
+"targetType": "elements",
+"targetid": "504379f4-4482-46ab-b0be-80f91dc19a6e",
+"theme": "blue",
+"type": "Flowchart"
+},
+"51077c30-3bc3-427a-b1a1-8d6be26dc197": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "cb35db92-3c07-41bf-9c45-580ad6b891b4",
+"targetType": "elements",
+"targetid": "abb0f32e-b35f-4271-b631-5f0860fddd42",
+"theme": "blue",
+"type": "Bezier"
+},
+"54855601-e770-4a10-af8e-ff394f39fd0f": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "1ce20f1d-9483-4598-84ae-299f80c69cc9",
+"targetType": "elements",
+"targetid": "2d822a98-42bc-415d-bffa-e88c65d0352c",
+"theme": "blue",
+"type": "Flowchart"
+},
+"55b29950-875c-4b54-9d91-149a09d15496": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "c37573b2-68bb-411f-b05a-3ea0f7a19fe7",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "45ae10d7-3c26-4715-a5cb-0766b5854d91",
+"theme": "blue",
+"type": "Flowchart"
+},
+"5ae07aa3-0300-4c23-b046-ed930b858539": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "e4a89ba5-e4e7-4a20-a2cd-c9446f7e4754",
+"theme": "blue",
+"type": "Bezier"
+},
+"5eda1248-5370-4a1a-a3d8-c19d86b548ed": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "245de091-7e65-434f-b94c-843e99e89f5e",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "54ea7a8e-e318-41e8-b9e1-d809fe1fbdc0",
+"theme": "blue",
+"type": "Flowchart"
+},
+"5f080faf-d327-4fd5-a04e-52bb21a92173": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "0a4594e1-29a1-4bea-9811-570511a2014b",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "f6d4264a-0e47-4456-9811-8e8deff3e907",
+"theme": "blue",
+"type": "Flowchart"
+},
+"60513f4e-6702-465d-a850-de9c9fbb1760": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "012cda5b-eb6d-49a3-942e-4da449f17898",
+"targetType": "elements",
+"targetid": "7ed0ce11-860d-4fb8-9c15-bf8093efadae",
+"theme": "blue",
+"type": "Flowchart"
+},
+"66b43262-65ab-4376-b09a-323904249475": {
+"label": null,
+"labelLocation": 0.5,
+"sourceFace": "bottom",
+"sourceType": "elements",
+"sourceid": "3631258a-4ff3-452c-908a-67b92fae0cbc",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "193600b0-fdb2-46ac-a661-b111cdf3c36c",
+"theme": "blue",
+"type": "Flowchart"
+},
+"6b493739-197a-49f4-8186-ab8e172c3790": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "0a54f928-6438-4e61-8a0a-e17d0697a144",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "6bb9d7bd-3636-4df2-80bc-4e3b53f1f4b7",
+"theme": "blue",
+"type": "Flowchart"
+},
+"73ad4d75-5dac-4e86-89c2-2fc433337958": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "cb89181a-16c8-4bef-9015-36c8ced76e9c",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "245de091-7e65-434f-b94c-843e99e89f5e",
+"theme": "blue",
+"type": "Flowchart"
+},
+"7c41bd83-ae2c-4ff0-b06d-5293676935c3": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "35533a31-2b6e-4cf2-9bf9-a904836fc398",
+"targetType": "elements",
+"targetid": "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05",
+"theme": "blue",
+"type": "Bezier"
+},
+"7fbd102a-75d1-455b-a50f-4a08fc1fe95e": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "d110ae06-40d9-494e-bde2-622daa6fdb6b",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "ffaa85ca-651e-49a6-8c34-96b8414fef32",
+"theme": "blue",
+"type": "Flowchart"
+},
+"8e445455-951d-45fd-a16d-1d0e26eb83ae": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "a0053dd8-9fa9-44a5-b983-1db9ac2e354e",
+"targetType": "elements",
+"targetid": "cb89181a-16c8-4bef-9015-36c8ced76e9c",
+"theme": "blue",
+"type": "Flowchart"
+},
+"905438bd-2fb4-4f24-917e-8df229372126": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "63100941-082e-48ed-b4f0-a713ceef892c",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "3631258a-4ff3-452c-908a-67b92fae0cbc",
+"theme": "blue",
+"type": "Flowchart"
+},
+"9b89b58c-80a0-4db0-9386-e10ac77db062": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "4af6ccf3-f4cf-4a1f-b770-bdfc27b05d38",
+"targetType": "elements",
+"targetid": "ab6633c4-fc87-4947-a877-3ff958ce09c5",
+"theme": "blue",
+"type": "Flowchart"
+},
+"9fff5303-2d66-4150-a6b1-a37c69e5296a": {
+"label": null,
+"labelLocation": 0.5,
+"sourceFace": "bottom",
+"sourceType": "elements",
+"sourceid": "f6d4264a-0e47-4456-9811-8e8deff3e907",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "47d66016-f4eb-4af8-bbff-f3d4e580ad01",
+"theme": "blue",
+"type": "Flowchart"
+},
+"a822b645-d23c-4929-8bef-029fdb57931e": {
+"label": null,
+"labelLocation": 0.5,
+"sourceFace": "bottom",
+"sourceType": "elements",
+"sourceid": "414c785c-f32a-403c-b6e2-c58ecf876088",
+"targetFace": "top",
+"targetType": "elements",
+"targetid": "0be2e53f-b2eb-4874-89a3-af596833a655",
+"theme": "blue",
+"type": "Flowchart"
+},
+"aae94a34-6d19-43a0-9a11-63fe3569a945": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "2a08ff9e-7c6c-46b6-aa47-8e1c2346db12",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "c37573b2-68bb-411f-b05a-3ea0f7a19fe7",
+"theme": "blue",
+"type": "Flowchart"
+},
+"abf1bcd2-ffbd-4667-bfe7-1b86e9671327": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "2d822a98-42bc-415d-bffa-e88c65d0352c",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "756780f6-a300-498b-beab-b9c9deefb21b",
+"theme": "blue",
+"type": "Flowchart"
+},
+"b6542534-246d-4c78-a95d-c4bfb13f528d": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "9832d7f2-bf9a-4fe4-902f-0f3333e56171",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "012cda5b-eb6d-49a3-942e-4da449f17898",
+"theme": "blue",
+"type": "Flowchart"
+},
+"bc2407fb-81e3-49c9-95d4-ff2cdabec1e5": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "45ae10d7-3c26-4715-a5cb-0766b5854d91",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "bd48a809-a35b-439b-8187-9ab09e9da936",
+"theme": "blue",
+"type": "Flowchart"
+},
+"bd2eaa6c-4d1a-4fb5-8be9-75c7ed04c2d5": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "c98b94a2-12f0-43c3-960f-7db1b034dd16",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "47416d64-05fa-4311-9a29-4c53c019b4a5",
+"theme": "blue",
+"type": "Flowchart"
+},
+"bee284a6-fbc5-47eb-aa45-c3d6619842a5": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "42f975bd-ff5c-47ff-9ca2-1b4759bdf055",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "ad5d3859-8a67-43d9-94f5-3a4608106ec2",
+"theme": "blue",
+"type": "Flowchart"
+},
+"c1cd697b-e9e1-489f-8a01-a2a658f32cc4": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "f584c1f4-6197-4c9b-9739-18ac150b7107",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "414c785c-f32a-403c-b6e2-c58ecf876088",
+"theme": "blue",
+"type": "Flowchart"
+},
+"d2cc4c19-7932-4fe1-83bc-960ef265cc32": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "193600b0-fdb2-46ac-a661-b111cdf3c36c",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "603cad8d-a70d-4157-9f97-e64a67439c90",
+"theme": "blue",
+"type": "Flowchart"
+},
+"d47a8677-5051-482e-ae83-e42d7e71e280": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ffaa85ca-651e-49a6-8c34-96b8414fef32",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "b57a6f11-3776-418b-a24f-46bac18c0f79",
+"theme": "blue",
+"type": "Flowchart"
+},
+"e888c221-93d8-4bf1-bddc-c9a05e8cc7f6": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "29bea066-38fd-4a7e-bbf6-c7b43fb4cf24",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "9832d7f2-bf9a-4fe4-902f-0f3333e56171",
+"theme": "blue",
+"type": "Flowchart"
+},
+"e8b8edf8-6fa7-4676-b5c3-36924220f13d": {
+"label": "<p>Play the heimlich microgame</p>",
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "14616e02-19a2-42bf-9b40-9124f059d860",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "4af6ccf3-f4cf-4a1f-b770-bdfc27b05d38",
+"theme": "blue",
+"type": "Flowchart"
+},
+"f7f2f9c9-927b-4607-8cf8-398132c869d5": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "ca58b56d-7743-4ad7-ac00-61eb1c8f4ed8",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "42f975bd-ff5c-47ff-9ca2-1b4759bdf055",
+"theme": "blue",
+"type": "Flowchart"
+}
+},
+"cover": {
+"file": "visual-novel-cover.png",
+"type": "template-image"
+},
+"elements": {
+"012cda5b-eb6d-49a3-942e-4da449f17898": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Player: </strong>You shouldn’t talk with food in your mouth, though.</p>",
+"height": 481.0,
+"outputs": ["60513f4e-6702-465d-a850-de9c9fbb1760"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10400.0,
+"y": 12660.0
+},
+"0a4594e1-29a1-4bea-9811-570511a2014b": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Player: </strong>You good?</p>",
+"height": 481.0,
+"outputs": ["5f080faf-d327-4fd5-a04e-52bb21a92173"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11260.0,
+"y": 13380.0
+},
+"0a54f928-6438-4e61-8a0a-e17d0697a144": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Player: </strong>I dunno. I just feel like I keep getting into situations. And I feel like I don’t always know what to do.</p>",
+"height": 481.0,
+"outputs": ["6b493739-197a-49f4-8186-ab8e172c3790"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9560.0,
+"y": 11240.0
+},
+"0be2e53f-b2eb-4874-89a3-af596833a655": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7"],
+"content": "<p><strong>Player: </strong>Oh god, are you choking?!</p>",
+"height": 481.0,
+"outputs": ["412efa39-ce69-4e8c-9d32-3cd9ec9d0a75"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 8640.0,
+"y": 13380.0
+},
+"12670fc8-ae77-422d-b7b2-c4f5e791a6e4": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Player: </strong>…So are you not gonna-</p>",
+"height": 481.0,
+"outputs": ["4dbfb04f-9185-4c69-92a1-9b8f0a02102e"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11720.0,
+"y": 14060.0
+},
+"14616e02-19a2-42bf-9b40-9124f059d860": {
+"assets": {
+"cover": {
+"id": "ac6d34f3-b37e-4477-a83e-e39d1dc02427"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p><em>…Wait, I remember this.</em></p><p><em>This is the Heimlich, right?</em></p><p><em>I gotta pull on his abdomen with enough force to clear the blockage.</em></p>",
+"height": 481.0,
+"outputs": ["e8b8edf8-6fa7-4676-b5c3-36924220f13d"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9900.0,
+"y": 13380.0
+},
+"193600b0-fdb2-46ac-a661-b111cdf3c36c": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p><em>You breathe in, and out.</em></p><p><em>Is there a medically justified way to treat a brain freeze?</em></p>",
+"height": 481.0,
+"outputs": ["d2cc4c19-7932-4fe1-83bc-960ef265cc32"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 8640.0,
+"y": 12660.0
+},
+"1ce20f1d-9483-4598-84ae-299f80c69cc9": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Danny: </strong>There was a BONE in my BONELESS steak!!!</p>",
+"height": 481.0,
+"outputs": ["54855601-e770-4a10-af8e-ff394f39fd0f"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10460.0,
+"y": 14060.0
+},
+"245de091-7e65-434f-b94c-843e99e89f5e": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><em>Eventually, you stop at a restaurant. You head inside with him. He orders a steak, and you just order a frosty smoothie or something.</em></p>",
+"height": 481.0,
+"outputs": ["5eda1248-5370-4a1a-a3d8-c19d86b548ed"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 8640.0,
+"y": 11980.0
+},
+"29bea066-38fd-4a7e-bbf6-c7b43fb4cf24": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Danny: </strong>Sowayafeelingbettah?</p>",
+"height": 481.0,
+"outputs": ["e888c221-93d8-4bf1-bddc-c9a05e8cc7f6"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9520.0,
+"y": 12660.0
+},
+"2a08ff9e-7c6c-46b6-aa47-8e1c2346db12": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Danny: </strong>No, I am not eating the rest of this...</p>",
+"height": 481.0,
+"outputs": ["aae94a34-6d19-43a0-9a11-63fe3569a945"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9980.0,
+"y": 14880.0
+},
+"2d822a98-42bc-415d-bffa-e88c65d0352c": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Danny: </strong>That could’ve killed me!!!</p>",
+"height": 481.0,
+"outputs": ["abf1bcd2-ffbd-4667-bfe7-1b86e9671327"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10880.0,
+"y": 14060.0
+},
+"35533a31-2b6e-4cf2-9bf9-a904836fc398": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Player: </strong>Could’ve gone better.</p>",
+"height": 261.0,
+"outputs": ["7c41bd83-ae2c-4ff0-b06d-5293676935c3"],
+"theme": "cyan",
+"title": "<p>Maya's Invitation</p>",
+"width": 321.0,
+"x": 7640.0,
+"y": 11260.0
+},
+"3631258a-4ff3-452c-908a-67b92fae0cbc": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Player: </strong>Ack- Brain freeze…</p>",
+"height": 481.0,
+"outputs": ["66b43262-65ab-4376-b09a-323904249475"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11760.0,
+"y": 11980.0
+},
+"414c785c-f32a-403c-b6e2-c58ecf876088": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7"],
+"content": "<p><em>Danny gestures at his neck with his hands.</em></p>",
+"height": 481.0,
+"outputs": ["a822b645-d23c-4929-8bef-029fdb57931e"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11720.0,
+"y": 12660.0
+},
+"42f975bd-ff5c-47ff-9ca2-1b4759bdf055": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Danny: </strong>…They said this steak was boneless!</p>",
+"height": 481.0,
+"outputs": ["bee284a6-fbc5-47eb-aa45-c3d6619842a5"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9480.0,
+"y": 14060.0
+},
+"45ae10d7-3c26-4715-a5cb-0766b5854d91": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Player: </strong>DANNY, NO!</p>",
+"height": 481.0,
+"outputs": ["bc2407fb-81e3-49c9-95d4-ff2cdabec1e5"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 10820.0,
+"y": 14880.0
+},
+"47416d64-05fa-4311-9a29-4c53c019b4a5": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7"],
+"content": "<p><strong>Player: </strong>Ok, oh god, what do I do?!</p>",
+"height": 481.0,
+"outputs": ["3bee7b96-38b7-4b87-87b5-6f7c3193218e"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9520.0,
+"y": 13380.0
+},
+"47d66016-f4eb-4af8-bbff-f3d4e580ad01": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Danny: </strong>Just saw my life flash before my eyes…</p>",
+"height": 481.0,
+"outputs": ["2fbce843-1848-4c59-9990-f25b46f0ee03"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 8640.0,
+"y": 14060.0
+},
+"4af6ccf3-f4cf-4a1f-b770-bdfc27b05d38": {
+"assets": {
+"cover": {
+"id": "94fb0e96-a164-4c9c-9c01-8a10591c86d9"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p><em>After you clear the blockage, Danny is thankful.</em></p>",
+"height": 481.0,
+"outputs": ["9b89b58c-80a0-4db0-9386-e10ac77db062"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10440.0,
+"y": 13380.0
+},
+"504379f4-4482-46ab-b0be-80f91dc19a6e": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p><em>You drink the frosty too fast and experience a brain freeze. Ouch.</em></p><p><em>You clutch your head in pain.</em></p>",
+"height": 481.0,
+"outputs": ["4e386582-2975-424b-8fa6-839a9d4a041d"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10880.0,
+"y": 11980.0
+},
+"54ea7a8e-e318-41e8-b9e1-d809fe1fbdc0": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Danny: </strong>What? You’re just getting a milkshake?!</p>",
+"height": 481.0,
+"outputs": ["1fea86ac-e833-4f4c-a9a3-1db71f9bf495"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9100.0,
+"y": 11980.0
+},
+"603cad8d-a70d-4157-9f97-e64a67439c90": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": [],
+"content": "<p><em>Once the brain freeze subsides, you think the worst is over.</em></p>",
+"height": 481.0,
+"outputs": ["02725f4b-f9a5-4891-a2df-10a9d30fc03d"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9080.0,
+"y": 12660.0
+},
+"63100941-082e-48ed-b4f0-a713ceef892c": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Danny: </strong>What happened?<br></p>",
+"height": 481.0,
+"outputs": ["905438bd-2fb4-4f24-917e-8df229372126"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11320.0,
+"y": 11980.0
+},
+"6bb9d7bd-3636-4df2-80bc-4e3b53f1f4b7": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Danny: </strong>Oh yeah, and medical emergencies just happen around you, do they?</p>",
+"height": 481.0,
+"outputs": ["2cde8ca0-b8c8-4ef6-b152-7ff9c09ac6f5"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9980.0,
+"y": 11240.0
+},
+"714a2e99-b0e7-4b7f-b4fd-7fcebc821e05": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Danny: </strong>Are you reconsidering your finance major yet?</p>",
+"height": 261.0,
+"outputs": ["5ae07aa3-0300-4c23-b046-ed930b858539"],
+"theme": "cyan",
+"title": "<p>Jake's Invitation</p>",
+"width": 400.969,
+"x": 8080.0,
+"y": 11260.0
+},
+"756780f6-a300-498b-beab-b9c9deefb21b": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Danny: </strong>I should sue!!!</p>",
+"height": 481.0,
+"outputs": ["30218030-be52-4a47-97bd-15fb534035bc"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11300.0,
+"y": 14060.0
+},
+"7ed0ce11-860d-4fb8-9c15-bf8093efadae": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><em>Danny smiles and starts laughing. He then swallows, but begins to cough. Suddenly, he’s not making any sound at all and looks panicked.</em></p><p><br></p>",
+"height": 481.0,
+"outputs": ["4647af0a-bf37-412b-908d-ff52dfc207f2"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10800.0,
+"y": 12660.0
+},
+"9832d7f2-bf9a-4fe4-902f-0f3333e56171": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Player: </strong>…Yeah. I’m feeling better.</p>",
+"height": 481.0,
+"outputs": ["b6542534-246d-4c78-a95d-c4bfb13f528d"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9980.0,
+"y": 12660.0
+},
+"a0053dd8-9fa9-44a5-b983-1db9ac2e354e": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Playey: </strong>Hey, it never hurts to be prepared. Anything is possible.</p>",
+"height": 481.0,
+"outputs": ["8e445455-951d-45fd-a16d-1d0e26eb83ae"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 10400.0,
+"y": 11240.0
+},
+"ab6633c4-fc87-4947-a877-3ff958ce09c5": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Danny: </strong>Hah… huah… hoo…</p>",
+"height": 481.0,
+"outputs": ["412fea52-8bd8-41f3-8feb-063585738cc0"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10840.0,
+"y": 13380.0
+},
+"abb0f32e-b35f-4271-b631-5f0860fddd42": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Danny: </strong>So how did the job interview go?</p>",
+"height": 261.0,
+"outputs": ["4ab6a842-4a58-4144-babb-fe76bee42ae0"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 7200.0,
+"y": 11260.0
+},
+"ad5d3859-8a67-43d9-94f5-3a4608106ec2": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Danny: </strong>What the hell was that?!</p>",
+"height": 481.0,
+"outputs": ["2d92f78b-e8be-4ea2-b681-5c9816eaea9c"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9900.0,
+"y": 14060.0
+},
+"b57a6f11-3776-418b-a24f-46bac18c0f79": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Player: </strong>You already drive me around everywhere. I don’t want to start eating your food, too.</p>",
+"height": 481.0,
+"outputs": ["4fbd467d-3fcc-400f-99b2-634c556d243e"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 10380.0,
+"y": 11980.0
+},
+"bd48a809-a35b-439b-8187-9ab09e9da936": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><em>Danny starts eating the rest of his steak. You receive a text on their phone from Frank, inviting you to a picnic in the woods.</em></p>",
+"height": 481.0,
+"outputs": [],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11240.0,
+"y": 14880.0
+},
+"c37573b2-68bb-411f-b05a-3ea0f7a19fe7": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Danny: </strong>It was really good, though… and kinda expensive…</p>",
+"height": 481.0,
+"outputs": ["55b29950-875c-4b54-9d91-149a09d15496"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 10400.0,
+"y": 14880.0
+},
+"c5987bef-92fd-4b9f-89db-b38f93340f62": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Danny: </strong>Pre-med? Like Frank? That’s quite the pivot! You think you’ll be able to handle it?</p>",
+"height": 481.0,
+"outputs": ["3e462e55-8a75-497a-94d5-484d5501e9c5"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9100.0,
+"y": 11240.0
+},
+"c98b94a2-12f0-43c3-960f-7db1b034dd16": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "eb01a9e8-bd88-45a9-ac74-c2206d2b69b7"],
+"content": "<p><em>Danny nods. His eyes are watering. The timer appears.</em></p>",
+"height": 481.0,
+"outputs": ["bd2eaa6c-4d1a-4fb5-8be9-75c7ed04c2d5"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9080.0,
+"y": 13380.0
+},
+"ca58b56d-7743-4ad7-ac00-61eb1c8f4ed8": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><em>Danny is taking deep breaths.</em></p>",
+"height": 481.0,
+"outputs": ["f7f2f9c9-927b-4607-8cf8-398132c869d5"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9060.0,
+"y": 14060.0
+},
+"cb35db92-3c07-41bf-9c45-580ad6b891b4": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><em>You and Danny are carpooling to a fast food restaurant to grab food.</em></p>",
+"height": 201.0,
+"outputs": ["51077c30-3bc3-427a-b1a1-8d6be26dc197"],
+"theme": "cyan",
+"title": "<p>Restaurant</p>",
+"width": 501.994,
+"x": 6540.0,
+"y": 11280.0
+},
+"cb89181a-16c8-4bef-9015-36c8ced76e9c": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Danny: </strong>Yeah, yeah, I’m just pulling your leg. I just don’t know what I’m gonna do with two nerds in my friend group.</p>",
+"height": 481.0,
+"outputs": ["73ad4d75-5dac-4e86-89c2-2fc433337958"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 10800.0,
+"y": 11240.0
+},
+"d110ae06-40d9-494e-bde2-622daa6fdb6b": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Player: </strong>I’m not that hungry…</p>",
+"height": 481.0,
+"outputs": ["7fbd102a-75d1-455b-a50f-4a08fc1fe95e"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9560.0,
+"y": 11980.0
+},
+"e4a89ba5-e4e7-4a20-a2cd-c9446f7e4754": {
+"autoHeight": false,
+"components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
+"content": "<p><strong>Player: </strong>…You know, I really have been. I might switch to pre-med.</p>",
+"height": 481.0,
+"outputs": ["318c3cd1-15a9-4da4-992b-9237e5714dfa"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 8640.0,
+"y": 11240.0
+},
+"f584c1f4-6197-4c9b-9739-18ac150b7107": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><strong>Player: </strong>Are you okay?<br></p>",
+"height": 481.0,
+"outputs": ["c1cd697b-e9e1-489f-8a01-a2a658f32cc4"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11240.0,
+"y": 12660.0
+},
+"f6d4264a-0e47-4456-9811-8e8deff3e907": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Danny: </strong>Y…Yeah… No sweat…</p>",
+"height": 481.0,
+"outputs": ["9fff5303-2d66-4150-a6b1-a37c69e5296a"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 11720.0,
+"y": 13380.0
+},
+"ffaa85ca-651e-49a6-8c34-96b8414fef32": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "33740df7-6eff-42fe-ac54-f81e443c5d93"],
+"content": "<p><strong>Danny: </strong>Hey, come on, I can get you something. Don’t let me eat alone!</p>",
+"height": 481.0,
+"outputs": ["d47a8677-5051-482e-ae83-e42d7e71e280"],
+"theme": "cyan",
+"title": null,
+"width": 321.0,
+"x": 9980.0,
+"y": 11980.0
+}
+},
+"jumpers": {
+"2bcf278d-f6a2-4045-b14d-99893de059c0": {
+"elementId": "cb35db92-3c07-41bf-9c45-580ad6b891b4",
+"height": 86.0,
+"width": 185.0,
+"x": 13760.0,
+"y": 11200.0
+}
+},
+"name": "Level 2",
+"notes": {},
+"startingElement": "cb35db92-3c07-41bf-9c45-580ad6b891b4",
+"variables": {
+"747d0495-341f-42b2-8788-b47dace22bf8": {
+"children": [],
+"root": true
+}
+}
+}
+metadata/_custom_type_script = "uid://dpjvxabsow167"

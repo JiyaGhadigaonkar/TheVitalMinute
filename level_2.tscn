@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://rwxkhmlm7t5x"]
+
+[ext_resource type="Script" uid="uid://bu3ui2bi7f4n0" path="res://level_2.gd" id="1_xbcdb"]
+[ext_resource type="Script" uid="uid://ch6p62juc6acm" path="res://addons/arcweave/Editor/ArcweaveNode.cs" id="2_s77qv"]
+[ext_resource type="Resource" uid="uid://dwolhasfwptg8" path="res://addons/arcweave/LevelTwo.tres" id="3_xbcdb"]
+[ext_resource type="Texture2D" uid="uid://cm6ew4qs2g7wm" path="res://Assets/backgrounds/restaurant.png" id="4_yl73a"]
+[ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="10_wvr33"]
+[ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="11_sgm4o"]
+[ext_resource type="Texture2D" uid="uid://bi6geddrqn6uo" path="res://Assets/Item_Phone.png" id="12_6r3eb"]
+[ext_resource type="Texture2D" uid="uid://1k4eknmovn00" path="res://Assets/inventory_close.png" id="13_2pufk"]
+
+[node name="Control" type="Control" unique_id=458891453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xbcdb")
+
+[node name="ArcweaveNode" type="Node" parent="." unique_id=468870287]
+script = ExtResource("2_s77qv")
+ArcweaveAsset = ExtResource("3_xbcdb")
+metadata/_custom_type_script = "uid://ch6p62juc6acm"
+
+[node name="World" type="Node2D" parent="." unique_id=1531423680]
+
+[node name="BackgroundOutside" type="TextureRect" parent="World" unique_id=639021278]
+offset_right = 4320.0
+offset_bottom = 1440.0
+texture = ExtResource("4_yl73a")
+expand_mode = 1
+
+[node name="Portrait1" type="TextureRect" parent="." unique_id=1371913260]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 142.0
+offset_right = 805.0
+offset_bottom = 2092.0
+scale = Vector2(0.8, 0.8)
+expand_mode = 3
+
+[node name="Portrait2" type="TextureRect" parent="." unique_id=1244535015]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 142.0
+offset_right = 1465.0
+offset_bottom = 2092.0
+scale = Vector2(0.8, 0.8)
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=902575299]
+layout_mode = 0
+offset_top = 450.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="DialogueBox" type="TextureRect" parent="." unique_id=1080421011]
+layout_mode = 1
+offset_top = 1094.0
+offset_right = 2100.0
+offset_bottom = 1419.0
+texture = ExtResource("10_wvr33")
+expand_mode = 1
+
+[node name="SpeakerBox" type="TextureRect" parent="." unique_id=1368264749]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 1144.0
+offset_right = 1052.0
+offset_bottom = 1288.0
+rotation = 3.1415927
+texture = ExtResource("10_wvr33")
+expand_mode = 1
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="." unique_id=539439990]
+layout_mode = 0
+offset_left = 1231.0
+offset_top = 43.0
+offset_right = 2066.0
+offset_bottom = 738.0
+
+[node name="AdvanceTrigger" type="Button" parent="." unique_id=1306178344]
+visible = false
+layout_mode = 0
+offset_top = -1.0
+offset_right = 4320.0
+offset_bottom = 1439.0
+focus_mode = 0
+flat = true
+
+[node name="InventoryUI" type="Control" parent="." unique_id=1542538323]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InventoryButton" type="TextureButton" parent="InventoryUI" unique_id=975140147]
+layout_mode = 0
+offset_left = 1913.0
+offset_top = 17.0
+offset_right = 2140.0
+offset_bottom = 204.0
+ignore_texture_size = true
+
+[node name="InventoryButtonVisual" type="TextureRect" parent="InventoryUI/InventoryButton" unique_id=1493817217]
+layout_mode = 0
+offset_left = 228.0
+offset_top = -5.0
+offset_right = 828.0
+offset_bottom = 795.0
+rotation = 1.5707964
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+texture = ExtResource("11_sgm4o")
+
+[node name="InventoryPopup" type="Panel" parent="InventoryUI" unique_id=535031018]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="PopupBackground" type="TextureRect" parent="InventoryUI/InventoryPopup" unique_id=828248479]
+layout_mode = 0
+offset_left = 1716.9999
+offset_top = 133.0
+offset_right = 2365.0
+offset_bottom = 933.0
+rotation = 1.5707964
+scale = Vector2(1.7, 1.7)
+mouse_filter = 2
+texture = ExtResource("11_sgm4o")
+
+[node name="ItemsContainer" type="VBoxContainer" parent="InventoryUI/InventoryPopup" unique_id=733354636]
+layout_mode = 0
+offset_left = 500.00003
+offset_top = 195.00002
+offset_right = 1154.0
+offset_bottom = 1843.0
+scale = Vector2(0.43, 0.43)
+mouse_filter = 2
+
+[node name="PhoneRow" type="HBoxContainer" parent="InventoryUI/InventoryPopup/ItemsContainer" unique_id=1280955369]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/InventoryPopup/ItemsContainer/PhoneRow" unique_id=2086947330]
+layout_mode = 2
+texture = ExtResource("12_6r3eb")
+
+[node name="Label" type="Label" parent="InventoryUI/InventoryPopup/ItemsContainer/PhoneRow" unique_id=743523855]
+layout_mode = 2
+text = "Phone"
+
+[node name="CloseButton" type="TextureButton" parent="InventoryUI/InventoryPopup" unique_id=1478898314]
+layout_mode = 0
+offset_left = 1518.0
+offset_top = 210.0
+offset_right = 2500.0
+offset_bottom = 1192.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("13_2pufk")
+
+[node name="DialogueText" type="RichTextLabel" parent="." unique_id=2109737371]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 1150.0
+offset_right = 2020.0
+offset_bottom = 1379.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+
+[node name="SpeakerName" type="RichTextLabel" parent="." unique_id=1889540763]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 1029.0
+offset_right = 490.0
+offset_bottom = 1123.0
+bbcode_enabled = true

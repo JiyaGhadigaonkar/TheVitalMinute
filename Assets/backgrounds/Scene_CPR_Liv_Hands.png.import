@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jqcy6nk8oi1d"
-path="res://.godot/imported/Heimlick Green.png-c4fa4a72cd58ca859786f72e49edb6f9.ctex"
+uid="uid://b1ex3r2amoy3s"
+path="res://.godot/imported/Scene_CPR_Liv_Hands.png-5a6756d71181f3659d18a65199a1e766.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/level_2.godot/assets/BG/Heimlick Green.png"
-dest_files=["res://.godot/imported/Heimlick Green.png-c4fa4a72cd58ca859786f72e49edb6f9.ctex"]
+source_file="res://Assets/backgrounds/Scene_CPR_Liv_Hands.png"
+dest_files=["res://.godot/imported/Scene_CPR_Liv_Hands.png-5a6756d71181f3659d18a65199a1e766.ctex"]
 
 [params]
 

@@ -9,6 +9,7 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 @onready var world: Node2D = get_node_or_null("World")
 @onready var background_outside: TextureRect = get_node_or_null("World/BackgroundOutside")
 @onready var steak_sprite: Sprite2D = get_node_or_null("World/Steak")
+@onready var plate_sprite: Sprite2D = get_node_or_null("World/Plate")
 @onready var portrait_1: TextureRect = get_node_or_null("Portrait1")
 @onready var portrait_2: TextureRect = get_node_or_null("Portrait2")
 @onready var dialogue_box: TextureRect = get_node_or_null("DialogueBox")
@@ -44,6 +45,8 @@ const CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.22, 1.28)
 const PLAY_HEIMLICH_GAME_LABEL = "play the heimlich microgame"
 const RESTAURANT_STEAK_TRIGGER_TEXT = "Eventually, you stop at a restaurant. You head inside with him. He orders a steak, and you just order a frosty smoothie."
 const LEVEL_END_TRIGGER_TEXT = "You receive a text on their phone from Frank, inviting you to a picnic in the woods."
+const BRAIN_FREEZE_BACKGROUND_START_TEXT = "You drink the frosty too fast and experience a brain freeze. Ouch. You clutch your head in pain."
+const BRAIN_FREEZE_BACKGROUND_END_TEXT = "You breathe in, and out. Is there a medically justified way to treat a brain freeze?"
 
 var arcweave_asset: ArcweaveAsset = preload("res://addons/arcweave/LevelTwo.tres")
 var Story = load("res://addons/arcweave/Story.cs")
@@ -65,6 +68,7 @@ var default_speaker_name_position := Vector2.ZERO
 var default_world_position := Vector2.ZERO
 var default_background_size := Vector2.ZERO
 var default_outside_background_texture: Texture2D
+var black_background_texture: ImageTexture
 var has_reached_restaurant_steak_moment := false
 var portrait_1_hotspot: Button
 var portrait_2_hotspot: Button
@@ -157,7 +161,7 @@ func _format_dialogue_text(raw_text: String) -> String:
 	var body_text := _get_dialogue_body_text(raw_text)
 	if body_text.is_empty():
 		return ""
-	if _has_dialogue_speaker_prefix(raw_text):
+	if not _get_dialogue_speaker_name(raw_text).is_empty() or (speaker_name != null and speaker_name.visible):
 		return "[font_size=35][color=%s]%s[/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 	return "[font_size=35][color=%s][i]%s[/i][/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 
@@ -168,8 +172,13 @@ func _ready() -> void:
 	if background_outside != null:
 		default_background_size = background_outside.size
 		default_outside_background_texture = background_outside.texture
+		var black_image := Image.create(8, 8, false, Image.FORMAT_RGBA8)
+		black_image.fill(Color.BLACK)
+		black_background_texture = ImageTexture.create_from_image(black_image)
 	if steak_sprite != null:
 		steak_sprite.visible = false
+	if plate_sprite != null:
+		plate_sprite.visible = false
 	if portrait_1 != null:
 		default_portrait_1_position = portrait_1.position
 		default_portrait_1_scale = portrait_1.scale
@@ -237,13 +246,13 @@ func repaint() -> void:
 
 	_update_story_background()
 	var current_story_text: String = story.GetCurrentRuntimeContent()
+	_update_speaker_name_display(current_story_text)
 	if dialogue_text != null:
 		dialogue_text.bbcode_enabled = true
 		dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
 		dialogue_text.text = _format_dialogue_text(current_story_text)
 
 	_update_portrait()
-	_update_speaker_name_display(current_story_text)
 	add_options()
 
 func add_options() -> void:
@@ -340,15 +349,19 @@ func clean_name(raw_name: String) -> String:
 func _update_story_background() -> void:
 	if background_outside == null:
 		return
-	background_outside.texture = default_outside_background_texture
+	var current_text := _strip_dialogue_markup(_get_current_story_text())
+	var normalized_text := _normalize_label(current_text)
+	var is_brain_freeze_background := normalized_text == _normalize_label(BRAIN_FREEZE_BACKGROUND_START_TEXT) or normalized_text == _normalize_label(BRAIN_FREEZE_BACKGROUND_END_TEXT)
+	background_outside.texture = black_background_texture if is_brain_freeze_background and black_background_texture != null else default_outside_background_texture
 	background_outside.position = Vector2.ZERO
 	if default_background_size != Vector2.ZERO:
 		background_outside.size = default_background_size
 	if steak_sprite != null:
-		var current_text := _strip_dialogue_markup(_get_current_story_text())
 		if current_text == RESTAURANT_STEAK_TRIGGER_TEXT:
 			has_reached_restaurant_steak_moment = true
 		steak_sprite.visible = has_reached_restaurant_steak_moment
+	if plate_sprite != null:
+		plate_sprite.visible = has_reached_restaurant_steak_moment
 
 func _apply_world_focus(focus_x: float) -> void:
 	if world == null:
@@ -551,15 +564,11 @@ func _update_portrait() -> void:
 
 	if portrait_1 != null and visible_names.is_empty():
 		portrait_1.visible = false
-	if portrait_2 != null:
-		portrait_2.visible = visible_names.size() > 1
-	elif portrait_1 != null and visible_names.size() == 1:
+	if portrait_2 == null and portrait_1 != null and visible_names.size() == 1:
 		portrait_1.visible = true
 
 	if portrait_1 != null and visible_names.size() >= 1:
 		portrait_1.visible = true
-	if portrait_2 != null and visible_names.size() < 2:
-		portrait_2.visible = false
 
 func _normalize_label(label) -> String:
 	if label == null:

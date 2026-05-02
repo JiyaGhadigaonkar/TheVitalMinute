@@ -72,14 +72,14 @@ const WIN_GAME_LABEL = "win the game"
 const MISTAKES_WERE_MADE_LABEL = "mistakes were made"
 const TUTORIAL_LABEL = "tutorial"
 const SKIP_TO_LEVEL_1_LABEL = "skip to level 1"
-const ASK_FRIEND_FOR_ADDRESS_LABEL = "ask yout friend for the address"
+const ASK_FRIEND_FOR_ADDRESS_LABEL = "ask your friend for the address"
 const ADDRESS_OPTION_1_LABEL = "2012 chimney rock road"
 const ADDRESS_OPTION_2_LABEL = "5492 gilbright street"
 const ADDRESS_OPTION_3_LABEL = "2342 chimney road"
 const MAIN_CHOICE_ELEMENT_ID = "126b988e-de6d-4ac7-bb37-8904d96075e1"
 const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
 const RETURN_TO_MAIN_SCENE_TEXT = "frank: ow, dammit! don't touch the knife!!"
-const RETURN_HOME_TEXT = "911-operator: \"we’re sending a unit over right now. please stay in place."
+const RETURN_HOME_TEXT = "you hear sirens and see your friend carried out with ems."
 const INVENTORY_UNLOCK_PROMPT_TEXT = "you got the supplies. check them out in the inventory. you can go back to frank, who is now sitting down on the floor, pressing his foot."
 const FOOT_INCIDENT_TEXT = "suddenly, one of the knives falls down and impales frank's foot. you stand up with a jolt, knocking your water glass onto the ground."
 const FALLEN_GLASS_POSITION = Vector2(1328.0, 936.0)
@@ -123,6 +123,7 @@ var pending_bandage_success_path = null
 var pending_bandage_fail_path = null
 var is_healthpack_interactive := false
 var is_chair_interactive := false
+var has_clicked_chair_once := false
 var is_wound_scene_active := false
 var current_view := "center"
 var was_left_mouse_down := false
@@ -328,13 +329,14 @@ func _format_dialogue_text(raw_text: String) -> String:
 	var body_text := _get_dialogue_body_text(raw_text)
 	if body_text.is_empty():
 		return ""
-	if _has_dialogue_speaker_prefix(raw_text):
+	if not _get_dialogue_speaker_name(raw_text).is_empty() or (speaker_name != null and speaker_name.visible):
 		return "[font_size=35][color=%s]%s[/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 	return "[font_size=35][color=%s][i]%s[/i][/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 
 func repaint():
 	_sync_scene_mode_with_story()
 	var current_story_text: String = story.GetCurrentRuntimeContent()
+	_update_speaker_name_display(current_story_text)
 	dialogue_text.bbcode_enabled = true
 	dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
 	dialogue_text.text = _format_dialogue_text(current_story_text)
@@ -346,7 +348,6 @@ func repaint():
 	if _should_use_component_for_portrait(comp_name) and ResourceLoader.exists(portrait_path):
 		current_portrait_name = comp_name
 		portrait.texture = load(portrait_path)
-	_update_speaker_name_display(current_story_text)
 
 	_update_frank_talk_animation_state(current_story_text)
 	_apply_tutorial_incident_aftermath()
@@ -445,6 +446,7 @@ func add_options():
 	_clear_active_arrows()
 	_set_healthpack_interactive(false)
 	_set_chair_interactive(false)
+	pending_healthpack_path = null
 	pending_chair_path = null
 	pending_gauze_path = null
 	pending_napkins_path = null
@@ -471,7 +473,7 @@ func add_options():
 			has_object_paths = true
 		if _is_frank_talk_path(paths[i]):
 			has_frank_paths = true
-		if _is_click_chair_path(paths[i]):
+		if _is_click_chair_path(paths[i]) and not has_clicked_chair_once:
 			pending_chair_path = paths[i]
 		if _is_use_gauze_path(paths[i]):
 			pending_gauze_path = paths[i]
@@ -549,6 +551,14 @@ func on_glass_clicked():
 	var paths = options.Paths
 	for i in range(paths.size()):
 		if _is_glass_path(paths[i]):
+			current_view = "center"
+			world.position = default_world_position
+			pending_healthpack_path = null
+			glass.is_interactive = false
+			_set_chair_interactive(false)
+			_set_healthpack_interactive(false)
+			_clear_active_arrows()
+			set_default_cursor()
 			story.SelectPath(paths[i])
 			repaint()
 			break
@@ -1257,6 +1267,7 @@ func _on_chair_pressed():
 		return
 	var selected_path = pending_chair_path
 	pending_chair_path = null
+	has_clicked_chair_once = true
 	current_view = "center"
 	world.position = default_world_position
 	_set_chair_interactive(false)
@@ -1555,7 +1566,7 @@ func _on_continue_pressed():
 		else:
 			_show_linear_preview_text()
 		return
-	var current_text = story.GetCurrentRuntimeContent().strip_edges().to_lower()
+	var current_text = _normalize_label(_get_dialogue_body_text(story.GetCurrentRuntimeContent()))
 	if current_text == RETURN_HOME_TEXT:
 		get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
 		return

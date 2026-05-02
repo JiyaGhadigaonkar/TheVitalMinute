@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="The Vital Minute"
-run/main_scene="uid://bn7cgxaqj7k3v"
+run/main_scene="uid://2t8tqvch2q7g"
 config/features=PackedStringArray("4.6", "C#")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://cfglkmpjdf1em"
 HEADrun/main_scene="uid://cfglkmpjdf1em"
 6c770738af0b1af4c3dd63c32f24f78ce6e90ba2config/features=PackedStringArray("4.6", "C#", "Mobile")
-<<<<<<<HEADrun/main_scene="uid://cfglkmpjdf1em"
 
 [display]
 

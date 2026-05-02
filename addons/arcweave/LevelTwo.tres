@@ -69,8 +69,8 @@ project_settings = {
 },
 "630fdb8a-48d6-473e-9974-2460f7eb2b41": {
 "branches": [],
-"connections": ["7c41bd83-ae2c-4ff0-b06d-5293676935c3", "4ab6a842-4a58-4144-babb-fe76bee42ae0", "51077c30-3bc3-427a-b1a1-8d6be26dc197", "5ae07aa3-0300-4c23-b046-ed930b858539", "318c3cd1-15a9-4da4-992b-9237e5714dfa", "3e462e55-8a75-497a-94d5-484d5501e9c5", "6b493739-197a-49f4-8186-ab8e172c3790", "2cde8ca0-b8c8-4ef6-b152-7ff9c09ac6f5", "8e445455-951d-45fd-a16d-1d0e26eb83ae", "5eda1248-5370-4a1a-a3d8-c19d86b548ed", "1fea86ac-e833-4f4c-a9a3-1db71f9bf495", "7fbd102a-75d1-455b-a50f-4a08fc1fe95e", "d47a8677-5051-482e-ae83-e42d7e71e280", "4e386582-2975-424b-8fa6-839a9d4a041d", "905438bd-2fb4-4f24-917e-8df229372126", "4fbd467d-3fcc-400f-99b2-634c556d243e", "d2cc4c19-7932-4fe1-83bc-960ef265cc32", "02725f4b-f9a5-4891-a2df-10a9d30fc03d", "e888c221-93d8-4bf1-bddc-c9a05e8cc7f6", "b6542534-246d-4c78-a95d-c4bfb13f528d", "4647af0a-bf37-412b-908d-ff52dfc207f2", "c1cd697b-e9e1-489f-8a01-a2a658f32cc4", "60513f4e-6702-465d-a850-de9c9fbb1760", "66b43262-65ab-4376-b09a-323904249475", "412efa39-ce69-4e8c-9d32-3cd9ec9d0a75", "bd2eaa6c-4d1a-4fb5-8be9-75c7ed04c2d5", "3bee7b96-38b7-4b87-87b5-6f7c3193218e", "e8b8edf8-6fa7-4676-b5c3-36924220f13d", "5f080faf-d327-4fd5-a04e-52bb21a92173", "9b89b58c-80a0-4db0-9386-e10ac77db062", "412fea52-8bd8-41f3-8feb-063585738cc0", "2fbce843-1848-4c59-9990-f25b46f0ee03", "f7f2f9c9-927b-4607-8cf8-398132c869d5", "bee284a6-fbc5-47eb-aa45-c3d6619842a5", "2d92f78b-e8be-4ea2-b681-5c9816eaea9c", "30218030-be52-4a47-97bd-15fb534035bc", "54855601-e770-4a10-af8e-ff394f39fd0f", "abf1bcd2-ffbd-4667-bfe7-1b86e9671327", "a822b645-d23c-4929-8bef-029fdb57931e", "9fff5303-2d66-4150-a6b1-a37c69e5296a", "aae94a34-6d19-43a0-9a11-63fe3569a945", "55b29950-875c-4b54-9d91-149a09d15496", "bc2407fb-81e3-49c9-95d4-ff2cdabec1e5", "4dbfb04f-9185-4c69-92a1-9b8f0a02102e", "73ad4d75-5dac-4e86-89c2-2fc433337958"],
-"elements": ["cb35db92-3c07-41bf-9c45-580ad6b891b4", "abb0f32e-b35f-4271-b631-5f0860fddd42", "35533a31-2b6e-4cf2-9bf9-a904836fc398", "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05", "e4a89ba5-e4e7-4a20-a2cd-c9446f7e4754", "c5987bef-92fd-4b9f-89db-b38f93340f62", "0a54f928-6438-4e61-8a0a-e17d0697a144", "6bb9d7bd-3636-4df2-80bc-4e3b53f1f4b7", "a0053dd8-9fa9-44a5-b983-1db9ac2e354e", "cb89181a-16c8-4bef-9015-36c8ced76e9c", "245de091-7e65-434f-b94c-843e99e89f5e", "54ea7a8e-e318-41e8-b9e1-d809fe1fbdc0", "d110ae06-40d9-494e-bde2-622daa6fdb6b", "ffaa85ca-651e-49a6-8c34-96b8414fef32", "b57a6f11-3776-418b-a24f-46bac18c0f79", "504379f4-4482-46ab-b0be-80f91dc19a6e", "63100941-082e-48ed-b4f0-a713ceef892c", "3631258a-4ff3-452c-908a-67b92fae0cbc", "193600b0-fdb2-46ac-a661-b111cdf3c36c", "603cad8d-a70d-4157-9f97-e64a67439c90", "29bea066-38fd-4a7e-bbf6-c7b43fb4cf24", "9832d7f2-bf9a-4fe4-902f-0f3333e56171", "012cda5b-eb6d-49a3-942e-4da449f17898", "7ed0ce11-860d-4fb8-9c15-bf8093efadae", "f584c1f4-6197-4c9b-9739-18ac150b7107", "414c785c-f32a-403c-b6e2-c58ecf876088", "0be2e53f-b2eb-4874-89a3-af596833a655", "c98b94a2-12f0-43c3-960f-7db1b034dd16", "47416d64-05fa-4311-9a29-4c53c019b4a5", "14616e02-19a2-42bf-9b40-9124f059d860", "4af6ccf3-f4cf-4a1f-b770-bdfc27b05d38", "ab6633c4-fc87-4947-a877-3ff958ce09c5", "0a4594e1-29a1-4bea-9811-570511a2014b", "f6d4264a-0e47-4456-9811-8e8deff3e907", "47d66016-f4eb-4af8-bbff-f3d4e580ad01", "ca58b56d-7743-4ad7-ac00-61eb1c8f4ed8", "42f975bd-ff5c-47ff-9ca2-1b4759bdf055", "ad5d3859-8a67-43d9-94f5-3a4608106ec2", "1ce20f1d-9483-4598-84ae-299f80c69cc9", "2d822a98-42bc-415d-bffa-e88c65d0352c", "756780f6-a300-498b-beab-b9c9deefb21b", "12670fc8-ae77-422d-b7b2-c4f5e791a6e4", "2a08ff9e-7c6c-46b6-aa47-8e1c2346db12", "c37573b2-68bb-411f-b05a-3ea0f7a19fe7", "45ae10d7-3c26-4715-a5cb-0766b5854d91", "bd48a809-a35b-439b-8187-9ab09e9da936"],
+"connections": ["7c41bd83-ae2c-4ff0-b06d-5293676935c3", "4ab6a842-4a58-4144-babb-fe76bee42ae0", "51077c30-3bc3-427a-b1a1-8d6be26dc197", "5ae07aa3-0300-4c23-b046-ed930b858539", "318c3cd1-15a9-4da4-992b-9237e5714dfa", "3e462e55-8a75-497a-94d5-484d5501e9c5", "6b493739-197a-49f4-8186-ab8e172c3790", "2cde8ca0-b8c8-4ef6-b152-7ff9c09ac6f5", "8e445455-951d-45fd-a16d-1d0e26eb83ae", "5eda1248-5370-4a1a-a3d8-c19d86b548ed", "1fea86ac-e833-4f4c-a9a3-1db71f9bf495", "7fbd102a-75d1-455b-a50f-4a08fc1fe95e", "d47a8677-5051-482e-ae83-e42d7e71e280", "4e386582-2975-424b-8fa6-839a9d4a041d", "905438bd-2fb4-4f24-917e-8df229372126", "4fbd467d-3fcc-400f-99b2-634c556d243e", "d2cc4c19-7932-4fe1-83bc-960ef265cc32", "02725f4b-f9a5-4891-a2df-10a9d30fc03d", "e888c221-93d8-4bf1-bddc-c9a05e8cc7f6", "b6542534-246d-4c78-a95d-c4bfb13f528d", "c1cd697b-e9e1-489f-8a01-a2a658f32cc4", "60513f4e-6702-465d-a850-de9c9fbb1760", "66b43262-65ab-4376-b09a-323904249475", "412efa39-ce69-4e8c-9d32-3cd9ec9d0a75", "bd2eaa6c-4d1a-4fb5-8be9-75c7ed04c2d5", "3bee7b96-38b7-4b87-87b5-6f7c3193218e", "e8b8edf8-6fa7-4676-b5c3-36924220f13d", "5f080faf-d327-4fd5-a04e-52bb21a92173", "9b89b58c-80a0-4db0-9386-e10ac77db062", "412fea52-8bd8-41f3-8feb-063585738cc0", "2fbce843-1848-4c59-9990-f25b46f0ee03", "f7f2f9c9-927b-4607-8cf8-398132c869d5", "bee284a6-fbc5-47eb-aa45-c3d6619842a5", "2d92f78b-e8be-4ea2-b681-5c9816eaea9c", "30218030-be52-4a47-97bd-15fb534035bc", "54855601-e770-4a10-af8e-ff394f39fd0f", "abf1bcd2-ffbd-4667-bfe7-1b86e9671327", "a822b645-d23c-4929-8bef-029fdb57931e", "9fff5303-2d66-4150-a6b1-a37c69e5296a", "aae94a34-6d19-43a0-9a11-63fe3569a945", "55b29950-875c-4b54-9d91-149a09d15496", "bc2407fb-81e3-49c9-95d4-ff2cdabec1e5", "4dbfb04f-9185-4c69-92a1-9b8f0a02102e", "73ad4d75-5dac-4e86-89c2-2fc433337958", "78dd3498-4a89-4cdf-ae53-a182b0adf2e1", "7c79d6b7-2115-4d88-b36f-552f881c69a4"],
+"elements": ["cb35db92-3c07-41bf-9c45-580ad6b891b4", "abb0f32e-b35f-4271-b631-5f0860fddd42", "35533a31-2b6e-4cf2-9bf9-a904836fc398", "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05", "e4a89ba5-e4e7-4a20-a2cd-c9446f7e4754", "c5987bef-92fd-4b9f-89db-b38f93340f62", "0a54f928-6438-4e61-8a0a-e17d0697a144", "6bb9d7bd-3636-4df2-80bc-4e3b53f1f4b7", "a0053dd8-9fa9-44a5-b983-1db9ac2e354e", "cb89181a-16c8-4bef-9015-36c8ced76e9c", "245de091-7e65-434f-b94c-843e99e89f5e", "54ea7a8e-e318-41e8-b9e1-d809fe1fbdc0", "d110ae06-40d9-494e-bde2-622daa6fdb6b", "ffaa85ca-651e-49a6-8c34-96b8414fef32", "b57a6f11-3776-418b-a24f-46bac18c0f79", "504379f4-4482-46ab-b0be-80f91dc19a6e", "63100941-082e-48ed-b4f0-a713ceef892c", "3631258a-4ff3-452c-908a-67b92fae0cbc", "193600b0-fdb2-46ac-a661-b111cdf3c36c", "603cad8d-a70d-4157-9f97-e64a67439c90", "29bea066-38fd-4a7e-bbf6-c7b43fb4cf24", "9832d7f2-bf9a-4fe4-902f-0f3333e56171", "012cda5b-eb6d-49a3-942e-4da449f17898", "7ed0ce11-860d-4fb8-9c15-bf8093efadae", "f584c1f4-6197-4c9b-9739-18ac150b7107", "414c785c-f32a-403c-b6e2-c58ecf876088", "0be2e53f-b2eb-4874-89a3-af596833a655", "c98b94a2-12f0-43c3-960f-7db1b034dd16", "47416d64-05fa-4311-9a29-4c53c019b4a5", "14616e02-19a2-42bf-9b40-9124f059d860", "4af6ccf3-f4cf-4a1f-b770-bdfc27b05d38", "ab6633c4-fc87-4947-a877-3ff958ce09c5", "0a4594e1-29a1-4bea-9811-570511a2014b", "f6d4264a-0e47-4456-9811-8e8deff3e907", "47d66016-f4eb-4af8-bbff-f3d4e580ad01", "ca58b56d-7743-4ad7-ac00-61eb1c8f4ed8", "42f975bd-ff5c-47ff-9ca2-1b4759bdf055", "ad5d3859-8a67-43d9-94f5-3a4608106ec2", "1ce20f1d-9483-4598-84ae-299f80c69cc9", "2d822a98-42bc-415d-bffa-e88c65d0352c", "756780f6-a300-498b-beab-b9c9deefb21b", "12670fc8-ae77-422d-b7b2-c4f5e791a6e4", "2a08ff9e-7c6c-46b6-aa47-8e1c2346db12", "c37573b2-68bb-411f-b05a-3ea0f7a19fe7", "45ae10d7-3c26-4715-a5cb-0766b5854d91", "bd48a809-a35b-439b-8187-9ab09e9da936", "2e37c3b1-95fd-4a49-81c1-537c7e99019b"],
 "jumpers": ["2bcf278d-f6a2-4045-b14d-99893de059c0"],
 "name": "Level 2 Board",
 "notes": []
@@ -271,17 +271,6 @@ project_settings = {
 "theme": "blue",
 "type": "Flowchart"
 },
-"4647af0a-bf37-412b-908d-ff52dfc207f2": {
-"label": null,
-"labelLocation": 0.5,
-"sourceType": "elements",
-"sourceid": "7ed0ce11-860d-4fb8-9c15-bf8093efadae",
-"targetFace": "left",
-"targetType": "elements",
-"targetid": "f584c1f4-6197-4c9b-9739-18ac150b7107",
-"theme": "blue",
-"type": "Flowchart"
-},
 "4ab6a842-4a58-4144-babb-fe76bee42ae0": {
 "label": null,
 "sourceFace": "right",
@@ -429,6 +418,17 @@ project_settings = {
 "theme": "blue",
 "type": "Flowchart"
 },
+"78dd3498-4a89-4cdf-ae53-a182b0adf2e1": {
+"label": null,
+"labelLocation": 0.5,
+"sourceType": "elements",
+"sourceid": "2e37c3b1-95fd-4a49-81c1-537c7e99019b",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "f584c1f4-6197-4c9b-9739-18ac150b7107",
+"theme": "blue",
+"type": "Flowchart"
+},
 "7c41bd83-ae2c-4ff0-b06d-5293676935c3": {
 "label": null,
 "sourceType": "elements",
@@ -437,6 +437,16 @@ project_settings = {
 "targetid": "714a2e99-b0e7-4b7f-b4fd-7fcebc821e05",
 "theme": "blue",
 "type": "Bezier"
+},
+"7c79d6b7-2115-4d88-b36f-552f881c69a4": {
+"label": null,
+"sourceType": "elements",
+"sourceid": "7ed0ce11-860d-4fb8-9c15-bf8093efadae",
+"targetFace": "left",
+"targetType": "elements",
+"targetid": "2e37c3b1-95fd-4a49-81c1-537c7e99019b",
+"theme": "blue",
+"type": "Flowchart"
 },
 "7fbd102a-75d1-455b-a50f-4a08fc1fe95e": {
 "label": null,
@@ -839,6 +849,23 @@ project_settings = {
 "x": 10880.0,
 "y": 14060.0
 },
+"2e37c3b1-95fd-4a49-81c1-537c7e99019b": {
+"assets": {
+"cover": {
+"id": "ddebb928-2a59-4056-ba06-ec0c86ab5acf"
+}
+},
+"autoHeight": false,
+"components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "43584165-a718-481c-87be-fa99da28fc65"],
+"content": "<p><em> Suddenly, he’s not making any sound at all and looks panicked.</em></p><p><br></p>",
+"height": 481.0,
+"outputs": ["78dd3498-4a89-4cdf-ae53-a182b0adf2e1"],
+"theme": "cyan",
+"title": null,
+"width": 322.0,
+"x": 11180.0,
+"y": 12660.0
+},
 "35533a31-2b6e-4cf2-9bf9-a904836fc398": {
 "autoHeight": false,
 "components": ["a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
@@ -882,8 +909,8 @@ project_settings = {
 "theme": "cyan",
 "title": null,
 "width": 321.0,
-"x": 11720.0,
-"y": 12660.0
+"x": 12060.0,
+"y": 12700.0
 },
 "42f975bd-ff5c-47ff-9ca2-1b4759bdf055": {
 "assets": {
@@ -1087,9 +1114,9 @@ project_settings = {
 },
 "autoHeight": false,
 "components": ["351adeaa-4540-49a9-8756-9c3eafb8aa3d", "a0ff9020-22a1-4918-bb8a-5e6f399852cd"],
-"content": "<p><em>Danny smiles and starts laughing. He then swallows, but begins to cough. Suddenly, he’s not making any sound at all and looks panicked.</em></p><p><br></p>",
+"content": "<p><em>Danny smiles and starts laughing. He then swallows, but begins to cough.</em><br></p>",
 "height": 481.0,
-"outputs": ["4647af0a-bf37-412b-908d-ff52dfc207f2"],
+"outputs": ["7c79d6b7-2115-4d88-b36f-552f881c69a4"],
 "theme": "cyan",
 "title": null,
 "width": 322.0,
@@ -1335,8 +1362,8 @@ project_settings = {
 "theme": "cyan",
 "title": null,
 "width": 321.0,
-"x": 11240.0,
-"y": 12660.0
+"x": 11660.0,
+"y": 12680.0
 },
 "f6d4264a-0e47-4456-9811-8e8deff3e907": {
 "assets": {

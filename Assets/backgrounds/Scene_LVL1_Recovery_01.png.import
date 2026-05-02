@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jqcy6nk8oi1d"
-path="res://.godot/imported/Heimlick Green.png-c4fa4a72cd58ca859786f72e49edb6f9.ctex"
+uid="uid://gtulgm2outjx"
+path="res://.godot/imported/Scene_LVL1_Recovery_01.png-7791ed744b00a65ced159e0772ff0c58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/arcweave/level_2.godot/assets/BG/Heimlick Green.png"
-dest_files=["res://.godot/imported/Heimlick Green.png-c4fa4a72cd58ca859786f72e49edb6f9.ctex"]
+source_file="res://Assets/backgrounds/Scene_LVL1_Recovery_01.png"
+dest_files=["res://.godot/imported/Scene_LVL1_Recovery_01.png-7791ed744b00a65ced159e0772ff0c58.ctex"]
 
 [params]
 

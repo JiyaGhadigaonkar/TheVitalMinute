@@ -42,6 +42,8 @@ const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_defa
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
 const MENU_BUTTON_TEXTURE = preload("res://Assets/Menu_Button.png")
 const CPR_MINIGAME_SCENE = preload("res://CPRMinigame.tscn")
+const CPR_LIV_HANDS_TEXTURE = preload("res://Assets/backgrounds/Scene_CPR_Liv_Hands.png")
+const RECOVERY_BACKGROUND_TEXTURE = preload("res://Assets/backgrounds/Scene_LVL1_Recovery_01.png")
 const PASSED_OUT_TEXTURE = preload("res://Assets/PassedOut.png")
 const VICTORY_TEXTURE = preload("res://Assets/Victory.png")
 const GAUZE_TEXTURE = preload("res://Assets/Item_Tutorial_Gauze.png")
@@ -74,9 +76,12 @@ const MAKE_INSTANT_TEA_LABEL = "make instant tea"
 const GIVE_HOT_TEA_LABEL = "give hot tea"
 const CHECK_ON_OTHER_PERSON_LABEL = "check on the other person"
 const DRANK_WATER_LABEL_FRAGMENT = "last time you drank water"
+const CPR_RHYTHM_TEXT = "Player: There. You got that rhythm? You just need to keep doing that."
 const LIV_TRY_BEST_TEXT = "Liv: Oh... oh god... ok... I'll try my best."
 const LIV_TRY_BEST_TEXT_ALT = "Liv: Oh… oh god… ok… I’ll try my best."
 const CALL_FOR_HELP_INSERT_TEXT = "Call for help!"
+const FIRST_911_OPERATOR_TEXT = "911 Operator: This is 911, what is your emergency?"
+const RECOVERY_BACKGROUND_START_TEXT = "You remember something about putting the victim on their side."
 const INTRO_PORTRAIT_UNLOCK_TEXT = "You step outside and notice it's warm despite being dark outside. Everyone sounds like they're having a good time at the party."
 const INSIDE_BACKGROUND_TRIGGER_TEXT = "Your friends go to party in some side room, so you can’t find them. Now you don't anyone and it's just awkward."
 const OUTSIDE_BACKGROUND_RETURN_TEXT = "Vicky: Hrrgh… I don’t wanna… Ugh… My head… hehe… Livvy.."
@@ -121,6 +126,9 @@ var inside_background_active := false
 var is_passed_out_background_active := false
 var has_entered_vicky_outside_sequence := false
 var has_seen_vicky_collapse := false
+var allow_post_collapse_onlooker_sticky := true
+var is_showing_cpr_phone_background := false
+var is_showing_recovery_background := false
 var default_background_size := Vector2.ZERO
 var default_outside_background_texture: Texture2D
 var portrait_1_hotspot: Button
@@ -220,7 +228,7 @@ func _format_dialogue_text(raw_text: String) -> String:
 	var body_text := _get_dialogue_body_text(raw_text)
 	if body_text.is_empty():
 		return ""
-	if _has_dialogue_speaker_prefix(raw_text):
+	if not _get_dialogue_speaker_name(raw_text).is_empty() or (speaker_name != null and speaker_name.visible):
 		return "[font_size=35][color=%s]%s[/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 	return "[font_size=35][color=%s][i]%s[/i][/color][/font_size]" % [DIALOGUE_TEXT_COLOR, body_text]
 
@@ -318,13 +326,13 @@ func repaint() -> void:
 		current_story_text = CALL_FOR_HELP_INSERT_TEXT
 	else:
 		is_showing_inserted_call_for_help_line = false
+	_update_speaker_name_display(current_story_text)
 	if dialogue_text != null:
 		dialogue_text.bbcode_enabled = true
 		dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
 		dialogue_text.text = _format_dialogue_text(current_story_text)
 
 	_update_portrait()
-	_update_speaker_name_display(current_story_text)
 	add_options()
 
 func add_options() -> void:
@@ -333,11 +341,36 @@ func add_options() -> void:
 	if choice_container == null or advance_trigger == null:
 		return
 	if is_showing_inserted_call_for_help_line:
+		portrait_1_action_path = null
+		portrait_2_action_path = null
+		pending_gauze_path = null
+		pending_napkins_path = null
+		pending_phone_path = null
+		pending_alcohol_path = null
+		pending_hot_water_path = null
+		pending_rhythm_game_path = null
 		for option in choice_container.get_children():
 			option.queue_free()
+		var inserted_options = story.GenerateCurrentOptions()
+		var inserted_paths = inserted_options.Paths
+		if inserted_paths != null:
+			for path in inserted_paths:
+				if path == null or not path.IsValid:
+					continue
+				if _is_use_gauze_path(path):
+					pending_gauze_path = path
+				elif _is_use_napkins_path(path):
+					pending_napkins_path = path
+				elif _is_open_phone_path(path):
+					pending_phone_path = path
+				elif _is_get_more_alcohol_path(path):
+					pending_alcohol_path = path
+				elif _is_get_hot_water_path(path):
+					pending_hot_water_path = path
 		choice_container.visible = false
-		advance_trigger.visible = true
-		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP
+		var has_manual_interaction := pending_gauze_path != null or pending_napkins_path != null or pending_phone_path != null or pending_alcohol_path != null or pending_hot_water_path != null
+		advance_trigger.visible = not has_manual_interaction
+		advance_trigger.mouse_filter = Control.MOUSE_FILTER_STOP if advance_trigger.visible else Control.MOUSE_FILTER_IGNORE
 		_set_portrait_interactive(false, false)
 		_set_world_interactive(false, false)
 		_set_inventory_item_interactivity()
@@ -545,6 +578,14 @@ func _update_story_background() -> void:
 	if story == null:
 		return
 	var current_text: String = story.GetCurrentRuntimeContent().strip_edges()
+	if _is_cpr_phone_background_trigger_text(current_text):
+		is_showing_cpr_phone_background = true
+	elif _is_first_911_operator_state(current_text):
+		is_showing_cpr_phone_background = false
+	if _is_recovery_background_start_state(current_text):
+		is_showing_recovery_background = true
+	elif _is_recovery_background_end_state(current_text):
+		is_showing_recovery_background = false
 	if _is_passed_out_background_start_state(current_text):
 		has_entered_vicky_outside_sequence = true
 		has_seen_vicky_collapse = true
@@ -552,6 +593,12 @@ func _update_story_background() -> void:
 	elif _is_passed_out_background_end_state(current_text):
 		is_passed_out_background_active = false
 	_reset_background_overrides()
+	if is_showing_cpr_phone_background:
+		_apply_cpr_phone_background()
+		return
+	if is_showing_recovery_background:
+		_apply_recovery_background()
+		return
 	if is_passed_out_background_active:
 		_set_inside_background_active(false)
 		_apply_passed_out_background()
@@ -586,12 +633,51 @@ func _apply_passed_out_background() -> void:
 	if world != null:
 		_apply_world_focus(PASSED_OUT_TEXTURE.get_size().x * 0.5)
 
+func _apply_cpr_phone_background() -> void:
+	if background_outside == null:
+		return
+	_set_inside_background_active(false)
+	background_outside.visible = true
+	background_outside.texture = CPR_LIV_HANDS_TEXTURE
+	background_outside.position = Vector2.ZERO
+	background_outside.size = CPR_LIV_HANDS_TEXTURE.get_size()
+	if world != null:
+		_apply_world_focus(CPR_LIV_HANDS_TEXTURE.get_size().x * 0.5)
+
+func _apply_recovery_background() -> void:
+	if background_outside == null:
+		return
+	_set_inside_background_active(false)
+	background_outside.visible = true
+	background_outside.texture = RECOVERY_BACKGROUND_TEXTURE
+	background_outside.position = Vector2.ZERO
+	background_outside.size = RECOVERY_BACKGROUND_TEXTURE.get_size()
+	if world != null:
+		_apply_world_focus(RECOVERY_BACKGROUND_TEXTURE.get_size().x * 0.5)
+
 func _is_passed_out_background_start_state(text: String) -> bool:
 	var normalized_text := _normalize_label(text)
 	return "vicky vomits and passes out" in normalized_text
 
 func _is_passed_out_background_end_state(text: String) -> bool:
 	return _normalize_label(text) == _normalize_label(PASSED_OUT_BACKGROUND_END_TEXT)
+
+func _is_cpr_phone_background_trigger_text(text: String) -> bool:
+	var normalized_text := _normalize_label(_strip_dialogue_markup(text))
+	return normalized_text == _normalize_label(CPR_RHYTHM_TEXT) \
+		or normalized_text == _normalize_label(LIV_TRY_BEST_TEXT) \
+		or normalized_text == _normalize_label(LIV_TRY_BEST_TEXT_ALT) \
+		or normalized_text == _normalize_label(CALL_FOR_HELP_INSERT_TEXT)
+
+func _is_recovery_background_start_state(text: String) -> bool:
+	var normalized_text := _normalize_label(_strip_dialogue_markup(text))
+	return normalized_text == _normalize_label(RECOVERY_BACKGROUND_START_TEXT)
+
+func _is_recovery_background_end_state(text: String) -> bool:
+	return _normalize_label(_strip_dialogue_markup(text)) == _normalize_label(PASSED_OUT_BACKGROUND_END_TEXT)
+
+func _is_first_911_operator_state(text: String) -> bool:
+	return _normalize_label(_strip_dialogue_markup(text)) == _normalize_label(FIRST_911_OPERATOR_TEXT)
 
 func _set_inside_background_active(is_inside: bool) -> void:
 	inside_background_active = is_inside
@@ -936,6 +1022,24 @@ func _set_world_interactive(alcohol_value: bool, hot_water_value: bool) -> void:
 	_update_world_hotspots()
 
 func _update_portrait() -> void:
+	if is_showing_inserted_call_for_help_line:
+		if portrait_1 != null:
+			portrait_1.texture = null
+			portrait_1.visible = false
+		if portrait_2 != null:
+			portrait_2.texture = null
+			portrait_2.visible = false
+		current_portrait_names.clear()
+		return
+	if is_showing_cpr_phone_background:
+		if portrait_1 != null:
+			portrait_1.texture = null
+			portrait_1.visible = false
+		if portrait_2 != null:
+			portrait_2.texture = null
+			portrait_2.visible = false
+		current_portrait_names.clear()
+		return
 	if is_passed_out_background_active:
 		if portrait_1 != null:
 			portrait_1.visible = false
@@ -950,16 +1054,18 @@ func _update_portrait() -> void:
 
 	var component_names := get_component_names_for_element()
 	current_portrait_names.clear()
+	var is_level_end_line := _normalize_label(_strip_dialogue_markup(_get_current_story_text())) == _normalize_label(LEVEL_END_TRIGGER_TEXT)
 
 	var visible_names: Array[String] = []
 	for component_name in component_names:
 		var normalized_component_name := _normalize_label(component_name)
 		if has_seen_vicky_collapse and normalized_component_name == "vicky sick":
 			continue
-		var portrait_path := _get_portrait_path(component_name)
+		var portrait_path := _get_portrait_path("Frank_Normal") if is_level_end_line and visible_names.is_empty() else _get_portrait_path(component_name)
 		if portrait_path != "":
-			visible_names.append(component_name)
-			current_portrait_names.append(component_name)
+			var visible_name := "Frank_Normal" if is_level_end_line and visible_names.is_empty() else component_name
+			visible_names.append(visible_name)
+			current_portrait_names.append(visible_name)
 			if visible_names.size() == 1 and portrait_1 != null:
 				portrait_1.texture = load(portrait_path)
 				portrait_1.visible = true
@@ -969,15 +1075,13 @@ func _update_portrait() -> void:
 
 	if portrait_1 != null and visible_names.is_empty():
 		portrait_1.visible = false
-	if portrait_2 != null:
-		portrait_2.visible = visible_names.size() > 1
-	elif portrait_1 != null and visible_names.size() == 1:
+	if portrait_2 != null and visible_names.size() < 2 and not _should_keep_post_collapse_onlooker_sticky():
+		portrait_2.visible = false
+	if portrait_2 == null and portrait_1 != null and visible_names.size() == 1:
 		portrait_1.visible = true
 
 	if portrait_1 != null and visible_names.size() >= 1:
 		portrait_1.visible = true
-	if portrait_2 != null and visible_names.size() < 2:
-		portrait_2.visible = false
 
 	_apply_post_collapse_sticky_portrait(visible_names)
 
@@ -1009,13 +1113,18 @@ func _apply_locked_portraits() -> void:
 func _apply_post_collapse_sticky_portrait(visible_names: Array[String]) -> void:
 	if not _should_force_outside_vicky_portrait():
 		return
-	if has_seen_vicky_collapse:
+	if _should_keep_post_collapse_onlooker_sticky():
 		var onlooker_portrait_path := _get_portrait_path("Onlooker_Fear")
 		if onlooker_portrait_path == "":
 			return
+		if portrait_1 != null:
+			portrait_1.texture = null
+			portrait_1.visible = false
 		if portrait_2 != null:
 			portrait_2.texture = load(onlooker_portrait_path)
 			portrait_2.visible = true
+		current_portrait_names.clear()
+		current_portrait_names.append("Onlooker_Fear")
 		return
 	if visible_names.has("Vicky_Sick") or visible_names.has("Vicky Sick"):
 		return
@@ -1030,6 +1139,9 @@ func _apply_post_collapse_sticky_portrait(visible_names: Array[String]) -> void:
 		portrait_2.visible = true
 func _should_force_outside_vicky_portrait() -> bool:
 	return has_entered_vicky_outside_sequence and not inside_background_active and not is_passed_out_background_active
+
+func _should_keep_post_collapse_onlooker_sticky() -> bool:
+	return has_seen_vicky_collapse and allow_post_collapse_onlooker_sticky and _should_force_outside_vicky_portrait()
 
 func _path_label_contains(path, text: String) -> bool:
 	return text in _normalize_label(path.label)
@@ -1315,8 +1427,11 @@ func _start_cpr_minigame() -> void:
 	active_cpr_minigame = active_cpr_minigame_root.get_node_or_null("CPRMinigame")
 	if active_cpr_minigame == null and active_cpr_minigame_root.name == "CPRMinigame":
 		active_cpr_minigame = active_cpr_minigame_root
-	if active_cpr_minigame != null and active_cpr_minigame.has_signal("minigame_completed"):
-		active_cpr_minigame.minigame_completed.connect(_on_cpr_minigame_completed)
+	if active_cpr_minigame != null:
+		if active_cpr_minigame.has_signal("cpr_completed"):
+			active_cpr_minigame.cpr_completed.connect(_on_cpr_minigame_completed)
+		elif active_cpr_minigame.has_signal("minigame_completed"):
+			active_cpr_minigame.minigame_completed.connect(_on_cpr_minigame_completed)
 	_set_main_scene_visible(false)
 	_set_main_scene_input_enabled(false)
 	if cursor_sprite != null:
@@ -1335,7 +1450,7 @@ func _end_cpr_minigame() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	set_default_cursor()
 
-func _on_cpr_minigame_completed(_score: float) -> void:
+func _on_cpr_minigame_completed(_score = 0, _grade = "") -> void:
 	_end_cpr_minigame()
 	if pending_rhythm_game_path != null:
 		var selected_path = pending_rhythm_game_path
@@ -1461,6 +1576,8 @@ func _on_phone_row_gui_input(event) -> void:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not event.is_echo():
 		var selected_path = pending_phone_path
+		allow_post_collapse_onlooker_sticky = false
+		is_showing_cpr_phone_background = false
 		_set_inventory_open(false)
 		story.SelectPath(selected_path)
 		repaint()

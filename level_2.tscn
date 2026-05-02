@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://dwolhasfwptg8" path="res://addons/arcweave/LevelTwo.tres" id="3_xbcdb"]
 [ext_resource type="Texture2D" uid="uid://cm6ew4qs2g7wm" path="res://Assets/backgrounds/restaurant.png" id="4_yl73a"]
 [ext_resource type="Texture2D" uid="uid://dnqc7440r53js" path="res://Assets/Item_Steak.png" id="5_15wb7"]
+[ext_resource type="Texture2D" uid="uid://b7peeqlm3rmfu" path="res://Assets/Item_Plate.png" id="5_eoq84"]
 [ext_resource type="Texture2D" uid="uid://d26kwga01yft3" path="res://Assets/backpack.png" id="6_ehv2h"]
 [ext_resource type="Texture2D" uid="uid://cgkdhbyhe1bj5" path="res://Assets/UI_Tutorial_Dialogue.png" id="10_wvr33"]
 [ext_resource type="Texture2D" uid="uid://ukqaw1cep4uj" path="res://Assets/tutorial_inventory.png" id="11_sgm4o"]
@@ -33,8 +34,14 @@ offset_bottom = 1440.0
 texture = ExtResource("4_yl73a")
 expand_mode = 1
 
+[node name="Plate" type="Sprite2D" parent="World" unique_id=50633296]
+position = Vector2(2243.0002, 1048.25)
+scale = Vector2(0.8320835, 0.6277778)
+texture = ExtResource("5_eoq84")
+
 [node name="Steak" type="Sprite2D" parent="World" unique_id=1048995445]
-position = Vector2(2237, 995.00006)
+position = Vector2(2229, 1013.00006)
+rotation = -0.073303826
 scale = Vector2(0.53083336, 0.5175002)
 texture = ExtResource("5_15wb7")
 

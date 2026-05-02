@@ -28,6 +28,7 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 
 const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_default.png")
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
+const MENU_BUTTON_TEXTURE = preload("res://Assets/Menu_Button.png")
 const LEFT_ARROW_TEXTURE = preload("res://Assets/arrows/left_arrow.png")
 const RIGHT_ARROW_TEXTURE = preload("res://Assets/arrows/right_arrow.png")
 const DOWN_ARROW_TEXTURE = preload("res://Assets/arrows/down_arrow.png")
@@ -49,6 +50,7 @@ const DEFAULT_PORTRAIT_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
 const DEFAULT_ARROW_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_ARROW_TINT = Color(1.0, 0.95, 0.8, 1.0)
+const MENU_BUTTON_SIZE = Vector2(110.0, 88.0)
 const ARROW_SCALE = 0.65
 const FRANK_ANIMATED_PORTRAIT_PATH = "res://Assets/portraits/Frank_Normal_Animated.png"
 const FRANK_TALK_ANIMATION_INTERVAL = 0.32
@@ -95,6 +97,7 @@ var project_data: Dictionary
 var cursor_sprite: TextureRect
 var current_portrait_name := ""
 var is_portrait_interactive := false
+var menu_button: TextureButton
 var default_background_texture: Texture2D
 var default_background_position := Vector2.ZERO
 var default_background_size := Vector2.ZERO
@@ -157,6 +160,7 @@ func _ready():
 	cursor_sprite.scale = Vector2.ONE * CURSOR_SCALE
 	add_child(cursor_sprite)
 	_set_cursor_texture(DEFAULT_CURSOR_TEXTURE)
+	_create_menu_button()
 	_configure_frank_talk_animation()
 	set_process(true)
 	advance_trigger.pressed.connect(_on_continue_pressed)
@@ -1423,6 +1427,34 @@ func _set_cursor_texture(texture: Texture2D):
 	cursor_sprite.texture = texture
 	cursor_sprite.custom_minimum_size = texture.get_size()
 	cursor_sprite.size = texture.get_size()
+
+func _create_menu_button() -> void:
+	menu_button = TextureButton.new()
+	menu_button.texture_normal = MENU_BUTTON_TEXTURE
+	menu_button.ignore_texture_size = true
+	menu_button.stretch_mode = TextureButton.STRETCH_SCALE
+	menu_button.custom_minimum_size = MENU_BUTTON_SIZE
+	menu_button.size = MENU_BUTTON_SIZE
+	menu_button.position = Vector2(36.0, 28.0)
+	menu_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	menu_button.z_index = 320
+	menu_button.pressed.connect(_go_to_home_menu)
+	menu_button.mouse_entered.connect(_on_menu_button_mouse_entered)
+	menu_button.mouse_exited.connect(_on_menu_button_mouse_exited)
+	add_child(menu_button)
+
+func _go_to_home_menu() -> void:
+	get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
+
+func _on_menu_button_mouse_entered() -> void:
+	if menu_button != null:
+		menu_button.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_menu_button_mouse_exited() -> void:
+	if menu_button != null:
+		menu_button.modulate = Color.WHITE
+	set_default_cursor()
 
 func _set_portrait_interactive(value: bool):
 	is_portrait_interactive = value

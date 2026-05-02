@@ -40,6 +40,7 @@ const HOME_MENU_SCENE_PATH = "res://home_menu.tscn"
 
 const DEFAULT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_default.png")
 const OBJECT_CURSOR_TEXTURE = preload("res://Assets/cursors/resized_cursor_object.png")
+const MENU_BUTTON_TEXTURE = preload("res://Assets/Menu_Button.png")
 const CPR_MINIGAME_SCENE = preload("res://CPRMinigame.tscn")
 const PASSED_OUT_TEXTURE = preload("res://Assets/PassedOut.png")
 const VICTORY_TEXTURE = preload("res://Assets/Victory.png")
@@ -52,6 +53,7 @@ const DIALOGUE_TEXT_COLOR = "#1f3a5f"
 const SPEAKER_NAME_FONT_SIZE = 50
 const DEFAULT_PORTRAIT_TINT = Color(1.0, 1.0, 1.0, 1.0)
 const HOVER_PORTRAIT_TINT = Color(1.0, 0.95, 0.8, 1.0)
+const MENU_BUTTON_SIZE = Vector2(110.0, 88.0)
 const CHOICE_BUBBLE_LAYOUT_SIZE = Vector2(760.0, 120.0)
 const CHOICE_BUBBLE_VISUAL_SCALE = Vector2(1.22, 1.28)
 const ONLOOKER_CHOICE_CONTAINER_POSITION = Vector2(850.0, 40.0)
@@ -90,6 +92,7 @@ var Story = load("res://addons/arcweave/Story.cs")
 var story
 var project_data: Dictionary
 var cursor_sprite: TextureRect
+var menu_button: TextureButton
 var current_portrait_names: Array[String] = []
 var portrait_1_action_path = null
 var portrait_2_action_path = null
@@ -247,6 +250,7 @@ func _ready() -> void:
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	_create_cursor_sprite()
+	_create_menu_button()
 	_create_victory_overlay()
 	_connect_ui()
 	_configure_choice_container()
@@ -871,6 +875,34 @@ func _set_cursor_texture(texture: Texture2D) -> void:
 	cursor_sprite.texture = texture
 	cursor_sprite.custom_minimum_size = texture.get_size()
 	cursor_sprite.size = texture.get_size()
+
+func _create_menu_button() -> void:
+	menu_button = TextureButton.new()
+	menu_button.texture_normal = MENU_BUTTON_TEXTURE
+	menu_button.ignore_texture_size = true
+	menu_button.stretch_mode = TextureButton.STRETCH_SCALE
+	menu_button.custom_minimum_size = MENU_BUTTON_SIZE
+	menu_button.size = MENU_BUTTON_SIZE
+	menu_button.position = Vector2(36.0, 28.0)
+	menu_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	menu_button.z_index = 320
+	menu_button.pressed.connect(_go_to_home_menu)
+	menu_button.mouse_entered.connect(_on_menu_button_mouse_entered)
+	menu_button.mouse_exited.connect(_on_menu_button_mouse_exited)
+	add_child(menu_button)
+
+func _go_to_home_menu() -> void:
+	get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
+
+func _on_menu_button_mouse_entered() -> void:
+	if menu_button != null:
+		menu_button.modulate = HOVER_PORTRAIT_TINT
+	set_object_cursor()
+
+func _on_menu_button_mouse_exited() -> void:
+	if menu_button != null:
+		menu_button.modulate = Color.WHITE
+	set_default_cursor()
 
 func _set_portrait_interactive(primary_value: bool, secondary_value: bool = false) -> void:
 	is_portrait_1_interactive = primary_value and portrait_1 != null and portrait_1_action_path != null

@@ -4,7 +4,7 @@ signal cpr_success
 signal cpr_failed
 signal cpr_completed(score: int, grade: String)
 
-@export var total_beats     : int   = 15
+@export var total_beats     : int   = 30
 @export var bpm             : float = 100.0
 @export var max_misses      : int   = 5
 @export var window_perfect  : float = 0.08

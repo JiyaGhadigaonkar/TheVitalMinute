@@ -334,6 +334,7 @@ func repaint() -> void:
 
 	_update_portrait()
 	add_options()
+	_raise_dialogue_ui()
 
 func add_options() -> void:
 	if story == null:
@@ -654,6 +655,21 @@ func _apply_recovery_background() -> void:
 	background_outside.size = RECOVERY_BACKGROUND_TEXTURE.get_size()
 	if world != null:
 		_apply_world_focus(RECOVERY_BACKGROUND_TEXTURE.get_size().x * 0.5)
+	_raise_dialogue_ui()
+
+func _raise_dialogue_ui() -> void:
+	if dialogue_box != null:
+		dialogue_box.move_to_front()
+	if dialogue_text != null:
+		dialogue_text.move_to_front()
+	if speaker_box != null:
+		speaker_box.move_to_front()
+	if speaker_name != null:
+		speaker_name.move_to_front()
+	if choice_container != null:
+		choice_container.move_to_front()
+	if advance_trigger != null:
+		advance_trigger.move_to_front()
 
 func _is_passed_out_background_start_state(text: String) -> bool:
 	var normalized_text := _normalize_label(text)

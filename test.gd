@@ -77,6 +77,7 @@ const ADDRESS_OPTION_1_LABEL = "2012 chimney rock road"
 const ADDRESS_OPTION_2_LABEL = "5492 gilbright street"
 const ADDRESS_OPTION_3_LABEL = "2342 chimney road"
 const MAIN_CHOICE_ELEMENT_ID = "126b988e-de6d-4ac7-bb37-8904d96075e1"
+const EMS_END_ELEMENT_ID = "c78f9f2b-ee1f-4c01-8215-bf4f9410fe35"
 const BANDAGE_MINIGAME_TRIGGER_TEXT = "gauze wrapping microgame here."
 const RETURN_TO_MAIN_SCENE_TEXT = "frank: ow, dammit! don't touch the knife!!"
 const RETURN_HOME_TEXT = "you hear sirens and see your friend carried out with ems."
@@ -1568,7 +1569,11 @@ func _on_continue_pressed():
 		else:
 			_show_linear_preview_text()
 		return
-	if should_return_home_on_next_continue:
+	var current_text := _normalize_label(_strip_dialogue_markup(story.GetCurrentRuntimeContent()))
+	var current_element_id := ""
+	if story != null and story.GetCurrentElement() != null:
+		current_element_id = str(story.GetCurrentElement().Id)
+	if should_return_home_on_next_continue or current_text == RETURN_HOME_TEXT or current_element_id == EMS_END_ELEMENT_ID:
 		get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
 		return
 	var options = story.GenerateCurrentOptions()

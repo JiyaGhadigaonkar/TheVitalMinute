@@ -70,6 +70,7 @@ var default_background_size := Vector2.ZERO
 var default_outside_background_texture: Texture2D
 var black_background_texture: ImageTexture
 var has_reached_restaurant_steak_moment := false
+var is_showing_brain_freeze_blackout := false
 var portrait_1_hotspot: Button
 var portrait_2_hotspot: Button
 var active_heimlich_minigame_root: Node
@@ -100,7 +101,7 @@ func _is_likely_speaker_name(candidate: String) -> bool:
 	if trimmed.begins_with("\"") and trimmed.ends_with("\"") and trimmed.length() >= 2:
 		trimmed = trimmed.substr(1, trimmed.length() - 2).strip_edges()
 	for character in trimmed:
-		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")"
+		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")" or character == "?"
 		if not is_text_character:
 			return false
 	return true
@@ -352,6 +353,7 @@ func _update_story_background() -> void:
 	var current_text := _strip_dialogue_markup(_get_current_story_text())
 	var normalized_text := _normalize_label(current_text)
 	var is_brain_freeze_background := normalized_text == _normalize_label(BRAIN_FREEZE_BACKGROUND_START_TEXT) or normalized_text == _normalize_label(BRAIN_FREEZE_BACKGROUND_END_TEXT)
+	is_showing_brain_freeze_blackout = is_brain_freeze_background
 	background_outside.texture = black_background_texture if is_brain_freeze_background and black_background_texture != null else default_outside_background_texture
 	background_outside.position = Vector2.ZERO
 	if default_background_size != Vector2.ZERO:
@@ -359,9 +361,9 @@ func _update_story_background() -> void:
 	if steak_sprite != null:
 		if current_text == RESTAURANT_STEAK_TRIGGER_TEXT:
 			has_reached_restaurant_steak_moment = true
-		steak_sprite.visible = has_reached_restaurant_steak_moment
+		steak_sprite.visible = has_reached_restaurant_steak_moment and not is_showing_brain_freeze_blackout
 	if plate_sprite != null:
-		plate_sprite.visible = has_reached_restaurant_steak_moment
+		plate_sprite.visible = has_reached_restaurant_steak_moment and not is_showing_brain_freeze_blackout
 
 func _apply_world_focus(focus_x: float) -> void:
 	if world == null:
@@ -542,6 +544,15 @@ func _set_portrait_interactive(primary_value: bool, secondary_value: bool = fals
 		set_default_cursor()
 
 func _update_portrait() -> void:
+	if is_showing_brain_freeze_blackout:
+		current_portrait_names.clear()
+		if portrait_1 != null:
+			portrait_1.texture = null
+			portrait_1.visible = false
+		if portrait_2 != null:
+			portrait_2.texture = null
+			portrait_2.visible = false
+		return
 	var component_names := get_component_names_for_element()
 	var visible_names: Array[String] = []
 	for component_name in component_names:
@@ -683,7 +694,7 @@ func _on_continue_pressed() -> void:
 		return
 
 	var current_text := _normalize_label(_get_dialogue_body_text(_get_current_story_text()))
-	if current_text == _normalize_label(LEVEL_END_TRIGGER_TEXT):
+	if _normalize_label(LEVEL_END_TRIGGER_TEXT) in current_text:
 		_set_victory_screen_visible(true)
 		return
 

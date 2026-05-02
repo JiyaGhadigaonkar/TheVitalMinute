@@ -36,7 +36,7 @@ func _ready():
 The indicator moves back and forth across the bar.
 
 Click (or press SPACE) when the indicator
-is inside the GREEN TARGET ZONE.
+is inside the WHITE TARGET ZONE.
 
 Land %d successful compressions in a row
 to clear the airway!

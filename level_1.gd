@@ -167,7 +167,7 @@ func _is_likely_speaker_name(candidate: String) -> bool:
 	if trimmed.begins_with("\"") and trimmed.ends_with("\"") and trimmed.length() >= 2:
 		trimmed = trimmed.substr(1, trimmed.length() - 2).strip_edges()
 	for character in trimmed:
-		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")"
+		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")" or character == "?"
 		if not is_text_character:
 			return false
 	return true
@@ -822,12 +822,23 @@ func _connect_ui() -> void:
 
 	if dialogue_box != null:
 		dialogue_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		dialogue_box.z_as_relative = false
+		dialogue_box.z_index = 600
 
 	if dialogue_text != null:
 		dialogue_text.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		dialogue_text.z_as_relative = false
+		dialogue_text.z_index = 601
+
+	if speaker_box != null:
+		speaker_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		speaker_box.z_as_relative = false
+		speaker_box.z_index = 602
 
 	if speaker_name != null:
 		speaker_name.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		speaker_name.z_as_relative = false
+		speaker_name.z_index = 603
 
 	if inventory_ui != null:
 		inventory_ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1125,6 +1136,8 @@ func _apply_post_collapse_sticky_portrait(visible_names: Array[String]) -> void:
 			portrait_2.visible = true
 		current_portrait_names.clear()
 		current_portrait_names.append("Onlooker_Fear")
+		return
+	if has_seen_vicky_collapse:
 		return
 	if visible_names.has("Vicky_Sick") or visible_names.has("Vicky Sick"):
 		return

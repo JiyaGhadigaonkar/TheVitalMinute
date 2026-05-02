@@ -133,6 +133,7 @@ var last_bandage_minigame_trigger_text := ""
 var is_showing_linear_preview := false
 var linear_preview_texts: Array[String] = []
 var linear_preview_index := 0
+var should_return_home_on_next_continue := false
 var is_showing_foot_incident_cutaway := false
 var has_seen_foot_incident_cutaway := false
 var is_inventory_unlocked := false
@@ -268,7 +269,7 @@ func _is_likely_speaker_name(candidate: String) -> bool:
 	if trimmed.begins_with("\"") and trimmed.ends_with("\"") and trimmed.length() >= 2:
 		trimmed = trimmed.substr(1, trimmed.length() - 2).strip_edges()
 	for character in trimmed:
-		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")"
+		var is_text_character = (character >= "A" and character <= "Z") or (character >= "a" and character <= "z") or (character >= "0" and character <= "9") or character == " " or character == "_" or character == "-" or character == "'" or character == "." or character == "\"" or character == "(" or character == ")" or character == "?"
 		if not is_text_character:
 			return false
 	return true
@@ -336,6 +337,7 @@ func _format_dialogue_text(raw_text: String) -> String:
 func repaint():
 	_sync_scene_mode_with_story()
 	var current_story_text: String = story.GetCurrentRuntimeContent()
+	should_return_home_on_next_continue = _normalize_label(_get_dialogue_body_text(current_story_text)) == RETURN_HOME_TEXT
 	_update_speaker_name_display(current_story_text)
 	dialogue_text.bbcode_enabled = true
 	dialogue_text.add_theme_color_override("default_color", Color.html(DIALOGUE_TEXT_COLOR))
@@ -1566,8 +1568,7 @@ func _on_continue_pressed():
 		else:
 			_show_linear_preview_text()
 		return
-	var current_text = _normalize_label(_get_dialogue_body_text(story.GetCurrentRuntimeContent()))
-	if current_text == RETURN_HOME_TEXT:
+	if should_return_home_on_next_continue:
 		get_tree().change_scene_to_file(HOME_MENU_SCENE_PATH)
 		return
 	var options = story.GenerateCurrentOptions()
